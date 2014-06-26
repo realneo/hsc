@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php require 'includes/logged_user_check.php'; ?>
+<?php //require 'includes/logged_user_check.php'; ?>
 <?php require 'includes/db_conn.php'; ?>
 
 <?php include 'includes/top_header.php'; ?>

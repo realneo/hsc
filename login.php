@@ -42,40 +42,28 @@
                 }
             ?>
         </div>
+		
+		<!-- Login Form ---------------------------------------------------------------------------------->
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
+					<img src='images/logo.png' alt='Home Shopping Center' width='350'/>
                     <div class="panel-heading">
-                        <h3 class="panel-title">HSC | Branch Login</h3>
+                        <h3 class="panel-title">HSC | Staff Login</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" action='includes/login_process.php' method='post'>
                             <fieldset>
-                                <div class="form-group">
-                                    <h5><small>Select Branch</small></h5>
-                                    <select class='form-control' name='branch_id'>
-                                        <?php
-                                            $result = $db->query("SELECT * FROM `branch` ORDER BY `name` ASC");
-                                            
-                                            while($row = $result->fetch_assoc()){
-                                                $branch_id = $row['id'];
-                                                $branch_name = $row['name'];
-                                                echo "<option value='{$branch_id}'>{$branch_name}</option>";
-                                            }
-                                        ?>
-                                    </select>
+								<div class="form-group">
+                                    <h5><small>Email</small></h5>
+                                    <input class="form-control" placeholder="Email" name="email" type="email" value="">
                                 </div>
                                 <div class="form-group">
-                                    <h5><small>Enter Your Branch Password</small></h5>
-                                    <input class="form-control" placeholder="Password" name="branch_password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
+                                    <h5><small>Password</small></h5>
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="btn btn-lg btn-success btn-block">Login</button>
+                                <button class="btn btn-lg btn-primary btn-block">Login</button>
                             </fieldset>
                         </form>
                     </div>

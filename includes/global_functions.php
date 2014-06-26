@@ -1,6 +1,9 @@
 <?php
 	//require 'db_conn.php';
 	
+	// Default Variables
+	$today_date = date("Y-m-d");
+	
 	// Get the Total Amount of Manual Invoices
 	function getTotalManualInvoices($entered){
 		$results = $GLOBALS['db'] -> query("SELECT * FROM `manual_invoices` WHERE `entered` = '$entered' ORDER BY `id` DESC");
@@ -24,4 +27,9 @@
 		return $date;
 	}
 	
+	// Log Writing Function
+	
+	function log_write($db, $user_id, $branch_id, $log){
+		$db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, '$today_date', '$user_id', '$branch_id', '$log')");
+	}
 ?>
