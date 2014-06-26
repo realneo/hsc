@@ -30,6 +30,7 @@
 	// Log Writing Function
 	
 	function log_write($db, $user_id, $branch_id, $log){
+		$today_date = $GLOBALS['today_date'];
 		$db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, '$today_date', '$user_id', '$branch_id', '$log')");
 	}
 ?>

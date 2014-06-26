@@ -12,6 +12,7 @@
 				</div>
                 <!-- /input-group -->
           	</li>
+			<li><a href='#'><?php echo $fullname; ?></a></li>
          	<li><a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 			<li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Daily Sales<span class="fa arrow"></span></a>

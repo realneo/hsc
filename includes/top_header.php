@@ -1,3 +1,12 @@
+<?php
+	// Get all the sessions
+	$user_id = $_SESSION['user_id'];
+	$auth_type = $_SESSION['auth_type'];
+	$fullname = $_SESSION['fullname'];
+	$alert_type = $_SESSION['alert_type'];
+    $alert_msg = $_SESSION['alert_msg'];
+	$branch_id = $_SESSION['branch_id'];
+?>
 <!DOCTYPE html>
 <html>
 
