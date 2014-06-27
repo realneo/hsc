@@ -16,7 +16,7 @@
     <!-- PAGE HEADING ------------------------------------------------------------------------------------>
     
     <div class="col-lg-12">
-        <h4 class="page-header"><?php echo $fullname; ?> Total Sale Report</h4>
+        <h4 class="page-header"><?php echo $full_name; ?> Total Sale Report</h4>
     </div>
     
 	<!-- TOTAL SALE GRAPH ---------------------------------------------------------------------------------->

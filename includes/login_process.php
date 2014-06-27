@@ -50,10 +50,10 @@
 		$results = $db->query("SELECT * FROM `user_profile` WHERE `user_id` = '$user_id'");
 		
 		while($rows = $results->fetch_assoc()){
-			$firstname = $rows['firstname'];
-			$lastname = $rows['lastname'];
+			$first_name = $rows['first_name'];
+			$last_name = $rows['last_name'];
 			
-			$fullname = $firstname . ' ' . $lastname;
+			$full_name = $first_name . ' ' . $last_name;
 		}
 		
 		// Checking User Authorization Type
@@ -71,25 +71,38 @@
 			// If the user is Administrator or Management there should not be a branch specific
 			$_SESSION['user_id'] = $user_id;
 			$_SESSION['auth_type'] = $auth_type;
-			$_SESSION['fullname'] = $fullname;
+			$_SESSION['full_name'] = $full_name;
 			$_SESSION['alert_type'] = 'success';
-	        $_SESSION['alert_msg'] = "Welcome {$fullname}!";
+	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
 			$_SESSION['branch_id'] = $branch_id;
 			
-			log_write($db, $user_id, $branch_id, $fullname.' logged in.');
+			log_write($db, $user_id, $branch_id, $full_name.' logged in.');
 			
 			header('Location:../home.php');
 			
-		}else{
-			// If the user is Manager, Cashier or Normal then there should be a branch specific
+		}else if($auth_type == 4){
+			// If the user is a Cashier
 			$_SESSION['user_id'] = $user_id;
 			$_SESSION['auth_type'] = $auth_type;
-			$_SESSION['fullname'] = $fullname;
+			$_SESSION['full_name'] = $full_name;
 			$_SESSION['alert_type'] = 'success';
-	        $_SESSION['alert_msg'] = "Welcome {$fullname}!";
+	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
 			$_SESSION['branch_id'] = $branch_id;
 			
-			log_write($db, $user_id, $branch_id, $fullname.' logged in.');
+			log_write($db, $user_id, $branch_id, $full_name.' logged in.');
+			
+			header('Location:../select_branch.php');
+		
+		}else{
+			// If the user is Manager or Normal then there should be a branch specific
+			$_SESSION['user_id'] = $user_id;
+			$_SESSION['auth_type'] = $auth_type;
+			$_SESSION['full_name'] = $full_name;
+			$_SESSION['alert_type'] = 'success';
+	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
+			$_SESSION['branch_id'] = $branch_id;
+			
+			log_write($db, $user_id, $branch_id, $full_name.' logged in.');
 			
 			header('Location:../home.php');
 		}

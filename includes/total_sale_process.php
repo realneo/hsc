@@ -6,9 +6,9 @@
     
     $date = $_POST['date'];
     $total_sale = $_POST['total_sale'];
-    $cashier_id = $_POST['cashier_id'];
-    $cashier_password = $_POST['cashier_password'];
     $branch_id = $_SESSION['branch_id'];
+	$user_id = $_SESSION['user_id'];
+	$full_name = $_SESSION['full_name'];
     
 	// Remove "," from the total_sale
 	$total_sale = str_replace( ',', '', $total_sale);
@@ -31,34 +31,19 @@
         break;
     }
     
-    if(!$cashier_password){
-        $_SESSION['alert_type'] = 'warning';
-        $_SESSION['alert_msg'] = 'You have to insert your <strong>Password</strong>';
     
-        header("Location: ../daily_sales.php");
-        break;
-    }
-    
-    // Check if Cashier's password match
-    
-    $results = $db->query("SELECT * FROM `cashier` WHERE `id` = '$cashier_id' AND `password` = '$cashier_password'");
-    
-    
-    if($results->num_rows === 1){
+    if($total_sale){
         
         // Insert the Total Sale in the Database
-        $insert_results = $db->query("INSERT INTO `total_sale` (`id`, `date`, `branch_id`, `cashier_id`, `total_sale`, `audited_total_sale`) VALUES (NULL, '$date', '$branch_id', '$cashier_id', '$total_sale', '0')");
+        $insert_results = $db->query("INSERT INTO `total_sale` (`id`, `date`, `branch_id`, `user_id`, `total_sale`, `audited_total_sale`) VALUES (NULL, '$date', '$branch_id', '$user_id', '$total_sale', '0')");
         
         if($insert_results){
-            foreach($results as $result){
-                $cashier_name = $result['name'];
-            }
-            $_SESSION['cashier_name'] = $cashier_name;
+            
             $_SESSION['alert_type'] = 'success';
-            $_SESSION['alert_msg'] = "Thank you {$cashier_name}!";
+            $_SESSION['alert_msg'] = "Thank you {$full_name}!";
             
 			$today = date("Y-m-d");
-			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', '$cashier_name - Total Sale : $total_sale on $date')");
+			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Daily Sale : $total_sale for $date by $full_name')");
 
             header('Location:../daily_sales.php');
         

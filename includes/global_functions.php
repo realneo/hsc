@@ -33,4 +33,32 @@
 		$today_date = $GLOBALS['today_date'];
 		$db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, '$today_date', '$user_id', '$branch_id', '$log')");
 	}
+	
+	// Check Authorization Type Of the User
+	/*
+		Authorization Type ($auth_type)
+		1 - Administrator
+		2 - Management
+		3 - Manager
+		4 - Cashier
+		5 - Normal
+	*/
+	function check_auth($auth_type){
+		if($auth_type == 1){
+			return "administrator";
+		}
+		if($auth_type == 2){
+			return "management";
+		}
+		if($auth_type == 3){
+			return "manager";
+		}
+		if($auth_type == 4){
+			return "cashier";
+		}
+		if($auth_type == 5){
+			return "normal";
+		}
+		
+	}
 ?>

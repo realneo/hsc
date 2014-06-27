@@ -23,40 +23,20 @@
  	
 	<!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
     
-    <div class="col-lg-9">
+    <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">Add Daily Sale</div>
             <div class="panel-body">
                 <form role="form" action="includes/total_sale_process.php" method="post">
                 
-                    <div class="form-group col-lg-3">
+                    <div class="form-group col-lg-5">
                         <label>Select Date</label>
                         <input class="form-control" id="datepicker" type="text" name="date" />
                     </div>
 
-                    <div class="form-group col-lg-3">
+                    <div class="form-group col-lg-7">
                         <label>Total Sale</label>
                         <input class="form-control" name="total_sale" type="number" placeholder="Enter Amount"/>
-                    </div>
-
-                    <div class="form-group col-lg-3">
-                        <label>Cashiers</label>
-                        <select class="form-control" name="cashier_id">
-                            <?php
-                                $result = $db->query("SELECT * FROM `cashier` ORDER BY `name` ASC");
-
-                                while($row = $result->fetch_assoc()){
-                                    $cashier_id = $row['id'];
-                                    $cashier_name = $row['name'];
-                                    echo "<option value='{$cashier_id}'>{$cashier_name}</option>";
-                                }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-lg-3">
-                        <label>Cashier Password</label>
-                        <input class="form-control" name="cashier_password" type="password" />
                     </div>
 
                     <div class="form-group">
@@ -81,7 +61,7 @@
 						<tbody>
 							<?php
 								$branch_id = $_SESSION['branch_id'];
-								$results = $db -> query("SELECT * FROM `total_sale` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+								$results = $db -> query("SELECT * FROM `total_sale` WHERE `branch_id` = '$branch_id' ORDER BY `date` DESC LIMIT 5");
 								while($row = $results->fetch_assoc()){
                         			$date = custom_date_format($row['date']);
 									$total_sale = number_format($row['total_sale']);
@@ -90,6 +70,33 @@
 											<td>{$date}</td>
 											<td class='text-right'>{$total_sale}</td>
 										</tr>";
+                    			}
+							?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- RECENT ACTIVITIES ---------------------------------------------------------------------------------->
+
+    <div class="col-lg-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">Recent Activities</div>
+            <div class="panel-body">
+				<div class="table-responsive">
+                    <table class="table table-striped  table-hover">
+						<tbody>
+							<?php
+								$results = $db -> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+								$count = 0;	
+								while($row = $results->fetch_assoc()){
+									$count++;
+                        			$log = $row['log'];
+									$log_date = $row['date'];
+									
+                        			echo "<tr><td>{$count}</td><td><strong>{$log_date}</strong><br />{$log}</td></tr>";
                     			}
 							?>
                         </tbody>
