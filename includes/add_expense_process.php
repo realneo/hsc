@@ -2,6 +2,8 @@
 	ob_start();
     session_start();
     require 'db_conn.php';
+
+	require 'global_functions.php';
     
     // Get information from the form
     
@@ -10,9 +12,9 @@
     $received_by = $_POST['received_by'];
     $amount = $_POST['amount'];
     $branch_id = $_SESSION['branch_id'];
-	$cashier_id = $_SESSION['cashier_id'];
-	$cashier_name = $_SESSION['cashier_name']; 
-    
+	$user_id = $_SESSION['user_id'];
+	$full_name = $_SESSION['full_name'];
+	
 	// Remove "," from the total_sale
 	$amount = str_replace( ',', '', $amount);
 	
@@ -44,18 +46,17 @@
     
     // Insert into Expenses database
     
-    $query = $db->query("INSERT INTO `expenses` (`id`, `date`, `purpose`, `received_by`, `amount`, `branch_id`, `cashier_id`) VALUES (NULL, '$date', '$purpose', '$received_by', '$amount', '$branch_id', '$cashier_id')");
+    $query = $db->query("INSERT INTO `expenses` (`id`, `date`, `purpose`, `received_by`, `amount`, `branch_id`, `user_id`) VALUES (NULL, '$date', '$purpose', '$received_by', '$amount', '$branch_id', '$user_id')");
     
     
     if($query){
-    	$_SESSION['cashier_name'] = $cashier_name;
         $_SESSION['alert_type'] = 'success';
-        $_SESSION['alert_msg'] = "Thank you {$cashier_name}!";
+        $_SESSION['alert_msg'] = "Thank you {$full_name}!";
         
 		// Write into Log
-		$today = date("Y-m-d");
-		$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', '$cashier_name - Expense : $amount for $purpose')");
-
+		$log = "Daily Expense : $amount for $date";
+		log_write($user_id, $branch_id, $log);
+		
        	header('Location:../daily_expenses.php');
         
         break;

@@ -29,8 +29,9 @@
 	
 	// Log Writing Function
 	
-	function log_write($db, $user_id, $branch_id, $log){
+	function log_write($user_id, $branch_id, $log){
 		$today_date = $GLOBALS['today_date'];
+		$db = $GLOBALS['db'];
 		$db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, '$today_date', '$user_id', '$branch_id', '$log')");
 	}
 	
@@ -59,6 +60,20 @@
 		if($auth_type == 5){
 			return "normal";
 		}
+	}
+	
+	// Getting Total Expenses of TODAY
+	
+	function get_today_expenses(){
+		$today_date = $GLOBALS['today_date'];
+		$results = $GLOBALS['db']->query("SELECT * FROM `expenses` WHERE `date` = '$today_date'");
 		
+		$total_amount = 0;
+		while($row = $results->fetch_assoc()){
+			$amount = $row['amount'];
+			
+			$total_amount += $amount;
+		}
+		return number_format($total_amount);
 	}
 ?>

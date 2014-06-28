@@ -31,7 +31,7 @@
                 
                     <div class="form-group col-lg-2">
                         <label>Select Date</label>
-                        <input class="form-control" id="datepicker" type="text" name="date" />
+                        <input class="form-control" id="datepicker" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
                     </div>
 
                     <div class="form-group col-lg-6">
@@ -57,8 +57,17 @@
         </div>
     </div>
 
+	<!-- DISPLAY TODAY TOTAL EXPENSES -------------------------------------------------------------------->
+	
+	<div class='col-lg-3'>
+		<div class='well well-sm'>
+			<p>Total Expenses For Today <br /> <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?><p>
+				<h3><span class='small'>Tshs</span> <?php echo get_today_expenses(); ?></h3>
+		</div>
+	</div>
+	
 	<!-- VIEW RECENT EXPENSES -------------------------------------------------------------------------->
-	<div class="col-lg-12">
+	<div class="col-lg-9">
         <div class="panel panel-default">
             <div class="panel-heading">Recent Expenses</div>
             <div class="panel-body">

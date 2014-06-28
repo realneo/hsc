@@ -76,7 +76,7 @@
 	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
 			$_SESSION['branch_id'] = $branch_id;
 			
-			log_write($db, $user_id, $branch_id, $full_name.' logged in.');
+			log_write($user_id, $branch_id, $full_name.' logged in.');
 			
 			header('Location:../home.php');
 			
@@ -89,7 +89,7 @@
 	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
 			$_SESSION['branch_id'] = $branch_id;
 			
-			log_write($db, $user_id, $branch_id, $full_name.' logged in.');
+			log_write($user_id, $branch_id, $full_name.' logged in.');
 			
 			header('Location:../select_branch.php');
 		
@@ -102,7 +102,7 @@
 	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
 			$_SESSION['branch_id'] = $branch_id;
 			
-			log_write($db, $user_id, $branch_id, $full_name.' logged in.');
+			log_write($user_id, $branch_id, $full_name.' logged in.');
 			
 			header('Location:../home.php');
 		}
