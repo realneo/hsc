@@ -21,9 +21,17 @@
         <h4 class="page-header"><?php echo $_SESSION['branch_name']; ?> Daily Sales</h4>
     </div>
  	
+	<!-- DISPLAY TODAY TOTAL SALES -------------------------------------------------------------------->
+	
+	<div class='col-lg-4'>
+		
+		<div class='well well-sm'>
+			<p>Total Sales For Today <br /> <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?><p>
+				<h3><span class='small'>Tshs</span> <?php echo get_today_sales(); ?></h3>
+		</div>
+
 	<!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
     
-    <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">Add Daily Sale</div>
             <div class="panel-body">
@@ -31,12 +39,12 @@
                 
                     <div class="form-group col-lg-5">
                         <label>Select Date</label>
-                        <input class="form-control" id="datepicker" type="text" name="date" />
+                        <input class="form-control" id="datepicker" type="text" name="date"value="<?php echo date('Y-m-d'); ?>" />
                     </div>
 
                     <div class="form-group col-lg-7">
                         <label>Total Sale</label>
-                        <input class="form-control" name="total_sale" type="number" placeholder="Enter Amount"/>
+                        <input class="form-control" name="total_sale" type="number" placeholder="Enter Amount" />
                     </div>
 
                     <div class="form-group">
@@ -45,8 +53,8 @@
                 </form>
             </div>
         </div>
-    </div>
 
+	</div>
 	<!-- VIEW RECENT DAILY SALES -------------------------------------------------------------------------->
 	<div class="col-lg-4">
         <div class="panel panel-default">
@@ -105,7 +113,7 @@
             </div>
         </div>
     </div>
-
+	
 </div>
 
 <?php include 'includes/footer.php';?>

@@ -76,4 +76,19 @@
 		}
 		return number_format($total_amount);
 	}
+	
+	// Getting Total Daily Sales of TODAY
+	
+	function get_today_sales(){
+		$today_date = $GLOBALS['today_date'];
+		$results = $GLOBALS['db']->query("SELECT * FROM `total_sale` WHERE `date` = '$today_date'");
+		
+		$total_amount = 0;
+		while($row = $results->fetch_assoc()){
+			$amount = $row['total_sale'];
+			
+			$total_amount += $amount;
+		}
+		return number_format($total_amount);
+	}
 ?>
