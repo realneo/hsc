@@ -48,7 +48,7 @@
     </div>
 
 	<!-- VIEW RECENT DAILY SALES -------------------------------------------------------------------------->
-	<div class="col-lg-3">
+	<div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">Recent Total Sale</div>
             <div class="panel-body">
@@ -81,7 +81,7 @@
 
 	<!-- RECENT ACTIVITIES ---------------------------------------------------------------------------------->
 
-    <div class="col-lg-5">
+    <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">Recent Activities</div>
             <div class="panel-body">
