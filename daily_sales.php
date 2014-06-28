@@ -39,7 +39,7 @@
                 
                     <div class="form-group col-lg-5">
                         <label>Select Date</label>
-                        <input class="form-control" id="datepicker" type="text" name="date"value="<?php echo date('Y-m-d'); ?>" />
+                        <input class="form-control" id="datepicker" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
                     </div>
 
                     <div class="form-group col-lg-7">

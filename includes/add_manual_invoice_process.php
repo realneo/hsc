@@ -2,6 +2,8 @@
 	ob_start();
     session_start();
     require 'db_conn.php';
+
+	require 'global_functions.php'; 
     
     // Get information from the form
     
@@ -9,6 +11,7 @@
     $amount = $_POST['amount'];
     $branch_name = $_SESSION['branch_name'];
 	$branch_id = $_SESSION['branch_id'];
+	$full_name = $_SESSION['full_name'];
     
     // Check if all fields are filled;
     
@@ -37,7 +40,8 @@
         $_SESSION['alert_msg'] = "Successfully Added Manual Invoice {$date} : <strong>{$amount}</strong>.";
 
 		$today = date("Y-m-d");
-		$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Added Manual Invoice $amount'");
+		$log = "Manual Invoice: $amount by $full_name";
+		log_write($user_id, $branch_id, $log);
 		
         header('Location:../daily_manual_invoices.php');
 

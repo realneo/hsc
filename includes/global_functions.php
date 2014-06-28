@@ -3,10 +3,12 @@
 	
 	// Default Variables
 	$today_date = date("Y-m-d");
+	$branch_id = $_SESSION['branch_id'];
 	
 	// Get the Total Amount of Manual Invoices
 	function getTotalManualInvoices($entered){
-		$results = $GLOBALS['db'] -> query("SELECT * FROM `manual_invoices` WHERE `entered` = '$entered' ORDER BY `id` DESC");
+		$branch_id = $GLOBALS['branch_id'];
+		$results = $GLOBALS['db'] -> query("SELECT * FROM `manual_invoices` WHERE `entered` = '$entered' AND `branch_id` = '$branch_id'");
 		
 		$count = 0;
 		while($row = $results->fetch_assoc()){
