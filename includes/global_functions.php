@@ -44,7 +44,9 @@
 		2 - Management
 		3 - Manager
 		4 - Cashier
-		5 - Normal
+		5 - Sales
+		6 - Security
+		7 - Normal
 	*/
 	function check_auth($auth_type){
 		if($auth_type == 1){

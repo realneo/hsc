@@ -31,19 +31,24 @@
 	
                     <div class="form-group col-lg-3">
                         <label>Select Date</label>
-                        <input class="form-control" id="datepicker2" type="text" name="date" />
+                        <input class="form-control" id="datepicker2" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
                     </div>
                                         
-                    <div class="form-group col-lg-5">
+                    <div class="form-group col-lg-6">
                         <label>Sales</label>
                         <select class="form-control" name="sales_id">
                             <?php
-                                $branch_id = $_SESSION['branch_id'];
-                                $result = $db->query("SELECT * FROM `sales` WHERE `branch_id` = '$branch_id' ORDER BY `name` ASC");
+
+                               $result = $db->query("SELECT * FROM `users` WHERE `branch_id` = '$branch_id' AND `auth_type` = 5 ORDER BY `email` ASC");
 
                                 while($row = $result->fetch_assoc()){
                                     $sales_id = $row['id'];
-                                    $sales_name = $row['name'];
+									
+									$results = $db->query("SELECT * FROM `user_profile` WHERE `user_id` = '$sales_id'");
+									
+									while($rows = $results->fetch_assoc()){
+										$sales_name = $rows['first_name']. ' ' . $row['last_name'];
+									}
                                     echo "<option value='{$sales_id}'>{$sales_name}</option>";
                                 }
                             ?>
@@ -55,67 +60,47 @@
                         <input class="form-control" name="sales_voucher" type="number" placeholder="Enter Amount" />
                     </div>
                                         
-                    <div class="form-group col-lg-4">
-                        <label>Cashier</label>
-                        <select class="form-control" name="cashier_id">
-                            <?php
-                                $result = $db->query("SELECT * FROM `cashier` ORDER BY `name` ASC");
-
-                                while($row = $result->fetch_assoc()){
-                                    $cashier_id = $row['id'];
-                                    $cashier_name = $row['name'];
-                                    echo "<option value='{$cashier_id}'>{$cashier_name}</option>";
-                                }
-                            ?>
-                        </select>
-                    </div>
-                                        
-                    <div class="form-group col-lg-4">
-                        <label>Cashier Password</label>
-                        <input class="form-control" name="cashier_password" type="password" />
-                    </div>
-                                        
                     <div class="form-group">
-                        <button class="form-control btn btn-primary">Save</button>
+                        <button class="form-control btn btn-primary">Add Sales Voucher</button>
                     </div>
                 </form>
             </div>
         </div>	
     </div>
 
-	<!-- VIEW RECENT SALES VOUCHERS -------------------------------------------------------------------------->
+	<!-- TODAY SALES VOUCHERS -------------------------------------------------------------------------->
 	
 	<div class="col-lg-4">
         <div class="panel panel-default">
-            <div class="panel-heading">Recent Total Sale</div>
+            <div class="panel-heading">Recent Sales Voucher </div>
             <div class="panel-body">
 				<div class="table-responsive">
                     <table class="table table-striped  table-hover">
 						<thead>
-							<th>Date</th>
-							<th>Sales</th>
+							<th>Sales Name</th>
 							<th>Sales Voucher</th>
 						</thead>
 						<tbody>
 							<?php
-								$branch_id = $_SESSION['branch_id'];
-								$results = $db -> query("SELECT * FROM `sales_voucher` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
-								while($row = $results->fetch_assoc()){
-                        			$date = custom_date_format($row['date']);
+								// Get the Top 10 List of recent Sales Vouchers
+								$result = $db->query("SELECT * FROM `sales_voucher` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+								while($row = $result->fetch_assoc()){
 									$sales_id = $row['sales_id'];
-									$sales_voucher = number_format($row['sales_voucher']);
-		                                
-									$result = $db->query("SELECT * FROM `sales` WHERE `id` = '$sales_id'");
-
-		                            while($row = $result->fetch_assoc()){
-		                                $sales_name = $row['name'];
-		                            }
-                        			echo "<tr>
-											<td>{$date}</td>
+									$amount = number_format($row['amount']);
+									
+									// Get Full name of the Sales Person
+									$results = $db->query("SELECT * FROM `user_profile` WHERE `user_id` = '$sales_id'");
+									while($rows = $results->fetch_assoc()){
+										$sales_name = $rows['first_name']. ' ' . $rows['last_name'];
+									}
+									echo 
+									"
+										<tr>
 											<td>{$sales_name}</td>
-											<td class='text-right'>{$sales_voucher}</td>
-										</tr>";
-                    			}
+											<td>{$amount}</td>
+										</tr>
+									";
+								}
 							?>
                         </tbody>
                     </table>

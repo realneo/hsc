@@ -1,26 +1,27 @@
 <?php
     session_start();
     require 'db_conn.php';
+	require 'global_functions.php';
     
     // Get information from the form
     
     $date = $_POST['date'];
     $sales_id = $_POST['sales_id'];
     $sales_voucher = $_POST['sales_voucher'];
-    $cashier_id = $_POST['cashier_id'];
-    $cashier_password = $_POST['cashier_password'];
     $branch_id = $_SESSION['branch_id'];
+	$full_name = $_SESSION['full_name'];
+	$user_id = $_SESSION['user_id'];
 
+	// Getting Sales Name
+	$query = $db->query("SELECT * FROM `user_profile` WHERE `user_id` = '$user_id'");
+	
+	while($row = $query->fetch_assoc()){
+		$sales_name = $row['first_name'] . ' ' . $row['last_name'];
+	}
+	
 	// Remove "," from the numbers
 	$sales_voucher = str_replace( ',', '', $sales_voucher);
 
-	// Getting the Sales Name
-	$result = $db->query("SELECT * FROM `sales` WHERE `id` = '$sales_id'");
-
-    while($row = $result->fetch_assoc()){
-        $sales_name = $row['name'];
-    }
-    
     // Check if all fields are filled;
     
     if(!$date){
@@ -39,35 +40,18 @@
         break;
     }
     
-    if(!$cashier_password){
-        $_SESSION['alert_type'] = 'warning';
-        $_SESSION['alert_msg'] = 'You have to insert your <strong>Password</strong>';
-    
-        header("Location: ../sales_vouchers.php");
-        break;
-    }
-    
-    // Check if Cashier's password match
-    
-    $results = $db->query("SELECT * FROM `cashier` WHERE `id` = '$cashier_id' AND `password` = '$cashier_password'");
-    
-    
-    if($results->num_rows === 1){
-        
-        // Insert the Total Sale in the Database
-        $insert_results = $db->query("INSERT INTO `sales_voucher` (`id`, `date`, `branch_id`, `sales_id`, `cashier_id`, `sales_voucher`) VALUES (NULL, '$date', '$branch_id', '$sales_id', '$cashier_id', '$sales_voucher')");
-        
-        if($insert_results){
-            foreach($results as $result){
-                $cashier_name = $result['name'];
-            }
-            $_SESSION['cashier_name'] = $cashier_name;
-            $_SESSION['alert_type'] = 'success';
-            $_SESSION['alert_msg'] = "Thank you {$cashier_name}!";
+    if(true){
+     	// Insert the Total Sale in the Database
+     	$insert_results = $db->query("INSERT INTO `sales_voucher` (`id`, `date`, `branch_id`, `sales_id`, `user_id`, `amount`) VALUES (NULL, '$date', '$branch_id', '$sales_id', '$user_id', '$sales_voucher')");
+		
+		if($insert_results){
+			$_SESSION['alert_type'] = 'success';
+        	$_SESSION['alert_msg'] = "Thank you {$full_name}!";
             
 
 			$today = date("Y-m-d");
-			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', '$cashier_name - $sales_name sold $sales_voucher on $date')");
+			$log = "$sales_name sold $sales_voucher on $date";
+			log_write($user_id, $branch_id, $log);
 			
             header('Location:../sales_vouchers.php');
         
