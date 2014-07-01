@@ -45,6 +45,13 @@
                             <li><a href="view_sales_vouchers.php"><span class="glyphicon glyphicon-th-list"></span> View Sales Vouchers</a></li>
                         </ul>
                     </li>
+					<li>
+                        <a href="daily_returns.php"><span class="glyphicon glyphicon glyphicon-log-in"></span> Returns <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li><a href="daily_returns.php"><span class="glyphicon glyphicon-plus"></span> Add a Return </a></li>
+                            <li><a href="view_returns.php"><span class="glyphicon glyphicon-th-list"></span> View Returns</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 		</ul>

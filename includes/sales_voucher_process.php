@@ -68,7 +68,7 @@
 
     }else{
         $_SESSION['alert_type'] = 'danger';
-        $_SESSION['alert_msg'] = "The Password of the cashier is not correct, Please Retry!";
+        $_SESSION['alert_msg'] = "There was a major problem, Please Retry!";
         
         header('Location:../sales_vouchers.php');
         
