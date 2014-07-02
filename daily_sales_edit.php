@@ -27,32 +27,15 @@
 		
 		<div class='well well-sm'>
 			<p>Total Sales For Today <br /> <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?><p>
-				<h3><span class='small'>Tshs</span> <?php echo get_today_sales(); ?> <a class='btn' href='daily_sales_edit.php?date=<?php echo date("Y-m-d"); ?>'>Edit</a></h3>
+			<form action="includes/daily_sales_edit.php" method='get'>
+				<div class="input-group">
+					<span class="input-group-addon">Tshs</span>
+					<input class='form-control' type='number' name='total_sale' placeholder="<?php echo get_today_sales(); ?>"/>
+					<span class="input-group-btn"><button class="btn btn-primary" type="submit">Save</button></span>
+				</div>
+				<input type='hidden' name='date' value="<?php echo date('Y-m-d'); ?>" />
+			</form>
 		</div>
-
-	<!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
-    
-        <div class="panel panel-default">
-            <div class="panel-heading">Add Daily Sale</div>
-            <div class="panel-body">
-                <form role="form" action="includes/total_sale_process.php" method="post">
-                
-                    <div class="form-group col-lg-5">
-                        <label>Select Date</label>
-                        <input class="form-control" id="datepicker" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
-                    </div>
-
-                    <div class="form-group col-lg-7">
-                        <label>Total Sale</label>
-                        <input class="form-control" name="total_sale" type="number" placeholder="Enter Amount" />
-                    </div>
-
-                    <div class="form-group">
-                        <button class="form-control btn btn-primary">Add Daily Sale</button>
-                    </div>
-                </form>
-            </div>
-        </div>
 
 	</div>
 	<!-- VIEW RECENT DAILY SALES -------------------------------------------------------------------------->

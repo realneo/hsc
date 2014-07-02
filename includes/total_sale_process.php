@@ -31,7 +31,17 @@
         break;
     }
     
+    // Check if the date has already been inserted
+
+	$q = $db->query("SELECT * FROM `total_sale` WHERE `date` = '$date'");
+
+	if($q->num_rows > 0){
+		$_SESSION['alert_type'] = 'warning';
+        $_SESSION['alert_msg'] = 'You have already entered todays <strong>Total Sale</strong>. You can Edit using the Edit Link';
     
+        header("Location: ../daily_sales.php");
+        break;
+	}
     if($total_sale){
         
         // Insert the Total Sale in the Database
