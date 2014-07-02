@@ -8,7 +8,7 @@
     // Get information from the form
     
     $date = $_POST['date'];
-    $amount = $_POST['amount'];
+    $amount = $_POST['amount']*-1;
     $branch_name = $_SESSION['branch_name'];
 	$branch_id = $_SESSION['branch_id'];
 	$full_name = $_SESSION['full_name'];
