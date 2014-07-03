@@ -78,25 +78,39 @@
 							<th>Purpose</th>
 							<th>Received By</th>
 							<th>Amount</th>
+							<th>Action</td>
 						</thead>
 						<tbody>
 							<?php
 								$branch_id = $_SESSION['branch_id'];
 								$results = $db -> query("SELECT * FROM `expenses` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+
+								$today_date = custom_date_format(date("Y-m-d"));
+								
 								while($row = $results->fetch_assoc()){
+									$id = $row['id'];
                         			$date = custom_date_format($row['date']);
 									$purpose = $row['purpose'];
 									$received_by = $row['received_by'];
 									$amount = number_format($row['amount']);
-									
-									
-									
-                        			echo "<tr>
+									$button = "<a href='includes/delete_expense_process.php?id=$id&amount=$amount&purpose=$purpose' class='btn btn-danger form-control' onclick= return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');>Delete</a>";
+									if($date == $today_date){
+										echo "<tr>
+												<td>{$date}</td>
+												<td>{$purpose}</td>
+												<td>{$received_by}</td>
+												<td class='text-right'>{$amount}</td>
+												<td>{$button}</td>
+											</tr>";
+									}else{
+										echo "<tr>
 											<td>{$date}</td>
 											<td>{$purpose}</td>
 											<td>{$received_by}</td>
 											<td class='text-right'>{$amount}</td>
+											<td></td>
 										</tr>";
+									}
                     			}
 							?>
                         </tbody>

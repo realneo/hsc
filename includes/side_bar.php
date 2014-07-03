@@ -25,7 +25,7 @@
                         <a href="daily_sales.php"><span class="glyphicon glyphicon-import"></span> Daily Sales <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="daily_sales.php"><span class="glyphicon glyphicon-plus"></span> Add Daily Sales</a></li>
-                            <li><a href="view_sales.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Sales</a></li>
+                  <!--          <li><a href="view_sales.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Sales</a></li> -->
                         </ul>
                     </li>
 					
@@ -34,7 +34,7 @@
                         <a href="daily_expenses.php"><span class="glyphicon glyphicon-export"></span> Daily Expenses <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="daily_expenses.php"><span class="glyphicon glyphicon-plus"></span> Add Daily Expenses</a></li>
-                            <li><a href="view_expenses.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Expenses</a></li>
+                      <!--      <li><a href="view_expenses.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Expenses</a></li> -->
                         </ul>
                     </li>
 
@@ -43,7 +43,7 @@
                         <a href="daily_manual_invoices.php"><span class="glyphicon glyphicon-pencil"></span> Manual Invoices <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="daily_manual_invoices.php"><span class="glyphicon glyphicon-plus"></span> Add Manual Invoice</a></li>
-                            <li><a href="view_manual_invoices.php"><span class="glyphicon glyphicon-th-list"></span> View Manual Invoices</a></li>
+                    <!--        <li><a href="view_manual_invoices.php"><span class="glyphicon glyphicon-th-list"></span> View Manual Invoices</a></li> -->
                         </ul>
                     </li>
 					
@@ -52,7 +52,7 @@
                         <a href="daily_returns.php"><span class="glyphicon glyphicon glyphicon-log-in"></span> Returns <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="daily_returns.php"><span class="glyphicon glyphicon-plus"></span> Add a Return </a></li>
-                            <li><a href="view_returns.php"><span class="glyphicon glyphicon-th-list"></span> View Returns</a></li>
+                         <!--   <li><a href="view_returns.php"><span class="glyphicon glyphicon-th-list"></span> View Returns</a></li> -->
                         </ul>
                     </li>
 
@@ -61,7 +61,7 @@
                         <a href="sales_vouchers.php"><span class="glyphicon glyphicon-indent-left"></span> Sales Vouchers <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="sales_vouchers.php"><span class="glyphicon glyphicon-plus"></span> Add Sales Vouchers </a></li>
-                            <li><a href="view_sales_vouchers.php"><span class="glyphicon glyphicon-th-list"></span> View Sales Vouchers</a></li>
+                         <!--   <li><a href="view_sales_vouchers.php"><span class="glyphicon glyphicon-th-list"></span> View Sales Vouchers</a></li> -->
                         </ul>
                     </li>
 
