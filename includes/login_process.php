@@ -20,8 +20,7 @@
         $_SESSION['alert_msg'] = 'You have to fill in the Email field before proceeding';
         
         header('Location: ../login.php');
-        
-        break;
+      
     }
 
 	if (!$password){
@@ -30,7 +29,6 @@
         
         header('Location: ../login.php');
         
-        break;
     }
 
     // Check from database
@@ -63,7 +61,9 @@
 			2 - Management
 			3 - Manager
 			4 - Cashier
-			5 - Normal
+			5 - Sales
+			6 - Security
+			7 - Normal
 		*/
 		
 		if($auth_type == 1 || $auth_type == 2){

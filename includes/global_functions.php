@@ -62,7 +62,7 @@
 			return "cashier";
 		}
 		if($auth_type == 5){
-			return "normal";
+			return "sales";
 		}
 	}
 	

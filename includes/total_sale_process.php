@@ -33,7 +33,7 @@
     
     // Check if the date has already been inserted
 
-	$q = $db->query("SELECT * FROM `total_sale` WHERE `date` = '$date'");
+	$q = $db->query("SELECT * FROM `total_sale` WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
 
 	if($q->num_rows > 0){
 		$_SESSION['alert_type'] = 'warning';
