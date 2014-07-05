@@ -336,3 +336,11 @@ table.dataTable thead .sorting:after {
         display: none !important;
     }
 }
+
+/* HIDDEN CLASS *****************************/
+.hidden_object{
+	display:none;
+}
+.show_object{
+	display:initial;
+}

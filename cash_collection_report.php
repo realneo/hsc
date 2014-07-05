@@ -19,6 +19,13 @@
 		$date = $_GET['date'];
 	}
 
+	// Hide Binding if not Uhuru Branch
+	$hidden_object='';
+	if($branch_id == 1){
+		$hidden_object = "";
+	}else{
+		$hidden_object ='hidden_object';
+	}
 ?>        
 
 <div class="row">
@@ -70,8 +77,27 @@
 							?>
 							<tr>
 								<td> Total Sale In System </td>
-								<td></td>
 								<td class='text-right'> <?php echo $total_sale; ?> </td>
+								<td></td>
+							</tr>
+							<tr class="<?php echo $hidden_object; ?>">
+								<td> Binding </td>
+								<td class='text-right'> <?php echo get_today_binding(); ?> </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan="2"></td>
+								<td class='text-right'>
+									<?php
+										$binding = $db->query("SELECT * FROM `binding` WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
+										$binding_amount = 0;
+										while($row = $binding->fetch_assoc()){
+											$binding_amount = $row['amount'];
+										}
+										$total_income = str_replace( ',', '', $total_sale ) + $binding_amount;
+										echo number_format($total_income);
+									?>
+								</td>
 							</tr>
 							<tr><th colspan="3">PAYMENTS</th></tr>
 							<?php
@@ -176,7 +202,7 @@
 										$total_expenses = str_replace( ',', '', $total_expenses);
 										$total_adjustments = str_replace( ',', '', $total_adjustments);
 										
-										$cash_in_hand = $total_sale - $total_expenses - $total_adjustments;
+										$cash_in_hand = $total_sale + $binding_amount - $total_expenses - $total_adjustments;
 										
 										$cash_in_hand = number_format($cash_in_hand);
 										echo "<h4> $cash_in_hand </h4>";

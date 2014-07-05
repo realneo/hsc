@@ -43,7 +43,7 @@
                         <a href="daily_manual_invoices.php"><span class="glyphicon glyphicon-pencil"></span> Manual Invoices <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="daily_manual_invoices.php"><span class="glyphicon glyphicon-plus"></span> Add Manual Invoice</a></li>
-                    <!--        <li><a href="view_manual_invoices.php"><span class="glyphicon glyphicon-th-list"></span> View Manual Invoices</a></li> -->
+                          	<li><a href="view_manual_invoices.php"><span class="glyphicon glyphicon-th-list"></span> Enter Manual Invoices</a></li>
                         </ul>
                     </li>
 					

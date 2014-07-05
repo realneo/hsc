@@ -10,8 +10,16 @@
 <?php include 'includes/side_bar.php'; ?>
 
 <?php include 'includes/header.php'; ?>
-             
-        
+                    
+<?php
+	$hidden_object='';
+	if($branch_id == 1){
+		$hidden_object = "";
+	}else{
+		$hidden_object ='hidden_object';
+	}
+
+?>
 
 <div class="row">
     
@@ -29,22 +37,33 @@
 			<p>Total Sales For Today <br /> <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?><p>
 				<h3><span class='small'>Tshs</span> <?php echo get_today_sales(); ?> <a class='btn' href='daily_sales_edit.php?date=<?php echo date("Y-m-d"); ?>'>Edit</a></h3>
 		</div>
-
+	</div>
+	
+	<!-- DISPLAY TODAY BINDING -------------------------------------------------------------------->
+	
+	<div class="col-lg-4 <?php echo $hidden_object; ?>">
+		
+		<div class='well well-sm'>
+			<p>Total Binding For Today <br /> <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?><p>
+				<h3><span class='small'>Tshs</span> <?php echo get_today_binding(); ?> <a class='btn' href='daily_binding_edit.php?date=<?php echo date("Y-m-d"); ?>'>Edit</a></h3>
+		</div>
+	</div>
+	
 	<!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
-    
+    <div class='col-lg-4'>
         <div class="panel panel-default">
             <div class="panel-heading">Add Daily Sale</div>
             <div class="panel-body">
                 <form role="form" action="includes/total_sale_process.php" method="post">
                 
-                    <div class="form-group col-lg-5">
+                    <div class="form-group col-lg-6">
                         <label>Select Date</label>
                         <input class="form-control" id="datepicker2" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
                     </div>
 
-                    <div class="form-group col-lg-7">
+                    <div class="form-group col-lg-6">
                         <label>Total Sale</label>
-                        <input class="form-control" name="total_sale" type="number" placeholder="Enter Amount" />
+                        <input class="form-control" name="total_sale" type="number" placeholder="Amount" />
                     </div>
 
                     <div class="form-group">
@@ -55,6 +74,33 @@
         </div>
 
 	</div>
+		
+		<!-- BINDING IF ITS UHURU BRANCH -------------------------------------------------------------------------->
+		
+		<div class="col-lg-4 <?php echo $hidden_object; ?>">
+	        <div class="panel panel-default">
+	            <div class="panel-heading">Binding</div>
+	            <div class="panel-body">
+	                <form role="form" action="includes/add_binding_process.php" method="post">
+
+	                    <div class="form-group col-lg-6">
+	                        <label>Select Date</label>
+	                        <input class="form-control" id="datepicker" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
+	                    </div>
+
+	                    <div class="form-group col-lg-6">
+	                        <label>Binding Amount</label>
+	                        <input class="form-control" name="amount" type="number" placeholder="Amount" />
+	                    </div>
+
+	                    <div class="form-group">
+	                        <button class="form-control btn btn-primary">Add Binding Amount</button>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+		</div>
+	
 	<!-- VIEW RECENT DAILY SALES -------------------------------------------------------------------------->
 	<div class="col-lg-4">
         <div class="panel panel-default">

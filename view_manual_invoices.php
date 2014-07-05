@@ -31,28 +31,25 @@
 	
 	
 	<!-- VIEW RECENT MANUAL INVOICES -------------------------------------------------------------------------->
-	<div class="col-lg-8">
+	<div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">Recent Added Manual Invoices</div>
             <div class="panel-body">
-				<small>Sort By</small>
-				<div class="btn-group">
-		  			<a href="view_manual_invoices.php?sort=1" class="btn btn-default">Entered</a>
-					<a href="view_manual_invoices.php?sort=0" class="btn btn-default">Not Entered</a>
-				</div>
 				<div class="table-responsive">
                     <table class="table table-striped  table-hover">
 						<thead>
-							<th>Date</th>
-							<th>Amount</th>
-							<th>Entered</th>
-							<th>Date Entered</th>
+							<th class='col-lg-2'>Date</th>
+							<th class='col-lg-2'>Amount</th>
+							<th class='col-lg-2'>Status</th>
+							<th class='col-lg-2'>Date Entered</th>
+							<th class='col-lg-2'>Action</th>
 						</thead>
 						<tbody>
 							<?php
 								$branch_id = $_SESSION['branch_id'];
-								$results = $db -> query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+								$results = $db -> query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `entered` = 0");
 								while($row = $results->fetch_assoc()){
+									$id = $row['id'];
                         			$date = custom_date_format($row['date']);
 									$amount = number_format($row['amount']);
 									$entered_db = $row['entered'];
@@ -75,7 +72,18 @@
 											<td>{$date}</td>
 											<td class='text-right'>{$amount}</td>
 											<td>{$entered}</td>
-											<th>{$date_entered}</td>
+											<td>{$date_entered}</td>
+											<td>
+												<form action='includes/enter_manual_process.php' method='post'>
+													<div class='input-group'>
+											      		<input class='form-control' type='text' name='amount' value='' />
+														<input type='hidden' name='id' value='$id' />
+											      		<span class='input-group-btn'>
+											        		<button class='btn btn-primary' type='submit'>Enter</button>
+											      		</span>
+											    	</div>
+												</form>
+											</td>
 										</tr>";
                     			}
 							?>

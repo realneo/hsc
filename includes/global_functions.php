@@ -70,7 +70,9 @@
 	
 	function get_today_expenses(){
 		$today_date = $GLOBALS['today_date'];
-		$results = $GLOBALS['db']->query("SELECT * FROM `expenses` WHERE `date` = '$today_date'");
+		$branch_id = $GLOBALS['branch_id'];
+		
+		$results = $GLOBALS['db']->query("SELECT * FROM `expenses` WHERE `date` = '$today_date' AND `branch_id` = '$branch_id'");
 		
 		$total_amount = 0;
 		while($row = $results->fetch_assoc()){
@@ -85,11 +87,28 @@
 	
 	function get_today_sales(){
 		$today_date = $GLOBALS['today_date'];
-		$results = $GLOBALS['db']->query("SELECT * FROM `total_sale` WHERE `date` = '$today_date'");
+		$branch_id = $GLOBALS['branch_id'];
+		$results = $GLOBALS['db']->query("SELECT * FROM `total_sale` WHERE `date` = '$today_date' AND `branch_id` = '$branch_id'");
 		
 		$total_amount = 0;
 		while($row = $results->fetch_assoc()){
 			$amount = $row['total_sale'];
+			
+			$total_amount += $amount;
+		}
+		return number_format($total_amount);
+	}
+	
+	// Getting Total Daily Binding of TODAY
+	
+	function get_today_binding(){
+		$today_date = $GLOBALS['today_date'];
+		$branch_id = $GLOBALS['branch_id'];
+		$results = $GLOBALS['db']->query("SELECT * FROM `binding` WHERE `date` = '$today_date' AND `branch_id` = '$branch_id'");
+		
+		$total_amount = 0;
+		while($row = $results->fetch_assoc()){
+			$amount = $row['amount'];
 			
 			$total_amount += $amount;
 		}
