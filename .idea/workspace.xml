@@ -7,6 +7,7 @@
     <file path="/Dummy.txt" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823527831" ignored="false" />
     <file path="/select_branch_process.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823909951" ignored="false" />
     <file path="/select_branch.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404824116874" ignored="false" />
+    <file path="/home.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404827082691" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,19 +36,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_process.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="login_process.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/login_process.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="0" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.7804014">
+            <state line="104" column="0" selection-start="2810" selection-end="2810" vertical-scroll-proportion="-13.425">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="134" selection-start="789" selection-end="789" vertical-scroll-proportion="-10.461538">
+            <state line="32" column="16" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.3801242">
               <folding />
             </state>
           </provider>
@@ -56,7 +57,7 @@
       <file leaf-file-name="global_functions.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.88461536">
+            <state line="50" column="36" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-22.309525">
               <folding />
             </state>
           </provider>
@@ -85,6 +86,7 @@
         <option value="$PROJECT_DIR$/select_branch.php" />
         <option value="$PROJECT_DIR$/includes/global_functions.php" />
         <option value="$PROJECT_DIR$/includes/login_process.php" />
+        <option value="$PROJECT_DIR$/home.php" />
       </list>
     </option>
   </component>
@@ -367,23 +369,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.php">
+    <entry file="file://$PROJECT_DIR$/includes/login_process.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="134" selection-start="789" selection-end="789" vertical-scroll-proportion="-10.461538">
+        <state line="104" column="0" selection-start="2810" selection-end="2810" vertical-scroll-proportion="-13.425">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.88461536">
+        <state line="50" column="36" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-22.309525">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/login_process.php">
+    <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="0" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.7804014">
+        <state line="32" column="16" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.3801242">
           <folding />
         </state>
       </provider>

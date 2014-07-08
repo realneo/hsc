@@ -11,21 +11,10 @@
 
 <?php include 'includes/header.php'; ?>
 
-<?php
-	$hidden_object='';
-	if($branch_id == 1){
-		$hidden_object = "";
-	}else{
-		$hidden_object ='hidden_object';
-	}
-
-?>             
-        
-
 <div class="row">
     
-    <!-- PAGE HEADING ------------------------------------------------------------------------------------>
-    
+    <!-- PAGE HEADING -------------------------------------------------->
+
     <div class="col-lg-12">
         <h4 class="page-header"><?php echo $branch_name; ?> Dashboard <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?></h4>
     </div>
@@ -40,16 +29,18 @@
 				<h3><span class='small'>Tshs</span> <?php echo get_today_sales(); ?> <a class='btn' href='daily_sales_edit.php?date=<?php echo date("Y-m-d"); ?>'>Edit</a></h3>
 			</div>
 		</div>
-		
+
+        <?php if($branch_id == 1){?>
 		<!-- DISPLAY TODAY BINDING -------------------------------------------------------------------->
 
-		<div class="col-lg-3 <?php echo $hidden_object; ?>">
+		<div class="col-lg-3">
 
 			<div class='well well-sm'>
 				<p>Total Binding For Today <br /> <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?><p>
 					<h3><span class='small'>Tshs</span> <?php echo get_today_binding(); ?> <a class='btn' href='daily_binding_edit.php?date=<?php echo date("Y-m-d"); ?>'>Edit</a></h3>
 			</div>
 		</div>
+    <?php }?>
 		
 		<!-- DISPLAY TODAY TOTAL EXPENSES -------------------------------------------------------------------->
 
