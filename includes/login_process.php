@@ -33,7 +33,7 @@
 
     // Check from database
     
-    $result = $db->query("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'");
+    $result = $db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
     
 	// If email and password exist in the database and the login information is true
     if($result->num_rows === 1){
@@ -45,7 +45,7 @@
 
 		// Getting user First Name and Last Name from the user_profile table
 		
-		$results = $db->query("SELECT * FROM `user_profile` WHERE `user_id` = '$user_id'");
+		$results = $db->query("SELECT * FROM user_profile WHERE user_id = '$user_id'");
 		
 		while($rows = $results->fetch_assoc()){
 			$first_name = $rows['first_name'];
@@ -102,4 +102,3 @@
         header('Location:../login.php');
 
     }
-?>

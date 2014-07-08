@@ -6,6 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823527831" ignored="false" />
     <file path="/select_branch_process.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823909951" ignored="false" />
+    <file path="/select_branch.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404824116874" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,36 +29,34 @@
       <file leaf-file-name="db_conn.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/db_conn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="43" selection-start="78" selection-end="83" vertical-scroll-proportion="0.0">
+            <state line="3" column="43" selection-start="78" selection-end="83" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_process.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="login_process.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/login_process.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="12" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.0">
+            <state line="104" column="0" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.7804014">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select_branch.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/select_branch.php">
+      <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="2" selection-start="474" selection-end="474" vertical-scroll-proportion="20.5">
-              <folding>
-                <marker date="1404823174245" expanded="true" signature="1407:1600" placeholder="..." />
-              </folding>
+            <state line="29" column="134" selection-start="789" selection-end="789" vertical-scroll-proportion="-10.461538">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select_branch_process.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/select_branch_process.php">
+      <file leaf-file-name="global_functions.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="16" selection-start="517" selection-end="517" vertical-scroll-proportion="0.21251476">
+            <state line="19" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.88461536">
               <folding />
             </state>
           </provider>
@@ -82,8 +81,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/includes/db_conn.php" />
-        <option value="$PROJECT_DIR$/includes/login_process.php" />
         <option value="$PROJECT_DIR$/includes/select_branch_process.php" />
+        <option value="$PROJECT_DIR$/select_branch.php" />
+        <option value="$PROJECT_DIR$/includes/global_functions.php" />
+        <option value="$PROJECT_DIR$/includes/login_process.php" />
       </list>
     </option>
   </component>
@@ -207,7 +208,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33778015" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27427962" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -301,7 +302,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="32" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1404823174245" expanded="true" signature="1407:1600" placeholder="..." />
+            <marker date="1404823174245" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -324,21 +325,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1404823174245" expanded="true" signature="1407:1600" placeholder="..." />
+            <marker date="1404823174245" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/db_conn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="43" selection-start="78" selection-end="83" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/login_process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="12" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.0">
+        <state line="3" column="43" selection-start="78" selection-end="83" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
@@ -350,18 +344,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/includes/select_branch_process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="37" selection-start="607" selection-end="607" vertical-scroll-proportion="0.3748503">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/logged_user_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="23" selection-start="73" selection-end="73" vertical-scroll-proportion="0.060212515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/select_branch.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="2" selection-start="474" selection-end="474" vertical-scroll-proportion="20.5">
+        <state line="51" column="79" selection-start="1488" selection-end="1488" vertical-scroll-proportion="1.8345324">
           <folding>
-            <marker date="1404823174245" expanded="true" signature="1407:1600" placeholder="..." />
+            <marker date="1404823174245" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/select_branch_process.php">
+    <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="16" selection-start="517" selection-end="517" vertical-scroll-proportion="0.21251476">
+        <state line="29" column="134" selection-start="789" selection-end="789" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.88461536">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/login_process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="0" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.7804014">
           <folding />
         </state>
       </provider>
