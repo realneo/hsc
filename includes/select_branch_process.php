@@ -20,13 +20,13 @@
         
         header('Location: ../select_branch.php');
         
-        break;
+        die();//break;
     }
 
 	// Getting the Branch Name
-	
-	$results = $db->query("SELECT * FROM `branch` WHERE `id` = '$branch_id'");
-	
+	//removed `s
+	$results = $db->query("SELECT * FROM branch WHERE id = '$branch_id'");
+
 	while($row = $results->fetch_assoc()){
 		$branch_name = $row['name'];
 	}
