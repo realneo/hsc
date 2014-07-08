@@ -80,7 +80,7 @@
 			
 			header('Location:../home.php');
 			
-		}else if($auth_type == 4){
+		}else{
 			// If the user is a Cashier
 			$_SESSION['user_id'] = $user_id;
 			$_SESSION['auth_type'] = $auth_type;
@@ -92,20 +92,9 @@
 			log_write($user_id, $branch_id, $full_name.' logged in.');
 			
 			header('Location:../select_branch.php');
-		
-		}else{
-			// If the user is Manager or Normal then there should be a branch specific
-			$_SESSION['user_id'] = $user_id;
-			$_SESSION['auth_type'] = $auth_type;
-			$_SESSION['full_name'] = $full_name;
-			$_SESSION['alert_type'] = 'success';
-	        $_SESSION['alert_msg'] = "Welcome {$full_name}!";
-			$_SESSION['branch_id'] = $branch_id;
-			
-			log_write($user_id, $branch_id, $full_name.' logged in.');
-			
-			header('Location:../home.php');
+
 		}
+
 
     }else{
         $_SESSION['alert_type'] = 'danger';
