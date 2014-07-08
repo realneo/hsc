@@ -26,7 +26,7 @@
     if($amount){
         
         // Insert the Total Sale in the Database
-        $insert_results = $db->query("UPDATE `binding` SET `amount` = '$amount' WHERE `date` = '$date';");
+        $insert_results = $db->query("UPDATE `binding` SET `amount` = '$amount' WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
         
         if($insert_results){
             
