@@ -11,6 +11,7 @@ class Hsc extends CI_Controller {
          * Set the Defaults
          */
 
+        $this->session->set_userdata("full_name","Fahad K");
         $this->session->set_userdata("branch_id",1);
         $name=$this->usuals->get_branch_name($this->session->userdata('branch_id'));
         $this->session->set_userdata("branch_name",$name);
@@ -30,6 +31,7 @@ class Hsc extends CI_Controller {
 
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
 
 		$this->load->view('default_content');
 		$this->load->view('includes/footer');
