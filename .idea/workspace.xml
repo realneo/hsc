@@ -4,7 +4,7 @@
     <list default="true" id="4ccfd335-a8f0-43e3-8019-7660177a9a2b" name="Default" comment="" />
     <ignored path="hsc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823527831" ignored="false" />
+    <file path="/Dummy.txt" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404898919756" ignored="false" />
     <file path="/select_branch_process.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823909951" ignored="false" />
     <file path="/select_branch.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404824116874" ignored="false" />
     <file path="/home.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404893986983" ignored="false" />
@@ -27,6 +27,7 @@
     <file path="/daily_binding_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404893529231" ignored="false" />
     <file path="/daily_sales.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404896234880" ignored="false" />
     <file path="/dummy.xml" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404896234880" ignored="false" />
+    <file path="/default_content.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404899098142" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +47,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="side_bar.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="side_bar.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/side_bar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="49" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.35740072">
+            <state line="27" column="49" selection-start="1494" selection-end="1494" vertical-scroll-proportion="-17.653847">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site_helper.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="1" selection-start="195" selection-end="195" vertical-scroll-proportion="-10.769231">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default_content.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="368" column="50" selection-start="18211" selection-end="18211" vertical-scroll-proportion="13.622276">
+              <folding>
+                <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#6;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1404899385840" expanded="true" signature="636:650" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="daily_binding_edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="48" selection-start="1004" selection-end="1004" vertical-scroll-proportion="-15.730769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ci-hsc/application/config/autoload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="39" selection-start="1939" selection-end="1939" vertical-scroll-proportion="-19.076923">
               <folding />
             </state>
           </provider>
@@ -58,18 +102,7 @@
       <file leaf-file-name="daily_sales.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_sales.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="41" selection-start="1357" selection-end="1357" vertical-scroll-proportion="-8.914286">
-              <folding>
-                <marker date="1404896270547" expanded="true" signature="4343:4440" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recent.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/recent.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="25" selection-start="360" selection-end="360" vertical-scroll-proportion="-6.769231">
+            <state line="39" column="41" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -78,10 +111,8 @@
       <file leaf-file-name="daily_binding_edit.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_binding_edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="34" selection-start="2545" selection-end="2545" vertical-scroll-proportion="-15.771428">
-              <folding>
-                <marker date="1404895611020" expanded="true" signature="2249:2342" placeholder="..." />
-              </folding>
+            <state line="71" column="34" selection-start="2545" selection-end="2545" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,10 +120,8 @@
       <file leaf-file-name="daily_sales_edit.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_sales_edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="6" selection-start="2564" selection-end="2564" vertical-scroll-proportion="-17.394737">
-              <folding>
-                <marker date="1404895752544" expanded="true" signature="2257:2354" placeholder="..." />
-              </folding>
+            <state line="72" column="6" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,7 +129,7 @@
       <file leaf-file-name="daily_sales_edit.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="2348" selection-end="2348" vertical-scroll-proportion="-13.692307">
+            <state line="66" column="0" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,25 +138,7 @@
       <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="-16.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="global_functions.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="46" selection-start="169" selection-end="169" vertical-scroll-proportion="-0.7692308">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="total_binding.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/total_binding.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="31" selection-start="60" selection-end="60" vertical-scroll-proportion="-0.7692308">
+            <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,11 +162,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/includes/db_conn.php" />
         <option value="$PROJECT_DIR$/includes/select_branch_process.php" />
         <option value="$PROJECT_DIR$/select_branch.php" />
         <option value="$PROJECT_DIR$/includes/login_process.php" />
-        <option value="$PROJECT_DIR$/includes/daily_binding_edit.php" />
         <option value="$PROJECT_DIR$/total_binding.php" />
         <option value="$PROJECT_DIR$/includes/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/includes/global_functions.php" />
@@ -165,6 +174,10 @@
         <option value="$PROJECT_DIR$/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/daily_sales.php" />
         <option value="$PROJECT_DIR$/includes/side_bar.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/includes/daily_binding_edit.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/views/default_content.php" />
       </list>
     </option>
   </component>
@@ -201,6 +214,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="All" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -233,10 +249,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ci-hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ci-hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ci-hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="All" />
       </pane>
     </panes>
   </component>
@@ -288,7 +355,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27427962" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28068304" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -364,42 +431,15 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/select_branch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1404823174245" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/db_conn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="43" selection-start="78" selection-end="83" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/select_branch_process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="37" selection-start="607" selection-end="607" vertical-scroll-proportion="0.3748503">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/logged_user_check.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="23" selection-start="73" selection-end="73" vertical-scroll-proportion="0.060212515">
-          <folding />
-        </state>
+        <state line="3" column="23" selection-start="73" selection-end="73" vertical-scroll-proportion="0.060212515" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/select_branch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="79" selection-start="1488" selection-end="1488" vertical-scroll-proportion="1.8345324">
-          <folding>
-            <marker date="1404823174245" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -410,79 +450,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="2299" selection-end="2299" vertical-scroll-proportion="-51.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/total_binding.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="31" selection-start="60" selection-end="60" vertical-scroll-proportion="-0.7692308">
+        <state line="1" column="31" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="46" selection-start="169" selection-end="169" vertical-scroll-proportion="-0.7692308">
+        <state line="7" column="46" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/recent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="360" selection-end="360" vertical-scroll-proportion="-6.769231">
+        <state line="8" column="25" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_binding_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="34" selection-start="2545" selection-end="2545" vertical-scroll-proportion="-15.771428">
-          <folding>
-            <marker date="1404895611020" expanded="true" signature="2249:2342" placeholder="..." />
-          </folding>
+        <state line="71" column="34" selection-start="2545" selection-end="2545" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_sales_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="6" selection-start="2564" selection-end="2564" vertical-scroll-proportion="-17.394737">
-          <folding>
-            <marker date="1404895752544" expanded="true" signature="2257:2354" placeholder="..." />
-          </folding>
+        <state line="72" column="6" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="2348" selection-end="2348" vertical-scroll-proportion="-13.692307">
+        <state line="66" column="0" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="-16.5">
+        <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_sales.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="41" selection-start="1357" selection-end="1357" vertical-scroll-proportion="-8.914286">
-          <folding>
-            <marker date="1404896270547" expanded="true" signature="4343:4440" placeholder="..." />
-          </folding>
+        <state line="39" column="41" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/side_bar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="49" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.35740072">
+        <state line="27" column="49" selection-start="1494" selection-end="1494" vertical-scroll-proportion="-17.653847">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="48" selection-start="1004" selection-end="1004" vertical-scroll-proportion="-15.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="1" selection-start="195" selection-end="195" vertical-scroll-proportion="-10.769231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/config/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="39" selection-start="1939" selection-end="1939" vertical-scroll-proportion="-19.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="368" column="50" selection-start="18211" selection-end="18211" vertical-scroll-proportion="13.622276">
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#6;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1404899385840" expanded="true" signature="636:650" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

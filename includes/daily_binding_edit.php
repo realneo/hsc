@@ -31,8 +31,6 @@
         if($insert_results){
             
             $_SESSION['alert_type'] = 'success';
-
-            ;
             $check=$db->affected_rows;
             if($check>=1){
                 $_SESSION['alert_msg'] = "Thank you ".make_me_bold($full_name)."!";

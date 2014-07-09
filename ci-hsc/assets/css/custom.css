@@ -1,0 +1,112 @@
+body,h1,h2,h3,h4,h5,h6,.h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: "Open Sans";
+}
+input,textarea{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+#check{
+    font-weight: lighter;
+}
+.TitleSize{
+    font-size: 28px;
+}
+
+.limitError {
+    background-color: rgb(238, 208, 208);
+    color: darkred;
+}
+
+/** Override nav Pills**/
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #C20A0A;
+}
+
+a {
+    color: #323232;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: #C20A0A;
+    text-decoration: underline;
+}
+
+.tutu{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    opacity: 1;
+    box-shadow: 0px -1px 3px 0px #000000 inset;
+    -webkit-box-shadow: 0px -1px 3px 0px #000000 inset;
+    -moz-box-shadow: 0px -1px 3px 0px #000000 inset;
+    -ms-box-shadow: 0px -1px 3px 0px #000000 inset;
+    -o-box-shadow: 0px -1px 3px 0px #000000 inset;
+}
+
+#wekaKatiAlertBox{
+    margin-top: 4px;
+    margin-bottom: 5px;
+}
+
+
+/** iPhone **/
+@media (min-width: 0px) and (max-width: 322px) {
+    .container{
+        padding-left: 9%;
+        padding-right: 9%;
+        }
+    .TitleSize{
+        font-size: 27px;
+    }
+    .col-lg-9{
+        padding: 0px;
+        margin-left: -21px;
+        margin-right: -21px;
+    }
+    .col-lg-3{
+        padding: 0px;
+    }
+
+}
+
+/** Lumia + Galaxy **/
+@media (min-width: 323px) and (max-width: 390px) {
+.container{
+    padding-left: 5%;
+    padding-right: 5%;
+    }
+
+}
+
+/** tablets **/
+@media (min-width: 391px) and (max-width: 1000px) {
+.container{
+       padding-left: 5%;
+       padding-right: 5%;
+    }
+
+}
+
+/** Normal Screens **/
+@media (min-width: 1001px){
+    #smsGateWay{
+        border-right: black dotted 1px;}
+    #rightPan{
+        max-width: 260px;
+    }
+
+    #wekaKatiAlertBox{
+        /*margin-top:17%;*/
+        /*padding-left: 100px;*/
+        /*padding-right: 100px;*/
+        margin-bottom: 5px;
+        display:none;
+    }
+    #deliveryReports{
+        display: none;
+    }
+
+
+
+}
