@@ -31,7 +31,7 @@
     <file path="/usuals.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404910315063" ignored="false" />
     <file path="/hsc.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404909929539" ignored="false" />
     <file path="/total_binding.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404907268070" ignored="false" />
-    <file path="/side_bar.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404909658897" ignored="false" />
+    <file path="/side_bar.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404913018089" ignored="false" />
     <file path="/top_nav.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404911784332" ignored="false" />
     <file path="/custom.css" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404910631523" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,10 +53,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="usuals.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="usuals.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="29" selection-start="1454" selection-end="1454" vertical-scroll-proportion="-16.423077">
+            <state line="47" column="5" selection-start="1340" selection-end="1340" vertical-scroll-proportion="1.7625899">
               <folding />
             </state>
           </provider>
@@ -65,16 +65,25 @@
       <file leaf-file-name="top_nav.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="0" selection-start="6383" selection-end="6383" vertical-scroll-proportion="-0.98039216">
+            <state line="170" column="12" selection-start="6649" selection-end="6650" vertical-scroll-proportion="-72.0339">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site_helper.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="site_helper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="0.58441556">
+            <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="-11.785714">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="side_bar.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="47" selection-start="815" selection-end="815" vertical-scroll-proportion="-7.6666665">
               <folding />
             </state>
           </provider>
@@ -83,7 +92,7 @@
       <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="59" selection-start="770" selection-end="770" vertical-scroll-proportion="-18.692308">
+            <state line="3" column="6" selection-start="30" selection-end="30" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -124,7 +133,6 @@
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/total_binding.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/default_content.php" />
         <option value="$PROJECT_DIR$/includes/side_bar.php" />
-        <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/models/usuals.php" />
         <option value="$PROJECT_DIR$/ci-hsc/assets/css/custom.css" />
@@ -132,6 +140,7 @@
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/header.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php" />
       </list>
     </option>
   </component>
@@ -586,13 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="61" selection-start="706" selection-end="706" vertical-scroll-proportion="2.372093">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="60" selection-start="927" selection-end="950" vertical-scroll-proportion="-13.5">
@@ -630,13 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="29" selection-start="1454" selection-end="1454" vertical-scroll-proportion="-16.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/assets/css/kostom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="1" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0">
@@ -646,21 +641,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="59" selection-start="770" selection-end="770" vertical-scroll-proportion="-18.692308">
+        <state line="3" column="6" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="0" selection-start="6383" selection-end="6383" vertical-scroll-proportion="-0.98039216">
+        <state line="170" column="12" selection-start="6649" selection-end="6650" vertical-scroll-proportion="-72.0339">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="47" selection-start="815" selection-end="815" vertical-scroll-proportion="-7.6666665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="0.58441556">
+        <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="-11.785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="5" selection-start="1340" selection-end="1340" vertical-scroll-proportion="1.7625899">
           <folding />
         </state>
       </provider>

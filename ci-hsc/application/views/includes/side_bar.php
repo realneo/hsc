@@ -14,7 +14,7 @@
                 <!-- /input-group -->
             </li>
             <li><a href='#'><i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('full_name'); ?></a></li>
-            <li><a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+            <li><a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
             <li>
