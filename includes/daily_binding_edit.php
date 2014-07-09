@@ -1,7 +1,6 @@
 <?php
     session_start();
     require 'db_conn.php';
-    
     // Get information from the form
     
     $date = $_GET['date'];
@@ -26,15 +25,16 @@
     if($amount){
         
         // Insert the Total Sale in the Database
-        $insert_results = $db->query("UPDATE binding SET amount = '$amount' WHERE 'date' = '$date' AND branch_id = '$branch_id'");
-        
+        $insert_results = $db->query("UPDATE binding SET `amount` = '$amount' WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
+
         if($insert_results){
             
             $_SESSION['alert_type'] = 'success';
             $_SESSION['alert_msg'] = "Thank you {$full_name}!";
+            ;
             
 			$today = date("Y-m-d");
-			$db->query("INSERT INTO log (id,'date',branch_id,log) VALUES (NULL, '$today', '$branch_id', 'Edited Bindings : $amount for $date by $full_name')");
+			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Edited Bindings : $amount for $date by $full_name')");
 
             header('Location:../daily_binding_edit.php');
         

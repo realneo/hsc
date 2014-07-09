@@ -9,7 +9,7 @@
 <?php include 'includes/top_nav.php';?>        
 <?php include 'includes/side_bar.php'; ?>
 
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php';?>
              
         
 
