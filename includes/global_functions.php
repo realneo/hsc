@@ -14,7 +14,7 @@
 		while($row = $results->fetch_assoc()){
 			$row['amount'];
 			$count += $row['amount']. "<br />";
-            var_dump($count);
+            //var_dump($count);
 		}
 		
 		return number_format($count);
