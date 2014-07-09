@@ -20,13 +20,13 @@
         $_SESSION['alert_msg'] = 'You have to insert your <strong>Binding Amount</strong>';
     
         header("Location: ../daily_binding_edit.php");
-        break;
+        die();
     }
     
     if($amount){
         
         // Insert the Total Sale in the Database
-        $insert_results = $db->query("UPDATE `binding` SET `amount` = '$amount' WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
+        $insert_results = $db->query("UPDATE binding SET amount = '$amount' WHERE 'date' = '$date' AND branch_id = '$branch_id'");
         
         if($insert_results){
             
@@ -34,18 +34,18 @@
             $_SESSION['alert_msg'] = "Thank you {$full_name}!";
             
 			$today = date("Y-m-d");
-			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Edited Bindings : $amount for $date by $full_name')");
+			$db->query("INSERT INTO log (id,'date',branch_id,log) VALUES (NULL, '$today', '$branch_id', 'Edited Bindings : $amount for $date by $full_name')");
 
             header('Location:../daily_binding_edit.php');
         
-            break;
+            die();
         }else{
             $_SESSION['alert_type'] = 'danger';
             $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
         
             header('Location:../daily_binding_edit.php');
         
-            break;
+            die();
         }
 
 

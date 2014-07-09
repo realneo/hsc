@@ -52,7 +52,7 @@
 						<tbody>
 							<?php
 								$branch_id = $_SESSION['branch_id'];
-								$results = $db -> query("SELECT * FROM `total_sale` WHERE `branch_id` = '$branch_id' ORDER BY `date` DESC LIMIT 5");
+								$results = $db -> query("SELECT * FROM total_sale WHERE branch_id = '$branch_id' ORDER BY 'date' DESC LIMIT 5");
 								while($row = $results->fetch_assoc()){
                         			$date = custom_date_format($row['date']);
 									$total_sale = number_format($row['total_sale']);
@@ -80,12 +80,12 @@
                     <table class="table table-striped  table-hover">
 						<tbody>
 							<?php
-								$results = $db -> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+								$results = $db -> query("SELECT * FROM log WHERE branch_id = '$branch_id' ORDER BY id DESC LIMIT 5");
 								$count = 0;	
 								while($row = $results->fetch_assoc()){
 									$count++;
                         			$log = $row['log'];
-									$log_date = $row['date'];
+									$log_date = custom_date_format($row['date']);
 									
                         			echo "<tr><td>{$count}</td><td><strong>{$log_date}</strong><br />{$log}</td></tr>";
                     			}

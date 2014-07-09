@@ -14,6 +14,7 @@
 		while($row = $results->fetch_assoc()){
 			$row['amount'];
 			$count += $row['amount']. "<br />";
+            var_dump($count);
 		}
 		
 		return number_format($count);
@@ -104,7 +105,7 @@
 	function get_today_binding(){
 		$today_date = $GLOBALS['today_date'];
 		$branch_id = $GLOBALS['branch_id'];
-		$results = $GLOBALS['db']->query("SELECT * FROM `binding` WHERE `date` = '$today_date' AND `branch_id` = '$branch_id'");
+		$results = $GLOBALS['db']->query("SELECT * FROM binding WHERE 'date' = '$today_date' AND branch_id = '$branch_id'");
 		
 		$total_amount = 0;
 		while($row = $results->fetch_assoc()){

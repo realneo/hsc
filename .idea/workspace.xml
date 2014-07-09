@@ -22,6 +22,9 @@
     <file path="/header.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404829956527" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/assets/js/taratib.js" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404830167121" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/application/views/site/DefaultContent.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404831913062" ignored="false" />
+    <file path="/global_functions.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404887299307" ignored="false" />
+    <file path="/daily_sales_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404888197064" ignored="false" />
+    <file path="/daily_binding_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404889201737" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,16 +65,56 @@
       <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="79" selection-start="2138" selection-end="2138" vertical-scroll-proportion="-3.3382354">
+            <state line="39" column="75" selection-start="1427" selection-end="1427" vertical-scroll-proportion="-1.3382353">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global_functions.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="daily_sales_edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/daily_sales_edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="89" column="113" selection-start="3346" selection-end="3346" vertical-scroll-proportion="-40.0">
+              <folding>
+                <marker date="1404888203856" expanded="true" signature="2257:2354" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="daily_binding_edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/daily_binding_edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="71" selection-start="1114" selection-end="1114" vertical-scroll-proportion="-14.730769">
+              <folding>
+                <marker date="1404888858278" expanded="true" signature="2250:2343" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="daily_sales_edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="daily_binding_edit.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global_functions.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="21" selection-start="267" selection-end="267" vertical-scroll-proportion="0.39711192">
+            <state line="107" column="56" selection-start="2624" selection-end="2624" vertical-scroll-proportion="-5.8095236">
               <folding />
             </state>
           </provider>
@@ -100,7 +143,11 @@
         <option value="$PROJECT_DIR$/select_branch.php" />
         <option value="$PROJECT_DIR$/includes/login_process.php" />
         <option value="$PROJECT_DIR$/home.php" />
+        <option value="$PROJECT_DIR$/includes/daily_sales_edit.php" />
+        <option value="$PROJECT_DIR$/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/includes/global_functions.php" />
+        <option value="$PROJECT_DIR$/daily_binding_edit.php" />
+        <option value="$PROJECT_DIR$/includes/daily_binding_edit.php" />
       </list>
     </option>
   </component>
@@ -300,20 +347,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/db_conn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="43" selection-start="78" selection-end="83" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/login_process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="12" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/select_branch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="32" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0">
@@ -392,14 +425,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="79" selection-start="2138" selection-end="2138" vertical-scroll-proportion="-3.3382354">
+        <state line="39" column="75" selection-start="1427" selection-end="1427" vertical-scroll-proportion="-1.3382353">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="267" selection-end="267" vertical-scroll-proportion="0.39711192">
+        <state line="107" column="56" selection-start="2624" selection-end="2624" vertical-scroll-proportion="-5.8095236">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daily_sales_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="113" selection-start="3346" selection-end="3346" vertical-scroll-proportion="-40.0">
+          <folding>
+            <marker date="1404888203856" expanded="true" signature="2257:2354" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daily_binding_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="71" selection-start="1114" selection-end="1114" vertical-scroll-proportion="-14.730769">
+          <folding>
+            <marker date="1404888858278" expanded="true" signature="2250:2343" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

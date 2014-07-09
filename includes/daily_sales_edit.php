@@ -3,7 +3,6 @@
     require 'db_conn.php';
     
     // Get information from the form
-    
     $date = $_GET['date'];
     $total_sale = $_GET['total_sale'];
     $branch_id = $_SESSION['branch_id'];
