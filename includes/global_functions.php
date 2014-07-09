@@ -115,4 +115,7 @@
 		}
 		return number_format($total_amount);
 	}
+    function make_me_bold($value){
+        return "<b>".$value."</b>";
+    }
 ?>

@@ -1,6 +1,7 @@
 <?php
     session_start();
     require 'db_conn.php';
+    require 'global_functions.php';
     // Get information from the form
     
     $date = $_GET['date'];
@@ -30,8 +31,14 @@
         if($insert_results){
             
             $_SESSION['alert_type'] = 'success';
-            $_SESSION['alert_msg'] = "Thank you {$full_name}!";
+
             ;
+            $check=$db->affected_rows;
+            if($check>=1){
+                $_SESSION['alert_msg'] = "Thank you".make_me_bold($full_name)."!";
+            }else{
+                $_SESSION['alert_msg'] = "Sorry ".make_me_bold($full_name).", we dont have a binding inserted for ".make_me_bold($date)." yet!";
+            }
             
 			$today = date("Y-m-d");
 			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Edited Bindings : $amount for $date by $full_name')");
