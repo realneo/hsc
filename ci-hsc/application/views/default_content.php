@@ -348,7 +348,8 @@
                     </div>
                 </div>
 
-                <?php include('total_binding.php');?>
+
+                <?php $this->load->view('includes/total_binding');?>
 
                 <!-- DISPLAY TODAY TOTAL EXPENSES -------------------------------------------------------------------->
 
