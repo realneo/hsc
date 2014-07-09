@@ -89,8 +89,7 @@
 	function get_today_sales(){
 		$today_date = $GLOBALS['today_date'];
 		$branch_id = $GLOBALS['branch_id'];
-		$results = $GLOBALS['db']->query("SELECT * FROM total_sale WHERE 'date' = '$today_date' AND branch_id = '$branch_id'");
-		
+		$results = $GLOBALS['db']->query("SELECT * FROM total_sale WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
 		$total_amount = 0;
 		while($row = $results->fetch_assoc()){
 			$amount = $row['total_sale'];
