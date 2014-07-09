@@ -16,7 +16,13 @@ function app_version(){
     return 1.1;
 }
 
+function custom_date_format($date){
 
+    $format_date = strtotime( $date );
+    $date = date( 'D - jS M o', $format_date );
+
+    return $date;
+}
 
 
 /*

@@ -338,7 +338,43 @@
             </div>
 
             <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class='col-lg-3'>
+                    <div class='well well-sm'>
+                        <p>Total Sales For Today <p>
+                        <h3><span class='small'>Tshs</span> <?php echo $today_sales; ?> <a class='btn' href='daily_sales_edit.php?date=<?php echo date("Y-m-d"); ?>'>Edit</a></h3>
+                    </div>
+                </div>
+
+                <?php include('total_binding.php');?>
+
+                <!-- DISPLAY TODAY TOTAL EXPENSES -------------------------------------------------------------------->
+
+                <div class='col-lg-3'>
+                    <div class='well well-sm'>
+                        <p>Total Expenses For Today<p>
+                        <h3><span class='small'>Tshs</span> <?php echo $today_expenses; ?></h3>
+                    </div>
+                </div>
+
+                <!-- TOTAL MANUAL INVOICES -------------------------------------------------------------------------->
+
+                <div class="col-lg-3">
+                    <div class="well well-sm">
+                        <p>Total Manual Invoices<p>
+                        <h3><span class='small'>Tshs</span> <?php echo $manual_invoice;?></h3>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
         </div>
+<!--            content-->
+        </div>
+
         <!-- /#page-wrapper -->
 
 

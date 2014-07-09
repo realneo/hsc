@@ -17,6 +17,8 @@ class Hsc extends CI_Controller {
         $this->session->set_userdata("branch_id",7);
 
 		$data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
+		$data['today_sales']=$this->usuals->get_today_sales();
+		$data['today_expenses']=$this->usuals->get_today_expenses();
 
         $this->load->view('includes/header',$data);
 

@@ -18,27 +18,19 @@ class Usuals extends CI_Model{
 // Get the Total Amount of Manual Invoices
     function getTotalManualInvoices($entered){
         $branch_id =$this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM manual_invoices WHERE entered = '$entered' AND branch_id = '$branch_id'");
+        $results = $this->db->query("SELECT * FROM manual_invoices WHERE `entered` = '$entered' AND `branch_id` = '$branch_id'");
 
         $count = 0;
-        while($row = $results->result_array()){
+        foreach($results->result_array() as $row){
+
             $row['amount'];
-            $count += $row['amount']. "<br />";
+            $count += $row['amount'];
             //var_dump($count);
         }
 
         return number_format($count);
     }
 
-// Date Format: Example Fri - 4th June 2014
-
-    function custom_date_format($date){
-
-        $format_date = strtotime( $date );
-        $date = date( 'D - jS M o', $format_date );
-
-        return $date;
-    }
 
 // Log Writing Function
 
@@ -79,13 +71,13 @@ class Usuals extends CI_Model{
 // Getting Total Expenses of TODAY
 
     function get_today_expenses(){
-        $today_date = $GLOBALS['today_date'];
-        $branch_id = $GLOBALS['branch_id'];
+        $today_date = $this->session->userdata('today_date');
+        $branch_id = $this->session->userdata('branch_id');
 
-        $results = $GLOBALS['db']->query("SELECT * FROM expenses WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
+        $results = $this->db->query("SELECT * FROM expenses WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
 
         $total_amount = 0;
-        while($row = $results->fetch_assoc()){
+        foreach($results->result_array() as $row){
             $amount = $row['amount'];
 
             $total_amount += $amount;
@@ -96,11 +88,11 @@ class Usuals extends CI_Model{
 // Getting Total Daily Sales of TODAY
 
     function get_today_sales(){
-        $today_date = $GLOBALS['today_date'];
-        $branch_id = $GLOBALS['branch_id'];
-        $results = $GLOBALS['db']->query("SELECT * FROM total_sale WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
+        $today_date = $this->session->userdata('today_date');
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT * FROM total_sale WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
         $total_amount = 0;
-        while($row = $results->fetch_assoc()){
+        foreach($results->result_array() as $row){
             $amount = $row['total_sale'];
 
             $total_amount += $amount;
@@ -111,12 +103,12 @@ class Usuals extends CI_Model{
 // Getting Total Daily Binding of TODAY
 
     function get_today_binding(){
-        $today_date = $GLOBALS['today_date'];
-        $branch_id = $GLOBALS['branch_id'];
-        $results = $GLOBALS['db']->query("SELECT * FROM binding WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
+        $today_date = $this->session->userdata('today_date');
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT * FROM binding WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
 
         $total_amount = 0;
-        while($row = $results->fetch_assoc()){
+        foreach($results->result_array() as $row){
             $amount = $row['amount'];
 
             $total_amount += $amount;
