@@ -12,7 +12,7 @@
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/application/views/site/static/ferry.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404830294238" ignored="false" />
     <file path="/ferry.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404830290728" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/application/helpers/site_helper.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404828631823" ignored="false" />
-    <file path="/site_helper.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404828620147" ignored="false" />
+    <file path="/site_helper.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404903014409" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/assets/css/style.css" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404829792934" ignored="false" />
     <file path="/style.css" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404829359421" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/application/views/includes/footer.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404830142370" ignored="false" />
@@ -27,7 +27,8 @@
     <file path="/daily_binding_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404893529231" ignored="false" />
     <file path="/daily_sales.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404896234880" ignored="false" />
     <file path="/dummy.xml" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404896234880" ignored="false" />
-    <file path="/default_content.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404901330357" ignored="false" />
+    <file path="/default_content.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404902824682" ignored="false" />
+    <file path="/usuals.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404903216635" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,58 +48,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="hsc.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="5" selection-start="139" selection-end="139" vertical-scroll-proportion="-6.230769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="24" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.5749705">
-              <folding>
-                <marker date="1404902015356" expanded="true" signature="1143:1316" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/footer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autoload.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ci-hsc/application/config/autoload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="40" selection-start="1670" selection-end="1670" vertical-scroll-proportion="-14.269231">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ci-hsc/application/config/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="226" column="39" selection-start="7550" selection-end="7550" vertical-scroll-proportion="-23.653847">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="default_content.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.0">
+            <state line="45" column="63" selection-start="2467" selection-end="2467" vertical-scroll-proportion="-32.576923">
               <folding>
+                <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
@@ -108,19 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.php">
+      <file leaf-file-name="global_functions.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="-22.846153">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="top_header.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/top_header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="71" selection-start="444" selection-end="511" vertical-scroll-proportion="-11.769231">
+            <state line="122" column="5" selection-start="35" selection-end="2989" vertical-scroll-proportion="-31.26923">
               <folding />
             </state>
           </provider>
@@ -129,7 +75,16 @@
       <file leaf-file-name="site_helper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="19" selection-start="51" selection-end="67" vertical-scroll-proportion="-3.8461537">
+            <state line="21" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="-19.423077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usuals.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="1" selection-start="3264" selection-end="3264" vertical-scroll-proportion="0.75206614">
               <folding />
             </state>
           </provider>
@@ -153,7 +108,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/includes/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/includes/global_functions.php" />
         <option value="$PROJECT_DIR$/recent.php" />
         <option value="$PROJECT_DIR$/daily_binding_edit.php" />
@@ -161,14 +115,15 @@
         <option value="$PROJECT_DIR$/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/daily_sales.php" />
         <option value="$PROJECT_DIR$/includes/side_bar.php" />
-        <option value="$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php" />
         <option value="$PROJECT_DIR$/includes/daily_binding_edit.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/config/config.php" />
-        <option value="$PROJECT_DIR$/ci-hsc/application/views/default_content.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/footer.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/header.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/views/default_content.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/models/usuals.php" />
       </list>
     </option>
   </component>
@@ -317,6 +272,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ci-hsc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -496,20 +473,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/daily_binding_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="34" selection-start="2545" selection-end="2545" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/daily_sales_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="6" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="0" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.0">
@@ -556,28 +519,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="-22.846153">
+        <state line="22" column="0" selection-start="667" selection-end="667" vertical-scroll-proportion="0.7419355">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="40" selection-start="1670" selection-end="1670" vertical-scroll-proportion="-14.269231">
+        <state line="54" column="40" selection-start="1670" selection-end="1670" vertical-scroll-proportion="0.43801653">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="226" column="39" selection-start="7550" selection-end="7550" vertical-scroll-proportion="-23.653847">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="19" selection-start="51" selection-end="67" vertical-scroll-proportion="-3.8461537">
+        <state line="226" column="39" selection-start="7550" selection-end="7550" vertical-scroll-proportion="0.73652697">
           <folding />
         </state>
       </provider>
@@ -591,15 +547,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/top_header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="71" selection-start="444" selection-end="511" vertical-scroll-proportion="-11.769231">
+        <state line="18" column="71" selection-start="444" selection-end="511" vertical-scroll-proportion="0.36127508">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="12" selection-start="903" selection-end="903" vertical-scroll-proportion="0.47601917">
+          <folding>
+            <marker date="1404902015356" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0">
+        <state line="45" column="63" selection-start="2467" selection-end="2467" vertical-scroll-proportion="-32.576923">
           <folding>
+            <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
@@ -608,12 +574,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/header.php">
+    <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="24" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.5749705">
-          <folding>
-            <marker date="1404902015356" expanded="true" signature="1143:1316" placeholder="..." />
-          </folding>
+        <state line="122" column="5" selection-start="35" selection-end="2989" vertical-scroll-proportion="-31.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="-19.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="1" selection-start="3264" selection-end="3264" vertical-scroll-proportion="0.75206614">
+          <folding />
         </state>
       </provider>
     </entry>

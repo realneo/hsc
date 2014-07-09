@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><?php echo weka_minus("hom sho cen")?></a>
+                <a class="navbar-brand" href="<?php echo  base_url();?>"><?php echo app_title()." ".app_version();?></a>
             </div>
             <!-- /.navbar-header -->
 
