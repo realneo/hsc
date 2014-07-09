@@ -35,13 +35,16 @@
             ;
             $check=$db->affected_rows;
             if($check>=1){
-                $_SESSION['alert_msg'] = "Thank you".make_me_bold($full_name)."!";
+                $_SESSION['alert_msg'] = "Thank you ".make_me_bold($full_name)."!";
+                $msg="Edited Bindings : $amount for $date by $full_name";
             }else{
+                $_SESSION['alert_type'] = 'warning';
                 $_SESSION['alert_msg'] = "Sorry ".make_me_bold($full_name).", we dont have a binding inserted for ".make_me_bold($date)." yet!";
+                $msg="Failed to Edit Bindings : $amount for $date by $full_name,it was not available";
             }
             
 			$today = date("Y-m-d");
-			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Edited Bindings : $amount for $date by $full_name')");
+			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', '$msg')");
 
             header('Location:../daily_binding_edit.php');
         

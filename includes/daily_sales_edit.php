@@ -1,7 +1,8 @@
 <?php
     session_start();
     require 'db_conn.php';
-    
+    require 'global_functions.php';
+
     // Get information from the form
     $date = $_GET['date'];
     $total_sale = $_GET['total_sale'];
@@ -30,21 +31,28 @@
         if($insert_results){
             
             $_SESSION['alert_type'] = 'success';
-            $_SESSION['alert_msg'] = "Thank you {$full_name}!";
-            
-			$today = date("Y-m-d");
-			$db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', 'Edited Daily Sale : $total_sale for $date by $full_name')");
+            $check=$db->affected_rows;
+            $today = date("Y-m-d");
+            if($check>=1){
+                $_SESSION['alert_msg'] = "Thank you ".make_me_bold($full_name)."!";
+                $msg="Edited Daily Sale : $total_sale for $date by $full_name";
+            }else{
+                $_SESSION['alert_msg'] = "Sorry ".make_me_bold($full_name).", we dont have total sales inserted for ".make_me_bold($date)." yet!";
+                $msg="Failed to edit Daily Sale : $total_sale for $date by $full_name,it was not available";
+                $_SESSION['alert_type'] = 'warning';
+            }
+            $db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', '$msg')");
 
             header('Location:../daily_sales_edit.php');
         
-            break;
+            die();
         }else{
             $_SESSION['alert_type'] = 'danger';
             $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
         
             header('Location:../daily_sales_edit.php');
         
-            break;
+            die();
         }
 
 
@@ -54,6 +62,6 @@
         
         header('Location:../daily_sales_edit.php');
         
-        break;
+        die();
     }
 ?>

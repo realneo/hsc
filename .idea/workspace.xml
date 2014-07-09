@@ -23,8 +23,8 @@
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/assets/js/taratib.js" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404830167121" ignored="false" />
     <file path="$PROJECT_DIR$/../../../tabasamzanzibar/application/views/site/DefaultContent.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404831913062" ignored="false" />
     <file path="/global_functions.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404891581269" ignored="false" />
-    <file path="/daily_sales_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404888197064" ignored="false" />
-    <file path="/daily_binding_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404891728917" ignored="false" />
+    <file path="/daily_sales_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404892427865" ignored="false" />
+    <file path="/daily_binding_edit.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404892535552" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,19 +93,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="daily_sales_edit.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="daily_sales_edit.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="31" selection-start="154" selection-end="154" vertical-scroll-proportion="-3.9230769">
+            <state line="41" column="52" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.49114522">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="daily_binding_edit.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="daily_binding_edit.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="97" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.32258064">
+            <state line="40" column="52" selection-start="1243" selection-end="1280" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
@@ -143,11 +143,11 @@
         <option value="$PROJECT_DIR$/select_branch.php" />
         <option value="$PROJECT_DIR$/includes/login_process.php" />
         <option value="$PROJECT_DIR$/home.php" />
-        <option value="$PROJECT_DIR$/includes/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/daily_sales_edit.php" />
         <option value="$PROJECT_DIR$/daily_binding_edit.php" />
         <option value="$PROJECT_DIR$/includes/global_functions.php" />
         <option value="$PROJECT_DIR$/includes/daily_binding_edit.php" />
+        <option value="$PROJECT_DIR$/includes/daily_sales_edit.php" />
       </list>
     </option>
   </component>
@@ -448,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="31" selection-start="154" selection-end="154" vertical-scroll-proportion="-3.9230769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/global_functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="118" column="34" selection-start="2935" selection-end="2935" vertical-scroll-proportion="-11.928572">
@@ -464,7 +457,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="97" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.32258064">
+        <state line="40" column="52" selection-start="1243" selection-end="1280" vertical-scroll-proportion="-7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="52" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.49114522">
           <folding />
         </state>
       </provider>
