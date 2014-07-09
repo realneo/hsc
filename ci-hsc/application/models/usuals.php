@@ -47,6 +47,17 @@ class Usuals extends CI_Model{
         $this->db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, '$today_date', '$user_id', '$branch_id', '$log')");
     }
 
+    /*
+     * Gets recent activities
+     */
+    function get_recent_activities(){
+        $branch_id=$this->session->userdata('branch_id');
+        $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+
+        return $results->result_array();
+
+    }
+
 // Check Authorization Type Of the User
     /*
         Authorization Type ($auth_type)

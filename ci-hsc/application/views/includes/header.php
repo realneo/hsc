@@ -16,6 +16,7 @@
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="<?php echo base_url('assets');?>/css/sb-admin.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets');?>/css/kostom.css" rel="stylesheet">
 
 </head>
 
