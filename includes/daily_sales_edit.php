@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'db_conn.php';
-    require 'global_functions.php';
+    require 'global_functions.php';//we need make_me_bold its in there
 
     // Get information from the form
     $date = $_GET['date'];
@@ -20,7 +20,7 @@
         $_SESSION['alert_msg'] = 'You have to insert your <strong>Total Sale</strong>';
     
         header("Location: ../daily_sales_edit.php");
-        break;
+        die();
     }
     
     if($total_sale){
@@ -64,4 +64,3 @@
         
         die();
     }
-?>
