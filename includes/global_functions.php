@@ -73,7 +73,7 @@
 		$today_date = $GLOBALS['today_date'];
 		$branch_id = $GLOBALS['branch_id'];
 		
-		$results = $GLOBALS['db']->query("SELECT * FROM expenses WHERE 'date' = '$today_date' AND branch_id = '$branch_id'");
+		$results = $GLOBALS['db']->query("SELECT * FROM expenses WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
 		
 		$total_amount = 0;
 		while($row = $results->fetch_assoc()){
@@ -104,7 +104,7 @@
 	function get_today_binding(){
 		$today_date = $GLOBALS['today_date'];
 		$branch_id = $GLOBALS['branch_id'];
-		$results = $GLOBALS['db']->query("SELECT * FROM binding WHERE 'date' = '$today_date' AND branch_id = '$branch_id'");
+		$results = $GLOBALS['db']->query("SELECT * FROM binding WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
 		
 		$total_amount = 0;
 		while($row = $results->fetch_assoc()){
@@ -114,7 +114,10 @@
 		}
 		return number_format($total_amount);
 	}
+
+    /*
+     * Makes text bold, usefull
+     */
     function make_me_bold($value){
         return "<b>".$value."</b>";
     }
-?>
