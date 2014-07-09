@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Start Bootstrap - SB Admin Version 2.0 Demo</title>
-
-    <!-- Core CSS - Include with every page -->
-    <link href="<?php echo base_url('assets');?>/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url('assets');?>/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Page-Level Plugin CSS - Blank -->
-
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="<?php echo base_url('assets');?>/css/sb-admin.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -31,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html"><?php echo weka_minus("hom sho cen")?></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -362,21 +337,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="<?php echo base_url('assets');?>/js/jquery-1.10.2.js"></script>
-    <script src="<?php echo base_url('assets');?>/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url('assets');?>/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-
-    <!-- Page-Level Plugin Scripts - Blank -->
-
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="<?php echo base_url('assets');?>/js/sb-admin.js"></script>
-
-    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
-
-</body>
-
-</html>
