@@ -6,14 +6,22 @@
  * Time: 1:51 PM
  */
 class Usuals extends CI_Model{
+   function __construct(){
+       // Use these baadaye Default Variables
+       /*
+        *   $today_date = date("Y-m-d");
+            $branch_id = $this->session->userdata('branch_id');
+        */
+
+   }
 
 // Get the Total Amount of Manual Invoices
     function getTotalManualInvoices($entered){
-        $branch_id = $GLOBALS['branch_id'];
+        $branch_id =$this->session->userdata('branch_id');
         $results = $this->db->query("SELECT * FROM manual_invoices WHERE entered = '$entered' AND branch_id = '$branch_id'");
 
         $count = 0;
-        while($row = $results->fetch_assoc()){
+        while($row = $results->result_array()){
             $row['amount'];
             $count += $row['amount']. "<br />";
             //var_dump($count);
