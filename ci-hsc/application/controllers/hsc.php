@@ -7,6 +7,13 @@ class Hsc extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('usuals');
+        /*
+         * Set the Defaults
+         */
+
+        $this->session->set_userdata("branch_id",1);
+        $name=$this->usuals->get_branch_name($this->session->userdata('branch_id'));
+        $this->session->set_userdata("branch_name",$name);
 
     }
 
@@ -14,13 +21,15 @@ class Hsc extends CI_Controller {
 
 	public function index()
 	{
-        $this->session->set_userdata("branch_id",7);
 
-		$data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
+
+        $data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
 		$data['today_sales']=$this->usuals->get_today_sales();
 		$data['today_expenses']=$this->usuals->get_today_expenses();
+		$data['today_binding']=$this->usuals->get_today_binding();
 
         $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
 
 		$this->load->view('default_content');
 		$this->load->view('includes/footer');
