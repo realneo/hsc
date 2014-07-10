@@ -10,7 +10,12 @@
 
     // Getting the informtion from the form
 
-    $branch_id = $_POST['branch_id'];
+	if(isset($_POST['branch_id'])){
+		$branch_id = $_POST['branch_id'];
+	}else if(isset($_GET['id'])){
+		$branch_id = $_GET['id'];
+	}
+    
 
     // Check if branch is selected
 
@@ -18,7 +23,12 @@
         $_SESSION['alert_type'] = 'warning';
         $_SESSION['alert_msg'] = 'You have to select a branch before proceeding';
         
-        header('Location: ../select_branch.php');
+		if(isset($_POST['branch_id'])){
+			header('Location: ../select_branch.php');
+		}else if(isset($_GET['id'])){
+			header('Location: ../cash_collection_report.php');
+		}
+        
         
         die();//break;
     }
@@ -36,5 +46,9 @@
 	$_SESSION['branch_id'] = $branch_id;
 	$_SESSION['branch_name'] = $branch_name;
 	
-	header('Location: ../home.php');
+	if(isset($_POST['branch_id'])){
+		header('Location: ../select_branch.php');
+	}else if(isset($_GET['id'])){
+		header('Location: ../cash_collection_report.php');
+	}
 ?>

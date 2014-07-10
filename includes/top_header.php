@@ -6,7 +6,12 @@
 	$alert_type = $_SESSION['alert_type'];
     $alert_msg = $_SESSION['alert_msg'];
 	$branch_id = $_SESSION['branch_id'];
-	$branch_name = $_SESSION['branch_name'];
+	if(isset($_SESSION['branch_name'])){
+		$branch_name = $_SESSION['branch_name'];
+	}else{
+		$branch_name = '';
+	}
+	
 ?>
 <!DOCTYPE html>
 <html>

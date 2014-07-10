@@ -13,10 +13,10 @@
              
 <?php
 	// Getting Date
-	if($_GET['date'] == 0){
-		$date = date("Y-m-d");
-	}else{
+	if(isset($_GET['date'])){
 		$date = $_GET['date'];
+	}else{
+		$date = date("Y-m-d");
 	}
 
 	// Hide Binding if not Uhuru Branch
@@ -33,9 +33,8 @@
     <!-- PAGE HEADING ------------------------------------------------------------------------------------>
     
     <div class="col-lg-12">
-        <h4 class="page-header"><?php echo $_SESSION['branch_name']; ?> Cash Collection Report</h4>
+        <h4 class="page-header"><?php echo $branch_name; ?> Cash Collection Report</h4>
     </div>
-
  	<!-- SELECT REPORT DATE -------------------------------------------------------------------------------->
 	<div class="col-lg-2 no-print">
 		<form action='' method='get'>
@@ -47,13 +46,27 @@
 		    </div>
 		</form>
 	</div>
-	
+	<!-- BRANCH SELECTION ---------------------------------------------------------------------------------->
+	<?php if($auth_type == 2) {?>
+	<div class='col-lg-9 no-print'>
+		<div class="btn-group">
+			<?php
+				$q = $db->query("SELECT * FROM `branch` ORDER BY `name` ASC");
+				while($r = $q->fetch_assoc()){
+					$b_id = $r['id'];
+					$b_name = $r['name'];
+			?>
+		  <a href='includes/select_branch_process.php?id=<?php echo $b_id; ?>/>' class="btn btn-default"><?php echo $b_name; ?></a>
+		<?php } ?>
+		</div>
+	</div>
+	<?php } ?>
 	<!-- DISPLAY CASH COLLECTION REPORT -------------------------------------------------------------------->
 	
 	<div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading"> 
-				HSC - <?php echo $_SESSION['branch_name']; ?> Branch
+				HSC - <?php echo $branch_name; ?> Branch
 			</div>
             <div class="panel-body">
 				<p><span class='small'>Report For :</span> <?php echo custom_date_format($date); ?> </p>
