@@ -17,7 +17,7 @@
             <li><a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
-            <li>
+            <li> <!-- The Active class -->
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
 
