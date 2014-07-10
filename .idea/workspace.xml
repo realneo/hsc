@@ -32,9 +32,9 @@
     <file path="/hsc.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404977140309" ignored="false" />
     <file path="/total_binding.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404907268070" ignored="false" />
     <file path="/side_bar.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404913018089" ignored="false" />
-    <file path="/top_nav.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404983531797" ignored="false" />
+    <file path="/top_nav.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404984219119" ignored="false" />
     <file path="/custom.css" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404910631523" ignored="false" />
-    <file path="/kostom.css" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404983541137" ignored="false" />
+    <file path="/kostom.css" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404984188701" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default_content.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="default_content.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-0.114285715">
+            <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-12.363636">
               <folding />
             </state>
           </provider>
@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="top_nav.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="top_nav.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="25" selection-start="1845" selection-end="1845" vertical-scroll-proportion="-1.2692307">
+            <state line="22" column="43" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.58162034">
               <folding />
             </state>
           </provider>
@@ -138,7 +138,7 @@
       <file leaf-file-name="kostom.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/assets/css/kostom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="18" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
+            <state line="24" column="16" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -176,8 +176,8 @@
         <option value="$PROJECT_DIR$/ci-hsc/application/models/usuals.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php" />
         <option value="$PROJECT_DIR$/includes/db_conn.php" />
-        <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php" />
         <option value="$PROJECT_DIR$/ci-hsc/assets/css/kostom.css" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php" />
       </list>
     </option>
   </component>
@@ -436,23 +436,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="25" selection-start="1845" selection-end="1845" vertical-scroll-proportion="-1.2692307">
+        <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-12.363636">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/assets/css/kostom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="18" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
+        <state line="24" column="16" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-0.114285715">
+        <state line="22" column="43" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.58162034">
           <folding />
         </state>
       </provider>
