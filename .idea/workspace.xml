@@ -63,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default_content.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="default_content.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-15.692307">
+            <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-0.114285715">
               <folding />
             </state>
           </provider>
@@ -135,10 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kostom.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="kostom.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/assets/css/kostom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="20" selection-start="253" selection-end="253" vertical-scroll-proportion="0.63917524">
+            <state line="19" column="18" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -436,13 +436,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-15.692307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="25" selection-start="1845" selection-end="1845" vertical-scroll-proportion="-1.2692307">
@@ -452,7 +445,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/assets/css/kostom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="20" selection-start="253" selection-end="253" vertical-scroll-proportion="0.63917524">
+        <state line="19" column="18" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="161" selection-start="785" selection-end="785" vertical-scroll-proportion="-0.114285715">
           <folding />
         </state>
       </provider>
