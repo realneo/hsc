@@ -17,15 +17,15 @@
             <li><a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
-            <li>
+            <li class="active">
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
 
                     <!-- DAILY SALES -->
-                    <li >
-                        <a href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-import"></span> Daily Sales <span class="fa arrow"></span></a>
+                    <li class="active">
+                        <a  href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-import"></span> Daily Sales <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li ><a href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-plus"></span> Add Daily Sales</a></li>
+                            <li><a href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-plus"></span> Add Daily Sales</a></li>
                             <!--          <li><a href="view_sales.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Sales</a></li> -->
                         </ul>
                     </li>
