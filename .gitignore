@@ -8,3 +8,6 @@ includes/db_conn.php
 .idea/workspace.xml
 *.xml
 .idea/workspace.xml
+ci-hsc/application/config/database.php
+
+ci-hsc/application/config/database.php
