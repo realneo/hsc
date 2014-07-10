@@ -8,3 +8,4 @@ ci-hsc/application/config/database.php
 =======
 includes/db_conn.php
 >>>>>>> FETCH_HEAD
+*.xml
