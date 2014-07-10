@@ -9,3 +9,12 @@
     background-color: #d7dfe5;
     margin: 1px;
 }
+
+#not_up{
+    padding: 32px;
+    opacity: 0.1;
+}
+#not_inner{
+    position: absolute;
+    margin-top: 47%;
+}

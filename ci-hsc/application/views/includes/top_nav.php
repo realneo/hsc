@@ -46,10 +46,15 @@
     <ul class="dropdown-menu dropdown-alerts" id="noti">
        <?php
 
-        if(empty($logs)){echo "bila";}
+        if(empty($logs)){?>
+            <span id="not_inner">You dont have any notifications for <?php echo make_me_bold($this->session->userdata("branch_name"));?></span>
+            <div id="not_up">
 
+                <img class="img-responsive" src="<?php echo base_url('assets/img/hsc-circle.png');?>" alt=""/>
+            </div>
+        <?php }
 
-        ;foreach($logs as $log){?>
+        foreach($logs as $log){?>
         <li>
             <a href="#">
                 <div>
