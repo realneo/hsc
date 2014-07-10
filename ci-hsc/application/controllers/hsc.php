@@ -29,6 +29,15 @@ class Hsc extends CI_Controller {
         $this->session->set_userdata("branch_name",$name);
 
 
+        /*
+         * global DATAs here
+         */
+        $this->data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
+        $this->data['today_sales']=$this->usuals->get_today_sales();
+        $this->data['today_expenses']=$this->usuals->get_today_expenses();
+        $this->data['today_binding']=$this->usuals->get_today_binding();
+        $this->data['logs']=$this->usuals->get_recent_activities();
+        $this->data['branches']=$this->usuals->get_branches();
 
 
 
@@ -39,14 +48,13 @@ class Hsc extends CI_Controller {
 	public function index()
 	{
 
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['specific']="";
 
-        $data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
-		$data['today_sales']=$this->usuals->get_today_sales();
-		$data['today_expenses']=$this->usuals->get_today_expenses();
-		$data['today_binding']=$this->usuals->get_today_binding();
-		$data['logs']=$this->usuals->get_recent_activities();
-		$data['branches']=$this->usuals->get_branches();
-
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
@@ -58,6 +66,23 @@ class Hsc extends CI_Controller {
         $this->session->set_userdata("branch_id",$id);
         redirect(base_url());
 
+    }
+    public function daily_sales()
+    {
+
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['specific']="";
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+
+        $this->load->view('default_content');
+        $this->load->view('includes/footer');
     }
 }
 

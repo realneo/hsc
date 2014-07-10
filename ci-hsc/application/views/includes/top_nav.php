@@ -20,7 +20,7 @@
         <li>
             <a href="<?php echo base_url('hsc/change_branch').'/'.$branch['id'];?>">
                 <div>
-                    <p class="reset-fahad"><?php echo $branch['name']." Branch"?></p>
+                    <p class="reset-fahad"> <?php echo $branch['name']." Branch"?></p>
                 </div>
             </a>
         </li>
@@ -29,7 +29,7 @@
         <li>
             <a class="text-center" href="#">
                 <strong>Stay at <?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ?></strong>
-                <i class="fa fa-angle-right"></i>
+                <i class="fa fa-angle-double-right"></i>
             </a>
         </li>
 </li>
@@ -71,7 +71,7 @@
                 <?php if(!empty($logs)){?>
                 <strong>See All Notifications for <?php echo $this->session->userdata("branch_name");?></strong>
                 <?php }else {?>
-                    <strong>Alerts for <?php echo $this->session->userdata("branch_name");?> are not available</strong>
+                    <strong>Notifications for <?php echo $this->session->userdata("branch_name");?> are not available</strong>
                 <?php }?>
                 <i class="fa fa-angle-right"></i>
             </a>
