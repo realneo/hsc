@@ -8,3 +8,4 @@ includes/db_conn.php
 .idea/workspace.xml
 *.xml
 .idea/workspace.xml
+includes/db_conn.php
