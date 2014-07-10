@@ -1,3 +1,11 @@
 #noti{
     width: 357px;
 }
+
+.divider-ci{
+    height: 0px;
+    overflow: hidden;
+    padding: 0px;
+    background-color: #d7dfe5;
+    margin: 1px;
+}

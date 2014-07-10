@@ -24,7 +24,7 @@
                 </div>
             </a>
         </li>
-        <li class="divider"></li>
+        <hr class="divider-ci"/></>
         <?php } ?>
         <li>
             <a class="text-center" href="#">
