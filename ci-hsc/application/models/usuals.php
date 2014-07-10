@@ -23,6 +23,16 @@ class Usuals extends CI_Model{
         return $results[0]['name'];
 
     }
+
+    /*
+     * Gets all the branches
+     */
+    function get_branches(){
+        $query="SELECT name,id from branch";
+        $results=$this->db->query($query);
+        return $results->result_array();
+
+    }
 // Get the Total Amount of Manual Invoices
     function getTotalManualInvoices($entered){
         $branch_id =$this->session->userdata('branch_id');

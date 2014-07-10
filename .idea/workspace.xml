@@ -4,7 +4,7 @@
     <list default="true" id="4ccfd335-a8f0-43e3-8019-7660177a9a2b" name="Default" comment="" />
     <ignored path="hsc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404898919756" ignored="false" />
+    <file path="/Dummy.txt" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404974217658" ignored="false" />
     <file path="/select_branch_process.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404823909951" ignored="false" />
     <file path="/select_branch.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404824116874" ignored="false" />
     <file path="/home.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404906385920" ignored="false" />
@@ -28,7 +28,7 @@
     <file path="/daily_sales.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404896234880" ignored="false" />
     <file path="/dummy.xml" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404906069110" ignored="false" />
     <file path="/default_content.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404908286654" ignored="false" />
-    <file path="/usuals.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404910315063" ignored="false" />
+    <file path="/usuals.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404975213583" ignored="false" />
     <file path="/hsc.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404909929539" ignored="false" />
     <file path="/total_binding.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404907268070" ignored="false" />
     <file path="/side_bar.php" changelist="4ccfd335-a8f0-43e3-8019-7660177a9a2b" time="1404913018089" ignored="false" />
@@ -53,11 +53,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="usuals.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="usuals.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="5" selection-start="1340" selection-end="1340" vertical-scroll-proportion="1.7625899">
+            <state line="24" column="5" selection-start="548" selection-end="548" vertical-scroll-proportion="-18.692308">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default_content.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="daily_sales.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/daily_sales.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="2.8846154">
+              <folding>
+                <marker date="1404898286837" expanded="true" signature="364:4658" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="510:610" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="736:2267" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="761:1094" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="793:1086" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="800:1080" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="849:1080" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="913:918" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="1272:2256" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="1314:2247" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="1411:2232" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="1501:2213" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="1572:1783" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="1838:2023" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2069:2189" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2299:4649" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2471:3454" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2514:3445" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2606:3429" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2698:3409" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="2754:2967" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3023:3211" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3258:3384" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3601:4607" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3643:4596" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3743:4581" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3778:4562" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3847:4539" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3861:3924" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="3938:4510" placeholder="..." />
+                <marker date="1404898286837" expanded="true" signature="4343:4440" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,8 +115,11 @@
       <file leaf-file-name="top_nav.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="12" selection-start="6649" selection-end="6650" vertical-scroll-proportion="-72.0339">
-              <folding />
+            <state line="62" column="5" selection-start="2507" selection-end="2507" vertical-scroll-proportion="-15.0">
+              <folding>
+                <element signature="tag#li#0;tag#ul#0;tag#nav#0" expanded="false" />
+                <element signature="tag#li#1;tag#ul#0;tag#nav#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +127,7 @@
       <file leaf-file-name="site_helper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="-11.785714">
+            <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,7 +136,7 @@
       <file leaf-file-name="side_bar.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="47" selection-start="815" selection-end="815" vertical-scroll-proportion="-7.6666665">
+            <state line="16" column="47" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -92,7 +145,7 @@
       <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="30" selection-end="30" vertical-scroll-proportion="-0.0">
+            <state line="3" column="6" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,13 +187,13 @@
         <option value="$PROJECT_DIR$/ci-hsc/application/views/default_content.php" />
         <option value="$PROJECT_DIR$/includes/side_bar.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php" />
-        <option value="$PROJECT_DIR$/ci-hsc/application/models/usuals.php" />
         <option value="$PROJECT_DIR$/ci-hsc/assets/css/custom.css" />
         <option value="$PROJECT_DIR$/ci-hsc/assets/css/kostom.css" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/header.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php" />
         <option value="$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php" />
+        <option value="$PROJECT_DIR$/ci-hsc/application/models/usuals.php" />
       </list>
     </option>
   </component>
@@ -177,9 +230,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="All" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -208,61 +258,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,98 +325,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ci-hsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="All" />
       </pane>
     </panes>
   </component>
@@ -429,8 +340,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="vcs.Git" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -470,13 +381,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28068304" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28388473" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -554,82 +465,42 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/total_binding.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="529" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="529" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="10" selection-start="640" selection-end="640" vertical-scroll-proportion="0.53075993">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
+        <state line="19" column="10" selection-start="640" selection-end="640" vertical-scroll-proportion="0.53075993" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/side_bar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="73" selection-start="677" selection-end="677" vertical-scroll-proportion="0.50359714">
-          <folding>
-            <marker date="1404909257541" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1404909257541" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1404909257541" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1404909257541" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1404909257541" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="14" column="73" selection-start="677" selection-end="677" vertical-scroll-proportion="0.50359714" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/top_nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="57" selection-start="1226" selection-end="1226" vertical-scroll-proportion="-13.076923">
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+        <state line="20" column="57" selection-start="1226" selection-end="1226" vertical-scroll-proportion="-13.076923" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/controllers/hsc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="60" selection-start="927" selection-end="950" vertical-scroll-proportion="-13.5">
-          <folding />
-        </state>
+        <state line="30" column="60" selection-start="927" selection-end="950" vertical-scroll-proportion="-13.5" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/daily_binding_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.4651712">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.4651712" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/daily_sales_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/daily_sales.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.6538463">
-          <folding>
-            <marker date="1404898286837" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/recent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="381" selection-end="838" vertical-scroll-proportion="0.44155845">
-          <folding />
-        </state>
+        <state line="17" column="21" selection-start="381" selection-end="838" vertical-scroll-proportion="0.44155845" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/assets/css/kostom.css">
@@ -646,30 +517,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="12" selection-start="6649" selection-end="6650" vertical-scroll-proportion="-72.0339">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/side_bar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="47" selection-start="815" selection-end="815" vertical-scroll-proportion="-7.6666665">
+        <state line="16" column="47" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/helpers/site_helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="-11.785714">
+        <state line="15" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daily_sales.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="2.8846154">
+          <folding>
+            <marker date="1404898286837" expanded="true" signature="364:4658" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="510:610" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="736:2267" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="761:1094" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="793:1086" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="800:1080" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="849:1080" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="913:918" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="1272:2256" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="1314:2247" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="1411:2232" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="1501:2213" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="1572:1783" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="1838:2023" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2069:2189" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2299:4649" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2471:3454" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2514:3445" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2606:3429" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2698:3409" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="2754:2967" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3023:3211" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3258:3384" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3601:4607" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3643:4596" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3743:4581" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3778:4562" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3847:4539" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3861:3924" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="3938:4510" placeholder="..." />
+            <marker date="1404898286837" expanded="true" signature="4343:4440" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/includes/top_nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="5" selection-start="2507" selection-end="2507" vertical-scroll-proportion="-15.0">
+          <folding>
+            <element signature="tag#li#0;tag#ul#0;tag#nav#0" expanded="false" />
+            <element signature="tag#li#1;tag#ul#0;tag#nav#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ci-hsc/application/models/usuals.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="5" selection-start="1340" selection-end="1340" vertical-scroll-proportion="1.7625899">
+        <state line="24" column="5" selection-start="548" selection-end="548" vertical-scroll-proportion="-18.692308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci-hsc/application/views/default_content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
