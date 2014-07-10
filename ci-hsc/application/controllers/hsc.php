@@ -81,7 +81,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('default_content');
+        $this->load->view('dailysales/daily_sales');
         $this->load->view('includes/footer');
     }
 }
