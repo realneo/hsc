@@ -1,13 +1,10 @@
 includes/db_conn.php
-includes/db_conn.php
-*.xml
-*.xml
 .idea/workspace.xml
 .idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-*.xml
-.idea/workspace.xml
+<<<<<<< HEAD
 ci-hsc/application/config/database.php
 
 ci-hsc/application/config/database.php
+=======
+includes/db_conn.php
+>>>>>>> FETCH_HEAD

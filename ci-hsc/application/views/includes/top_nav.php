@@ -44,7 +44,12 @@
         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
     </a>
     <ul class="dropdown-menu dropdown-alerts" id="noti">
-       <?php foreach($logs as $log){?>
+       <?php
+
+        if(empty($logs)){echo "bila";}
+
+
+        ;foreach($logs as $log){?>
         <li>
             <a href="#">
                 <div>
@@ -58,7 +63,7 @@
 
         <li>
             <a class="text-center" href="#">
-                <strong>See All Alerts</strong>
+                <strong>See All Alerts for <?php echo $this->session->userdata("branch_name");?></strong>
                 <i class="fa fa-angle-right"></i>
             </a>
         </li>
