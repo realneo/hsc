@@ -64,12 +64,14 @@ class Hsc extends CI_Controller {
 		$this->load->view('default_content');
 		$this->load->view('includes/footer');
 	}
+
     function change_branch($id){
         $this->session->set_userdata("branch_id",$id);
         redirect(base_url());
 
     }
-    public function daily_sales()
+
+    function daily_sales()
     {
 
         /*
@@ -89,7 +91,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    public function daily_expenses()
+    function daily_expenses()
     {
 
         /*
@@ -108,7 +110,8 @@ class Hsc extends CI_Controller {
         $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
-    public function daily_manual_invoices()
+
+    function daily_manual_invoices()
     {
 
         /*
@@ -127,7 +130,8 @@ class Hsc extends CI_Controller {
         $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
-    public function daily_returns()
+
+    function daily_returns()
     {
 
         /*
@@ -147,7 +151,8 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    public function sales_vouchers()
+
+    function sales_vouchers()
     {
 
         /*
@@ -165,6 +170,10 @@ class Hsc extends CI_Controller {
 
         $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
+    }
+
+    function notifications(){
+
     }
 }
 
