@@ -51,19 +51,19 @@
                     </li>
 
                     <!-- RETURNS -->
-                    <li>
-                        <a href="daily_returns.php"><span class="glyphicon glyphicon glyphicon-log-in"></span> Returns <span class="fa arrow"></span></a>
+                    <li class="<?php echo ($active_tab == "returns" ? "active" : "");?>">
+                        <a href="<?php echo base_url('hsc/daily_returns');?>"><span class="glyphicon glyphicon glyphicon-log-in"></span> Returns <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="daily_returns.php"><span class="glyphicon glyphicon-plus"></span> Add a Return </a></li>
+                            <li class="<?php echo ($active_tab == "add_return" ? "active" : "");?>"><a href="<?php echo base_url('hsc/daily_returns');?>"><span class="glyphicon glyphicon-plus"></span> Add a Return </a></li>
                             <!--   <li><a href="view_returns.php"><span class="glyphicon glyphicon-th-list"></span> View Returns</a></li> -->
                         </ul>
                     </li>
 
                     <!-- SALES VOUCHER -->
-                    <li>
-                        <a href="sales_vouchers.php"><span class="glyphicon glyphicon-indent-left"></span> Sales Vouchers <span class="fa arrow"></span></a>
+                    <li  class="<?php echo ($active_tab == "sales_vouchers" ? "active" : "");?>">
+                        <a href="<?php echo base_url('hsc/sales_vouchers');?>"><span class="glyphicon glyphicon-indent-left"></span> Sales Vouchers <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="sales_vouchers.php"><span class="glyphicon glyphicon-plus"></span> Add Sales Vouchers </a></li>
+                            <li class="<?php echo ($active_tab == "sales_vouchers" ? "active" : "");?>"><a href="<?php echo base_url('hsc/sales_vouchers');?>"><span class="glyphicon glyphicon-plus"></span> Add Sales Vouchers </a></li>
                             <!--   <li><a href="view_sales_vouchers.php"><span class="glyphicon glyphicon-th-list"></span> View Sales Vouchers</a></li> -->
                         </ul>
                     </li>
