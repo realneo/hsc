@@ -41,7 +41,7 @@
                 $msg="Failed to edit Daily Sale : $total_sale for $date by $full_name,it was not available";
                 $_SESSION['alert_type'] = 'warning';
             }
-            $db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id', '$msg')");
+            log_write($user_id,$branch_id,$msg);
 
             header('Location:../daily_sales_edit.php');
         

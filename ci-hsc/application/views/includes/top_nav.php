@@ -68,7 +68,7 @@
         <?php } ?>
 
         <li>
-            <a class="text-center" href="#">
+            <a class="text-center" href="<?php echo base_url('hsc/notifications/');?>">
                 <?php if(!empty($logs)){?>
                 <strong>See All Notifications for <?php echo $this->session->userdata("branch_name");?></strong>
                 <?php }else {?>

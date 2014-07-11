@@ -35,7 +35,7 @@
 	function log_write($user_id, $branch_id, $log){
 		$today_date = $GLOBALS['today_date'];
 		$db = $GLOBALS['db'];
-		$db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, '$today_date', '$user_id', '$branch_id', '$log')");
+		$db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, CURRENT_TIMESTAMP, '$user_id', '$branch_id', '$log');");
 	}
 	
 	// Check Authorization Type Of the User

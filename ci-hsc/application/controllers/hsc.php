@@ -172,11 +172,19 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    function notifications($start,$sort){
+    function notifications($start=0,$sort=0){
+
+        /*
+        * Specific Data for one page goes here
+        */
+
         $data['active'] =   "notification";
         $data['title']  =   "Notifications";
-        $data['notifications']=$this->hotels->get_notifications(6,$start,$sort);
-        $data['notifications_number']=$this->hotels->get_notifications_count();
+        $data['active_tab']="sales_vouchers";
+
+        $data['notifications']=$this->usuals->get_recent_activities(6,$start);//later weka sort
+        $data['notifications_number']=$this->usuals->get_notifications_count();
+
 
         /*
         NOW SETTING UP PAGINATION
@@ -202,10 +210,10 @@ class Hsc extends CI_Controller {
         $config['next_link'] = "<fahad class=' glyphicon glyphicon-chevron-right'><fahad>";
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['prev_link'] = "<fahad class='glyphicon glyphicon-chevron-left'><fahad>";
+        $config['prev_link'] = "<neo class='glyphicon glyphicon-chevron-left'><neo>";
         $config['prev_tag_open'] = '<li>';
         $config['prev_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li ><a href='#' rel='somaAttention'><b >";
+        $config['cur_tag_open'] = "<li ><a href='#' rel='active_page'><b >";
         $config['cur_tag_close'] = '</b></a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
@@ -221,7 +229,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('dailysales/default_content');
+        $this->load->view('notifications/notify');
         $this->load->view('includes/footer');
 
     }

@@ -50,23 +50,48 @@ class Usuals extends CI_Model{
     }
 
 
-// Log Writing Function
+    // Log Writing Function
 
     function log_write($user_id, $branch_id, $log){
         //$today_date = $GLOBALS['today_date'];
         $this->db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, 'CURDATE()', '$user_id', '$branch_id', '$log')");
     }
 
+
     /*
      * Gets recent activities
      */
-    function get_recent_activities($days=0,$limit=5){
+    function get_recent_activities_($days=0,$limit=5){
         $branch_id=$this->session->userdata('branch_id');
         $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' AND `date`= CURDATE() - INTERVAL $days DAY LIMIT $limit");
 
         return $results->result_array();
 
     }
+
+
+    /*
+     * Gets recent activities
+     */
+
+    function get_recent_activities(){
+        $branch_id=$this->session->userdata('branch_id');
+        $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+
+        return $results->result_array();
+
+    }
+
+
+    /*
+     * Gets all activities count
+     */
+
+    function get_notifications_count(){
+        $results = $this->db-> query("SELECT id FROM `log`");
+        return $results->num_rows;
+    }
+
 
 // Check Authorization Type Of the User
     /*
