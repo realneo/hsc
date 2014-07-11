@@ -172,7 +172,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    function notifications($start=0,$sort=0){
+    function notifications($start=0){//},$sort=0){
 
         /*
         * Specific Data for one page goes here
@@ -182,7 +182,7 @@ class Hsc extends CI_Controller {
         $data['title']  =   "Notifications";
         $data['active_tab']="sales_vouchers";
 
-        $data['notifications']=$this->usuals->get_recent_activities(6,$start);//later weka sort
+        $data['notifications']=$this->usuals->get_all_activities(6,$start);//later weka sort
         $data['notifications_number']=$this->usuals->get_notifications_count();
 
 

@@ -59,9 +59,20 @@ class Usuals extends CI_Model{
 
 
     /*
-     * Gets recent activities
+     * Gets all activities
      */
-    function get_recent_activities_($days=0,$limit=5){
+    function get_all_activities($num=1,$start=0){
+        $branch_id=$this->session->userdata('branch_id');
+        $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' LIMIT $start,$num");
+
+        return $results->result_array();
+
+    }
+
+    /*
+     * Gets specific activities | NOT USED YET
+     */
+    function get_specific_activities($days=0,$limit=5){
         $branch_id=$this->session->userdata('branch_id');
         $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' AND `date`= CURDATE() - INTERVAL $days DAY LIMIT $limit");
 
