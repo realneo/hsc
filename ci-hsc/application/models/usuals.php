@@ -76,7 +76,7 @@ class Usuals extends CI_Model{
 
     function get_recent_activities(){
         $branch_id=$this->session->userdata('branch_id');
-        $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
+        $results = $this->db-> query("SELECT log,DATE_FORMAT(`date`,'%H:%i:%s')  date  FROM `log` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
 
         return $results->result_array();
 
