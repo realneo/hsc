@@ -172,8 +172,60 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    function notifications(){
+    function notifications($start,$sort){
+        $data['active'] =   "notification";
+        $data['title']  =   "Notifications";
+        $data['notifications']=$this->hotels->get_notifications(6,$start,$sort);
+        $data['notifications_number']=$this->hotels->get_notifications_count();
+
+        /*
+        NOW SETTING UP PAGINATION
+        */
+
+        $this->load->library('pagination');
+        $config['base_url'] = base_url().'hsc/notifications/';
+        $config['total_rows'] = $data['notifications_number'];
+        $config['per_page'] = 6;
+        $data['per_page']=$config['per_page'];
+
+        /*
+        Beutifying  PAGINATION
+        */
+
+        $config['full_tag_open'] = "<div id='page-fadsel' > <ul class='pagination'>";
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = "<fahad class=' glyphicon glyphicon-chevron-right'><fahad>";
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = "<fahad class='glyphicon glyphicon-chevron-left'><fahad>";
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li ><a href='#' rel='somaAttention'><b >";
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['full_tag_close'] = '</ul></div>';
+        //$config['display_pages'] = FALSE;
+        $this->pagination->initialize($config);
+        $data['pages']=$this->pagination->create_links();
+
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+
+        $this->load->view('dailysales/default_content');
+        $this->load->view('includes/footer');
 
     }
+
+
 }
 
