@@ -11,6 +11,7 @@
 <!-- /.navbar-header -->
 
 <ul class="nav navbar-top-links navbar-right">
+    <li><p class="text-muted"><?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ;?></p></li>
 <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="fa fa-exchange fa-fw"></i>  <i class="fa fa-caret-down"></i>
