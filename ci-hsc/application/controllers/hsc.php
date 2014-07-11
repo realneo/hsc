@@ -51,6 +51,7 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
+        $data['title']="Dashboard";
         $data['active']="dashboard";
         $data['active_tab']="";
 
@@ -74,6 +75,7 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
+        $data['title']="Daily Sales";
         $data['active']="daily_sales";
         $data['active_tab']="daily_sales";
 
@@ -83,7 +85,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('dailysales/daily_sales');
+        $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
 
@@ -93,6 +95,7 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
+        $data['title']="Daily Expenses";
         $data['active']="daily_sales";
         $data['active_tab']="daily_expenses";
 
@@ -102,7 +105,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('dailysales/daily_sales');
+        $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
     public function daily_manual_invoices()
@@ -111,6 +114,7 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
+        $data['title']="Manual Invoices";
         $data['active']="daily_sales";
         $data['active_tab']="manual_invoices";
 
@@ -120,7 +124,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('dailysales/daily_sales');
+        $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
     public function daily_returns()
@@ -129,6 +133,7 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
+        $data['title']="Returns";
         $data['active']="daily_sales";
         $data['active_tab']="returns";
 
@@ -138,7 +143,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('dailysales/daily_sales');
+        $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
 
@@ -149,6 +154,7 @@ class Hsc extends CI_Controller {
          * Specific Data for one page goes here
          */
         $data['active']="daily_sales";
+        $data['title']="Sales Vouchers";
         $data['active_tab']="sales_vouchers";
 
         //add this kwa kila mwisho wa data zote
@@ -157,7 +163,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
 
-        $this->load->view('default_content');
+        $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
     }
 }
