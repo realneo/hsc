@@ -105,5 +105,60 @@ class Hsc extends CI_Controller {
         $this->load->view('dailysales/daily_sales');
         $this->load->view('includes/footer');
     }
+    public function daily_manual_invoices()
+    {
+
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['active']="daily_sales";
+        $data['active_tab']="manual_invoices";
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+
+        $this->load->view('dailysales/daily_sales');
+        $this->load->view('includes/footer');
+    }
+    public function daily_returns()
+    {
+
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['active']="daily_sales";
+        $data['active_tab']="returns";
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+
+        $this->load->view('dailysales/daily_sales');
+        $this->load->view('includes/footer');
+    }
+
+    public function sales_vouchers()
+    {
+
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['active']="daily_sales";
+        $data['active_tab']="sales_vouchers";
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+
+        $this->load->view('default_content');
+        $this->load->view('includes/footer');
+    }
 }
 
