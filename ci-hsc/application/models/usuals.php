@@ -63,7 +63,9 @@ class Usuals extends CI_Model{
      */
     function get_all_activities($num=1,$start=0){
         $branch_id=$this->session->userdata('branch_id');
-        $results = $this->db-> query("SELECT * FROM `log` WHERE `branch_id` = '$branch_id' LIMIT $start,$num");
+        $results = $this->db-> query("SELECT log,id,`date`,
+
+        DATE_FORMAT(`date`,'%H:%i:%s')  timeonly FROM `log` WHERE `branch_id` = '$branch_id' order by `date` desc LIMIT $start,$num");
 
         return $results->result_array();
 
@@ -95,11 +97,12 @@ class Usuals extends CI_Model{
 
 
     /*
-     * Gets all activities count
+     * Gets specific branch  activities count
      */
 
     function get_notifications_count(){
-        $results = $this->db-> query("SELECT id FROM `log`");
+        $branch_id=$this->session->userdata('branch_id');
+        $results = $this->db-> query("SELECT id FROM `log` where `branch_id`=$branch_id");
         return $results->num_rows;
     }
 
