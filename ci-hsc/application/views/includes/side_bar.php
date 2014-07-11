@@ -33,20 +33,20 @@
                     </li>
 
                     <!-- DAILY EXPENSES -->
-                    <li>
-                        <a href="daily_expenses.php"><span class="glyphicon glyphicon-export"></span> Daily Expenses <span class="fa arrow"></span></a>
+                    <li class="<?php echo ($active_tab == "daily_expenses" ? "active" : "");?>">
+                        <a href="<?php echo base_url('hsc/daily_expenses')?>"><span class="glyphicon glyphicon-export"></span> Daily Expenses <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="daily_expenses.php"><span class="glyphicon glyphicon-plus"></span> Add Daily Expenses</a></li>
-                            <!--      <li><a href="view_expenses.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Expenses</a></li> -->
+                            <li class="<?php echo ($active_tab == "daily_expenses" ? "active" : "");?>"><a href="<?php echo base_url('hsc/daily_expenses')?>"><span class="glyphicon glyphicon-plus"></span> Add Daily Expenses</a></li>
+
                         </ul>
                     </li>
 
                     <!-- MANUAL INVOICES -->
-                    <li>
-                        <a href="daily_manual_invoices.php"><span class="glyphicon glyphicon-pencil"></span> Manual Invoices <span class="fa arrow"></span></a>
+                    <li class="<?php echo ($active_tab == "manual_invoices" ? "active" : "");?>">
+                        <a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="glyphicon glyphicon-pencil"></span> Manual Invoices <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="daily_manual_invoices.php"><span class="glyphicon glyphicon-plus"></span> Add Manual Invoice</a></li>
-                            <li><a href="view_manual_invoices.php"><span class="glyphicon glyphicon-th-list"></span> Enter Manual Invoices</a></li>
+                            <li class="<?php echo ($active_tab == "manual_invoices" ? "active" : "");?>"><a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="glyphicon glyphicon-plus"></span> Add Manual Invoice</a></li>
+                            <li class="<?php echo ($active_tab == "view_manual_invoices" ? "active" : "");?>"><a href="<?php echo base_url('hsc/view_manual_invoices');?>"><span class="glyphicon glyphicon-th-list"></span> Enter Manual Invoices</a></li>
                         </ul>
                     </li>
 
