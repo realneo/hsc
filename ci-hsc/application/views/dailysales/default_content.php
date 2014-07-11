@@ -1,6 +1,4 @@
-
-<div id="page-wrapper">
-            <div class="row">
+<div class="row">
                 <div class="col-lg-12">
                     <h4 class="page-header"><?php echo (isset($title) && $title)? $title:'Daily Sales';?>  <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?></span></h4>
 
@@ -39,12 +37,5 @@
                         <h3><span class='small'>Tshs</span> <?php echo make_me_bold($manual_invoice);?></h3>
                     </div>
                 </div>
-
-
-
-            </div>
+             </div>
         </div><!--            content-->
-
-        </div><!-- /#page-wrapper -->
-
-

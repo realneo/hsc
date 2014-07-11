@@ -1,4 +1,4 @@
-<div id="page-wrapper">
+
             <div class="row">
                 <div class="col-lg-12">
                     <h4 class="page-header">Dashboard <span class='small'><?php $date = date("Y-m-d"); echo custom_date_format($date)?></span></h4>
@@ -43,7 +43,5 @@
 
             </div>
         </div><!--            content-->
-
-</div><!-- /#page-wrapper -->
 
 

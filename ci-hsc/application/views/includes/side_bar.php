@@ -101,3 +101,4 @@
 </div>
 <!-- /.navbar-static-side -->
 </nav>
+<div id="page-wrapper">
