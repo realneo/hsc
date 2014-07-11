@@ -51,7 +51,8 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
-        $data['specific']="";
+        $data['active']="dashboard";
+        $data['active_tab']="";
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
@@ -73,7 +74,8 @@ class Hsc extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
-        $data['specific']="";
+        $data['active']="daily_sales";
+        $data['active_tab']="daily_sales";
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;

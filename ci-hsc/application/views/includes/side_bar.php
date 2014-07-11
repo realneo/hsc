@@ -14,19 +14,17 @@
                 <!-- /input-group -->
             </li>
             <li><a href='#'><i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('full_name'); ?></a></li>
-            <li><a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+            <li class="<?php echo ($active == "dashboard" ? "active" : "");?>"><a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
-<<<<<<< HEAD
-            <li class="active">
-=======
-            <li> <!-- The Active class -->
->>>>>>> 5a68942af3d2bf761225edead45e27f7116813d6
+
+            <li class="<?php echo ($active == "daily_sales" ? "active" : "");?>"> <!-- The Active class -->
+
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
 
                     <!-- DAILY SALES -->
-                    <li class="active">
+                    <li class="<?php echo ($active_tab == "daily_sales" ? "active" : "");?>">
                         <a  href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-import"></span> Daily Sales <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-plus"></span> Add Daily Sales</a></li>
