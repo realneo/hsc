@@ -11,12 +11,15 @@ class Admin_ extends CI_Model{
 
     }
 
+
+    function edit_daily_sales($total_sale,$branch_id){
+        $query = "UPDATE `total_sale` SET `total_sale` = '$total_sale' WHERE `date` = CURRENT_TIMESTAMP AND `branch_id` = '$branch_id'";
+        return $this->db->query($query);
+    }
+
     /*
      * Get Branch name
      */
-    function edit_daily_sales(){
-        return $this->db->query("UPDATE `total_sale` SET `total_sale` = '$total_sale' WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
-    }
     function  get_branch_name($id){
         $query="SELECT name from branch where `id`=$id";
         $results=$this->db->query($query)->result_array();

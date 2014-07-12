@@ -11,17 +11,23 @@ class Admin extends CI_Controller{
     protected  $data = array();
     function __construct(){
         parent::__construct();
-        $this->load->model('admin');
+        $this->load->model('admin_');
 
     }
 
     function add_daily_sales(){
         $this->admin->add_daily_sales();
     }
+
     function edit_daily_sales(){
+        $this->session->set_flashdata('edit',true);
+        redirect(base_url('hsc/daily_sales'));
+    }
+
+    function daily_sales_edit(){
         // Get information from the form
-        $date = $_GET['date'];
-        $total_sale = $_GET['total_sale'];
+        $date = $this->input->post('date');
+        $total_sale = $this->input->post('total_sale');
         $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
@@ -41,7 +47,8 @@ class Admin extends CI_Controller{
         else{if($total_sale){
 
             // Update the Total Sale in the Database
-            $updated_results = $this->admin->edit_daily_sales();
+            $updated_results = $this->admin_->edit_daily_sales();
+
 
 
             if($updated_results){
