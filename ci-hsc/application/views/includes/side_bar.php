@@ -27,7 +27,8 @@
                     <li class="<?php echo ($active_tab == "daily_sales" ? "active" : "");?>">
                         <a  href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-import"></span> Daily Sales <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('hsc/daily_sales')?>"><span class="glyphicon glyphicon-plus"></span> Add Daily Sales</a></li>
+                            <li><a href="<?php echo base_url('hsc/daily_sales');?>"><span class="glyphicon glyphicon-plus"></span> Add Daily Sales</a></li>
+                            <li><a href="<?php echo base_url('admin/edit_daily_sales');?>"><span class="glyphicon glyphicon-plus"></span> Edit Daily Sales</a></li>
                             <!--          <li><a href="view_sales.php"><span class="glyphicon glyphicon-th-list"></span> View Daily Sales</a></li> -->
                         </ul>
                     </li>

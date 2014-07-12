@@ -46,7 +46,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
                 'You have to insert your <strong>Total Sale</strong>');
-            redirect(base_url('hsc/daily_sales'));
+            $this->edit_daily_sales();
             die();
         }
         else{if($total_sale){
@@ -74,14 +74,14 @@ class Admin extends CI_Controller{
                 $this->usuals->log_write($user_id,$branch_id,$msg);
                 //var_dump($this->session->flashdata('alert_msg'));
                 //die();
-                redirect(base_url()."hsc/daily_sales");
+                $this->edit_daily_sales();
 
                 die();
             }else{
                 $this->session->set_flashdata('alert_type','danger');
                 $this->session->set_flashdata('alert_msg',"There was a problem with the system please try again!");
 
-                redirect(base_url()."admin/edit_daily_sales");
+                $this->edit_daily_sales();
 
                 die();
             }
@@ -91,7 +91,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_type','danger');
             $this->session->set_flashdata('alert_msg',"There was a major problem with the system! , Try Contacting the administrator");
 
-            redirect(base_url()."admin/edit_daily_sales");
+            $this->edit_daily_sales();
 
             die();
         }
@@ -123,7 +123,8 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
                 'You have to insert your <strong>Total Sale</strong>');
-            redirect(base_url('hsc/daily_sales'));
+            $this->edit_daily_binding();
+            //redirect(base_url('admin/edit_daily_binding'));
             die();
         }
         else{if($total_sale){
@@ -139,7 +140,7 @@ class Admin extends CI_Controller{
                 //$check=$this->db->affected_rows;//not good
                 $check=$this->session->userdata('affected_rows');
                 $date = date("Y-m-d");
-                var_dump($check);
+                //var_dump($check);
                 if($check>=1){
                     $this->session->set_flashdata('alert_msg',"Thank you ".make_me_bold($full_name)."!"); ;
                     $msg="Edited Daily Sale : $total_sale for $date by $full_name";
@@ -151,14 +152,14 @@ class Admin extends CI_Controller{
                 $this->usuals->log_write($user_id,$branch_id,$msg);
                 //var_dump($this->session->flashdata('alert_msg'));
                 //die();
-                redirect(base_url()."hsc/daily_sales");
+                $this->edit_daily_binding();
 
                 die();
             }else{
                 $this->session->set_flashdata('alert_type','danger');
                 $this->session->set_flashdata('alert_msg',"There was a problem with the system please try again!");
 
-                redirect(base_url()."admin/edit_daily_sales");
+                $this->edit_daily_binding();
 
                 die();
             }
@@ -168,7 +169,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_type','danger');
             $this->session->set_flashdata('alert_msg',"There was a major problem with the system! , Try Contacting the administrator");
 
-            redirect(base_url()."admin/edit_daily_sales");
+            $this->edit_daily_binding();
 
             die();
         }
