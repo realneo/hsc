@@ -47,7 +47,7 @@ class Admin extends CI_Controller{
         else{if($total_sale){
 
             // Update the Total Sale in the Database
-            $updated_results = $this->admin_->edit_daily_sales();
+            $updated_results = $this->admin_->edit_daily_sales($total_sale,$branch_id);
 
 
 
@@ -66,14 +66,14 @@ class Admin extends CI_Controller{
                 }
                 $this->usuals->log_write($user_id,$branch_id,$msg);
 
-                redirect(base_url()."daily_sales_edit");
+                redirect(base_url()."hsc/edit_daily_sales");
 
                 die();
             }else{
                 $this->session->set_flashdata('alert_type','danger');
                 $this->session->set_flashdata('alert_msg',"There was a problem with the system please try again!");
 
-                redirect(base_url()."daily_sales_edit");
+                redirect(base_url()."hsc/edit_daily_sales");
 
                 die();
             }
@@ -83,7 +83,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_type','danger');
             $this->session->set_flashdata('alert_msg',"There was a major problem with the system! , Try Contacting the administrator");
 
-            redirect(base_url()."daily_sales_edit");
+            redirect(base_url()."hsc/edit_daily_sales");
 
             die();
         }
