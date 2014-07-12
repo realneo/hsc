@@ -170,16 +170,10 @@ class Usuals extends CI_Model{
 // Getting Total Daily Binding of TODAY
 
     function get_today_binding(){
-        $today_date = $this->session->userdata('today_date');
+        //$today_date = $this->session->userdata('today_date');
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM binding WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
-
-        $total_amount = 0;
-        foreach($results->result_array() as $row){
-            $amount = $row['amount'];
-
-            $total_amount += $amount;
-        }
-        return number_format($total_amount);
+        $results = $this->db->query("SELECT SUM(amount) total_amount FROM binding WHERE `date` = CURDATE() AND branch_id = '$branch_id'");
+        $amount = $results->result_array()[0]['total_amount'];
+        return number_format(floatval($amount));
     }
 }
