@@ -10,6 +10,13 @@
     margin: 1px;
 }
 
+#page-fad-paginate{
+    margin-left: -30px;
+    margin-top: -21px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
 #not_up{
     padding: 32px;
     opacity: 0.1;
@@ -48,19 +55,25 @@
     margin-top: 5px;margin-right: 5px;margin-left:5px;
 }
 
+/*it does not work?*/
+.cur_link_page{
+    background-color: #424242;
+    color: #ffffff;
+}
+
 @media (min-width: 1200px){
     .col-lg-1 {
         width: 11.333333%;
     }
     .col-lg-9 {
-        margin-left: -4%;
+        margin-left: -1%;
         margin-top: 1.5%;
     }
 }
 
 @media (min-width: 1320px){
     .col-lg-1 {
-        width: 11.333333%;
+        width: 11.733333%;
     }
     .col-lg-9 {
         margin-left: -1%;

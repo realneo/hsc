@@ -54,7 +54,8 @@ class Usuals extends CI_Model{
 
     function log_write($user_id, $branch_id, $log){
         //$today_date = $GLOBALS['today_date'];
-        $this->db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, 'CURDATE()', '$user_id', '$branch_id', '$log')");
+        $this->db->query("INSERT INTO `log` (`id`, `date`, `user_id`, `branch_id`, `log`) VALUES (NULL, CURRENT_TIMESTAMP, '$user_id', '$branch_id', '$log');");
+
     }
 
 

@@ -200,20 +200,20 @@ class Hsc extends CI_Controller {
         Beutifying  PAGINATION
         */
 
-        $config['full_tag_open'] = "<div id='page-fadsel' > <ul class='pagination'>";
+        $config['full_tag_open'] = "<div id='page-fad-paginate' > <ul class='pagination'>";
         $config['first_link'] = 'First';
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
         $config['last_link'] = 'Last';
         $config['last_tag_open'] = '<li>';
         $config['last_tag_close'] = '</li>';
-        $config['next_link'] = "<fahad class=' glyphicon glyphicon-chevron-right'><fahad>";
+        $config['next_link'] = "<fahad class=' fa fa-arrow-right'><fahad>";
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['prev_link'] = "<neo class='glyphicon glyphicon-chevron-left'><neo>";
+        $config['prev_link'] = "<neo class='fa fa-arrow-left'><neo>";
         $config['prev_tag_open'] = '<li>';
         $config['prev_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li ><a href='#' rel='active_page'><b >";
+        $config['cur_tag_open'] = "<li class='cur_link_page'><a  href='#' rel='active_page'><b >";
         $config['cur_tag_close'] = '</b></a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';

@@ -58,9 +58,9 @@
         foreach($logs as $log){?>
         <li>
             <a href="#">
-                <div>
+                <div style="margin-bottom: 6px;">
                     <i class="fa fa-bell-o fa-fw"></i> <?php echo $log['log']?>
-                    <span class="pull-right text-muted small"><?php echo $log['date'];?></span>
+                    <span class="pull-right text-muted small" ><?php echo $log['date'];?></span>
                 </div>
             </a>
         </li>
