@@ -12,6 +12,7 @@ class Admin extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('admin_');
+        $this->load->model('usuals');
 
     }
 
@@ -65,15 +66,16 @@ class Admin extends CI_Controller{
                     $this->session->set_flashdata('alert_type','warning');
                 }
                 $this->usuals->log_write($user_id,$branch_id,$msg);
-
-                redirect(base_url()."hsc/edit_daily_sales");
+                //var_dump($this->session->flashdata('alert_msg'));
+                //die();
+                redirect(base_url()."hsc/daily_sales");
 
                 die();
             }else{
                 $this->session->set_flashdata('alert_type','danger');
                 $this->session->set_flashdata('alert_msg',"There was a problem with the system please try again!");
 
-                redirect(base_url()."hsc/edit_daily_sales");
+                redirect(base_url()."admin/edit_daily_sales");
 
                 die();
             }
@@ -83,7 +85,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_type','danger');
             $this->session->set_flashdata('alert_msg',"There was a major problem with the system! , Try Contacting the administrator");
 
-            redirect(base_url()."hsc/edit_daily_sales");
+            redirect(base_url()."admin/edit_daily_sales");
 
             die();
         }
