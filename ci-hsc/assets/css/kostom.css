@@ -37,3 +37,14 @@
 
 
 }
+
+
+@media (min-width: 1200px){
+    .col-lg-1 {
+        width: 11.333333%;
+    }
+    .col-lg-9 {
+        margin-left: -4%;
+        margin-top: 1.5%;
+    }
+}
