@@ -61,6 +61,14 @@
     color: #ffffff;
 }
 
+/*alert boxex overriding the defaults*/
+.alert {
+
+    margin-bottom: -14px;
+
+}
+
+
 @media (min-width: 1200px){
     .col-lg-1 {
         width: 11.333333%;

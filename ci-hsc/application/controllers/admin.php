@@ -17,6 +17,10 @@ class Admin extends CI_Controller{
     }
 
     function add_daily_sales(){
+
+        $this->session->set_flashdata('edit',true);
+        redirect(base_url('hsc/daily_sales'));
+
         $this->admin->add_daily_sales();
     }
 
@@ -27,7 +31,7 @@ class Admin extends CI_Controller{
 
     function daily_sales_edit(){
         // Get information from the form
-        $date = $this->input->post('date');
+        //$date = $this->input->post('date');
         $total_sale = $this->input->post('total_sale');
         $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');

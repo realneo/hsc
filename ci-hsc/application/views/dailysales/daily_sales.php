@@ -1,4 +1,5 @@
-<div class="row">
+<br>
+<div class="row" style="margin-left: -25px;">
     <div class='col-lg-4'>
 
         <div class='well well-sm'>
