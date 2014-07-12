@@ -59,8 +59,10 @@ class Admin extends CI_Controller{
             if($updated_results){
 
                 $this->session->set_flashdata('alert_type','success');
-                $check=$this->db->affected_rows;//not good
+                //$check=$this->db->affected_rows;//not good
+                $check=$this->session->userdata('affected_rows');
                 $date = date("Y-m-d");
+                var_dump($check);
                 if($check>=1){
                     $this->session->set_flashdata('alert_msg',"Thank you ".make_me_bold($full_name)."!"); ;
                     $msg="Edited Daily Sale : $total_sale for $date by $full_name";

@@ -13,9 +13,13 @@ class Admin_ extends CI_Model{
 
 
     function edit_daily_sales($total_sale,$branch_id){
+
         $query = "UPDATE `total_sale` SET `total_sale` = '$total_sale'
-        WHERE `date` = CURRENT_TIMESTAMP AND `branch_id` = '$branch_id'";
-        return $this->db->query($query);
+        WHERE `date` = CURDATE() AND `branch_id` = '$branch_id'";
+        $r=$this->db->query($query);
+        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+
+        return $r;
     }
 
     /*

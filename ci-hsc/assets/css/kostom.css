@@ -88,3 +88,13 @@
         margin-top: 1.9%;
     }
 }
+/*iphone 5*/
+
+@media (max-width: 322px) and (min-width:0px){
+    .navbar-brand {
+
+        font-size: 10px;
+
+    }
+}
+

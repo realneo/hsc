@@ -161,7 +161,6 @@ class Usuals extends CI_Model{
         $branch_id = $this->session->userdata('branch_id');
         $results = $this->db->query("SELECT SUM(total_sale) total_sale FROM total_sale WHERE `date` = CURDATE() AND branch_id = '$branch_id'");
         $total_amount = $results->result_array()[0]['total_sale'];
-        var_dump($total_amount);
         /*
          * String to Double : floatval/doubleval alias :D
          */
