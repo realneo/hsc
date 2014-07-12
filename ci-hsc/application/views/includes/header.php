@@ -23,22 +23,5 @@
 <body>
 
 <div id="wrapper">
-    <?php
-    if(!$this->session->flashdata('alert_type') || !$this->session->flashdata('alert_msg')){
-        // Display nothing
-    }else{?>
-        <!-- Notification -->
-        <div class="row">
 
-<?php
-        $alert_type = $this->session->flashdata('alert_type');
-        $alert_msg = $this->session->flashdata('alert_msg');?>
-       <div class='alert alert-{$alert_type} alert-dismissible'>
-         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>
-             &times;</button>
-       <p class="lead"><?php echo $alert_msg?></p></div>
-       </div>
-            <?php
-            }
-            ?>
 
