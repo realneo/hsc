@@ -1,4 +1,4 @@
-<div class="" style="margin-top: 5px;">
+<div class="" id="noti_holder">
     <?php foreach($notifications as $not){?>
         <div class="row ">
 <div class="well row well-noti" >
