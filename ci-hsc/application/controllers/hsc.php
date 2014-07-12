@@ -79,7 +79,8 @@ class Hsc extends CI_Controller {
          */
         $data['title']="Daily Sales";
         $data['active']="daily_sales";
-        $data['active_tab']="daily_sales";
+        $data['active_tab'] =
+            $this->session->userdata('active_tab')?$this->session->userdata('active_tab'):"daily_sales";
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
@@ -88,10 +89,15 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/side_bar');
 
 
-        if($this->session->flashdata('edit')==true){
-            $this->load->view('dailysales/daily_sales');
-        }else{
-            $this->load->view('dailysales/default_content');
+        switch($this->session->flashdata('show')){
+            case 'edit_sales':
+                $this->load->view('dailysales/daily_sales');
+                break;
+            case 'edit_binding':
+                $this->load->view('dailybinding/daily_binding');
+                break;
+            default :
+                $this->load->view('dailysales/default_content');
         }
         $this->load->view('includes/footer');
     }
