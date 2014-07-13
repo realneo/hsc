@@ -90,6 +90,9 @@ class Hsc extends CI_Controller {
 
 
         switch($this->session->flashdata('show')){
+            case 'add_sales':
+                $this->load->view('dailysales/add_daily_sales');
+                break;
             case 'edit_sales':
                 $this->load->view('dailysales/daily_sales');
                 break;
