@@ -25,6 +25,18 @@ class Admin_ extends CI_Model{
         return $r;
     }
 
+    /*
+     * Add daily sales
+     */
+    function add_daily_sales($user_id,$branch_id,$date,$total_sale){
+        $query="INSERT INTO `total_sale` (`id`, `date`, `branch_id`, `user_id`, `total_sale`, `audited_total_sale`) VALUES (NULL, '$date', '$branch_id', '$user_id', '$total_sale', '0')";
+
+        $r=$this->db->query($query);
+        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+
+        return $r;
+    }
+
 
     function edit_daily_binding($total_sale,$branch_id){
 

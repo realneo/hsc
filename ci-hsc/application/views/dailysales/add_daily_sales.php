@@ -1,10 +1,10 @@
-
-<!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
-    <div class='col-lg-4'>
+<div class="row">
+    <!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
+    <div class='col-lg-4 straighten-up'>
         <div class="panel panel-default">
             <div class="panel-heading">Add Daily Sale</div>
             <div class="panel-body">
-                <form role="form" action="includes/total_sale_process.php" method="post">
+                <form role="form" action="<?php echo base_url('admin/daily_sales_add')?>" method="post">
 
                     <div class="form-group col-lg-6">
                         <label>Select Date</label>
@@ -23,4 +23,6 @@
             </div>
         </div>
 
-	</div>
+    </div>
+
+</div>
