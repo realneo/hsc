@@ -1,4 +1,5 @@
-<div class="row">
+<h4 class="page-header">Add Sales </h4>
+<br><div class="row">
     <!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
     <div class='col-lg-4 straighten-up'>
         <div class="panel panel-default">
@@ -13,7 +14,7 @@
 
                     <div class="form-group col-lg-6">
                         <label>Total Sale</label>
-                        <input class="form-control" name="total_sale" type="number" placeholder="Amount" />
+                        <input class="form-control" name="total_sale" type="number" placeholder="<?php echo $today_sales;?>" />
                     </div>
 
                     <div class="form-group">

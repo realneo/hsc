@@ -29,12 +29,27 @@ class Admin_ extends CI_Model{
      * Add daily sales
      */
     function add_daily_sales($user_id,$branch_id,$date,$total_sale){
-        $query="INSERT INTO `total_sale` (`id`, `date`, `branch_id`, `user_id`, `total_sale`, `audited_total_sale`) VALUES (NULL, '$date', '$branch_id', '$user_id', '$total_sale', '0')";
+        /*
+         * Check to see if any record exist for today
+         */
+        $run_this="SELECT * FROM `total_sale` WHERE `date` = '$date' AND `branch_id` = '$branch_id'";
+        $r2=$this->db->query($run_this)->num_rows();
+        if($r2>=1){
+            $this->session->set_userdata('affected_rows',0);
+            return true;
+            //var_dump($r2->num_rows());
+            //die();
+        }else{
+            $query="INSERT INTO `total_sale` (`id`, `date`, `branch_id`, `user_id`, `total_sale`, `audited_total_sale`) VALUES (NULL, '$date', '$branch_id', '$user_id', '$total_sale', '0')";
 
-        $r=$this->db->query($query);
-        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+            $r=$this->db->query($query);
+            $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+            return $r;
+        }
 
-        return $r;
+
+
+
     }
 
 
