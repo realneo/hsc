@@ -1,7 +1,10 @@
-<h4 class="page-header">Add Sales </h4>
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="page-header">Add Sales </h4></div>
+</div>
 <div class="row">
     <!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
-    <div class='col-lg-4 straighten-up'>
+    <div class='col-lg-4'>
         <div class="panel panel-default">
             <div class="panel-heading">Add Daily Sale</div>
             <div class="panel-body">
