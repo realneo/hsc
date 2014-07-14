@@ -1,7 +1,3 @@
-<div class="row">
-    <div class="col-lg-12">
-        <h4 class="page-header">Edit Sales </h4></div>
-</div>
     <div class="row straighten-up">
         <?php $this->load->view('dailysales/recent_total_sale');?>
         <div class='col-lg-4'>

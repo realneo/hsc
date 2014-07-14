@@ -1,7 +1,3 @@
-<div class="row">
-    <div class="col-lg-12">
-        <h4 class="page-header">Daily Expenses</h4></div>
-</div>
 <!-- ADD EXPENSES FORM ------------------------------------------------------------------------------>
 <div class="row">
 <div class="col-lg-12">

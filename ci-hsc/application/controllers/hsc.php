@@ -94,17 +94,26 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/side_bar');
 
 
+
         switch($this->session->flashdata('show')){
             case 'add_sales':
+                $data['title']="Add Sales";
+                $this->load->view('includes/title');
                 $this->load->view('dailysales/add_daily_sales');
                 break;
             case 'edit_sales':
+                $data['title']="Edit Sales";
+                $this->load->view('includes/title');
                 $this->load->view('dailysales/daily_sales');
                 break;
             case 'edit_binding':
+                $data['title']="Edit Binding";
+                $this->load->view('includes/title');
                 $this->load->view('dailybinding/daily_binding');
                 break;
             default :
+                $data['title']="Edit Binding";
+                $this->load->view('includes/title');
                 $this->load->view('dailysales/default_content');
         }
         $this->load->view('includes/footer');
@@ -126,6 +135,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
 
         $this->load->view('dailyexpenses/daily_expenses');
         $this->load->view('includes/footer');
@@ -146,8 +156,9 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
 
-        $this->load->view('dailysales/default_content');
+        $this->load->view('dailyinvoices/daily_invoices');
         $this->load->view('includes/footer');
     }
 
@@ -166,6 +177,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
 
         $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
@@ -187,6 +199,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
 
         $this->load->view('dailysales/default_content');
         $this->load->view('includes/footer');
@@ -248,6 +261,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
 
         $this->load->view('notifications/notify');
         $this->load->view('includes/footer');
