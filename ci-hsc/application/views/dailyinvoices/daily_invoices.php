@@ -7,7 +7,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Add Manual Invoice</div>
         <div class="panel-body">
-            <form role="form" action="<?php echo base_url().'add_manual_invoice'?>" method="post">
+            <form role="form" action="<?php echo base_url().'admin/manual_invoice_add'?>" method="post">
 
                 <div class="form-group col-lg-6">
                     <label>Select Date</label>

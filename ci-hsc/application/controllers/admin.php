@@ -369,4 +369,58 @@ class Admin extends CI_Controller{
 
 
     }
+
+    function manual_invoice_redirect(){
+        redirect(base_url().'hsc/daily_invoices');
+        die();
+    }
+    function manual_invoice_add(){
+        // Get information from the form
+
+        $date = $this->input->post('date');
+        $amount = $this->input->post('amount')*-1;
+        $branch_name = $this->session->userdata('branch_name');
+        $branch_id = $this->session->userdata('branch_id');
+        $full_name = $this->session->userdata('full_name');
+
+        // Check if all fields are filled;
+
+        if(!$date){
+            $_SESSION['alert_type'] = 'warning';
+            $_SESSION['alert_msg'] = 'You have to select a <strong>date</strong>';
+            $this->manual_invoice_redirect();
+            die();
+        }
+
+        if(!$amount){
+            $_SESSION['alert_type'] = 'warning';
+            $_SESSION['alert_msg'] = 'You have to insert an <strong>amount</strong>';
+
+            $this->manual_invoice_redirect();
+            die();
+        }
+
+
+        // Insert new Manual Invocie in the Database
+        $insert_results = $db->query("INSERT INTO `manual_invoices` (`id`, `branch_id`, `date`, `amount`, `entered`, `date_entered`) VALUES (NULL, '$branch_id', '$date', '$amount', '0', '0000-00-00')");
+
+        if($insert_results){
+            $_SESSION['alert_type'] = 'success';
+            $_SESSION['alert_msg'] = "Successfully Added Manual Invoice {$date} : <strong>{$amount}</strong>.";
+
+            $today = date("Y-m-d");
+            $log = "Manual Invoice: $amount by $full_name";
+            log_write($user_id, $branch_id, $log);
+
+            $this->manual_invoice_redirect();
+            die();
+        }else{
+            $_SESSION['alert_type'] = 'danger';
+            $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+
+            $this->manual_invoice_redirect();
+            die();
+        }
+
+    }
 }
