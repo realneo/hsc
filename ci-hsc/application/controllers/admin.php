@@ -272,6 +272,7 @@ class Admin extends CI_Controller{
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
 
+
         // Remove "," from the total_sale
         $amount = str_replace( ',', '', $amount);
 
@@ -307,9 +308,9 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
 
             // Write into Log
-            $log = "Daily Expense : $amount for $date";
-            log_write($user_id, $branch_id, $log);
-
+            $log = "Daily Expense : $amount Tsh , was used for ".make_me_bold($purpose)." on $date";
+            $msg=$log;
+            $this->usuals->log_write($user_id,$branch_id,$msg);
             $this->daily_expense_redirect();
         }else{
             $this->session->set_flashdata('alert_type','danger');
