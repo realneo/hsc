@@ -154,10 +154,10 @@ class Usuals extends CI_Model{
 // Getting Total Expenses of TODAY
 
     function get_today_expenses(){
-        $today_date = $this->session->userdata('today_date');
+        //$today_date = $this->session->userdata('today_date');
         $branch_id = $this->session->userdata('branch_id');
 
-        $results = $this->db->query("SELECT SUM(amount) amount FROM expenses WHERE `date` = '$today_date' AND branch_id = '$branch_id'");
+        $results = $this->db->query("SELECT SUM(amount) amount FROM expenses WHERE `date` = CURDATE() AND branch_id = '$branch_id'");
 
         $total_amount = $results->result_array()[0]['amount'];;
 
