@@ -29,4 +29,11 @@ class Expenses extends CI_Model{
 
         return number_format(floatval($total_amount));
     }
+
+    function daliy_expense_delete($id){
+        $query="DELETE FROM `expenses` WHERE `id` = '$id'";
+        return $this->db->query($query);
+
+
+    }
 }

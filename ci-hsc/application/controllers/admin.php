@@ -13,6 +13,7 @@ class Admin extends CI_Controller{
         parent::__construct();
         $this->load->model('admin_');
         $this->load->model('usuals');
+        $this->load->model('expenses');
 
     }
 
@@ -261,6 +262,7 @@ class Admin extends CI_Controller{
         redirect(base_url().'hsc/daily_expenses');
         die();
     }
+
     function daily_expense_add(){
         // Get information from the form
 
@@ -321,5 +323,50 @@ class Admin extends CI_Controller{
         }
 
 
+    }
+
+    function daliy_expense_delete(){
+        // Get information from the form
+
+        $id = $this->input->post('id');
+        $purpose = $this->input->post('purpose');
+        $full_name = $this->session->userdata('full_name');
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id=$this->session->userdata('user_id');
+
+        if($id){
+
+            // Delete the Daily Expense
+            $delete = $this->expenses->delete_expense();
+
+            if($delete){
+
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
+
+                $today = date("Y-m-d");
+                $msg='Deleted Expense : $amount for'.make_me_bold($purpose).' by $full_name';
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+                $db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id','$msg' )");
+
+                $this->daily_expense_redirect();
+                die();
+            }else{
+                $_SESSION['alert_type'] = 'danger';
+                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+
+                $this->daily_expense_redirect();
+                die();
+            }
+
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->daily_expense_redirect();
+            die();
+        }
+
+        $this->daily_expense_redirect();
     }
 }
