@@ -256,4 +256,8 @@ class Admin extends CI_Controller{
         }
 
     }
+
+    function daily_expense_add(){
+
+    }
 }

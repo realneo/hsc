@@ -7,6 +7,7 @@ class Hsc extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('usuals');
+        $this->load->model('expenses');
 
 
         /*
@@ -34,11 +35,14 @@ class Hsc extends CI_Controller {
          */
         $this->data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
         $this->data['today_sales']=$this->usuals->get_today_sales();
-        $this->data['today_expenses']=$this->usuals->get_today_expenses();
+
         $this->data['today_binding']=$this->usuals->get_today_binding();
         $this->data['logs']=$this->usuals->get_recent_activities();
         $this->data['branches']=$this->usuals->get_branches();
         $this->data['recent_total']=$this->usuals->get_recent_total_sales();
+
+        $this->data['today_expenses']=$this->expenses->get_today_expenses();
+        $this->data['recent_expenses']=$this->expenses->get_recent_expenses();
 
 
 

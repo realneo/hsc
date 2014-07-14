@@ -8,7 +8,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Add Expenses</div>
         <div class="panel-body">
-            <form role="form" action="<?php echo base_url('admin/expense_add');?>" method="post">
+            <form role="form" action="<?php echo base_url('admin/daily_expense_add');?>" method="post">
 
                 <div class="form-group col-lg-2">
                     <label>Select Date</label>
@@ -37,4 +37,61 @@
         </div>
     </div>
 </div>
+</div>
+
+
+<div class="row">
+    <!-- VIEW RECENT EXPENSES -------------------------------------------------------------------------->
+    <div class="col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">Recent Expenses</div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped  table-hover">
+                        <thead>
+                        <th>Date</th>
+                        <th>Purpose</th>
+                        <th>Received By</th>
+                        <th>Amount</th>
+                        <th>Action</td>
+                        </thead>
+                        <tbody>
+                        <?php
+
+
+                        $today_date = custom_date_format(date("Y-m-d"));
+
+                        foreach($recent_expenses as $row){
+                            $id = $row['id'];
+                            $date = custom_date_format($row['date']);
+                            $purpose = $row['purpose'];
+                            $received_by = $row['received_by'];
+                            $amount = number_format($row['amount']);
+                            $button = "<a href='includes/delete_expense_process.php?id=$id&amount=$amount&purpose=$purpose' class='btn btn-danger form-control' onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');>Delete</a>";
+                            if($date == $today_date){
+                                echo "<tr>
+												<td>{$date}</td>
+												<td>{$purpose}</td>
+												<td>{$received_by}</td>
+												<td class='text-right'>{$amount}</td>
+												<td>{$button}</td>
+											</tr>";
+                            }else{
+                                echo "<tr>
+											<td>{$date}</td>
+											<td>{$purpose}</td>
+											<td>{$received_by}</td>
+											<td class='text-right'>{$amount}</td>
+											<td></td>
+										</tr>";
+                            }
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
