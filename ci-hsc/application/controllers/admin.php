@@ -345,8 +345,8 @@ class Admin extends CI_Controller{
             if($check>=1){
 
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',"{$amount} Tsh for '".make_me_bold($purpose)."', was deleted successfully, Thank you {$full_name}!");
-                $msg="Deleted Expense : ".make_me_bold($amount)."Tsh for ".make_me_bold($purpose)." by $full_name";
+                $this->session->set_flashdata('alert_msg',make_me_bold($amount)."Tsh for '".make_me_bold($purpose)."' was deleted successfully, Thank you {$full_name}!");
+                $msg="Deleted Expense : ".make_me_bold($amount)." Tsh for ".make_me_bold($purpose)." by $full_name";
                 $this->usuals->log_write($user_id,$branch_id,$msg);
                 $this->daily_expense_redirect();
                 die();
@@ -367,6 +367,6 @@ class Admin extends CI_Controller{
             die();
         }
 
-       
+
     }
 }
