@@ -72,7 +72,7 @@ class Hsc extends CI_Controller {
 
     function change_branch($id){
         $this->session->set_userdata("branch_id",$id);
-        redirect(base_url());
+        redirect(base_url($this->session->flashdata('whereami')));
 
     }
 

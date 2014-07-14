@@ -73,6 +73,10 @@
 
 }
 
+.fa-black{
+    color: #000000;
+}
+
 
 @media (min-width: 1200px){
     .col-lg-1 {

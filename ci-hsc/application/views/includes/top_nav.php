@@ -11,13 +11,18 @@
 <!-- /.navbar-header -->
 
 <ul class="nav navbar-top-links navbar-right">
+
     <li><p class="text-muted"><?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ;?></p></li>
 <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="fa fa-exchange fa-fw"></i>  <i class="fa fa-caret-down"></i>
+<!--        <i class="fa fa-exchange fa-fw"></i>-->
+        <i class="fa fa-refresh fa-spin"></i>
+        <i class="fa fa-caret-down"></i>
     </a>
     <ul class="dropdown-menu dropdown-menu-left dropdown-submenu">
-        <?php foreach($branches as $branch){?>
+        <?php
+            $this->session->set_flashdata("whereami",$whereami= $this->router->fetch_class()."/".$this->router->fetch_method());
+        foreach($branches as $branch){?>
         <li>
             <a href="<?php echo base_url('hsc/change_branch').'/'.$branch['id'];?>">
                 <div>
@@ -30,6 +35,7 @@
         <li>
             <a class="text-center" href="#">
                 <strong>Stay at <?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ?></strong>
+
                 <i class="fa fa-angle-double-right"></i>
             </a>
         </li>

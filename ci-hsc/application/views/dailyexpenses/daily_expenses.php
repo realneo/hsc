@@ -42,7 +42,7 @@
 
 <div class="row">
     <!-- VIEW RECENT EXPENSES -------------------------------------------------------------------------->
-    <div class="col-lg-9">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">Recent Expenses</div>
             <div class="panel-body">
@@ -53,7 +53,7 @@
                         <th>Purpose</th>
                         <th>Received By</th>
                         <th>Amount</th>
-                        <th>Action</td>
+                        <th>Action</th>
                         </thead>
                         <tbody>
                         <?php
@@ -65,23 +65,24 @@
                             $id = $row['id'];
                             $date = custom_date_format($row['date']);
                             $purpose = $row['purpose'];
-                            $received_by = $row['received_by'];
+                            $received_by = ucwords(strtolower($row['received_by']));
                             $amount = number_format($row['amount']);
-                            $button = "<a href='includes/delete_expense_process.php?id=$id&amount=$amount&purpose=$purpose' class='btn btn-danger form-control' onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');>Delete</a>";
+                            $button = "<a href='includes/delete_expense_process.php?id=$id&amount=$amount&purpose=$purpose' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg fa-black'></i></a>";
                             if($date == $today_date){
                                 echo "<tr>
 												<td>{$date}</td>
 												<td>{$purpose}</td>
 												<td>{$received_by}</td>
-												<td class='text-right'>{$amount}</td>
-												<td>{$button}</td>
+												<td>{$amount}</td>
+												<td>
+                                   {$button}</td>
 											</tr>";
                             }else{
                                 echo "<tr>
 											<td>{$date}</td>
 											<td>{$purpose}</td>
 											<td>{$received_by}</td>
-											<td class='text-right'>{$amount}</td>
+											<td>{$amount}</td>
 											<td></td>
 										</tr>";
                             }
