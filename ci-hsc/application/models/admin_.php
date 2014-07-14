@@ -73,5 +73,10 @@ class Admin_ extends CI_Model{
 
     }
 
+    function  add_expense($date, $purpose, $received_by, $amount, $branch_id, $user_id){
+        $results = $this->db->query("INSERT INTO `expenses` (`id`, `date`, `purpose`, `received_by`, `amount`, `branch_id`, `user_id`) VALUES (NULL, '$date', '$purpose', '$received_by', '$amount', '$branch_id', '$user_id')");
+        return $results->result_array();
+    }
+
 
 }

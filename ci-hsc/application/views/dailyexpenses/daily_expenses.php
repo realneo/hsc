@@ -74,8 +74,7 @@
 												<td>{$purpose}</td>
 												<td>{$received_by}</td>
 												<td>{$amount}</td>
-												<td>
-                                   {$button}</td>
+												<td>{$button}</td>
 											</tr>";
                             }else{
                                 echo "<tr>

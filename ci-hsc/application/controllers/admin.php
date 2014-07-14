@@ -257,7 +257,68 @@ class Admin extends CI_Controller{
 
     }
 
+    function daily_expense_redirect(){
+        redirect(base_url().'hsc/daily_expenses');
+        die();
+    }
     function daily_expense_add(){
+        // Get information from the form
+
+        $date = $this->input->post('date');
+        $purpose = $this->input->post('purpose');
+        $received_by = $this->input->post('received_by');
+        $amount = $this->input->post('amount');
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        // Remove "," from the total_sale
+        $amount = str_replace( ',', '', $amount);
+
+        // Check if all fields are filled;
+
+        if(!$date){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to select a <strong>Date</strong>');
+            $this->daily_expense_redirect();
+        }
+
+        if(!$purpose){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert the <strong>Purpose</strong> of the Expense');
+
+            $this->daily_expense_redirect();
+        }
+
+        if(!$amount){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert the <strong>Amount</strong>');
+
+            $this->daily_expense_redirect();
+        }
+
+        // Insert into Expenses database
+
+        $query = $this->admin_->add_expense($date, $purpose, $received_by, $amount, $branch_id, $user_id);
+
+
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
+
+            // Write into Log
+            $log = "Daily Expense : $amount for $date";
+            log_write($user_id, $branch_id, $log);
+
+            $this->daily_expense_redirect();
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->daily_expense_redirect();
+
+        }
+
 
     }
 }
