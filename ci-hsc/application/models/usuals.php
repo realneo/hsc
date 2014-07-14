@@ -65,7 +65,11 @@ class Usuals extends CI_Model{
     function get_recent_total_sales(){
         $branch_id = $this->session->userdata('branch_id');
 
-        $results = $db -> query("SELECT * FROM total_sale WHERE branch_id = '$branch_id' ORDER BY 'date' DESC LIMIT 5");
+        $results0 = $this->db->query("SELECT * FROM total_sale WHERE branch_id = '$branch_id' ORDER BY 'date' DESC LIMIT 5");
+
+        $results = $this->db->query("SELECT * FROM total_sale WHERE branch_id = '$branch_id' order by id desc LIMIT 10");
+
+
         return $results->result_array();
     }
 

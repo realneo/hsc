@@ -3,6 +3,7 @@
         <h4 class="page-header">Add Sales </h4></div>
 </div>
 <div class="row">
+    <?php $this->load->view('dailysales/recent_total_sale');?>
     <!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
     <div class='col-lg-4'>
         <div class="panel panel-default">
@@ -28,5 +29,6 @@
         </div>
 
     </div>
+
 
 </div>

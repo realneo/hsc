@@ -38,6 +38,7 @@ class Hsc extends CI_Controller {
         $this->data['today_binding']=$this->usuals->get_today_binding();
         $this->data['logs']=$this->usuals->get_recent_activities();
         $this->data['branches']=$this->usuals->get_branches();
+        $this->data['recent_total']=$this->usuals->get_recent_total_sales();
 
 
 
