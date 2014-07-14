@@ -66,7 +66,7 @@
                             $amount = number_format($row['amount']);
                             $temp_data=array('date'=>$date,'purpose'=>$purpose,'id'=>$id,'amount'=>$amount);
                             $this->session->set_flashdata('post_data_'.$id,$temp_data);
-                            $php=base_url('admin/daliy_expense_delete').'/'.$id;
+                            $php=base_url('admin/daily_expense_delete').'/'.$id;
                             $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg fa-black'></i></a>";
                             if($date == $today_date){
                                 echo "<tr>

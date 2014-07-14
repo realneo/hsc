@@ -30,7 +30,7 @@ class Expenses extends CI_Model{
         return number_format(floatval($total_amount));
     }
 
-    function daliy_expense_delete($id){
+    function daily_expense_delete($id){
         $query="DELETE FROM `expenses` WHERE `id` = '$id' AND `date`= CURDATE()";
         $results=$this->db->query($query);
         $this->session->set_userdata('affected_rows',$this->db->affected_rows());

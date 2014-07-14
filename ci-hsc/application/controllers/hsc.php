@@ -8,6 +8,7 @@ class Hsc extends CI_Controller {
         parent::__construct();
         $this->load->model('usuals');
         $this->load->model('expenses');
+        $this->load->model('invoices');
 
 
         /*
@@ -43,6 +44,7 @@ class Hsc extends CI_Controller {
 
         $this->data['today_expenses']=$this->expenses->get_today_expenses();
         $this->data['recent_expenses']=$this->expenses->get_recent_expenses();
+        $this->data['recent_invoices']=$this->invoices->get_recent_invoices();
 
 
 

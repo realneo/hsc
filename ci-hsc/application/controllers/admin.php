@@ -325,7 +325,7 @@ class Admin extends CI_Controller{
 
     }
 
-    function daliy_expense_delete($id_){
+    function daily_expense_delete($id_){
         // Get information from the form
 
         $flash=$this->session->flashdata('post_data_'.$id_);
