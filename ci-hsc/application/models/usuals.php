@@ -58,6 +58,16 @@ class Usuals extends CI_Model{
 
     }
 
+    /*
+     * Get recent Total sales
+     */
+
+    function get_recent_total_sales(){
+        $branch_id = $this->session->userdata('branch_id');
+
+        $results = $db -> query("SELECT * FROM total_sale WHERE branch_id = '$branch_id' ORDER BY 'date' DESC LIMIT 5");
+        return $results->result_array();
+    }
 
     /*
      * Gets all activities
