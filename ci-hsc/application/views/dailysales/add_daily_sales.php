@@ -1,5 +1,5 @@
 <h4 class="page-header">Add Sales </h4>
-<br><div class="row">
+<div class="row">
     <!-- INSERT TOTAL SALE REPORT -------------------------------------------------------------------------->
     <div class='col-lg-4 straighten-up'>
         <div class="panel panel-default">
