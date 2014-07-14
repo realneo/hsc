@@ -31,9 +31,9 @@ class Expenses extends CI_Model{
     }
 
     function daliy_expense_delete($id){
-        $query="DELETE FROM `expenses` WHERE `id` = '$id'";
-        return $this->db->query($query);
-
-
+        $query="DELETE FROM `expenses` WHERE `id` = '$id' AND `date`= CURDATE()";
+        $results=$this->db->query($query);
+        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+        return $results;
     }
 }

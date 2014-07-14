@@ -310,7 +310,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
 
             // Write into Log
-            $log = "Daily Expense : $amount Tsh , was used for ".make_me_bold($purpose)." on $date";
+            $log = "Daily Expense : $amount Tsh , used for ".make_me_bold($purpose)." on $date";
             $msg=$log;
             $this->usuals->log_write($user_id,$branch_id,$msg);
             $this->daily_expense_redirect();
@@ -325,35 +325,35 @@ class Admin extends CI_Controller{
 
     }
 
-    function daliy_expense_delete(){
+    function daliy_expense_delete($id_){
         // Get information from the form
 
-        $id = $this->input->post('id');
-        $purpose = $this->input->post('purpose');
+        $flash=$this->session->flashdata('post_data_'.$id_);
+        $id = $id_;//$this->input->post('id');
+        $purpose = $flash['purpose'];
+        $amount = $flash['amount'];
         $full_name = $this->session->userdata('full_name');
         $branch_id = $this->session->userdata('branch_id');
         $user_id=$this->session->userdata('user_id');
 
-        if($id){
+        if($this->session->flashdata('post_data_'.$id)['id']==$id){
 
             // Delete the Daily Expense
-            $delete = $this->expenses->delete_expense();
+            $this->expenses->daliy_expense_delete($id);
+            $check=$this->session->userdata('affected_rows');
 
-            if($delete){
+            if($check>=1){
 
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
-
-                $today = date("Y-m-d");
-                $msg='Deleted Expense : $amount for'.make_me_bold($purpose).' by $full_name';
+                $this->session->set_flashdata('alert_msg',"{$amount} Tsh for '".make_me_bold($purpose)."', was deleted successfully, Thank you {$full_name}!");
+                $msg="Deleted Expense : ".make_me_bold($amount)."Tsh for ".make_me_bold($purpose)." by $full_name";
                 $this->usuals->log_write($user_id,$branch_id,$msg);
-                $db->query("INSERT INTO `log` (`id`, `date`, `branch_id`, `log`) VALUES (NULL, '$today', '$branch_id','$msg' )");
-
                 $this->daily_expense_redirect();
                 die();
             }else{
-                $_SESSION['alert_type'] = 'danger';
-                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg','Nothing was deleted , Contact Administrator.');
+
 
                 $this->daily_expense_redirect();
                 die();
@@ -361,12 +361,12 @@ class Admin extends CI_Controller{
 
         }else{
             $this->session->set_flashdata('alert_type','danger');
-            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+            $this->session->set_flashdata('alert_msg',"Try to delete from the system");
 
             $this->daily_expense_redirect();
             die();
         }
 
-        $this->daily_expense_redirect();
+       
     }
 }
