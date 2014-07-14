@@ -112,7 +112,7 @@ class Hsc extends CI_Controller {
                 $this->load->view('dailybinding/daily_binding');
                 break;
             default :
-                $data['title']="Edit Binding";
+                $data['title']="General Sales";
                 $this->load->view('includes/title');
                 $this->load->view('dailysales/default_content');
         }
