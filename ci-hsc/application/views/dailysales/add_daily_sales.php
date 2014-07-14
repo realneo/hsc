@@ -26,6 +26,11 @@
                     </div>
                 </form>
             </div>
+            <?php if(isset($today_sales) && $today_sales > 0){?>
+            <div class="panel-footer">
+                You can only add 1 total sale per day , Currently we are having <?php echo make_me_bold($today_sales." Tsh");?> for <?php echo $this->session->userdata('branch_name');?> today
+            </div>
+            <?php }?>
         </div>
 
     </div>

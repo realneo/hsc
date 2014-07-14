@@ -25,7 +25,7 @@ class Admin extends CI_Controller{
     }
 
     /*
-     * Malizia hapa , haujweza ku add daily sales , icheck tean abaadaye
+     * Adds Sales , check log msg
      */
     function daily_sales_add(){
         // Get information from the form
@@ -68,7 +68,7 @@ class Admin extends CI_Controller{
                     $msg="Daily Sale : $total_sale for $date by $full_name";
                 }else{
                     $this->session->set_flashdata('alert_msg',"Sorry ".make_me_bold($full_name).", we have the daily sales for ".make_me_bold($date).", Try edtting.");
-                    $msg="Failed to add Daily Sale : $total_sale for $date by $full_name,it is already here.";
+                    $msg="Failed to add Daily Sale : $total_sale Tsh for $date by $full_name,since we can only add 1 total sale per day.";
                     $this->session->set_flashdata('alert_type','warning');
                 }
                 $this->usuals->log_write($user_id,$branch_id,$msg);
