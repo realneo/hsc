@@ -97,6 +97,9 @@ class Hsc extends CI_Controller {
 
         switch($this->session->flashdata('show')){
             case 'add_sales':
+                /*
+                The titles were passed far behind , look for work around later :D
+                */
                 $data['title']="Add Sales";
                 $this->load->view('includes/title');
                 $this->load->view('dailysales/add_daily_sales');
