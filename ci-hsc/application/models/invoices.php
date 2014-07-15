@@ -17,6 +17,23 @@ class Invoices extends CI_Model{
         return $results->result_array();
     }
 
+    function get_total_manual_invoice($id){
+        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `id` = '$id'");
+        return $results->result_array();
+    }
+
+    function update_invoice($id,$difference){
+        $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$difference' WHERE `id` ='$id'");
+        return $results;
+    }
+
+    function complete_invoice($id,$amount){
+        $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
+        return $results->result_array();
+    }
+
+
+
     function add_manual_invoice($amount){
         $branch_id = $this->session->userdata('branch_id');
         $results = $this->db->query("INSERT INTO `manual_invoices` (`id`, `branch_id`, `date`, `amount`, `entered`, `date_entered`) VALUES (NULL, '$branch_id', CURDATE(), '$amount', '0', '0000-00-00')");
@@ -29,6 +46,7 @@ class Invoices extends CI_Model{
         $this->session->set_userdata('affected_rows',$this->db->affected_rows());
         return $results;
     }
+
 
 
 }

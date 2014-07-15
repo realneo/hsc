@@ -416,7 +416,7 @@ class Admin extends CI_Controller{
 
     }
 
-    function enter_manual(){
+    function manual_enter(){
         // Get information from the form
         $id = $this->input->post('id');
         $amount = $this->input->post('amount');
@@ -429,8 +429,8 @@ class Admin extends CI_Controller{
         // Check if all fields are filled;
 
         if(!$amount){
-            $_SESSION['alert_type'] = 'warning';
-            $_SESSION['alert_msg'] = 'You have to insert an <strong>amount</strong>';
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert an <strong>amount</strong>');
 
             $this->enter_manual_redirect();
             die();
@@ -438,16 +438,12 @@ class Admin extends CI_Controller{
 
         // Get the Total Manual Invoice of that date
 
-        $manuals = $db->query("SELECT * FROM `manual_invoices` WHERE `id` = '$id'");
-
-        while($manual = $manuals->fetch_assoc()){
-            $db_amount = $manual['amount'];
-        }
-
+        $manuals = $this->invoices->get_total_manual_invoice($id);
+        $db_amount = $manuals[0]['amount'];
         // If the amount is greater
         if(($amount + $db_amount)>0){
-            $_SESSION['alert_type'] = 'warning';
-            $_SESSION['alert_msg'] = 'The amount entered is <strong>GREATER</strong> than the one in the database';
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The amount entered is <strong>GREATER</strong> than the one in the database');
 
             $this->enter_manual_redirect();
             die();
@@ -457,22 +453,21 @@ class Admin extends CI_Controller{
         // If the amount is equal
         if(($db_amount + $amount) === 0){
 
-            $clear_update = $db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = '$today', `entered` = '1' WHERE `id` ='$id'");
+            $clear_update = $this->invoices->complete_invoice($id,$amount);
 
             if($clear_update){
-                $_SESSION['alert_type'] = 'success';
-                $_SESSION['alert_msg'] = "Successfully Entered Manual Invoice : <strong>{$amount}</strong>.";
-
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>{$amount}</strong>.');
 
                 $log = "Entered Manual Invoice: $amount by $full_name";
-                log_write($user_id, $branch_id, $log);
+                $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->enter_manual_redirect();
                 die();
 
             }else{
-                $_SESSION['alert_type'] = 'danger';
-                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+                $this->session->set_flashdata('alert_type','danger');
+                $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
 
                 $this->enter_manual_redirect();
                 die();
@@ -482,23 +477,22 @@ class Admin extends CI_Controller{
         }else{
             $difference = 0;
             $difference = $amount + $db_amount;
-            $amount_update = $db->query("UPDATE `manual_invoices` SET `amount` = '$difference' WHERE `id` ='$id'");
+            $amount_update = $this->invoices->update_invoice($id,$difference);
 
             if($amount_update){
-                $_SESSION['alert_type'] = 'success';
-                $_SESSION['alert_msg'] = "Successfully Entered Manual Invoice : <strong>{$amount}</strong>.";
-
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
                 $today = date("Y-m-d");
 
                 $log = "Entered Manual Invoice: $amount by $full_name";
-                log_write($user_id, $branch_id, $log);
+                $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->enter_manual_redirect();
                 die();
 
             }else{
-                $_SESSION['alert_type'] = 'danger';
-                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+                $this->session->set_flashdata('alert_type','danger');
+                $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
 
                 $this->enter_manual_redirect();
                 die();
