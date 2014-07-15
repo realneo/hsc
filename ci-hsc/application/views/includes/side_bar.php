@@ -72,13 +72,13 @@
                 </ul>
             </li>
 
-            <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
+            <li class="<?php echo ($active == "staff" ? "active" : "");?>">
+                <a href="<?php echo base_url('staff');?>"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-th-list"></span> Staff Management <span class="fa arrow"></span></a>
+                    <li class="<?php echo ($active_tab == "add_staff" ? "active" : "");?>">
+                        <a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-th-list"></span> Staff Management <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="add_new_staff.php"><span class="glyphicon glyphicon-plus"></span> Add New Staff </a></li>
+                            <li ><a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-plus"></span> Add New Staff </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,6 +95,7 @@
                     </li>
                 </ul>
             </li>
+            <li class="last-logo"><img src="<?php echo base_url('assets/img/HSC-circle.png');?>" class="img-responsive" alt=""/></li>
         </ul>
         <!-- /#side-menu -->
     </div>

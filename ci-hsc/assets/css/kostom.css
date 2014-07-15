@@ -77,6 +77,12 @@
     color: #000000;
 }
 
+/*logo for the side bar   */
+.last-logo{
+    padding: 25%;opacity: 0.2;margin-top: 25%;
+
+}
+
 
 @media (min-width: 1200px){
     .col-lg-1 {
@@ -86,6 +92,13 @@
         margin-left: -1%;
         margin-top: 1.5%;
     }
+
+    .last-logo{
+        padding: 25%;opacity: 0.2;margin-top: 25%;
+
+    }
+
+
 }
 
 @media (min-width: 1320px){
@@ -96,6 +109,11 @@
         margin-left: -1%;
         margin-top: 1.9%;
     }
+
+    .last-logo{
+        padding: 10%;opacity: 0.5;margin-top: 15%;
+
+    }
 }
 /*iphone 5*/
 
@@ -105,5 +123,14 @@
         font-size: 10px;
 
     }
+    .last-logo{
+        padding-top: 32%;
+        padding-left: 32%;
+        padding-right: 32%;
+        opacity: 0.2;
+        margin-top: -80px;
+        padding-bottom: 0px;
+
+     }
 }
 

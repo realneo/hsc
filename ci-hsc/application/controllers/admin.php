@@ -785,7 +785,7 @@ class Admin extends CI_Controller{
 
             if($insert_results){
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',"<i class='fa fa-thumbs-up'></i>Send our regards to {$sales_name}, Great Job! Thank you {$full_name} ");
+                $this->session->set_flashdata('alert_msg',"<i class='fa fa-thumbs-up'></i> Send our regards to {$sales_name}, Great Job! Thank you {$full_name} ");
 
                 $today = date("Y-m-d");
                 $log = "$sales_name sold Tsh $sales_voucher on $date";
