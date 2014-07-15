@@ -732,11 +732,11 @@ class Admin extends CI_Controller{
         $user_id = $this->session->userdata('user_id');
 
         // Getting Sales Name
-        $query = $this->vouchers->get_user_profile($user_id);
+        $query = $this->vouchers->get_user_profile($sales_id);
 
         foreach($query as $row){
             $sales_name = $row['first_name'] . ' ' . $row['last_name'];
-            $sales_name = make_caps($sales_name);
+            $sales_name = make_me_bold(make_caps($sales_name));
 
         }
 
@@ -780,10 +780,10 @@ class Admin extends CI_Controller{
 
             if($insert_results){
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
+                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! Send our regards to {$sales_name} <i class='fa fa-thumbs-up'></i> Great Job!");
 
                 $today = date("Y-m-d");
-                $log = "$sales_name sold $sales_voucher on $date";
+                $log = "$sales_name sold Tsh $sales_voucher on $date";
                 $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->vouchers_redirect();
