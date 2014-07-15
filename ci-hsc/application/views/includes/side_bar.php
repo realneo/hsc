@@ -47,7 +47,7 @@
                         <a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="glyphicon glyphicon-pencil"></span> Manual Invoices <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li class="<?php echo ($active_tab == "manual_invoices" ? "active" : "");?>"><a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="glyphicon glyphicon-plus"></span> Add Manual Invoice</a></li>
-                            <li class="<?php echo ($active_tab == "view_manual_invoices" ? "active" : "");?>"><a href="<?php echo base_url('hsc/view_manual_invoices');?>"><span class="glyphicon glyphicon-th-list"></span> Enter Manual Invoices</a></li>
+                            <li class="<?php echo ($active_tab == "view_manual_invoices" ? "active" : "");?>"><a href="<?php echo base_url('admin/enter_manual_redirect');?>"><span class="glyphicon glyphicon-th-list"></span> Enter Manual Invoices</a></li>
                         </ul>
                     </li>
 

@@ -14,6 +14,7 @@ class Admin extends CI_Controller{
         $this->load->model('admin_');
         $this->load->model('usuals');
         $this->load->model('expenses');
+        $this->load->model('invoices');
 
     }
 
@@ -339,7 +340,7 @@ class Admin extends CI_Controller{
         if($this->session->flashdata('post_data_'.$id)['id']==$id){
 
             // Delete the Daily Expense
-            $this->expenses->daliy_expense_delete($id);
+            $this->expenses->daily_expense_delete($id);
             $check=$this->session->userdata('affected_rows');
 
             if($check>=1){
@@ -370,8 +371,153 @@ class Admin extends CI_Controller{
 
     }
 
+    function manual_invoice_delete($id_){
+        // Get information from the form
+
+        $flash=$this->session->flashdata('post_data_'.$id_);
+        $id = $id_;//$this->input->post('id');
+        $purpose = $flash['purpose'];
+        $amount = $flash['amount'];
+        $full_name = $this->session->userdata('full_name');
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id=$this->session->userdata('user_id');
+
+        if($this->session->flashdata('post_data_'.$id)['id']==$id){
+
+            // Delete the Daily Expense
+            $this->invoices->manual_invoice_delete($id);
+            $check=$this->session->userdata('affected_rows');
+
+            if($check>=1){
+
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg',make_me_bold($amount)."Tsh was deleted successfully, Thank you {$full_name}!");
+                $msg="Deleted Invoice : ".make_me_bold($amount)." Tsh for ".make_me_bold($purpose)." by $full_name";
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+                $this->manual_invoice_redirect();
+                die();
+            }else{
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg','Nothing was deleted , Contact Administrator.');
+
+
+                $this->manual_invoice_redirect();
+                die();
+            }
+
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"Try to delete from the system");
+
+            $this->manual_invoice_redirect();
+            die();
+        }
+
+
+    }
+
+    function enter_manual(){
+        // Get information from the form
+        $id = $this->input->post('id');
+        $amount = $this->input->post('amount');
+        $branch_id = $this->session->userdata('branch_id');
+        $branch_name = $this->session->userdata('branch_name');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        $today = date("Y-m-d");
+        // Check if all fields are filled;
+
+        if(!$amount){
+            $_SESSION['alert_type'] = 'warning';
+            $_SESSION['alert_msg'] = 'You have to insert an <strong>amount</strong>';
+
+            $this->enter_manual_redirect();
+            die();
+        }
+
+        // Get the Total Manual Invoice of that date
+
+        $manuals = $db->query("SELECT * FROM `manual_invoices` WHERE `id` = '$id'");
+
+        while($manual = $manuals->fetch_assoc()){
+            $db_amount = $manual['amount'];
+        }
+
+        // If the amount is greater
+        if(($amount + $db_amount)>0){
+            $_SESSION['alert_type'] = 'warning';
+            $_SESSION['alert_msg'] = 'The amount entered is <strong>GREATER</strong> than the one in the database';
+
+            $this->enter_manual_redirect();
+            die();
+        }
+
+
+        // If the amount is equal
+        if(($db_amount + $amount) === 0){
+
+            $clear_update = $db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = '$today', `entered` = '1' WHERE `id` ='$id'");
+
+            if($clear_update){
+                $_SESSION['alert_type'] = 'success';
+                $_SESSION['alert_msg'] = "Successfully Entered Manual Invoice : <strong>{$amount}</strong>.";
+
+
+                $log = "Entered Manual Invoice: $amount by $full_name";
+                log_write($user_id, $branch_id, $log);
+
+                $this->enter_manual_redirect();
+                die();
+
+            }else{
+                $_SESSION['alert_type'] = 'danger';
+                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+
+                $this->enter_manual_redirect();
+                die();
+
+            }
+
+        }else{
+            $difference = 0;
+            $difference = $amount + $db_amount;
+            $amount_update = $db->query("UPDATE `manual_invoices` SET `amount` = '$difference' WHERE `id` ='$id'");
+
+            if($amount_update){
+                $_SESSION['alert_type'] = 'success';
+                $_SESSION['alert_msg'] = "Successfully Entered Manual Invoice : <strong>{$amount}</strong>.";
+
+                $today = date("Y-m-d");
+
+                $log = "Entered Manual Invoice: $amount by $full_name";
+                log_write($user_id, $branch_id, $log);
+
+                $this->enter_manual_redirect();
+                die();
+
+            }else{
+                $_SESSION['alert_type'] = 'danger';
+                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+
+                $this->enter_manual_redirect();
+                die();
+
+            }
+
+        }
+
+    }
+
+    function enter_manual_redirect(){
+        $this->session->set_flashdata('view_invoices',true);
+        redirect(base_url().'hsc/daily_manual_invoices');
+        die();
+    }
+
+
     function manual_invoice_redirect(){
-        redirect(base_url().'hsc/daily_invoices');
+        redirect(base_url().'hsc/daily_manual_invoices');
         die();
     }
     function manual_invoice_add(){
@@ -382,35 +528,37 @@ class Admin extends CI_Controller{
         $branch_name = $this->session->userdata('branch_name');
         $branch_id = $this->session->userdata('branch_id');
         $full_name = $this->session->userdata('full_name');
+        $user_id = $this->session->userdata('user_id');
 
         // Check if all fields are filled;
 
         if(!$date){
-            $_SESSION['alert_type'] = 'warning';
-            $_SESSION['alert_msg'] = 'You have to select a <strong>date</strong>';
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'You have to select a <strong>date</strong>');
             $this->manual_invoice_redirect();
             die();
         }
 
         if(!$amount){
-            $_SESSION['alert_type'] = 'warning';
-            $_SESSION['alert_msg'] = 'You have to insert an <strong>amount</strong>';
-
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'You have to insert an <strong>amount</strong>');
             $this->manual_invoice_redirect();
             die();
         }
 
 
         // Insert new Manual Invocie in the Database
-        $insert_results = $db->query("INSERT INTO `manual_invoices` (`id`, `branch_id`, `date`, `amount`, `entered`, `date_entered`) VALUES (NULL, '$branch_id', '$date', '$amount', '0', '0000-00-00')");
+        $insert_results = $this->invoices->add_manual_invoice($amount);
 
         if($insert_results){
-            $_SESSION['alert_type'] = 'success';
-            $_SESSION['alert_msg'] = "Successfully Added Manual Invoice {$date} : <strong>{$amount}</strong>.";
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong>Tsh {$amount}</strong>.");
 
             $today = date("Y-m-d");
             $log = "Manual Invoice: $amount by $full_name";
-            log_write($user_id, $branch_id, $log);
+            $this->usuals->log_write($user_id, $branch_id, $log);
 
             $this->manual_invoice_redirect();
             die();

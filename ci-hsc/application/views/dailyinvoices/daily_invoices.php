@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="form-control btn btn-primary">Add Manual Invoice</button>
+                   <button type="submit" class="form-control btn btn-primary">Add Manual Invoice</button>
                 </div>
             </form>
         </div>
@@ -50,11 +50,27 @@
                         <th>Amount</th>
                         <th>Entered</th>
                         <th>Date Entered</th>
+                        <?php
+
+                        if($this->session->flashdata('view_invoices')){?>
+                        <th>Action</th>
+                        <?php } ?>
                         </thead>
                         <tbody>
                         <?php
 
+
                         foreach($recent_invoices  as $row){
+                            $temp_data=array(
+                                'date'=>$row['date'],
+                                'entered'=>$row['entered'],
+                                'id'=>$row['id'],
+                                'amount'=>$row['amount'],
+                                'date_entered'=>$row['date_entered']
+                            );
+                            $this->session->set_flashdata('post_data_'.$row['id'],$temp_data);
+                            $php=base_url('admin/manual_invoice_delete').'/'.$row['id'];
+                            $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg fa-black'></i></a>";
                             $date = custom_date_format($row['date']);
                             $amount = number_format($row['amount']);
                             $entered_db = $row['entered'];
@@ -77,8 +93,22 @@
 											<td>{$date}</td>
 											<td>{$amount}</td>
 											<td>{$entered}</td>
-											<th>{$date_entered}</td>
-										</tr>";
+											<td>{$date_entered}{$button}</td>";
+                                            if($this->session->flashdata('view_invoices')){?>
+                                <td class="col-lg-3">
+                                    <form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
+                                        <div class='input-group'>
+                                            <input class='form-control' type='text' name='amount' value='' />
+                                            <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
+											      		<span class='input-group-btn'>
+											        		<button class='btn btn-primary' type='submit'>Enter</button>
+											      		</span>
+                                        </div>
+                                    </form>
+                                </td>
+                                            <?php } ?>
+										</tr>
+                        <?php
                         }
                         ?>
                         </tbody>
