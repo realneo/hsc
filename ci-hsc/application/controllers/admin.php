@@ -15,6 +15,7 @@ class Admin extends CI_Controller{
         $this->load->model('usuals');
         $this->load->model('expenses');
         $this->load->model('invoices');
+        $this->load->model('returns');
 
     }
 
@@ -25,7 +26,6 @@ class Admin extends CI_Controller{
 
         $this->admin->add_daily_sales();
     }
-
     /*
      * Adds Sales , check log msg
      */
@@ -509,11 +509,11 @@ class Admin extends CI_Controller{
         die();
     }
 
-
     function manual_invoice_redirect(){
         redirect(base_url().'hsc/daily_manual_invoices');
         die();
     }
+
     function manual_invoice_add(){
         // Get information from the form
 
@@ -557,12 +557,160 @@ class Admin extends CI_Controller{
             $this->manual_invoice_redirect();
             die();
         }else{
-            $_SESSION['alert_type'] = 'danger';
-            $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"There was a problem with the system please try again!");
 
             $this->manual_invoice_redirect();
             die();
         }
+
+    }
+
+    function returns_redirect(){
+        redirect(base_url().'hsc/daily_returns');
+        die();
+    }
+
+    function add_return(){
+        $this->returns->get_recent_returns();
+        // Get information from the form
+
+        $date =$this->input->post('date');
+        $action = $this->input->post('action');
+        $amount = $this->input->post('amount');
+        $receipt_number = $this->input->post('receipt_number');
+        $branch_id = $this->session->userdata('branch_id');
+        $full_name = $this->session->userdata('full_name');
+        $user_id = $this->session->userdata('user_id');
+
+
+        // Remove "," from the numbers
+        $amount = str_replace( ',', '', $amount);
+
+        // Check if all fields are filled;
+
+        if(!$date){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'You have to select a <strong>date</strong>');
+
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+
+        if(!$action){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'You have to fill in <strong>Action</strong> field, it is required!');
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+        if(!$receipt_number OR !is_numeric($receipt_number)){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'You have to fill in <strong>Receipt Number</strong> field');
+            if(!is_numeric($amount)){
+                $this->session->set_flashdata('alert_msg',
+                    'Sorry the <b>Receipt Number</b> field has to be a number');
+            }
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+
+        if(!$amount OR !is_numeric($amount)){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'You have to fill in the <strong>Amount</strong> field');
+            if(!is_numeric($amount)){
+                $this->session->set_flashdata('alert_msg',
+                    'Sorry the <b>Amount</b> field has to be a number');
+            }
+
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+
+        if(true){
+            // Insert the Return in the Database
+            $insert_results = $this->returns->insert_return($date, $action, $receipt_number, $user_id, $branch_id, $amount);
+
+            if($insert_results){
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg',"Successfully Added return for {$date} : <strong>Tsh ".$amount."</strong>.,Thank you {$full_name}!");
+
+                $today = date("Y-m-d");
+                $log = "Returned $action on $date";
+                $this->usuals->log_write($user_id, $branch_id, $log);
+
+                redirect(base_url().'hsc/daily_returns');
+                die();
+            }else{
+
+                $this->session->set_flashdata('alert_type','danger');
+                $this->session->set_flashdata('alert_msg',"There was a problem with the system please try again!");
+
+                redirect(base_url().'hsc/daily_returns');
+                die();
+            }
+
+
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"There was a major problem with the system please try again!");
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+
+    }
+    function delete_return($id_){
+        // Get information from the form
+        $flash=$this->session->flashdata('post_data_'.$id_);
+        $date = $flash['date'];
+        $action = $flash['action'];
+        $amount = $flash['amount'];
+        $id = $flash['id'];
+        $receipt_number = $flash['receipt_number'];
+
+        $full_name = $this->session->userdata('full_name');
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id=$this->session->userdata('user_id');
+
+        if($this->session->flashdata('post_data_'.$id)['id']==$id){
+
+            // Delete the Daily Expense
+            $this->returns->delete_return($id);
+            $check=$this->session->userdata('affected_rows');
+
+            if($check>=1){
+
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg','Tsh '.make_me_bold($amount)." with receipt number of ".$receipt_number." was deleted successfully, Thank you {$full_name}!");
+                $msg="Deleted Return : Tsh ".make_me_bold($amount)." for ".make_me_bold($action)." by $full_name";
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+                $this->returns_redirect();
+                die();
+            }else{
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg','Nothing was deleted , Contact Administrator.');
+
+
+                $this->returns_redirect();
+                die();
+            }
+
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"Try to delete from the system");
+
+            $this->returns_redirect();
+            die();
+        }
+
 
     }
 }

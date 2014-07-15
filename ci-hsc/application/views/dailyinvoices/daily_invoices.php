@@ -46,7 +46,7 @@
                 <div class="table-responsive">
                     <table class="table table-striped  table-hover">
                         <thead>
-                        <th>Date</th>
+                        <th>Date Issued</th>
                         <th>Amount</th>
                         <th>Status</th>
                         <th>Date Entered</th>
@@ -70,7 +70,7 @@
                             );
                             $this->session->set_flashdata('post_data_'.$row['id'],$temp_data);
                             $php=base_url('admin/manual_invoice_delete').'/'.$row['id'];
-                            $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg fa-black'></i></a>";
+                            $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg text-danger'></i></a>";
                             $date = custom_date_format($row['date']);
                             $amount = number_format($row['amount']);
                             $entered_db = $row['entered'];
@@ -78,7 +78,7 @@
 
                             // Removing the 0000-00-00 from the list
                             if($date_entered_db == '0000-00-00'){
-                                $date_entered = '';
+                                $date_entered = 'Not Available untill entered';
                             }else{
                                 $date_entered = custom_date_format($date_entered_db);
                             }
@@ -93,7 +93,7 @@
 											<td>{$date}</td>
 											<td>{$amount}</td>
 											<td>{$entered}</td>
-											<td>{$date_entered} {$button}</td>";
+											<td>{$button} {$date_entered}</td>";
                                             if($this->session->flashdata('view_invoices')){?>
                                 <td class="col-lg-3">
                                     <form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>

@@ -9,6 +9,7 @@ class Hsc extends CI_Controller {
         $this->load->model('usuals');
         $this->load->model('expenses');
         $this->load->model('invoices');
+        $this->load->model('returns');
 
 
         /*
@@ -45,6 +46,8 @@ class Hsc extends CI_Controller {
         $this->data['today_expenses']=$this->expenses->get_today_expenses();
         $this->data['recent_expenses']=$this->expenses->get_recent_expenses();
         $this->data['recent_invoices']=$this->invoices->get_recent_invoices();
+
+        $this->data['recent_returns']=$this->returns->get_recent_returns();
 
 
 
@@ -184,7 +187,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/side_bar');
         $this->load->view('includes/title');
 
-        $this->load->view('dailysales/default_content');
+        $this->load->view('dailyreturns/daily_returns');
         $this->load->view('includes/footer');
     }
 
