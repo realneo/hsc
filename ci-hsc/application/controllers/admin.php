@@ -715,7 +715,79 @@ class Admin extends CI_Controller{
 
     }
 
+    function vouchers_redirect(){
+        redirect(base_url().'hsc/sales_vouchers');
+        die();
+    }
+
     function add_sales_voucher(){
-        
+        // Get information from the form
+
+        $date = $this->input->post('date');
+        $sales_id = $this->input->post('sales_id');
+        $sales_voucher = $this->input->post('sales_voucher');
+        $branch_id = $this->session->userdata('branch_id');
+        $full_name =$this->session->userdata('full_name');
+        $user_id = $this->session->userdata('user_id');
+
+        // Getting Sales Name
+        $query = $this->usuals->get_user_profile($user_id);
+
+        while($row = $query->fetch_assoc()){
+            $sales_name = $row['first_name'] . ' ' . $row['last_name'];
+        }
+
+        // Remove "," from the numbers
+        $sales_voucher = str_replace( ',', '', $sales_voucher);
+
+        // Check if all fields are filled;
+
+        if(!$date){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to select a <strong>Date</strong>');
+
+            $this->vouchers_redirect();
+            die();
+        }
+
+        if(!$sales_voucher){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert your <strong>Sales Voucher</strong>');
+
+            $this->vouchers_redirect();
+            die();
+        }
+
+        if(true){
+            // Insert the Total Sale in the Database
+            $insert_results = $this->vouchers->insert_voucher();
+
+            if($insert_results){
+                $_SESSION['alert_type'] = 'success';
+                $_SESSION['alert_msg'] = "Thank you {$full_name}!";
+
+
+                $today = date("Y-m-d");
+                $log = "$sales_name sold $sales_voucher on $date";
+                log_write($user_id, $branch_id, $log);
+
+                $this->vouchers_redirect();
+                die();
+            }else{
+                $_SESSION['alert_type'] = 'danger';
+                $_SESSION['alert_msg'] = "There was a problem with the system please try again!";
+
+                $this->vouchers_redirect();
+                die();
+            }
+
+
+        }else{
+            $_SESSION['alert_type'] = 'danger';
+            $_SESSION['alert_msg'] = "There was a major problem, Please Retry!";
+
+            $this->vouchers_redirect();
+            die();
+        }
     }
 }

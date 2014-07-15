@@ -28,4 +28,10 @@ class Vouchers extends CI_Model {
         return $results->result_array();
 
     }
+
+    function insert_voucher($date, $branch_id, $sales_id, $user_id, $sales_voucher){
+        $result=$this->db->query("INSERT INTO `sales_voucher` (`id`, `date`, `branch_id`, `sales_id`, `user_id`, `amount`) VALUES (NULL, '$date', '$branch_id', '$sales_id', '$user_id', '$sales_voucher')");
+        return $result;
+
+    }
 }
