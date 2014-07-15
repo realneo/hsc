@@ -12,18 +12,20 @@
 
                     <div class="form-group col-lg-6">
                         <label>Sales</label>
+                        <?php //var_dump($recent_vouchers);?>
                         <select class="form-control" name="sales_id">
                             <?php
 
 
 
-                            foreach($recent_vouchers as $row){
+                            foreach($users as $row){
                                 $sales_id = $row['id'];
 
-                                $results = $db->query("SELECT * FROM `user_profile` WHERE `user_id` = '$sales_id'");
+                                $results = $this->vouchers->get_user_profile($sales_id);
 
-                                while($rows = $results->fetch_assoc()){
-                                    $sales_name = $rows['first_name']. ' ' . $row['last_name'];
+                                foreach($results as $row_){
+                                    $sales_name = $row_['first_name']. ' ' . $row_['last_name'];
+                                    $sales_name = make_me_bold($sales_name) ;
                                 }
                                 echo "<option value='{$sales_id}'>{$sales_name}</option>";
                             }
@@ -40,6 +42,50 @@
                         <button class="form-control btn btn-primary">Add Sales Voucher</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- TODAY SALES VOUCHERS -------------------------------------------------------------------------->
+
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Recent Sales Voucher </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped  table-hover">
+                        <thead>
+                        <th>Sales Name</th>
+                        <th>Sales Voucher</th>
+                        </thead>
+                        <tbody>
+                        <?php
+                        // Get the Top 10 List of recent Sales Vouchers
+
+                        foreach($recent_vouchers as $row){
+                            $sales_id = $row['sales_id'];
+                            $amount = number_format($row['amount']);
+
+                            // Get Full name of the Sales Person
+                            $results = $this->vouchers->get_user_profile($sales_id);
+                            foreach($results as $row_){
+                                $sales_name = $row_['first_name']. ' ' . $row_['last_name'];
+                                $sales_name = make_me_bold($sales_name) ;
+                            }
+                            echo
+                            "
+										<tr>
+											<td>{$sales_name}</td>
+											<td>{$amount}</td>
+										</tr>
+									";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
