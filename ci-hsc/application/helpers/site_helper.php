@@ -31,3 +31,11 @@ function custom_date_format($date){
 function make_me_bold($value){
     return "<b>".$value."</b>";
 }
+
+
+/*
+ * Makes Caps in every word
+ */
+function make_caps($value){
+    return ucwords(strtolower($value));
+}

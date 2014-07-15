@@ -1,5 +1,7 @@
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12"><?php if(empty($users)){?>
+            <p class="text-muted">Sorry we can not retrieve salesman for <?php echo make_me_bold($this->session->userdata('branch_name'));?>, Since they are not registered in the system yet or perhaps the systen is busy, Try again later.</p>
+        <?php } ?>
         <div class="panel panel-default">
             <div class="panel-heading">Add Sales Voucher</div>
             <div class="panel-body">
@@ -11,8 +13,9 @@
                     </div>
 
                     <div class="form-group col-lg-6">
+
+
                         <label>Sales</label>
-                        <?php //var_dump($recent_vouchers);?>
                         <select class="form-control" name="sales_id">
                             <?php
 
