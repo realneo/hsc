@@ -3,7 +3,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Add Sales Voucher</div>
             <div class="panel-body">
-                <form role="form" action="includes/sales_voucher_process.php" method="post">
+                <form role="form" action="<?php echo base_url().'admin/add_sales_voucher'?>" method="post">
 
                     <div class="form-group col-lg-3">
                         <label>Select Date</label>

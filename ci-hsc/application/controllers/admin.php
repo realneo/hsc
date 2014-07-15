@@ -667,6 +667,7 @@ class Admin extends CI_Controller{
         }
 
     }
+
     function delete_return($id_){
         // Get information from the form
         $flash=$this->session->flashdata('post_data_'.$id_);
@@ -712,5 +713,9 @@ class Admin extends CI_Controller{
         }
 
 
+    }
+
+    function add_sales_voucher(){
+        
     }
 }
