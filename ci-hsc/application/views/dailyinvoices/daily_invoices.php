@@ -48,7 +48,7 @@
                         <thead>
                         <th>Date</th>
                         <th>Amount</th>
-                        <th>Entered</th>
+                        <th>Status</th>
                         <th>Date Entered</th>
                         <?php
 
@@ -93,7 +93,7 @@
 											<td>{$date}</td>
 											<td>{$amount}</td>
 											<td>{$entered}</td>
-											<td>{$date_entered}{$button}</td>";
+											<td>{$date_entered} {$button}</td>";
                                             if($this->session->flashdata('view_invoices')){?>
                                 <td class="col-lg-3">
                                     <form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>

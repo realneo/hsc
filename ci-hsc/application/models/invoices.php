@@ -29,7 +29,7 @@ class Invoices extends CI_Model{
 
     function complete_invoice($id,$amount){
         $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
-        return $results->result_array();
+        return $results;
     }
 
 

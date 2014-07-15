@@ -70,7 +70,7 @@ class Admin extends CI_Controller{
                     $msg="Daily Sale : $total_sale for $date by $full_name";
                 }else{
                     $this->session->set_flashdata('alert_msg',"Sorry ".make_me_bold($full_name).", we have the daily sales for ".make_me_bold($date).", Try edtting.");
-                    $msg="Failed to add Daily Sale : $total_sale Tsh for $date by $full_name,since we can only add 1 total sale per day.";
+                    $msg="Failed to add Daily Sale : Tsh $total_sale  for $date by $full_name,since we can only add 1 total sale per day.";
                     $this->session->set_flashdata('alert_type','warning');
                 }
                 $this->usuals->log_write($user_id,$branch_id,$msg);
@@ -311,7 +311,7 @@ class Admin extends CI_Controller{
             $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
 
             // Write into Log
-            $log = "Daily Expense : $amount Tsh , used for ".make_me_bold($purpose)." on $date";
+            $log = "Daily Expense : Tsh $amount, used for ".make_me_bold($purpose)." on $date";
             $msg=$log;
             $this->usuals->log_write($user_id,$branch_id,$msg);
             $this->daily_expense_redirect();
@@ -346,7 +346,7 @@ class Admin extends CI_Controller{
             if($check>=1){
 
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',make_me_bold($amount)."Tsh for '".make_me_bold($purpose)."' was deleted successfully, Thank you {$full_name}!");
+                $this->session->set_flashdata('alert_msg','Tsh '.make_me_bold($amount)." for '".make_me_bold($purpose)."' was deleted successfully, Thank you {$full_name}!");
                 $msg="Deleted Expense : ".make_me_bold($amount)." Tsh for ".make_me_bold($purpose)." by $full_name";
                 $this->usuals->log_write($user_id,$branch_id,$msg);
                 $this->daily_expense_redirect();
@@ -391,8 +391,8 @@ class Admin extends CI_Controller{
             if($check>=1){
 
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',make_me_bold($amount)."Tsh was deleted successfully, Thank you {$full_name}!");
-                $msg="Deleted Invoice : ".make_me_bold($amount)." Tsh for ".make_me_bold($purpose)." by $full_name";
+                $this->session->set_flashdata('alert_msg','Tsh '.make_me_bold($amount)." was deleted successfully, Thank you {$full_name}!");
+                $msg="Deleted Invoice : Tsh ".make_me_bold($amount)." for ".make_me_bold($purpose)." by $full_name";
                 $this->usuals->log_write($user_id,$branch_id,$msg);
                 $this->manual_invoice_redirect();
                 die();
@@ -457,9 +457,9 @@ class Admin extends CI_Controller{
 
             if($clear_update){
                 $this->session->set_flashdata('alert_type','warning');
-                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>{$amount}</strong>.');
+                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
 
-                $log = "Entered Manual Invoice: $amount by $full_name";
+                $log = "Entered Manual Invoice: Tsh $amount by $full_name";
                 $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->enter_manual_redirect();
@@ -484,7 +484,7 @@ class Admin extends CI_Controller{
                 $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
                 $today = date("Y-m-d");
 
-                $log = "Entered Manual Invoice: $amount by $full_name";
+                $log = "Entered Manual Invoice: Tsh $amount by $full_name";
                 $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->enter_manual_redirect();
@@ -548,10 +548,10 @@ class Admin extends CI_Controller{
 
         if($insert_results){
             $this->session->set_flashdata('alert_type','success');
-            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong>Tsh {$amount}</strong>.");
+            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong>Tsh ".$amount."</strong>.");
 
             $today = date("Y-m-d");
-            $log = "Manual Invoice: $amount by $full_name";
+            $log = "Manual Invoice: Tsh $amount by $full_name";
             $this->usuals->log_write($user_id, $branch_id, $log);
 
             $this->manual_invoice_redirect();
