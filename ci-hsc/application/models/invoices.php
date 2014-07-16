@@ -29,7 +29,8 @@ class Invoices extends CI_Model{
     }
 
     function insert_invoice_progress($id,$amount){
-        $this->db->query("INSERT INTO `manual_invoices_progress` (`id` ,`date` ,`manual_invoice_id` ,`amount_entered`)VALUES (NULL , CURRENT_TIMESTAMP ,  '$id',  '$amount'
+        $branch_id = $this->session->userdata('branch_id');
+        $this->db->query("INSERT INTO `manual_invoices_progress` (`id` ,`date` ,`manual_invoice_id` ,`amount_entered`,`branch_id`)VALUES (NULL , CURDATE() ,  '$id',  '$amount','$branch_id'
 );");
 
     }

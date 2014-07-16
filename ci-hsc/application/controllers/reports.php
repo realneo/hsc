@@ -76,6 +76,8 @@ class Reports extends CI_Controller{
 
         $this->data['total_returns_according_to_date']=$this->report->get_total_returns();
 
+        $this->data['manual_entered_invoices']=$this->report->get_manual_entered_invoices();
+
 
 
 

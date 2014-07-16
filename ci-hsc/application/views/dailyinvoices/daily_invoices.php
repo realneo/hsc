@@ -1,8 +1,7 @@
 <div class="row">
 
-
+    <?php if(!$this->session->flashdata('view_invoices')){?>
 <!-- ADD MANUAL INVOICE FORM ------------------------------------------------------------------------------>
-
 <div class="col-lg-6">
     <div class="panel panel-default">
         <div class="panel-heading">Add Manual Invoice</div>
@@ -26,6 +25,7 @@
         </div>
     </div>
 </div>
+    <?php } ?>
 <!-- TOTAL MANUAL INVOICES -------------------------------------------------------------------------->
 
 <div class="col-lg-6">
@@ -79,7 +79,7 @@
                             $button ='';
                             if($date_entered_db == date('Y-m-d')){
                                 $date_entered = custom_date_format($date_entered_db);//'Not Available untill entered';
-                                if($entered_db!=1){
+                                if($entered_db == 0){
                                     $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg text-danger'></i></a>";
                                 }
 
@@ -102,7 +102,8 @@
 											<td>{$button} {$date_entered}</td>";
                                             if($this->session->flashdata('view_invoices')){?>
                                 <td class="col-lg-3">
-                                    <form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
+
+                                    <?php if($entered_db!=1){?><form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
                                         <div class='input-group'>
                                             <input class='form-control' type='text' name='amount' value='' />
                                             <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
@@ -111,6 +112,7 @@
 											      		</span>
                                         </div>
                                     </form>
+                                                    <?php } else{echo make_me_bold("<span class='text-success text-right'><i class='fa fa-check'></i> Already entered</span>");} ?>
                                 </td>
                                             <?php } ?>
 										</tr>

@@ -429,6 +429,7 @@ class Admin extends CI_Controller{
         $today = date("Y-m-d");
         // Check if all fields are filled;
 
+
         if(!$amount){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','You have to insert an <strong>amount</strong>');

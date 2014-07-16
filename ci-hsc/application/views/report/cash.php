@@ -43,12 +43,7 @@
                             <td class='text-right'>
                                 <?php
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
-                                if($total_not_manual_invoices!=0){
-                                    echo $total_not_manual_invoices;
-                                }    else{
-                                    $total_not_manual_invoices=$this->report->get_total_manual_progress(36);
-                                    echo $total_not_manual_invoices;
-                                }
+                                echo $total_not_manual_invoices;
 
                                 //var_dump($total_not_manual_invoices);
                                 ?>
@@ -65,10 +60,11 @@
                             <td></td>
                         </tr>
                         <?php
+
                             $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $binding_amount )+ str_replace( ',', '', $total_not_manual_invoices );
                         }else{
                             $binding_amount = 0 ;
-                            $total_income = str_replace( ',', '', $total_sale );
+                            $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $total_not_manual_invoices );
                         } ?>
                         <tr>
                             <td colspan="2"></td>
@@ -120,9 +116,27 @@
                             <td> Manual Entered </td>
                             <td class='text-right'>
                                 <?php
-                                    $total_entered_manual_invoices=$this->report->get_total_manual_invoice(1);
-                                    echo $total_entered_manual_invoices;
-                                 ?>
+                                //$total_entered_manual_invoices;
+//                                $total_entered_manual_invoices=0;
+//                                //var_dump($manual_entered_invoices);
+//
+//                                foreach($manual_entered_invoices as $manual_ready){
+//
+//                      //              $total__ =
+//                                    //var_dump($manual_ready['id']);
+////                                    $total_entered_manual_invoices=floatval($manual_ready['amount_entered']);
+//                                    $total_entered_manual_invoices+=floatval($manual_ready['id']);
+//                                    //$this->report->get_total_manual_progress(floatval($manual_ready['id']));
+//                                    //var_dump(floatval($total__));
+//                                   // $total_entered_manual_invoices += $total__;
+//
+//                                }
+                                $total_entered_manual_invoices = $manual_entered_invoices;
+
+                                echo $total_entered_manual_invoices;
+
+
+                                ?>
                             </td>
                             <td></td>
                         </tr>
@@ -133,7 +147,7 @@
                                 <?php
 
                                 $total_adjustments =
-                                    str_replace( ',', '', $total_returns)+
+                                    str_replace( ',', '', $total_returns)-
                                     str_replace( ',', '', $total_entered_manual_invoices );
 
                                 echo number_format($total_adjustments);
@@ -152,7 +166,7 @@
                                 $total_expenses = str_replace( ',', '', $totals_expenses);
                                 $total_adjustments = str_replace( ',', '', $total_adjustments);
 
-                                $cash_in_hand = floatval($total_income) - floatval($total_expenses) +floatval($total_adjustments);
+                                $cash_in_hand = floatval($total_income) - floatval($total_expenses) + floatval($total_adjustments);
                                 //var_dump(floatval($total_income),floatval($total_expenses),floatval($total_adjustments));
 
                                 $cash_in_hand = number_format($cash_in_hand);

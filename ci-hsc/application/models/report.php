@@ -98,8 +98,22 @@ class Report extends CI_Model{
 
         $results = $this->db->query("SELECT SUM(amount_entered) amount FROM manual_invoices_progress WHERE `date` = '$date' AND manual_invoice_id= '$manual_invoice_id'");
 
+
         $total_amount = $results->result_array()[0]['amount'];;
 
+        return number_format(floatval($total_amount));
+
+    }
+
+    /*
+     * For getting all manually entered invoices
+     */
+
+    function get_manual_entered_invoices(){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT SUM(amount_entered) amount FROM `manual_invoices_progress` WHERE `date`='$date' and branch_id='$branch_id'");
+        $total_amount=$results->result_array()[0]['amount'];
         return number_format(floatval($total_amount));
 
     }
