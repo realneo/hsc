@@ -1,20 +1,16 @@
+
 <div class="row">
     <!-- SELECT REPORT DATE -------------------------------------------------------------------------------->
-    <div class="col-lg-2 no-print">
+    <div class="col-lg-3 no-print" style="margin-bottom: 10px;">
         <form action='<?php echo base_url('reports/change_report_date');?>' method='post'>
             <div class="input-group">
-                <input class="form-control" id="datepicker2" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
+                <input class="form-control" id="datepicker2" type="text" name="date" value="<?php echo $this->session->userdata('report_date')?$this->session->userdata('report_date'):date('Y-m-d'); ?>" />
 		      	<span class="input-group-btn">
 		        	<button class="btn btn-primary" type="submit">Go!</button>
 		      	</span>
             </div>
         </form>
     </div>
-</div>
-
-<?php var_dump($this->session->userdata('report_date'));?>
-
-<div class="row">
     <!-- DISPLAY CASH COLLECTION REPORT -------------------------------------------------------------------->
 
     <div class="col-lg-6">
@@ -54,6 +50,7 @@
                         <?php
                             $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $binding_amount );
                         }else{
+                            $binding_amount = 0 ;
                             $total_income = $total_sale;
                         } ?>
                         <tr>
@@ -68,7 +65,7 @@
                         </tr>
                         <tr><th colspan="3">PAYMENTS</th></tr>
                         <?php
-                        var_dump($total_expenses_activity,$total_expenses_according_to_date);
+                        //var_dump($total_expenses_activity,$total_expenses_according_to_date);
                         foreach($total_expenses_activity as $activity){
                             $purpose=$activity['purpose'];
                             $amount=$activity['amount'];
@@ -139,7 +136,7 @@
                                         str_replace( ',', '', $total_returns);
 
                                 echo number_format($total_adjustments);
-                                die();
+
                                 ?>
                             </td>
                         </tr>
@@ -152,7 +149,7 @@
                                 // Formula: Income - Payments - Adjustments
 
                                 $total_sale = str_replace( ',', '', $total_sale);
-                                $total_expenses = str_replace( ',', '', $total_expenses);
+                                $total_expenses = str_replace( ',', '', $totals_expenses);
                                 $total_adjustments = str_replace( ',', '', $total_adjustments);
 
                                 $cash_in_hand = $total_sale + $binding_amount - $total_expenses - $total_adjustments;
