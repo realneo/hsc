@@ -68,34 +68,33 @@
                         </tr>
                         <tr><th colspan="3">PAYMENTS</th></tr>
                         <?php
+                        var_dump($total_expenses_activity,$total_expenses_according_to_date);
+                        foreach($total_expenses_activity as $activity){
+                            $purpose=$activity['purpose'];
+                            $amount=$activity['amount'];
+                            ?>
 
-                        $expenses = $db->query("SELECT * FROM `expenses` WHERE `date` = '$date' AND `branch_id` = '$branch_id'");
-                        $total_expenses = 0;
-                        while($rows = $expenses->fetch_assoc()){
-                            $expense_purpose = $rows['purpose'];
-                            $expense_amount = $rows['amount'];
-                            $total_expenses += $expense_amount;
 
-                            $expenses_amount = number_format($expense_amount);
-                            echo
-                            "
 									 <tr>
-										<td> $expense_purpose </td>
-										<td class='text-right'> $expenses_amount </td>
+										<td> <?php echo $purpose; ?> </td>
+										<td class='text-right'><?php echo number_format($amount); ?> </td>
 										<td></td>
 									</tr>
 
-									";
-                        }
+						<?php }
+                        $totals_expenses = $total_expenses_according_to_date;
 
-                        $totals_expenses = number_format($total_expenses);
+
                         ?>
+
                         <tr>
                             <td colspan="2"></td>
                             <td class='text-right'><?php echo $totals_expenses; ?></td>
                         </tr>
                         <tr><th colspan="3">ADJUSTMENTS</th></tr>
                         <?php
+
+                        die();
                         $manuals = $db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `date` = '$date' AND `entered` = 0");
 
                         $total_manual = 0;

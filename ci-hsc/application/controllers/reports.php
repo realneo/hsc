@@ -55,7 +55,7 @@ class Reports extends CI_Controller{
         $this->data['branches']=$this->usuals->get_branches();
         $this->data['recent_total']=$this->usuals->get_recent_total_sales();
 
-        $this->data['today_expenses']=$this->expenses->get_today_expenses();
+
         $this->data['recent_expenses']=$this->expenses->get_recent_expenses();
         $this->data['recent_invoices']=$this->invoices->get_recent_invoices();
 
@@ -69,6 +69,10 @@ class Reports extends CI_Controller{
          */
         $this->data['total_sales_according_to_date']=$this->report->get_total_sales();
         $this->data['total_binding_according_to_date']=$this->report->get_total_binding();
+
+        $this->data['total_expenses_according_to_date']=$this->report->get_total_expenses();
+
+        $this->data['total_expenses_activity']=$this->report->get_expense_activity();
 
 
 

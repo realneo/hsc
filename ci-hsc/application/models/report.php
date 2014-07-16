@@ -30,17 +30,30 @@ class Report extends CI_Model{
         return number_format(floatval($amount));
     }
 
-    // Getting Total Expenses of TODAY
+    // Getting Total Expenses of given date
 
-    function get_today_expenses(){
-        //$today_date = $this->session->userdata('today_date');
+    function get_total_expenses(){
+        $date = $this->session->userdata('report_date');
         $branch_id = $this->session->userdata('branch_id');
 
-        $results = $this->db->query("SELECT SUM(amount) amount FROM expenses WHERE `date` = CURDATE() AND branch_id = '$branch_id'");
+        $results = $this->db->query("SELECT SUM(amount) amount FROM expenses WHERE `date` = '$date' AND branch_id = '$branch_id'");
 
         $total_amount = $results->result_array()[0]['amount'];;
 
         return number_format(floatval($total_amount));
+    }
+
+    // Getting Total Expenses of given date
+
+    function get_expense_activity(){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+
+        $results = $this->db->query("SELECT * FROM expenses WHERE `date` = '$date' AND branch_id = '$branch_id'");
+
+
+
+        return $results->result_array();
     }
 
     function daily_expense_delete($id){
