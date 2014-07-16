@@ -56,10 +56,19 @@ class Report extends CI_Model{
         return $results->result_array();
     }
 
-    function daily_expense_delete($id){
-        $query="DELETE FROM `expenses` WHERE `id` = '$id' AND `date`= CURDATE()";
-        $results=$this->db->query($query);
-        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
-        return $results;
+    /*
+     * Gets Total Manual Invoice
+     */
+
+    function get_total_manual_invoice($entered){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+
+        $results = $this->db->query("SELECT SUM(amount) amount FROM manual_invoices WHERE `date` = '$date' AND branch_id = '$branch_id' AND `entered` = '$entered'");
+
+        $total_amount = $results->result_array()[0]['amount'];;
+
+        return number_format(floatval($total_amount));
+
     }
 }

@@ -92,43 +92,20 @@
                             <td class='text-right'><?php echo $totals_expenses; ?></td>
                         </tr>
                         <tr><th colspan="3">ADJUSTMENTS</th></tr>
-                        <?php
-
-                        die();
-                        $manuals = $db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `date` = '$date' AND `entered` = 0");
-
-                        $total_manual = 0;
-                        while($ro = $manuals->fetch_assoc()){
-                            $manual_amount = $ro['amount'];
-                            $total_manual += $manual_amount ;
-                        }
-
-                        $total_not_manual_invoices = number_format($total_manual);
-
-                        ?>
                         <tr>
                             <td> Manual Not Entered </td>
-                            <td class='text-right'><?php echo $total_not_manual_invoices; ?></td>
+                            <td class='text-right'><?php echo
+                                $this->report->get_total_manual_invoice(0); ?></td>
                             <td></td>
                         </tr>
-                        <?php
-                        $manual = $db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `date` = '$date' AND `entered` = 1");
 
-                        $total_manual = 0;
-                        while($r = $manual->fetch_assoc()){
-                            $manual_amount = $r['amount'];
-                            $total_manual += $manual_amount ;
-
-                        }
-                        $total_entered_manual_invoices = number_format($total_manual);
-
-                        ?>
                         <tr>
                             <td> Manual Entered </td>
-                            <td class='text-right'><?php echo $total_entered_manual_invoices; ?></td>
+                            <td class='text-right'><?php echo $this->report->get_total_manual_invoice(1);?></td>
                             <td></td>
                         </tr>
                         <?php
+                        die();
                         $returns = $db->query("SELECT * FROM `returns` WHERE `branch_id` = '$branch_id' AND `date` = '$date'");
 
                         $total_return = 0;
