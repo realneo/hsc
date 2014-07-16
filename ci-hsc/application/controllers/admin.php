@@ -545,9 +545,21 @@ class Admin extends CI_Controller{
         }
 
 
-        // Insert new Manual Invocie in the Database
-        $amount=$amount;
-        $insert_results = $this->invoices->add_manual_invoice($amount);
+        if($this->invoices->check_manual_invoices($date)>=1){
+            $date=custom_date_format($date);
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',"We already have manual invoice for {$date}!, Please try entering it");
+
+            $this->manual_invoice_redirect();
+            die();
+
+        }
+        else{
+            // Insert new Manual Invocie in the Database
+            $insert_results = $this->invoices->add_manual_invoice($amount,$date);
+
+        }
+
 
         if($insert_results){
             $this->session->set_flashdata('alert_type','success');
