@@ -84,13 +84,13 @@
                 </ul>
             </li>
 
-            <li>
+            <li class="<?php echo ($active == "report" ? "active" : "");?>">
                 <a href="#"><i class="glyphicon glyphicon-list-alt fa-fw"></i> Reports <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
+                    <li class="<?php echo ($active_tab == "cash" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Daily Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="cash_collection_report.php?date=<?php echo date('Y-m-d'); ?>"><span class="glyphicon glyphicon-briefcase"></span> Cash Collection Report</a></li>
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="glyphicon glyphicon-briefcase"></span> Cash Collection Report</a></li>
                         </ul>
                     </li>
                 </ul>
