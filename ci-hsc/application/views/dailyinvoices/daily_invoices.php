@@ -70,18 +70,24 @@
                             );
                             $this->session->set_flashdata('post_data_'.$row['id'],$temp_data);
                             $php=base_url('admin/manual_invoice_delete').'/'.$row['id'];
-                            $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg text-danger'></i></a>";
-                            $date = custom_date_format($row['date']);
+
+
+
                             $amount = number_format($row['amount']);
                             $entered_db = $row['entered'];
                             $date_entered_db = $row['date_entered'];
+                            $button ='';
+                            if($date_entered_db == date('Y-m-d')){
+                                $date_entered = custom_date_format($date_entered_db);//'Not Available untill entered';
+                                if($entered_db!=1){
+                                    $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg text-danger'></i></a>";
+                                }
 
-                            // Removing the 0000-00-00 from the list
-                            if($date_entered_db == '0000-00-00'){
-                                $date_entered = 'Not Available untill entered';
                             }else{
                                 $date_entered = custom_date_format($date_entered_db);
+
                             }
+                            $date = custom_date_format($row['date']);
 
                             // Check if the Manual Invoice is Entered or Not
                             if($entered_db == 1){

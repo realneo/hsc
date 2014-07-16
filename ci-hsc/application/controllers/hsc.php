@@ -21,6 +21,10 @@ class Hsc extends CI_Controller {
                 $this->session->set_userdata("full_name","Fahad K");
         }
 
+        if(!$this->session->userdata("user_id")){
+                $this->session->set_userdata("user_id",2);
+        }
+
         elseif (!$this->session->userdata("branch_id")){
                 $this->session->set_userdata("branch_id",1);
         }

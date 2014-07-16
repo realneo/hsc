@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-4">
-        <form action='staff/add_new_staff' method='post'>
+        <form action="<?php echo base_url().'staff/add_new_staff'?>" method='post'>
             <div class="form-group col-lg-6">
                 <label>First Name</label>
                 <input class="form-control" type="text" name="first_name" value=""/>

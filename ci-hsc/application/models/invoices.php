@@ -36,7 +36,7 @@ class Invoices extends CI_Model{
 
     function add_manual_invoice($amount){
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("INSERT INTO `manual_invoices` (`id`, `branch_id`, `date`, `amount`, `entered`, `date_entered`) VALUES (NULL, '$branch_id', CURDATE(), '$amount', '0', '0000-00-00')");
+        $results = $this->db->query("INSERT INTO `manual_invoices` (`id`, `branch_id`, `amount`, `entered`, `date_entered`) VALUES (NULL, '$branch_id',  '$amount', '0', CURDATE())");
         return $results;
     }
 
