@@ -12,11 +12,30 @@
 <script src="<?php echo base_url('assets');?>/js/bootstrap-datepicker.js"></script>
 
 <script>
-    // Total Sale Date Picker
+    // Date Picker Limit FUTURE dates
     $(function() {
-        $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"});
-        $( "#datepicker2" ).datepicker({dateFormat:"yy-mm-dd"});
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        $( "#datepicker" ).datepicker({
+            dateFormat:"yy-mm-dd",
+            maxDate: '0',
+            endDate: '+0d',
+            onRender: function(date) {
+                return date.valueOf() > now.valueOf() ? 'disabled' : '';
+            }
+
+        });
+        $( "#datepicker2" ).datepicker({
+            dateFormat:"yy-mm-dd",
+            maxDate: '0',
+            endDate: '+0d',
+            onRender: function(date) {
+                return date.valueOf() > now.valueOf() ? 'disabled' : '';
+            }
+
+        });
     });
+
 </script>
 
 <!-- Page-Level Plugin Scripts - Blank -->
