@@ -17,7 +17,7 @@
         var nowTemp = new Date();
         var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
         $( "#datepicker" ).datepicker({
-            dateFormat:"yy-mm-dd",
+            format:"yyyy-mm-dd",
             maxDate: '0',
             endDate: '+0d',
             onRender: function(date) {
@@ -26,7 +26,7 @@
 
         });
         $( "#datepicker2" ).datepicker({
-            dateFormat:"yy-mm-dd",
+            format:"yyyy-mm-dd",
             maxDate: '0',
             endDate: '+0d',
             onRender: function(date) {

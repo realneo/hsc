@@ -38,6 +38,23 @@
                                 ?> </td>
                             <td></td>
                         </tr>
+                        <tr>
+                            <td> Manual Not Entered </td>
+                            <td class='text-right'>
+                                <?php
+                                $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
+                                if($total_not_manual_invoices>=1){
+                                    echo $total_not_manual_invoices;
+                                }    else{
+                                    $total_not_manual_invoices=$this->report->get_total_manual_progress(36);
+                                    echo $total_not_manual_invoices;
+                                }
+
+                                //var_dump($total_not_manual_invoices);
+                                ?>
+                            </td>
+                            <td></td>
+                        </tr>
                         <?php if($this->session->userdata("branch_id") == 1){?>
                         <tr>
                             <td> Binding </td>
@@ -48,10 +65,10 @@
                             <td></td>
                         </tr>
                         <?php
-                            $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $binding_amount );
+                            $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $binding_amount )+ str_replace( ',', '', $total_not_manual_invoices );
                         }else{
                             $binding_amount = 0 ;
-                            $total_income = $total_sale;
+                            $total_income = str_replace( ',', '', $total_sale );
                         } ?>
                         <tr>
                             <td colspan="2"></td>
@@ -90,26 +107,17 @@
                         </tr>
                         <tr><th colspan="3">ADJUSTMENTS</th></tr>
                         <tr>
-                            <td> Manual Not Entered </td>
+                            <td> Manual Entered </td>
                             <td class='text-right'>
                                 <?php
-                                    $total_entered_manual_invoices=$this->report->get_total_manual_invoice(0);
+                                    $total_entered_manual_invoices=$this->report->get_total_manual_invoice(1);
                                     echo $total_entered_manual_invoices;
                                  ?>
                             </td>
                             <td></td>
                         </tr>
 
-                        <tr>
-                            <td> Manual Entered </td>
-                            <td class='text-right'>
-                                <?php
-                                    $total_not_manual_invoices=$this->report->get_total_manual_invoice(1);
-                                    echo $total_not_manual_invoices;
-                                ?>
-                            </td>
-                            <td></td>
-                        </tr>
+
                         <?php
 
 
@@ -131,9 +139,8 @@
                                 <?php
 
                                 $total_adjustments =
-                                    str_replace( ',', '', $total_entered_manual_invoices ) +
-                                        str_replace( ',', '', $total_not_manual_invoices) +
-                                        str_replace( ',', '', $total_returns);
+                                    str_replace( ',', '', $total_returns)+
+                                    str_replace( ',', '', $total_entered_manual_invoices );
 
                                 echo number_format($total_adjustments);
 
@@ -146,13 +153,13 @@
                             <td class='text-right'>
                                 <?php
                                 // CASH IN HAND
-                                // Formula: Income - Payments - Adjustments
+                                // Formula: Income - Payments + Adjustments
 
-                                $total_sale = str_replace( ',', '', $total_sale);
                                 $total_expenses = str_replace( ',', '', $totals_expenses);
                                 $total_adjustments = str_replace( ',', '', $total_adjustments);
 
-                                $cash_in_hand = $total_sale + $binding_amount - $total_expenses - $total_adjustments;
+                                $cash_in_hand = floatval($total_income) - floatval($total_expenses) +floatval($total_adjustments);
+                                //var_dump(floatval($total_income),floatval($total_expenses),floatval($total_adjustments));
 
                                 $cash_in_hand = number_format($cash_in_hand);
                                 echo "<h4> $cash_in_hand </h4>";

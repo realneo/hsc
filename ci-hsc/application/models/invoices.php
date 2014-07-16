@@ -22,9 +22,16 @@ class Invoices extends CI_Model{
         return $results->result_array();
     }
 
-    function update_invoice($id,$difference){
+    function update_invoice($id,$difference,$amount){
         $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$difference' WHERE `id` ='$id'");
+        $this->insert_invoice_progress($id,$amount);
         return $results;
+    }
+
+    function insert_invoice_progress($id,$amount){
+        $this->db->query("INSERT INTO `manual_invoices_progress` (`id` ,`date` ,`manual_invoice_id` ,`amount_entered`)VALUES (NULL , CURRENT_TIMESTAMP ,  '$id',  '$amount'
+);");
+
     }
 
     function complete_invoice($id,$amount){
@@ -36,7 +43,7 @@ class Invoices extends CI_Model{
 
     function add_manual_invoice($amount){
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("INSERT INTO `manual_invoices` (`id`, `branch_id`, `amount`, `entered`, `date_entered`) VALUES (NULL, '$branch_id',  '$amount', '0', CURDATE())");
+        $results = $this->db->query("INSERT INTO `manual_invoices` (`id`,`date`, `branch_id`, `amount`, `entered`, `date_entered`) VALUES (NULL, CURDATE(),'$branch_id',  '$amount', '0', CURDATE())");
         return $results;
     }
 

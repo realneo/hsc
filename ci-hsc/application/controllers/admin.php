@@ -442,7 +442,7 @@ class Admin extends CI_Controller{
         $manuals = $this->invoices->get_total_manual_invoice($id);
         $db_amount = $manuals[0]['amount'];
         // If the amount is greater
-        if(($amount + $db_amount)>0){
+        if(($db_amount-$amount)<0){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','The amount entered is <strong>GREATER</strong> than the one in the database');
 
@@ -452,7 +452,7 @@ class Admin extends CI_Controller{
 
 
         // If the amount is equal
-        if(($db_amount + $amount) === 0){
+        if(($db_amount-$amount) === 0){
 
             $clear_update = $this->invoices->complete_invoice($id,$amount);
 
@@ -477,8 +477,8 @@ class Admin extends CI_Controller{
 
         }else{
             $difference = 0;
-            $difference = $amount + $db_amount;
-            $amount_update = $this->invoices->update_invoice($id,$difference);
+            $difference = $db_amount-$amount;
+            $amount_update = $this->invoices->update_invoice($id,$difference,$amount);
 
             if($amount_update){
                 $this->session->set_flashdata('alert_type','success');
@@ -519,7 +519,7 @@ class Admin extends CI_Controller{
         // Get information from the form
 
         $date = $this->input->post('date');
-        $amount = $this->input->post('amount')*-1;
+        $amount = $this->input->post('amount');
         $branch_name = $this->session->userdata('branch_name');
         $branch_id = $this->session->userdata('branch_id');
         $full_name = $this->session->userdata('full_name');
@@ -545,11 +545,12 @@ class Admin extends CI_Controller{
 
 
         // Insert new Manual Invocie in the Database
+        $amount=$amount*-1;
         $insert_results = $this->invoices->add_manual_invoice($amount);
 
         if($insert_results){
             $this->session->set_flashdata('alert_type','success');
-            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong>Tsh ".$amount."</strong>.");
+            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong> Tsh".$amount."</strong>.");
 
             $today = date("Y-m-d");
             $log = "Manual Invoice: Tsh $amount by $full_name";

@@ -107,6 +107,7 @@ class Reports extends CI_Controller{
 
     function cash(){
         $this->index();
+
     }
 
     function report_redirect(){
