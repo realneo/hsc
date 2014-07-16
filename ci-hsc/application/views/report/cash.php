@@ -105,15 +105,8 @@
                             <td></td>
                         </tr>
                         <?php
-                        die();
-                        $returns = $db->query("SELECT * FROM `returns` WHERE `branch_id` = '$branch_id' AND `date` = '$date'");
 
-                        $total_return = 0;
-                        while($rowed = $returns->fetch_assoc()){
-                            $return = $rowed['amount'];
-                            $total_return += $return ;
-                        }
-                        $total_returns = number_format($total_return);
+                        $total_returns = $total_returns_according_to_date;
 
                         ?>
                         <tr>
@@ -125,6 +118,7 @@
                             <td colspan="2"></td>
                             <td class='text-right'>
                                 <?php
+                                die();
                                 $total_adjustments =
                                     str_replace( ',', '', $total_entered_manual_invoices ) +
                                         str_replace( ',', '', $total_not_manual_invoices) +

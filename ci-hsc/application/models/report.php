@@ -71,4 +71,20 @@ class Report extends CI_Model{
         return number_format(floatval($total_amount));
 
     }
+
+    /*
+     * Gets Total Returns
+     */
+
+    function get_total_returns(){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+
+        $results = $this->db->query("SELECT SUM(amount) amount FROM returns WHERE `date` = '$date' AND branch_id = '$branch_id'");
+
+        $total_amount = $results->result_array()[0]['amount'];;
+
+        return number_format(floatval($total_amount));
+
+    }
 }
