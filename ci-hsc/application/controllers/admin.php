@@ -545,7 +545,7 @@ class Admin extends CI_Controller{
 
 
         // Insert new Manual Invocie in the Database
-        $amount=$amount*-1;
+        $amount=$amount;
         $insert_results = $this->invoices->add_manual_invoice($amount);
 
         if($insert_results){

@@ -43,7 +43,7 @@
                             <td class='text-right'>
                                 <?php
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
-                                if($total_not_manual_invoices>=1){
+                                if($total_not_manual_invoices!=0){
                                     echo $total_not_manual_invoices;
                                 }    else{
                                     $total_not_manual_invoices=$this->report->get_total_manual_progress(36);
@@ -107,6 +107,16 @@
                         </tr>
                         <tr><th colspan="3">ADJUSTMENTS</th></tr>
                         <tr>
+                            <td> Returns </td>
+                            <td class='text-right'>
+                                <?php
+                                $total_returns = $total_returns_according_to_date;
+                                echo $total_returns;
+                                ?>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td> Manual Entered </td>
                             <td class='text-right'>
                                 <?php
@@ -117,22 +127,6 @@
                             <td></td>
                         </tr>
 
-
-                        <?php
-
-
-
-                        ?>
-                        <tr>
-                            <td> Returns </td>
-                            <td class='text-right'>
-                                <?php
-                                    $total_returns = $total_returns_according_to_date;
-                                    echo $total_returns;
-                                ?>
-                            </td>
-                            <td></td>
-                        </tr>
                         <tr>
                             <td colspan="2"></td>
                             <td class='text-right'>
