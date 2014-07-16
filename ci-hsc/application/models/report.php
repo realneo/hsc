@@ -8,14 +8,26 @@
 
 class Report extends CI_Model{
 
-    /*
-     * Get recent expenses
-     */
+    // Getting Total Daily Sales of TODAY
 
-    function get_recent_expenses(){
+    function get_total_sales(){
+        $date = $this->session->userdata('report_date');
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM `expenses` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 5");
-        return $results->result_array();
+        $results = $this->db->query("SELECT SUM(total_sale) total_sale FROM total_sale WHERE `date` = '$date' AND branch_id = '$branch_id'");
+        $total_amount = $results->result_array()[0]['total_sale'];
+        /*
+         * String to Double : floatval/doubleval alias :D
+         */
+        return number_format(floatval($total_amount));
+    }
+
+
+    function get_total_binding(){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT SUM(amount) total_amount FROM binding WHERE `date` = '$date' AND branch_id = '$branch_id'");
+        $amount = $results->result_array()[0]['total_amount'];
+        return number_format(floatval($amount));
     }
 
     // Getting Total Expenses of TODAY

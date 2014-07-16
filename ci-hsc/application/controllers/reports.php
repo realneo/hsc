@@ -17,6 +17,7 @@ class Reports extends CI_Controller{
         $this->load->model('invoices');
         $this->load->model('returns');
         $this->load->model('vouchers');
+        $this->load->model('report');
 
 
         /*
@@ -49,7 +50,7 @@ class Reports extends CI_Controller{
         $this->data['manual_invoice']=$this->usuals->getTotalManualInvoices(0);
         $this->data['today_sales']=$this->usuals->get_today_sales();
 
-        $this->data['today_binding']=$this->usuals->get_today_binding();
+
         $this->data['logs']=$this->usuals->get_recent_activities();
         $this->data['branches']=$this->usuals->get_branches();
         $this->data['recent_total']=$this->usuals->get_recent_total_sales();
@@ -61,6 +62,13 @@ class Reports extends CI_Controller{
         $this->data['recent_returns']=$this->returns->get_recent_returns();
         $this->data['recent_vouchers']=$this->vouchers->get_recent_vouchers();
         $this->data['users']=$this->vouchers->get_users();
+
+
+        /*
+         * USED DATA
+         */
+        $this->data['total_sales_according_to_date']=$this->report->get_total_sales();
+        $this->data['total_binding_according_to_date']=$this->report->get_total_binding();
 
 
 
@@ -91,5 +99,16 @@ class Reports extends CI_Controller{
 
     function cash(){
         $this->index();
+    }
+
+    function report_redirect(){
+        redirect(base_url('reports'));
+        die();
+    }
+
+    function change_report_date(){
+        $date=$this->input->post('date');
+        $this->session->set_userdata('report_date',$date);
+        $this->report_redirect();
     }
 }
