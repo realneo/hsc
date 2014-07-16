@@ -94,37 +94,52 @@
                         <tr><th colspan="3">ADJUSTMENTS</th></tr>
                         <tr>
                             <td> Manual Not Entered </td>
-                            <td class='text-right'><?php echo
-                                $this->report->get_total_manual_invoice(0); ?></td>
+                            <td class='text-right'>
+                                <?php
+                                    $total_entered_manual_invoices=$this->report->get_total_manual_invoice(0);
+                                    echo $total_entered_manual_invoices;
+                                 ?>
+                            </td>
                             <td></td>
                         </tr>
 
                         <tr>
                             <td> Manual Entered </td>
-                            <td class='text-right'><?php echo $this->report->get_total_manual_invoice(1);?></td>
+                            <td class='text-right'>
+                                <?php
+                                    $total_not_manual_invoices=$this->report->get_total_manual_invoice(1);
+                                    echo $total_not_manual_invoices;
+                                ?>
+                            </td>
                             <td></td>
                         </tr>
                         <?php
 
-                        $total_returns = $total_returns_according_to_date;
+
 
                         ?>
                         <tr>
                             <td> Returns </td>
-                            <td class='text-right'> <?php echo $total_returns; ?></td>
+                            <td class='text-right'>
+                                <?php
+                                    $total_returns = $total_returns_according_to_date;
+                                    echo $total_returns;
+                                ?>
+                            </td>
                             <td></td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
                             <td class='text-right'>
                                 <?php
-                                die();
+
                                 $total_adjustments =
                                     str_replace( ',', '', $total_entered_manual_invoices ) +
                                         str_replace( ',', '', $total_not_manual_invoices) +
                                         str_replace( ',', '', $total_returns);
 
                                 echo number_format($total_adjustments);
+                                die();
                                 ?>
                             </td>
                         </tr>
