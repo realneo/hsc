@@ -12,8 +12,14 @@ class Invoices extends CI_Model{
      */
 
     function get_recent_invoices__($entered){
+
+        /*
+         * Dont just redirect it ,
+         * return it so that it wont come back again
+         */
         if($entered==2){
-            $this->get_recent_invoices();
+            return $this->get_recent_invoices();
+
         }else{
             $branch_id = $this->session->userdata('branch_id');
             $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `entered` = '$entered' ORDER BY `id` DESC LIMIT 20");
