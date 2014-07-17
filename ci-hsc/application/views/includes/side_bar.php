@@ -93,7 +93,7 @@
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cash Collection Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/return');?>"><span class="glyphicon fa fa-suitcase"></span> Returns Report</a></li>
+                            <li><a href="<?php echo base_url('reports/return');?>"><span class="fa fa-suitcase"></span> Returns Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
@@ -103,7 +103,7 @@
                         </ul>
 
                     </li>
-                    <li class="<?php echo ($active_tab == "cash" ? "active" : "");?>">
+                    <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Manual Invoices Report</a></li>
