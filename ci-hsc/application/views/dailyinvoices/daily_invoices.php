@@ -34,14 +34,43 @@
             <div class="panel-title">Manual Invoices for <?php echo $this->session->userdata('branch_name');?></div>
         </div>
         <div class="panel-body"><h4><span class='lead'>Total Manual Invoices : </span>Tshs <?php echo make_me_bold($manual_invoice);?></h4></div>
+        <div class="panel-footer">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 ">
+            <div class="btn-group">
+
+
+                <a href="<?php echo base_url('hsc/determine_invoice/2');?>">
+                        <button class="btn btn-primary <?php echo ($this->session->userdata('show')==2)?'active':'';?>" name="options1" id="option1" > Both</button>
+                    </a>
+                <a href="<?php echo base_url('hsc/determine_invoice/1');?>">
+                        <button class="btn btn-primary <?php echo $this->session->userdata('show')==1?'active':'';?> " name="options2" id="option1" > Entered</button>
+                    </a>
+                <a href="<?php echo base_url('hsc/determine_invoice/0');?>">
+                        <button class="btn btn-primary <?php echo $this->session->userdata('show')==0?'active':'';?>" name="options3" id="option1" > Not Entered</button>
+                    </a>
+
+            </div>
+        </div>
     </div>
 </div>
 </div>
+
+
 <div class="row">
+
+<div class="row">
+
+    </div>
     <!-- VIEW RECENT MANUAL INVOICES -------------------------------------------------------------------------->
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Recent Added Manual Invoices</div>
+            <div class="panel-heading">
+               Recent Added Manual Invoices
+                </div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-striped  table-hover">
