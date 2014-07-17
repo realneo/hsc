@@ -34,9 +34,15 @@
             <div class="panel-title">Manual Invoices for <?php echo $this->session->userdata('branch_name');?></div>
         </div>
         <div class="panel-body"><h4><span class='lead'>Total Manual Invoices : </span>Tshs <?php echo make_me_bold($manual_invoice);?></h4></div>
-        <div class="panel-footer">
 
+        <div class="panel-footer">
+            <?php if($this->session->userdata('view_invoices')){?>
+                <b>Note :</b> You can only enter manual the field that is not entered
+            <?php } else {?>
+             <b>Note :</b> You can only <b> add one </b> manual invoice per day for <?php echo make_me_bold($this->session->userdata('branch_name'));?>
+            <?php } ?>
         </div>
+
     </div>
 
     <div class="row">
