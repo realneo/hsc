@@ -8,13 +8,17 @@
 class Invoices extends CI_Model{
 
     /*
-     * Get recent invoices
+     * Get recent invoices , according to show session
      */
 
     function get_recent_invoices__($entered){
-        $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `entered` = '$entered' ORDER BY `id` DESC LIMIT 20");
-        return $results->result_array();
+        if($entered==2){
+            $this->get_recent_invoices();
+        }else{
+            $branch_id = $this->session->userdata('branch_id');
+            $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `entered` = '$entered' ORDER BY `id` DESC LIMIT 20");
+            return $results->result_array();
+        }
     }
     /*
      * Get recent invoices
@@ -22,7 +26,7 @@ class Invoices extends CI_Model{
 
     function get_recent_invoices(){
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC LIMIT 20");
+        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC");
         return $results->result_array();
     }
 
