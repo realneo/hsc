@@ -67,7 +67,7 @@ class Admin_ extends CI_Model{
             //var_dump($r2->num_rows());
             //die();
         }else{
-            $query="INSERT INTO `binding` ((`id`, `date`, `branch_id`, `user_id`, `amount`) VALUES NULL, '$date', '$branch_id', '$user_id', '$total_sale'";
+            $query="INSERT INTO `binding` (`id`, `date`, `branch_id`, `user_id`, `amount`) VALUES (NULL, '$date', '$branch_id', '$user_id', '$total_sale')";
 
             $r=$this->db->query($query);
             $this->session->set_userdata('affected_rows',$this->db->affected_rows());

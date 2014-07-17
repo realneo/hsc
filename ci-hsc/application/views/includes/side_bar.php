@@ -90,9 +90,40 @@
                     <li class="<?php echo ($active_tab == "cash" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Daily Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="glyphicon glyphicon-briefcase"></span> Cash Collection Report</a></li>
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cash Collection Report</a></li>
                         </ul>
+                        <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/return');?>"><span class="glyphicon fa fa-suitcase"></span> Returns Report</a></li>
+                        </ul>
+                        <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
+                        </ul>
+                        <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
+                        </ul>
+
                     </li>
+                    <li class="<?php echo ($active_tab == "cash" ? "active" : "");?>">
+                        <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Manual Invoices Report</a></li>
+
+                        </ul>
+                        <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Payment Report</a></li>
+
+                        </ul>
+                        <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Binding Report</a></li>
+                        </ul>
+                        <ul class="nav nav-third-level">
+
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Users Report</a></li>
+                        </ul>
+
+                    </li>
+
+
                 </ul>
             </li>
             <li class="last-logo"><img src="<?php echo base_url('assets/img/HSC-circle.png');?>" class="img-responsive" alt=""/></li>
