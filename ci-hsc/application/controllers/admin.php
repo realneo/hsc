@@ -552,8 +552,9 @@ class Admin extends CI_Controller{
 
         if($this->invoices->check_manual_invoices($date)>=1){
             $date=custom_date_format($date);
+            $full_name=make_me_bold(make_caps($full_name));
             $this->session->set_flashdata('alert_type','warning');
-            $this->session->set_flashdata('alert_msg',"We already have manual invoice for {$date}!, Please try entering it");
+            $this->session->set_flashdata('alert_msg',"Sorry {$full_name}, We already have manual invoice for {$date}, Try checking the status of the invoice also before trying again");
 
             $this->manual_invoice_redirect();
             die();
