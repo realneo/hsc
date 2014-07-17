@@ -50,7 +50,7 @@ class Hsc extends CI_Controller {
 
         $this->data['today_expenses']=$this->expenses->get_today_expenses();
         $this->data['recent_expenses']=$this->expenses->get_recent_expenses();
-        $this->data['recent_invoices']=$this->invoices->get_recent_invoices();
+        $this->data['recent_invoices']=$this->invoices->get_recent_invoices__($this->session->userdata('show'));//NOT ENTERED
 
         $this->data['recent_returns']=$this->returns->get_recent_returns();
         $this->data['recent_vouchers']=$this->vouchers->get_recent_vouchers();
@@ -175,6 +175,32 @@ class Hsc extends CI_Controller {
 
         $this->load->view('dailyinvoices/daily_invoices');
         $this->load->view('includes/footer');
+    }
+
+    function manual_invoice_redirect(){
+        redirect(base_url('hsc/daily_manual_invoices'));
+        die();
+    }
+
+    function determine_invoice($show){
+        switch($show){
+            case '0':
+                $this->session->set_userdata('show',0);
+                $this->manual_invoice_redirect();
+                break;
+
+            case '1':
+                $this->session->set_userdata('show',1);
+                $this->manual_invoice_redirect();
+                break;
+            default :
+                $this->session->set_userdata('show',2);
+                $this->manual_invoice_redirect();
+                break;
+
+        }
+
+
     }
 
     function daily_returns()

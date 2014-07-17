@@ -50,7 +50,7 @@
                             </td>
                             <td></td>
                         </tr>
-                        <?php if($this->session->userdata("branch_id") == 1){?>
+                        <?php if($this->session->userdata("branch_id") == 1 && $total_binding_according_to_date>0){?>
                         <tr>
                             <td> Binding </td>
                             <td class='text-right'>

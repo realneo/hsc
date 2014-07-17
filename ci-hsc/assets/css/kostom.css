@@ -51,8 +51,10 @@
     color: #ffffff;
 }
 
-#noti_holder{
-    margin-top: 5px;margin-right: 5px;margin-left:5px;
+#noti_holder {
+    margin-top: 0px;
+    margin-right: 29px;
+    margin-left: 30px;
 }
 
 /*it does not work?*/

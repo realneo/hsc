@@ -203,14 +203,14 @@ class Admin extends CI_Controller{
         if(!$total_sale){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
-                'You have to insert your <strong>Total Sale</strong>');
+                'You have to insert your <strong>Total Binding</strong>');
             $this->edit_daily_binding();
             //redirect(base_url('admin/edit_daily_binding'));
             die();
         }
         else{if($total_sale){
 
-            // Update the Total Sale in the Database
+            // Update the Total Binding in the Database
             $updated_results = $this->admin_->edit_daily_binding($total_sale,$branch_id);
 
 
@@ -224,10 +224,10 @@ class Admin extends CI_Controller{
                 //var_dump($check);
                 if($check>=1){
                     $this->session->set_flashdata('alert_msg',"Thank you ".make_me_bold($full_name)."!"); ;
-                    $msg="Edited Daily Sale : $total_sale for $date by $full_name";
+                    $msg="Edited Daily Binding : $total_sale for $date by $full_name";
                 }else{
-                    $this->session->set_flashdata('alert_msg',"Sorry ".make_me_bold($full_name).", we dont have total sales inserted for ".make_me_bold($date)." yet!");
-                    $msg="Failed to edit Daily Sale : $total_sale for $date by $full_name,it was not available";
+                    $this->session->set_flashdata('alert_msg',"Sorry ".make_me_bold($full_name).", we dont have Binding inserted for ".make_me_bold($date)." yet!");
+                    $msg="Failed to edit Daily Binding : $total_sale for $date by $full_name,it was not available";
                     $this->session->set_flashdata('alert_type','warning');
                 }
                 $this->usuals->log_write($user_id,$branch_id,$msg);
@@ -458,7 +458,7 @@ class Admin extends CI_Controller{
             $clear_update = $this->invoices->complete_invoice($id,$amount);
 
             if($clear_update){
-                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_type','success');
                 $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
 
                 $log = "Entered Manual Invoice: Tsh $amount by $full_name";
