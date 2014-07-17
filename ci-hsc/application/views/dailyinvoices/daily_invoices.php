@@ -129,7 +129,11 @@
                             // Check if the Manual Invoice is Entered or Not
                             if($entered_db == 1){
                                 $entered = "<span class='text-success'>Entered</span>";
-                            }else{
+                            }
+                            elseif($entered_db == 2){
+                                $entered = "<span class='text-warning'>Started Entering ...</span>";
+
+                            }elseif($entered_db == 0){
                                 $entered = '<span class="text-danger">Not Entered</span>';
                             }
                             echo "<tr>

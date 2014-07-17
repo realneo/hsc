@@ -47,8 +47,11 @@ class Invoices extends CI_Model{
         return $results->result_array();
     }
 
+    /*
+     * Put 2 for Starting to enter
+     */
     function update_invoice($id,$difference,$amount){
-        $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$difference' WHERE `id` ='$id'");
+        $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$difference', `date_entered` = CURDATE(),`entered` ='2' WHERE `id` ='$id'");
         $this->insert_invoice_progress($id,$amount);
         return $results;
     }
@@ -74,7 +77,7 @@ class Invoices extends CI_Model{
     }
 
     function manual_invoice_delete($id){
-        $query="DELETE FROM `manual_invoices` WHERE `id` = '$id' AND `date`= CURDATE()";
+        $query="DELETE FROM `manual_invoices` WHERE `id` = '$id' AND `date_entered`= CURDATE()";
         $results=$this->db->query($query);
         $this->session->set_userdata('affected_rows',$this->db->affected_rows());
         return $results;

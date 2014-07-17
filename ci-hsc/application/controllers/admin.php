@@ -385,6 +385,15 @@ class Admin extends CI_Controller{
 
         if($this->session->flashdata('post_data_'.$id)['id']==$id){
 
+            if($flash['entered']==2){
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg',"You have started entering, Please finish!");
+
+                $this->manual_invoice_redirect();
+                die();
+            }
+
+
             // Delete the Daily Expense
             $this->invoices->manual_invoice_delete($id);
             $check=$this->session->userdata('affected_rows');
@@ -510,6 +519,7 @@ class Admin extends CI_Controller{
         redirect(base_url().'hsc/daily_manual_invoices');
         die();
     }
+
     function view_manual_redirect(){
         $this->session->set_userdata('view_invoices',false);
         redirect(base_url().'hsc/daily_manual_invoices');

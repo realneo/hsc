@@ -61,7 +61,7 @@
                         </tr>
                         <?php
 
-                            $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $binding_amount )+ str_replace( ',', '', $total_not_manual_invoices );
+                            $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $binding_amount ) + str_replace( ',', '', $total_not_manual_invoices );
                         }else{
                             $binding_amount = 0 ;
                             $total_income = str_replace( ',', '', $total_sale ) + str_replace( ',', '', $total_not_manual_invoices );
