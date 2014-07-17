@@ -16,8 +16,9 @@ class Invoices extends CI_Model{
         /*
          * Dont just redirect it ,
          * return it so that it wont come back again
+         * 3 for all, 0 not entered,1 entered 2 started
          */
-        if($entered==2){
+        if($entered==3){
             return $this->get_recent_invoices();
 
         }else{

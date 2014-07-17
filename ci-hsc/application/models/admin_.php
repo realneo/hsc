@@ -52,6 +52,33 @@ class Admin_ extends CI_Model{
 
     }
 
+    /*
+     * Add daily Binding
+     */
+    function add_daily_binding($user_id,$branch_id,$date,$total_sale){
+        /*
+         * Check to see if any record exist for today
+         */
+        $run_this="SELECT * FROM `binding` WHERE `date` = '$date' AND `branch_id` = '$branch_id'";
+        $r2=$this->db->query($run_this)->num_rows();
+        if($r2>=1){
+            $this->session->set_userdata('affected_rows',0);
+            return true;
+            //var_dump($r2->num_rows());
+            //die();
+        }else{
+            $query="INSERT INTO `binding` ((`id`, `date`, `branch_id`, `user_id`, `amount`) VALUES NULL, '$date', '$branch_id', '$user_id', '$total_sale'";
+
+            $r=$this->db->query($query);
+            $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+            return $r;
+        }
+
+
+
+
+    }
+
 
     function edit_daily_binding($total_sale,$branch_id){
 

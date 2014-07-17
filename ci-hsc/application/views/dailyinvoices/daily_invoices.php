@@ -28,7 +28,7 @@
     <?php } ?>
 <!-- TOTAL MANUAL INVOICES -------------------------------------------------------------------------->
 
-<div class="col-lg-6">
+<div class="<?php if($this->session->userdata('view_invoices')){?>col-lg-7<?php } else{ ?>col-lg-6<?php }?>">
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">Manual Invoices for <?php echo $this->session->userdata('branch_name');?></div>
@@ -37,7 +37,7 @@
 
         <div class="panel-footer">
             <?php if($this->session->userdata('view_invoices')){?>
-                <b>Note :</b> You can only enter manual the field that is not entered
+                <b>Note :</b> You can only enter manual the field that is not entered, You cannot <b>delete</b> the invoice that you have started to enter.
             <?php } else {?>
              <b>Note :</b> You can only <b> add one </b> manual invoice per day for <?php echo make_me_bold($this->session->userdata('branch_name'));?>
             <?php } ?>
@@ -49,15 +49,17 @@
         <div class="col-lg-12 ">
             <div class="btn-group show-invoices">
 
-
-                <a href="<?php echo base_url('hsc/determine_invoice/2');?>">
-                        <button class="btn btn-default <?php echo ($this->session->userdata('show')==2)?'active':'';?>" name="options1" id="option1" > Both</button>
+                <a href="<?php echo base_url('hsc/determine_invoice/3');?>">
+                        <button class="btn btn-default <?php echo ($this->session->userdata('show')==3)?'active':'';?>" name="options1" id="option1" > All</button>
                     </a>
                 <a href="<?php echo base_url('hsc/determine_invoice/1');?>">
-                        <button class="btn btn-default <?php echo $this->session->userdata('show')==1?'active':'';?> " name="options2" id="option1" > Entered</button>
+                        <button class="btn btn-default <?php echo $this->session->userdata('show')==1?'active':'';?> " name="options2" id="option2" > Entered</button>
                     </a>
                 <a href="<?php echo base_url('hsc/determine_invoice/0');?>">
-                        <button class="btn btn-default <?php echo $this->session->userdata('show')==0?'active':'';?>" name="options3" id="option1" > Not Entered</button>
+                        <button class="btn btn-default <?php echo $this->session->userdata('show')==0?'active':'';?>" name="options3" id="option3" > Not Entered</button>
+                    </a>
+                <a href="<?php echo base_url('hsc/determine_invoice/2');?>">
+                        <button class="btn btn-default <?php echo $this->session->userdata('show')==2?'active':'';?>" name="options4" id="option4" > Started Entering</button>
                     </a>
 
             </div>
@@ -164,6 +166,9 @@
                     </table>
                 </div>
             </div>
+            <?php if(empty($recent_invoices)){?>
+            <div class="panel-footer">No invoices are available in this category</div>
+            <?php } ?>
         </div>
     </div>
 

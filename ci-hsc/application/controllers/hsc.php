@@ -107,7 +107,7 @@ class Hsc extends CI_Controller {
 
 
 
-        switch($this->session->flashdata('show')){
+        switch($this->session->userdata('show')){
             case 'add_sales':
                 /*
                 The titles were passed far behind , look for work around later :D
@@ -191,6 +191,11 @@ class Hsc extends CI_Controller {
 
             case '1':
                 $this->session->set_userdata('show',1);
+                $this->manual_invoice_redirect();
+                break;
+
+            case '3':
+                $this->session->set_userdata('show',3);
                 $this->manual_invoice_redirect();
                 break;
             default :
