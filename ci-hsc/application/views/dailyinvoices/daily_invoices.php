@@ -1,6 +1,6 @@
 <div class="row">
 
-    <?php if(!$this->session->flashdata('view_invoices')){?>
+    <?php if(!$this->session->userdata('view_invoices')){?>
 <!-- ADD MANUAL INVOICE FORM ------------------------------------------------------------------------------>
 <div class="col-lg-6">
     <div class="panel panel-default">
@@ -38,24 +38,26 @@
 
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-12 ">
-            <div class="btn-group">
+            <div class="btn-group show-invoices">
 
 
                 <a href="<?php echo base_url('hsc/determine_invoice/2');?>">
-                        <button class="btn btn-primary <?php echo ($this->session->userdata('show')==2)?'active':'';?>" name="options1" id="option1" > Both</button>
+                        <button class="btn btn-default <?php echo ($this->session->userdata('show')==2)?'active':'';?>" name="options1" id="option1" > Both</button>
                     </a>
                 <a href="<?php echo base_url('hsc/determine_invoice/1');?>">
-                        <button class="btn btn-primary <?php echo $this->session->userdata('show')==1?'active':'';?> " name="options2" id="option1" > Entered</button>
+                        <button class="btn btn-default <?php echo $this->session->userdata('show')==1?'active':'';?> " name="options2" id="option1" > Entered</button>
                     </a>
                 <a href="<?php echo base_url('hsc/determine_invoice/0');?>">
-                        <button class="btn btn-primary <?php echo $this->session->userdata('show')==0?'active':'';?>" name="options3" id="option1" > Not Entered</button>
+                        <button class="btn btn-default <?php echo $this->session->userdata('show')==0?'active':'';?>" name="options3" id="option1" > Not Entered</button>
                     </a>
 
             </div>
         </div>
     </div>
+
 </div>
 </div>
 
@@ -81,7 +83,7 @@
                         <th>Date Entered</th>
                         <?php
 
-                        if($this->session->flashdata('view_invoices')){?>
+                        if($this->session->userdata('view_invoices')){?>
                         <th>Action</th>
                         <?php } ?>
                         </thead>
@@ -129,7 +131,7 @@
 											<td>{$amount}</td>
 											<td>{$entered}</td>
 											<td>{$button} {$date_entered}</td>";
-                                            if($this->session->flashdata('view_invoices')){?>
+                                            if($this->session->userdata('view_invoices')){?>
                                 <td class="col-lg-3">
 
                                     <?php if($entered_db!=1){?><form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>

@@ -85,6 +85,21 @@
 
 }
 
+/*For show buttons in manual invoices*/
+
+.show-invoices a{
+    text-decoration: none;
+}
+
+.show-invoices a:hover{
+    text-decoration: none;
+}
+
+/*for iphone*/
+.show-invoices{
+    margin-bottom: 21px;
+}
+
 
 @media (min-width: 1200px){
     .col-lg-1 {

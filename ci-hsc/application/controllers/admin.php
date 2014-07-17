@@ -506,7 +506,12 @@ class Admin extends CI_Controller{
     }
 
     function enter_manual_redirect(){
-        $this->session->set_flashdata('view_invoices',true);
+        $this->session->set_userdata('view_invoices',true);
+        redirect(base_url().'hsc/daily_manual_invoices');
+        die();
+    }
+    function view_manual_redirect(){
+        $this->session->set_userdata('view_invoices',false);
         redirect(base_url().'hsc/daily_manual_invoices');
         die();
     }
