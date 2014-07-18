@@ -104,7 +104,7 @@
                                 'date'=>$row['date'],
                                 'entered'=>$row['entered'],
                                 'id'=>$row['id'],
-                                'amount'=>$row['amount'],
+                                'amount'=>$row['balance'],
                                 'date_entered'=>$row['date_entered']
                             );
                             $this->session->set_flashdata('post_data_'.$row['id'],$temp_data);
@@ -112,7 +112,7 @@
 
 
 
-                            $amount = number_format($row['amount']);
+                            $amount = number_format($row['balance']);
                             $entered_db = $row['entered'];
                             $date_entered_db = $row['date_entered'];
                             $button ='';

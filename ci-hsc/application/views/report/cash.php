@@ -172,6 +172,7 @@
                                 //var_dump(floatval($total_income),floatval($total_expenses),floatval($total_adjustments));
 
                                 $cash_in_hand = number_format($cash_in_hand);
+                                $this->session->set_userdata('cash_in_hand',$cash_in_hand);
                                 echo "<h4> $cash_in_hand </h4>";
                                 ?>
                             </td>

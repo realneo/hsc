@@ -51,6 +51,7 @@ class Reports extends CI_Controller{
         $this->data['today_sales']=$this->usuals->get_today_sales();
 
 
+
         $this->data['logs']=$this->usuals->get_recent_activities();
         $this->data['branches']=$this->usuals->get_branches();
         $this->data['recent_total']=$this->usuals->get_recent_total_sales();
@@ -76,7 +77,7 @@ class Reports extends CI_Controller{
 
         $this->data['total_returns_according_to_date']=$this->report->get_total_returns();
 
-        $this->data['manual_entered_invoices']=$this->report->get_manual_entered_invoices();
+        $this->data['manual_entered_invoices']=$this->report->get_total_manual_invoice(1);//get_manual_entered_invoices();
 
 
 
@@ -121,5 +122,25 @@ class Reports extends CI_Controller{
         $date=$this->input->post('date');
         $this->session->set_userdata('report_date',$date);
         $this->report_redirect();
+    }
+
+    function sales_report(){
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['title']="Cash in Hand Collection Report";
+        $data['active']="report";
+        $data['active_tab']="sales_report";
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
+
+        $this->load->view('report/cash_in_hand');
+        $this->load->view('includes/footer');
+
     }
 }

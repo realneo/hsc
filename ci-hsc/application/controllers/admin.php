@@ -526,7 +526,7 @@ class Admin extends CI_Controller{
         // Get the Total Manual Invoice of that date
 
         $manuals = $this->invoices->get_total_manual_invoice($id);
-        $db_amount = $manuals[0]['amount'];
+        $db_amount = $manuals[0]['balance'];
         // If the amount is greater
         if(($db_amount-$amount)<0){
             $this->session->set_flashdata('alert_type','warning');

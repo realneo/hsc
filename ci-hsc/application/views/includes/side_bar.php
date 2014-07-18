@@ -99,7 +99,7 @@
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
+                            <li><a href="<?php echo base_url('reports/sales_report');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
                         </ul>
 
                     </li>

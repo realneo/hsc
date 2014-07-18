@@ -64,7 +64,13 @@ class Report extends CI_Model{
         $date = $this->session->userdata('report_date');
         $branch_id = $this->session->userdata('branch_id');
 
-        $results = $this->db->query("SELECT SUM(amount) amount FROM manual_invoices WHERE `date` = '$date' AND branch_id = '$branch_id' AND `entered` = '$entered'");
+        if($entered == 1){
+            $results = $this->db->query("SELECT SUM(amount) amount FROM manual_invoices WHERE `date_entered` = '$date' AND branch_id = '$branch_id' AND `entered` = '$entered'");
+        }
+        if($entered == 0 OR $entered == 2){
+            $results = $this->db->query("SELECT SUM(amount) amount FROM manual_invoices WHERE `date` = '$date' AND branch_id = '$branch_id' AND `entered` = '$entered'");}
+
+
 
         $total_amount = $results->result_array()[0]['amount'];;
 
