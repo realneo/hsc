@@ -166,7 +166,7 @@ class Hsc extends CI_Controller {
         $data['active']="daily_sales";
         $data['active_tab']="manual_invoices";
 
-        $this->data['recent_invoices']=$this->invoices->get_recent_invoices__(2,$start);//NOT ENTERED
+        $this->data['recent_invoices']=$this->invoices->get_recent_invoices__(5,$start);//NOT ENTERED
         $data['recent_invoices_number']=$this->invoices->get_recent_invoices__count();
 
 
@@ -177,7 +177,7 @@ class Hsc extends CI_Controller {
         $this->load->library('pagination');
         $config['base_url'] = base_url().'hsc/daily_manual_invoices/';
         $config['total_rows'] = $data['recent_invoices_number'];
-        $config['per_page'] = 2;
+        $config['per_page'] = 5;
         $data['per_page']=$config['per_page'];
 
         /*
