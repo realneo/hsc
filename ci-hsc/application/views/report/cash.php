@@ -45,6 +45,7 @@
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
                                 if($total_not_manual_invoices==0){
                                     $total_not_manual_invoices=$this->report->get_total_manual_invoice(2);//STARTED ENTERING
+                                
                                 }
                                 echo $total_not_manual_invoices;
 
