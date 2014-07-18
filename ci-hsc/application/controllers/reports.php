@@ -118,10 +118,21 @@ class Reports extends CI_Controller{
         die();
     }
 
+    function sales_redirect(){
+        redirect(base_url('reports/sales_report'));
+        die();
+    }
+
     function change_report_date(){
         $date=$this->input->post('date');
         $this->session->set_userdata('report_date',$date);
         $this->report_redirect();
+    }
+
+    function change_sales_date(){
+        $date=$this->input->post('date');
+        $this->session->set_userdata('report_date',$date);
+        $this->sales_redirect();
     }
 
     function sales_report(){
