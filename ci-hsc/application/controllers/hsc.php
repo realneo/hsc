@@ -50,7 +50,7 @@ class Hsc extends CI_Controller {
 
         $this->data['today_expenses']=$this->expenses->get_today_expenses();
         $this->data['recent_expenses']=$this->expenses->get_recent_expenses();
-        $this->data['recent_invoices']=$this->invoices->get_recent_invoices__($this->session->userdata('show'));//NOT ENTERED
+
 
         $this->data['recent_returns']=$this->returns->get_recent_returns();
         $this->data['recent_vouchers']=$this->vouchers->get_recent_vouchers();
@@ -156,7 +156,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    function daily_manual_invoices()
+    function daily_manual_invoices($start=0)
     {
 
         /*
@@ -166,8 +166,50 @@ class Hsc extends CI_Controller {
         $data['active']="daily_sales";
         $data['active_tab']="manual_invoices";
 
+        $this->data['recent_invoices']=$this->invoices->get_recent_invoices__(2,$start);//NOT ENTERED
+        $data['recent_invoices_number']=$this->invoices->get_recent_invoices__count();
+
+
+        /*
+        NOW SETTING UP PAGINATION
+        */
+
+        $this->load->library('pagination');
+        $config['base_url'] = base_url().'hsc/daily_manual_invoices/';
+        $config['total_rows'] = $data['recent_invoices_number'];
+        $config['per_page'] = 2;
+        $data['per_page']=$config['per_page'];
+
+        /*
+        Beutifying  PAGINATION
+        */
+
+        $config['full_tag_open'] = "<div id='page-fad-paginate' > <ul class='pagination'>";
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = "<fahad class=' fa fa-arrow-right'><fahad>";
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = "<neo class='fa fa-arrow-left'><neo>";
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='cur_link_page'><a  href='#' rel='active_page'><b >";
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['full_tag_close'] = '</ul></div>';
+        //$config['display_pages'] = FALSE;
+        $this->pagination->initialize($config);
+        $data['pages']=$this->pagination->create_links();
+
+
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
+
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');

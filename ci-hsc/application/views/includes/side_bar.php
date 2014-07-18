@@ -88,12 +88,12 @@
                 <a href="#"><i class="glyphicon glyphicon-list-alt fa-fw"></i> Reports <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="<?php echo ($active_tab == "cash" ? "active" : "");?>">
-                        <a href="#"><span class="glyphicon glyphicon-import"></span> Daily Reports <span class="fa arrow"></span></a>
+                        <a href="#"><span class=" fa fa-archive"></span> Daily Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cash Collection Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/return');?>"><span class="fa fa-suitcase"></span> Returns Report</a></li>
+                            <li><a href="<?php echo base_url('reports/return');?>"><span class="fa fa-mail-reply"></span> Returns Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
@@ -106,11 +106,11 @@
                     <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Manual Invoices Report</a></li>
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-paperclip "></span> Manual Invoices Report</a></li>
 
                         </ul>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Payment Report</a></li>
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-truck"></span> Payment Report</a></li>
 
                         </ul>
                         <ul class="nav nav-third-level">
@@ -118,7 +118,7 @@
                         </ul>
                         <ul class="nav nav-third-level">
 
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Users Report</a></li>
+                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-users"></span> Users Report</a></li>
                         </ul>
 
                     </li>

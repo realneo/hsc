@@ -166,9 +166,16 @@
                     </table>
                 </div>
             </div>
-            <?php if(empty($recent_invoices)){?>
+
+            <?php
+            if(empty($recent_invoices)){?>
             <div class="panel-footer">No invoices are available in this category</div>
             <?php } ?>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 invoices-pg">
+                <?php echo $pages;?>
+            </div>
         </div>
     </div>
 

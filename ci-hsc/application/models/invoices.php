@@ -11,29 +11,53 @@ class Invoices extends CI_Model{
      * Get recent invoices , according to show session
      */
 
-    function get_recent_invoices__($entered){
+    function get_recent_invoices__($num=1,$start=0){
 
         /*
          * Dont just redirect it ,
          * return it so that it wont come back again
          * 3 for all, 0 not entered,1 entered 2 started
          */
+        $entered = $this->session->userdata('show');
         if($entered==3){
-            return $this->get_recent_invoices();
+            return $this->get_recent_invoices($num,$start);
 
         }else{
             $branch_id = $this->session->userdata('branch_id');
-            $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `entered` = '$entered' ORDER BY `id` DESC LIMIT 20");
+            $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' AND `entered` = '$entered' ORDER BY `id` DESC LIMIT $start,$num");
             return $results->result_array();
         }
     }
+
+    /*
+     * Get recent invoices count , according to show session
+     */
+
+    function get_recent_invoices__count(){
+
+
+            $entered = $this->session->userdata('show');
+        $branch_id=$this->session->userdata('branch_id');
+        /*
+         * Check to see , if All is selected , then count them all
+         */
+            if($entered==3){
+                return $this->db-> query("SELECT id FROM `manual_invoices` where `branch_id`= '$branch_id' ")->num_rows;
+            }
+
+            $results = $this->db-> query("SELECT id FROM `manual_invoices` where `branch_id`= '$branch_id' AND `entered` = '$entered'");
+        //var_dump($results);die();
+            return $results->num_rows;
+
+    }
+
     /*
      * Get recent invoices
      */
 
-    function get_recent_invoices(){
+    function get_recent_invoices($num=1,$start=0){
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC");
+        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC limit $start,$num");
         return $results->result_array();
     }
 
