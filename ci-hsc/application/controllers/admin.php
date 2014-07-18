@@ -505,6 +505,7 @@ class Admin extends CI_Controller{
         // Get information from the form
         $id = $this->input->post('id');
         $amount = $this->input->post('amount');
+        $date_issued = $this->input->post('date_issued');
         $branch_id = $this->session->userdata('branch_id');
         $branch_name = $this->session->userdata('branch_name');
         $user_id = $this->session->userdata('user_id');
@@ -563,7 +564,7 @@ class Admin extends CI_Controller{
         }else{
             $difference = 0;
             $difference = $db_amount-$amount;
-            $amount_update = $this->invoices->update_invoice($id,$difference,$amount);
+            $amount_update = $this->invoices->update_invoice($id,$difference,$amount,$date_issued);
 
             if($amount_update){
                 $this->session->set_flashdata('alert_type','success');

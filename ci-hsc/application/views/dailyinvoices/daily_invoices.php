@@ -150,6 +150,7 @@
                                         <div class='input-group'>
                                             <input class='form-control' type='text' name='amount' value='' />
                                             <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
+                                            <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
 											      		<span class='input-group-btn'>
 											        		<button class='btn btn-primary' type='submit'>Enter</button>
 											      		</span>

@@ -74,17 +74,18 @@ class Invoices extends CI_Model{
 
     /*
      * Put 2 for Starting to enter
+     * Date ISSUED is for updating progress
      */
-    function update_invoice($id,$difference,$amount){
+    function update_invoice($id,$difference,$amount,$date_issued){
         $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$difference', `date_entered` = CURDATE(),`entered` ='2' WHERE `id` ='$id'");
-        $this->insert_invoice_progress($id,$amount);
+        $this->insert_invoice_progress($id,$amount,$date_issued);
         return $results;
     }
 
-    function insert_invoice_progress($id,$amount){
+    function insert_invoice_progress($id,$amount,$date_issued){
         $branch_id = $this->session->userdata('branch_id');
-        $this->db->query("INSERT INTO `manual_invoices_progress` (`id` ,`date` ,`manual_invoice_id` ,`amount_entered`,`branch_id`)VALUES (NULL , CURDATE() ,  '$id',  '$amount','$branch_id'
-);");
+        $this->db->query("INSERT INTO `manual_invoices_progress` (`id` ,`date` ,`manual_invoice_id` ,`amount_entered`,`branch_id`,`date_issued`)VALUES (NULL , CURDATE() ,  '$id',  '$amount','$branch_id'
+,'$date_issued');");
 
     }
 

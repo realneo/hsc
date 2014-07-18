@@ -43,6 +43,9 @@
                             <td class='text-right'>
                                 <?php
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
+                                if($total_not_manual_invoices==0){
+                                    $total_not_manual_invoices=$this->report->get_total_manual_invoice(2);//STARTED ENTERING
+                                }
                                 echo $total_not_manual_invoices;
 
                                 //var_dump($total_not_manual_invoices);
@@ -132,7 +135,6 @@
 //
 //                                }
                                 $total_entered_manual_invoices = $manual_entered_invoices;
-
                                 echo $total_entered_manual_invoices;
 
 
@@ -147,8 +149,8 @@
                                 <?php
 
                                 $total_adjustments =
-                                    str_replace( ',', '', $total_returns)-
-                                    str_replace( ',', '', $total_entered_manual_invoices );
+                                    (str_replace( ',', '', $total_returns) +
+                                    str_replace( ',', '', $total_entered_manual_invoices ));
 
                                 echo number_format($total_adjustments);
 
@@ -166,7 +168,7 @@
                                 $total_expenses = str_replace( ',', '', $totals_expenses);
                                 $total_adjustments = str_replace( ',', '', $total_adjustments);
 
-                                $cash_in_hand = floatval($total_income) - floatval($total_expenses) + floatval($total_adjustments);
+                                $cash_in_hand = floatval($total_income) - floatval($total_expenses) - floatval($total_adjustments);
                                 //var_dump(floatval($total_income),floatval($total_expenses),floatval($total_adjustments));
 
                                 $cash_in_hand = number_format($cash_in_hand);
