@@ -57,7 +57,7 @@ class Invoices extends CI_Model{
 
     function get_recent_invoices($num=1,$start=0){
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC limit $start,$num");
+        $results = $this->db->query("SELECT distinct `date`,id,branch_id,amount,balance,entered,date_entered FROM `manual_invoices` WHERE `branch_id` = '$branch_id' ORDER BY `id` DESC  limit $start,$num");
         return $results->result_array();
     }
 
@@ -87,10 +87,18 @@ class Invoices extends CI_Model{
         $this->db->query("INSERT INTO `manual_invoices_progress` (`id` ,`date` ,`manual_invoice_id` ,`amount_entered`,`branch_id`,`date_issued`)VALUES (NULL , CURDATE() ,  '$id',  '$amount','$branch_id'
 ,'$date_issued');");
 
+
+
     }
 
-    function complete_invoice($id,$amount){
-        $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
+    function complete_invoice($id,$amount,$date_issued){
+        $branch_id = $this->session->userdata('branch_id');
+        //$results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
+
+        $results = $this->db->query("INSERT INTO `manual_invoices` (`id` ,`branch_id` ,`date` ,`amount` ,`balance` ,`entered` ,`date_entered`
+)VALUES (NULL ,  '$branch_id',  '$date_issued',  '$amount',  '0',  '1', CURDATE()
+);");
+
         return $results;
     }
 

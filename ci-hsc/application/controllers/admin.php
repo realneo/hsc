@@ -540,7 +540,7 @@ class Admin extends CI_Controller{
         // If the amount is equal
         if(($db_amount-$amount) === 0){
 
-            $clear_update = $this->invoices->complete_invoice($id,$amount);
+            $clear_update = $this->invoices->complete_invoice($id,$amount,$date_issued);
 
             if($clear_update){
                 $this->session->set_flashdata('alert_type','success');

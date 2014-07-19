@@ -135,7 +135,8 @@
 //                                   // $total_entered_manual_invoices += $total__;
 //
 //                                }
-                                $total_entered_manual_invoices = $manual_entered_invoices;
+                                $total_entered_manual_invoices = $this->report->get_total_manual_invoice(1);
+
                                 echo $total_entered_manual_invoices;
 
 
