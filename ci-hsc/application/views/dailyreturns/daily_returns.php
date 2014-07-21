@@ -22,7 +22,7 @@
 
                 <div class="form-group col-lg-2">
                     <label>Amount</label>
-                    <input class="form-control money" name="amount" type="number" placeholder="Enter Amount" />
+                    <input class="form-control money" name="amount" type="text" placeholder="Enter Amount" />
                 </div>
 
                 <div class="form-group">

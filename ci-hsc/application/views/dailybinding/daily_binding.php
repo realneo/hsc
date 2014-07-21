@@ -7,7 +7,7 @@
 			<form action="<?php echo base_url('admin/daily_binding_edit');?>" method='post'>
                 <div class="input-group">
                     <span class="input-group-addon">Tshs</span>
-                    <input class='form-control' type='number' name='total_sale' placeholder="<?php echo $today_binding; ?>"/>
+                    <input class='form-control money' type='text' name='total_sale' placeholder="<?php echo $today_binding; ?>"/>
                     <span class="input-group-btn"><button class="btn btn-primary" type="submit">Save</button></span>
                 </div>
             </form>
