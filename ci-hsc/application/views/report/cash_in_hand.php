@@ -36,14 +36,22 @@
                         <tbody>
 <!--                        <tr><th colspan="3">INCOME</th></tr>-->
 
-<?php foreach($branches as $branch){?>
+<?php
+$temp_id=$this->session->userdata('branch_id');
+foreach($branches as $branch){
+    ?>
 
     <tr>
                         <td><?php echo $branch['name']?></td>
                         <td><?php
                             $this->session->set_userdata('branch_id',$branch['id']);
                             echo $this->report->get_total_sales();?></td>
-<td>TEST</td>
+<td><?php
+    $this->session->set_userdata('branch_id',$branch['id']);
+    $cassh = $this->load->view('report/cash','',TRUE);
+    echo $this->session->userdata('cash_in_hand');
+
+    ?></td>
         <td>
             <ul class="list-group" style="margin-bottom: -9px;padding: 3px;margin-top: -7px;">
                 <li class="list-group-item active list-group-item-heading text-right">
@@ -69,7 +77,9 @@
     //var_dump($totals_expenses);
     ?>
             </ul></td>
-                        <td>TEST</td>
+                        <td><?php
+                            $cassh = $this->load->view('report/cash','',TRUE);
+                            echo $this->session->userdata('total_adjustments');?></td>
                         <td>TEST</td>
     </tr>
 <!--    <tr><th colspan="8">INCOME</th></tr>-->
@@ -81,3 +91,6 @@
         </div>
     </div>
 </div>
+<?php //return it back to normal
+$this->session->set_userdata('branch_id',$temp_id);
+?>

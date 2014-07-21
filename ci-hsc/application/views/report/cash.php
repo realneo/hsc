@@ -179,6 +179,7 @@ echo number_format($total_entered_manual_invoices);
                                     str_replace( ',', '', $total_entered_manual_invoices ));
 
                                 echo number_format($total_adjustments);
+                                $this->session->set_userdata('total_adjustments',$total_adjustments);
 
                                 ?>
                             </td>
@@ -198,7 +199,11 @@ echo number_format($total_entered_manual_invoices);
                                 //var_dump(floatval($total_income),floatval($total_expenses),floatval($total_adjustments));
 
                                 $cash_in_hand = number_format($cash_in_hand);
-                                $this->session->set_userdata('cash_in_hand',$cash_in_hand);
+
+
+                                    //$this->session->set_userdata('cash_in_hand',0);
+                                    $this->session->set_userdata('cash_in_hand',$cash_in_hand);
+
                                 echo "<h4> $cash_in_hand </h4>";
                                 ?>
                             </td>
