@@ -10,6 +10,7 @@
 
 
 <script src="<?php echo base_url('assets');?>/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo base_url('assets');?>/js/jquery.price_format.2.0.min.js"></script>
 
 <script>
     // Date Picker Limit FUTURE dates
@@ -37,6 +38,16 @@
     });
 
 </script>
+
+<script type="text/javascript">
+    $('.money').priceFormat({
+        clearPrefix: true,
+        prefix: '',
+        centsSeparator: '.',
+        thousandsSeparator: ','
+    });</script>
+
+
 
 <!-- Page-Level Plugin Scripts - Blank -->
 

@@ -42,13 +42,31 @@
                             <td> Manual Not Entered </td>
                             <td class='text-right'>
                                 <?php
+                                if($this->report->get_manual_data()){
+
+
+                                    $all_manual_invoices = $this->report->get_manual_data()[0];
+                                    $total_not_manual_invoices = 0;
+                                    //                                var_dump($all_manual_invoices);
+                                    if($all_manual_invoices['entered']==1 AND $all_manual_invoices['balance']==0){
+                                        $total_not_manual_invoices = $all_manual_invoices['amount'];
+
+                                    }
+                                    elseif($all_manual_invoices['entered']==0){
+                                        $total_not_manual_invoices = $all_manual_invoices['amount'];
+                                    }
+                                }else{
+                                    $total_not_manual_invoices=0;
+                                }
+                                echo $total_not_manual_invoices;
+                                /*
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
                                 if($total_not_manual_invoices==0){
                                     $total_not_manual_invoices=$this->report->get_total_manual_invoice(2);//STARTED ENTERING
 
                                 }
                                 echo $total_not_manual_invoices;
-
+*/
                                 //var_dump($total_not_manual_invoices);
                                 ?>
                             </td>
@@ -135,9 +153,15 @@
 //                                   // $total_entered_manual_invoices += $total__;
 //
 //                                }
-                                $total_entered_manual_invoices = $this->report->get_total_manual_invoice(1);
+                                $total_entered_manual_invoices =
+                                    str_replace( ',', '', $this->report->get_total_manual_invoice(1))+
+                                        str_replace( ',', '', $this->report->get_manual_entered_invoices());
 
-                                echo $total_entered_manual_invoices;
+                                //var_dump($this->report->get_manual_entered_invoices());
+                                //leta za progress alaf zi plus pia
+
+//                                $total_entered_manual_invoices = $this->report->get_manual_data();
+echo number_format($total_entered_manual_invoices);
 
 
                                 ?>

@@ -14,7 +14,7 @@
 
                     <div class="form-group col-lg-6">
                         <label>Total Sale</label>
-                        <input class="form-control" name="total_sale" type="number" placeholder="<?php echo $today_sales;?>" />
+                        <input class="form-control money" name="total_sale" type="text" placeholder="<?php echo $today_sales;?>" />
                     </div>
 
                     <div class="form-group">
@@ -46,7 +46,7 @@
 
                     <div class="form-group col-lg-6">
                         <label>Total Binding</label>
-                        <input class="form-control" name="total_sale" type="number" placeholder="<?php echo $today_binding;?>" />
+                        <input class="form-control" name="total_sale money" type="text" placeholder="<?php echo $today_binding;?>" />
                     </div>
 
                     <div class="form-group">

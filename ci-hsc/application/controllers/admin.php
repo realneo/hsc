@@ -189,6 +189,7 @@ class Admin extends CI_Controller{
         // Get information from the form
         //$date = $this->input->post('date');
         $total_sale = $this->input->post('total_sale');
+
         $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
@@ -347,6 +348,9 @@ class Admin extends CI_Controller{
         $purpose = $this->input->post('purpose');
         $received_by = $this->input->post('received_by');
         $amount = $this->input->post('amount');
+
+        $amount = str_replace( ',', '', $amount);
+
         $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
@@ -409,6 +413,9 @@ class Admin extends CI_Controller{
         $id = $id_;//$this->input->post('id');
         $purpose = $flash['purpose'];
         $amount = $flash['amount'];
+
+        $amount = str_replace( ',', '', $amount);
+
         $full_name = $this->session->userdata('full_name');
         $branch_id = $this->session->userdata('branch_id');
         $user_id=$this->session->userdata('user_id');
@@ -454,6 +461,9 @@ class Admin extends CI_Controller{
         $id = $id_;//$this->input->post('id');
         $purpose = $flash['purpose'];
         $amount = $flash['amount'];
+
+        $amount = str_replace( ',', '', $amount);
+
         $full_name = $this->session->userdata('full_name');
         $branch_id = $this->session->userdata('branch_id');
         $user_id=$this->session->userdata('user_id');
@@ -505,6 +515,9 @@ class Admin extends CI_Controller{
         // Get information from the form
         $id = $this->input->post('id');
         $amount = $this->input->post('amount');
+
+        $amount = str_replace( ',', '', $amount);
+
         $date_issued = $this->input->post('date_issued');
         $branch_id = $this->session->userdata('branch_id');
         $branch_name = $this->session->userdata('branch_name');
@@ -612,6 +625,9 @@ class Admin extends CI_Controller{
 
         $date = $this->input->post('date');
         $amount = $this->input->post('amount');
+
+        $amount = str_replace( ',', '', $amount);
+
         $branch_name = $this->session->userdata('branch_name');
         $branch_id = $this->session->userdata('branch_id');
         $full_name = $this->session->userdata('full_name');

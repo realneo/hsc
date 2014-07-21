@@ -15,7 +15,7 @@
 
                 <div class="form-group col-lg-6">
                     <label>Amount</label>
-                    <input class="form-control" name="amount" type="number" />
+                    <input class="form-control money" name="amount" type="text" />
                 </div>
 
                 <div class="form-group">
@@ -113,6 +113,7 @@
 
 
                             $amount = number_format($row['balance']);
+                            $orignal_amount=$row['amount'];
                             $entered_db = $row['entered'];
                             $date_entered_db = $row['date_entered'];
                             $button ='';
@@ -140,7 +141,7 @@
                             }
                             echo "<tr>
 											<td>{$date}</td>
-											<td>{$amount}</td>
+											<td>{$orignal_amount}/= <span class='text-muted'>(Tsh $amount left)</span></td>
 											<td>{$entered}</td>
 											<td>{$button} {$date_entered}</td>";
                                             if($this->session->userdata('view_invoices')){?>
@@ -148,7 +149,7 @@
 
                                     <?php if($entered_db!=1){?><form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
                                         <div class='input-group'>
-                                            <input class='form-control' type='text' name='amount' value='' />
+                                            <input class='form-control money' type='text' name='amount' value='' />
                                             <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
                                             <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
 											      		<span class='input-group-btn'>

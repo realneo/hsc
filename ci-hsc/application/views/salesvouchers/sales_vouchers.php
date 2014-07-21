@@ -38,7 +38,7 @@
 
                     <div class="form-group col-lg-3">
                         <label>Sales Voucher</label>
-                        <input class="form-control" name="sales_voucher" type="number" placeholder="Enter Amount" />
+                        <input class="form-control money" name="sales_voucher" type="text" placeholder="Enter Amount" />
                     </div>
 
                     <div class="form-group">

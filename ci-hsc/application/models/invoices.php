@@ -93,11 +93,11 @@ class Invoices extends CI_Model{
 
     function complete_invoice($id,$amount,$date_issued){
         $branch_id = $this->session->userdata('branch_id');
-        //$results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount', `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
+        $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount',`balance`=0, `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
 
-        $results = $this->db->query("INSERT INTO `manual_invoices` (`id` ,`branch_id` ,`date` ,`amount` ,`balance` ,`entered` ,`date_entered`
-)VALUES (NULL ,  '$branch_id',  '$date_issued',  '$amount',  '0',  '1', CURDATE()
-);");
+//        $results = $this->db->query("INSERT INTO `manual_invoices` (`id` ,`branch_id` ,`date` ,`amount` ,`balance` ,`entered` ,`date_entered`
+//)VALUES (NULL ,  '$branch_id',  '$date_issued',  '$amount',  '0',  '1', CURDATE()
+//);");
 
         return $results;
     }
@@ -106,7 +106,7 @@ class Invoices extends CI_Model{
 
     function add_manual_invoice($amount,$date){
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("INSERT INTO `manual_invoices` (`id`,`date`, `branch_id`, `amount`, `entered`,`balance`, `date_entered`) VALUES (NULL, '$date','$branch_id',  '$amount', '0','$amount', CURDATE())");
+        $results = $this->db->query("INSERT INTO `manual_invoices` (`id`,`date`, `branch_id`, `amount`, `entered`,`balance`, `date_entered`) VALUES (NULL, '$date','$branch_id',  '$amount', '0','$amount', NULL )");
         return $results;
     }
 
