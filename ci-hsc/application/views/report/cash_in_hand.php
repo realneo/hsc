@@ -45,11 +45,11 @@ foreach($branches as $branch){
                         <td><?php echo $branch['name']?></td>
                         <td><?php
                             $this->session->set_userdata('branch_id',$branch['id']);
-                            echo $this->report->get_total_sales();?></td>
+                            echo $total_sales_per_branch=$this->report->get_total_sales();?></td>
 <td><?php
     $this->session->set_userdata('branch_id',$branch['id']);
-    $cassh = $this->load->view('report/cash','',TRUE);
-    echo $this->session->userdata('cash_in_hand');
+    $cash_in_hand = $this->load->view('report/cash','',TRUE);
+    echo $cash_in_hand = $this->session->userdata('cash_in_hand');
 
     ?></td>
         <td>
@@ -78,12 +78,27 @@ foreach($branches as $branch){
     ?>
             </ul></td>
                         <td><?php
-                            $cassh = $this->load->view('report/cash','',TRUE);
-                            echo $this->session->userdata('total_adjustments');?></td>
-                        <td>TEST</td>
+                            $cash_in_hand = $this->load->view('report/cash','',TRUE);
+                            echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments');?></td>
+                        <td><?php
+                            $variance = number_format(floatval(str_replace( ',', '', $this->session->userdata('cash_in_hand'))) - floatval(str_replace( ',', '', $this->report->get_total_sales())));
+                            echo $variance;
+
+                            ?></td>
     </tr>
 <!--    <tr><th colspan="8">INCOME</th></tr>-->
-                        <?php } ?>
+                        <?php
+
+/*
+ * NOW CALCULATE TOTALS of individuals
+ */
+    $total_adjustments_per_branch;
+    $variance;
+    $totals_expenses;
+    $cash_in_hand;
+    $total_sales_per_branch;
+
+} ?>
                         </tbody>
                     </table>
                 </div>

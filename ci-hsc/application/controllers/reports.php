@@ -68,14 +68,14 @@ class Reports extends CI_Controller{
         /*
          * USED DATA
          */
-        $this->data['total_sales_according_to_date']=$this->report->get_total_sales();
-        $this->data['total_binding_according_to_date']=$this->report->get_total_binding();
+//        $this->data['total_sales_according_to_date']=$this->report->get_total_sales();
+//        $this->data['total_binding_according_to_date']=$this->report->get_total_binding();
 
-        $this->data['total_expenses_according_to_date']=$this->report->get_total_expenses();
+//        $this->data['total_expenses_according_to_date']=$this->report->get_total_expenses();
 
         $this->data['total_expenses_activity']=$this->report->get_expense_activity();
 
-        $this->data['total_returns_according_to_date']=$this->report->get_total_returns();
+//        $this->data['total_returns_according_to_date']=$this->report->get_total_returns();
 
 
 

@@ -540,6 +540,7 @@ class Admin extends CI_Controller{
 
         $manuals = $this->invoices->get_total_manual_invoice($id);
         $db_amount = $manuals[0]['balance'];
+        $db_amount_ = $manuals[0]['amount'];
         // If the amount is greater
         if(($db_amount-$amount)<0){
             $this->session->set_flashdata('alert_type','warning');
@@ -551,7 +552,8 @@ class Admin extends CI_Controller{
 
 
         // If the amount is equal
-        if(($db_amount-$amount) === 0){
+
+        if(($db_amount-$amount) == 0.00){
 
             $clear_update = $this->invoices->complete_invoice($id,$amount,$date_issued);
 
@@ -730,14 +732,10 @@ class Admin extends CI_Controller{
             redirect(base_url().'hsc/daily_returns');
             die();
         }
-        if(!$receipt_number OR !is_numeric($receipt_number)){
+        if(!$receipt_number){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
                 'You have to fill in <strong>Receipt Number</strong> field');
-            if(!is_numeric($amount)){
-                $this->session->set_flashdata('alert_msg',
-                    'Sorry the <b>Receipt Number</b> field has to be a number');
-            }
 
             redirect(base_url().'hsc/daily_returns');
             die();

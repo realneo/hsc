@@ -33,7 +33,7 @@
                             <td> Total Sale In System </td>
                             <td class='text-right'>
                                 <?php
-                                    $total_sale=$total_sales_according_to_date;
+                                    $total_sale=$this->report->get_total_sales();
                                     echo $total_sale;
                                 ?> </td>
                             <td></td>
@@ -55,10 +55,13 @@
                                     elseif($all_manual_invoices['entered']==0){
                                         $total_not_manual_invoices = $all_manual_invoices['amount'];
                                     }
+                                    elseif($all_manual_invoices['entered']==2 AND $all_manual_invoices['balance']<$all_manual_invoices['amount']){
+                                        $total_not_manual_invoices = $all_manual_invoices['amount'];
+                                    }
                                 }else{
                                     $total_not_manual_invoices=0;
                                 }
-                                echo $total_not_manual_invoices;
+                                echo number_format($total_not_manual_invoices);
                                 /*
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
                                 if($total_not_manual_invoices==0){
@@ -72,12 +75,12 @@
                             </td>
                             <td></td>
                         </tr>
-                        <?php if($this->session->userdata("branch_id") == 1 && $total_binding_according_to_date>0){?>
+                        <?php if($this->session->userdata("branch_id") == 1 && $this->report->get_total_binding()>0){?>
                         <tr>
                             <td> Binding </td>
                             <td class='text-right'>
                                 <?php
-                                $binding_amount= $total_binding_according_to_date;
+                                $binding_amount= $this->report->get_total_binding();
                                 echo $binding_amount; ?> </td>
                             <td></td>
                         </tr>
@@ -114,7 +117,7 @@
 									</tr>
 
 						<?php }
-                        $totals_expenses = $total_expenses_according_to_date;
+                        $totals_expenses = $this->report->get_total_expenses();
 
 
                         ?>
@@ -128,7 +131,7 @@
                             <td> Returns </td>
                             <td class='text-right'>
                                 <?php
-                                $total_returns = $total_returns_according_to_date;
+                                $total_returns = $this->report->get_total_returns();
                                 echo $total_returns;
                                 ?>
                             </td>
