@@ -23,11 +23,13 @@
             </div>
             <div class="panel-body">
                 <p><span class='small'>Report For :</span> <?php echo custom_date_format($this->session->userdata('report_date')); ?> </p>
+
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                         <th>Branch</th>
-                        <th>Total sales</th>
+                        <th>Total sales <span class="pull-right"><a href="<?php echo base_url().'reports/audited_edit'?>"><i class="fa fa-edit"></i></a> -  <a
+                                    href="<?php echo base_url().'reports/audited_view'?>"><span><i class="fa fa-book"></i></span></a></span></th>
                         <th>Cash In Hand</th>
                         <th>Payments</th>
                         <th>Adjustments</th>
@@ -49,27 +51,30 @@ foreach($branches as $key=>$branch){
                             $this->session->set_userdata('branch_id',$branch['id']);
                             $audited_sales=$this->report->get_audited_total_sale();
                             if($this->report->get_audited_total_sale()){
-                                $audited_sales=$audited_sales[0];$total_sales_per_branch=$audited_sales['total_sale'];
+                                $audited_sales=$audited_sales[0];$audited_sales['total_sale']=number_format($audited_sales['total_sale']);
+//                                $audited_sales=$audited_sales[0];$total_sales_per_branch=number_format($audited_sales['total_sale']);
                             }else{
-                                $audited_sales = 0;
+                                $audited_sales['total_sale'] = 0;
+
                             }
 
 
                             ?>
 <!--                            <a href="#" data-pk="1" data-url="--><?php //echo base_url('reports/add_audited_amount');?><!--" rel='edit_amount' id="audited_total_sale" data-type="text" data-placement="right" data-pk="--><?php //echo $audited_sales['id']?><!--" data-title="Enter Amount" class="editable editable-click" data-original-title="" title="">--><?php //echo $total_sales_per_branch;?><!--</a>-->
-                            <?php if($this->session->userdata(''))
+                            <?php if($this->session->userdata('edit_audited'))
                             {?>
-                                <form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
+                                <form class="form-horizontal" action='<?php echo base_url()."reports/add_audited_amount";?>' method='post'>
                                 <div class='input-group'>
-                                    <input class='form-control money' type='text' name='amount' value='' />
-                                    <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
-                                    <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
+                                    <input class='form-control money' type='text' name='amount' value='<?php echo $audited_sales['total_sale'];?>' />
+                                    <input type='hidden' name='id' value='<?php echo $audited_sales['id'];?>' />
 											      		<span class='input-group-btn'>
 											        		<button class='btn btn-primary' type='submit'>Enter</button>
 											      		</span>
                                 </div>
                                 </form>
-                            <?php } ?>
+                            <?php }else{
+                             echo $audited_sales['total_sale'];
+                            } ?>
                         </td>
 <td>
     <script type="text/javascript">

@@ -157,6 +157,62 @@ class Reports extends CI_Controller{
     }
 
     function add_audited_amount(){
+// Get information from the form
+
+        $amount = $this->input->post('amount');
+
+        $amount = str_replace( ',', '', $amount);
+
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+
+        // Remove "," from the total_sale
+        $amount = str_replace( ',', '', $amount);
+
+        // Check if all fields are filled;
+
+
+        if(!$amount){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert the <strong>Amount</strong>');
+
+            $this->daily_expense_redirect();
+        }
+
+        // Update into Expenses database
+        /*
+         * It must be added when the daily sale is added!!!
+         * CHECK FOR THIS LATER
+         */
+        $query = $this->admin_->update($amount);
+
+
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
+
+            // Write into Log
+            $log = "Daily Expense : Tsh $amount, used for ".make_me_bold($purpose)." on $date";
+            $msg=$log;
+            $this->usuals->log_write($user_id,$branch_id,$msg);
+            $this->daily_expense_redirect();
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->daily_expense_redirect();
+
+        }
+
+
+    }
+
+    /*
+     * This function failed for now , may be later
+     */
+    function add_audited_amount__delete_it_later(){
         //var_dump($_POST);
         print_r($_POST);
         /*
@@ -199,5 +255,19 @@ class Reports extends CI_Controller{
             echo 1;
 
         }
+    }
+
+    function audited_edit(){
+        $this->session->set_userdata('edit_audited',true);
+        $this->sales_report_redrect();
+    }
+    function audited_view(){
+        $this->session->set_userdata('edit_audited',false);
+        $this->sales_report_redrect();
+    }
+
+    function sales_report_redrect(){
+        redirect(base_url('reports/sales_report'));
+        die();
     }
 }

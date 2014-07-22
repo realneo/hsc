@@ -10,4 +10,6 @@ class Audited_sales extends CI_Model{
     function add_audited_sales(){
         return false;
     }
+
+
 }
