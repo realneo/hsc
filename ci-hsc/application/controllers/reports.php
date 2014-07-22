@@ -156,14 +156,14 @@ class Reports extends CI_Controller{
 
     }
 
-    function add_audited_amount(){
+    function edit_audited_amount(){
 // Get information from the form
 
         $amount = $this->input->post('amount');
+        $id = $this->input->post('id');
+        $branch_id = $this->input->post('branch_id');
+//        var_dump($_POST);
 
-        $amount = str_replace( ',', '', $amount);
-
-        $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
 
@@ -171,14 +171,15 @@ class Reports extends CI_Controller{
         // Remove "," from the total_sale
         $amount = str_replace( ',', '', $amount);
 
+
         // Check if all fields are filled;
 
 
-        if(!$amount){
+        if($amount==0.00 OR !$amount){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','You have to insert the <strong>Amount</strong>');
 
-            $this->daily_expense_redirect();
+            $this->sales_report_redrect();
         }
 
         // Update into Expenses database
@@ -186,23 +187,24 @@ class Reports extends CI_Controller{
          * It must be added when the daily sale is added!!!
          * CHECK FOR THIS LATER
          */
-        $query = $this->admin_->update($amount);
 
+        $query = $this->audited_sales->update_audited_sale($amount,$id,$branch_id);
 
+        $amount=make_me_bold(number_format($amount));
         if($query){
             $this->session->set_flashdata('alert_type','success');
-            $this->session->set_flashdata('alert_msg',"Thank you {$full_name}!");
+            $this->session->set_flashdata('alert_msg',"Success {$full_name}! ,Tsh {$amount} Audited Sale was added to the daily sale of ".$this->usuals->get_branch_name($branch_id));
 
             // Write into Log
-            $log = "Daily Expense : Tsh $amount, used for ".make_me_bold($purpose)." on $date";
+            $log = "Daily Audited : Tsh $amount, was added to the daily sale of ".make_me_bold($this->usuals->get_branch_name($branch_id));
             $msg=$log;
             $this->usuals->log_write($user_id,$branch_id,$msg);
-            $this->daily_expense_redirect();
+            $this->sales_report_redrect();
         }else{
             $this->session->set_flashdata('alert_type','danger');
             $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
 
-            $this->daily_expense_redirect();
+            $this->sales_report_redrect();
 
         }
 

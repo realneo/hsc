@@ -374,7 +374,7 @@ class Admin extends CI_Controller{
             $this->daily_expense_redirect();
         }
 
-        if(!$amount){
+        if($amount==0.00 OR !$amount){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','You have to insert the <strong>Amount</strong>');
 
@@ -528,7 +528,7 @@ class Admin extends CI_Controller{
         // Check if all fields are filled;
 
 
-        if(!$amount){
+        if($amount==0.00 OR !$amount){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','You have to insert an <strong>amount</strong>');
 
@@ -555,7 +555,7 @@ class Admin extends CI_Controller{
 
         if(($db_amount-$amount) == 0.00){
 
-            $clear_update = $this->invoices->complete_invoice($id,$db_amount_,$date_issued,$amount);
+            $clear_update = $this->invoices->$ete_invoice($id,$db_amount_,$date_issued,$amount);
 
             if($clear_update){
                 $this->session->set_flashdata('alert_type','success');
@@ -645,7 +645,7 @@ class Admin extends CI_Controller{
             die();
         }
 
-        if(!$amount){
+        if($amount==0.00 OR !$amount){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
                 'You have to insert an <strong>amount</strong>');
@@ -741,7 +741,7 @@ class Admin extends CI_Controller{
             die();
         }
 
-        if(!$amount OR !is_numeric($amount)){
+        if($amount==0.00 OR !$amount OR !is_numeric($amount)){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
                 'You have to fill in the <strong>Amount</strong> field');
