@@ -189,9 +189,15 @@ class Reports extends CI_Controller{
          */
 
         $query = $this->audited_sales->update_audited_sale($amount,$id,$branch_id);
-
         $amount=make_me_bold(number_format($amount));
         if($query){
+            if($this->session->userdata('affected_rows')<=0){
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg','Audited Total Sale for '.make_me_bold($this->usuals->get_branch_name($branch_id)).' can only be added when its <b>Daily sale</b> is available, try adding <b>Daily Sale</b> first!');
+
+                $this->sales_report_redrect();
+            }
+
             $this->session->set_flashdata('alert_type','success');
             $this->session->set_flashdata('alert_msg',"Success {$full_name}! ,Tsh {$amount} Audited Sale was added to the daily sale of ".$this->usuals->get_branch_name($branch_id));
 

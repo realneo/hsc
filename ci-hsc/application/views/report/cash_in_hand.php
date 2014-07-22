@@ -19,7 +19,7 @@
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                HSC - All Branches <span class="no-print pull-right text-muted small">For Printing choose <b><i class="fa fa-book"></i> view</b> at total sales</span>
+                HSC - All Branches <span class="no-print pull-right text-muted small hidden-sm hidden-xs">For Printing choose <b><i class="fa fa-book"></i> view</b> at total sales</span>
             </div>
             <div class="panel-body">
                 <p><span class='small'>Report For :</span> <?php echo custom_date_format($this->session->userdata('report_date')); ?> </p>
@@ -28,7 +28,7 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                         <th>Branch</th>
-                        <th>Total Sales<span class="pull-right no-print"><a href="<?php echo base_url().'reports/audited_edit'?>"><i class="fa fa-edit"></i></a> -  <a
+                        <th>Total Sales <span class="text-muted small x-small">(audited)</span><span class="pull-right no-print"><a href="<?php echo base_url().'reports/audited_edit'?>"><i class="fa fa-edit"></i></a> -  <a
                                     href="<?php echo base_url().'reports/audited_view'?>"><span><i class="fa fa-book"></i></span></a></span></th>
                         <th>Cash In Hand</th>
                         <th>Payments</th>
@@ -65,7 +65,7 @@ foreach($branches as $key=>$branch){
                             {?>
                                 <form class="form-horizontal no-print" action='<?php echo base_url()."reports/edit_audited_amount";?>' method='post'>
                                 <div class='input-group'>
-                                    <input class='form-control' type='text' name='amount' value='<?php echo $audited_sales['total_sale'];?>' />
+                                    <input class='form-control' type='text' name='amount' value='<?php echo ($audited_sales['total_sale']!=0)?$audited_sales['total_sale']:'';?>' />
                                     <input type='hidden' name='id' value='<?php echo $audited_sales['id'];?>' />
                                     <input type='hidden' name='branch_id' value='<?php echo $branch['id'];?>' />
 											      		<span class='input-group-btn'>
@@ -73,8 +73,19 @@ foreach($branches as $key=>$branch){
 											      		</span>
                                 </div>
                                 </form>
-                                <div class="panel"><div class="panel-footer">Check</div></div>
-                            <?php }else{
+                                <span class="text-muted x-small" style="margin: 0px;padding: 0px;line-height: 0px;"><?php
+                                    if(!@$audited_sales['id'])
+                                    {
+                                        echo '*Before entering, Try adding <b>Daily Sale</b> First!';
+                                    }else{
+                                        echo '*You can include commas & dots,This part only';
+                                    }
+                                    ?></span>
+
+                            <?php
+
+
+                            }else{
                              echo $audited_sales['total_sale'];
                             } ?>
                         </td>

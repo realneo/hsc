@@ -107,6 +107,10 @@
     margin-bottom: -59px;
 }
 
+.x-small{
+    font-size: 65%;
+}
+
 
 @media (min-width: 1200px){
     .col-lg-1 {
@@ -144,9 +148,21 @@
 @media (max-width: 422px) and (min-width:0px){
     .navbar-brand {
 
-        font-size: 10px;
+        font-size: 75%;
 
     }
+    .nav {
+        margin-bottom: 0;
+        list-style: none;
+        font-size: 0.9em;
+        margin-top: -1px;
+        margin-left: 8px;
+    }
+
+    .navbar-top-links li:last-child {
+        margin-right: -33px;
+    }
+
     .last-logo{
         padding-top: 32%;
         padding-left: 32%;
