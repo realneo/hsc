@@ -45,7 +45,7 @@ foreach($branches as $branch){
                         <td><?php echo $branch['name']?></td>
                         <td><?php
                             $this->session->set_userdata('branch_id',$branch['id']);
-                            echo $total_sales_per_branch=$this->report->get_total_sales();?></td>
+                            echo $total_sales_per_branch=$this->report->get_audited_total_sale();?></td>
 <td><?php
     $this->session->set_userdata('branch_id',$branch['id']);
     $cash_in_hand = $this->load->view('report/cash','',TRUE);
@@ -78,10 +78,18 @@ foreach($branches as $branch){
     ?>
             </ul></td>
                         <td><?php
-                            $cash_in_hand = $this->load->view('report/cash','',TRUE);
+                            $this->load->view('report/cash','',TRUE);
+                            $cash_in_hand = $this->session->userdata('cash_in_hand');
                             echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments');?></td>
                         <td><?php
-                            $variance = number_format(floatval(str_replace( ',', '', $this->session->userdata('cash_in_hand'))) - floatval(str_replace( ',', '', $this->report->get_total_sales())));
+                            $variance = number_format(
+                                floatval(str_replace( ',', '', $this->report->get_audited_total_sale()))-
+                                    (
+                                    floatval(str_replace( ',', '',$cash_in_hand )) +
+                                    floatval(str_replace( ',', '', $totals_expenses)) +
+                                    floatval(str_replace( ',', '',$total_adjustments_per_branch))
+                                    )
+                            );
                             echo $variance;
 
                             ?></td>
@@ -109,3 +117,5 @@ foreach($branches as $branch){
 <?php //return it back to normal
 $this->session->set_userdata('branch_id',$temp_id);
 ?>
+
+

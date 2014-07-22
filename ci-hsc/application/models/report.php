@@ -21,6 +21,20 @@ class Report extends CI_Model{
         return number_format(floatval($total_amount));
     }
 
+    /*
+     * Total_audited
+     */
+    function get_audited_total_sale(){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT SUM(audited_total_sale) total_sale FROM total_sale WHERE `date` = '$date' AND branch_id = '$branch_id'");
+        $total_amount = $results->result_array()[0]['total_sale'];
+        /*
+         * String to Double : floatval/doubleval alias :D
+         */
+        return number_format(floatval($total_amount));
+    }
+
 
 
 
