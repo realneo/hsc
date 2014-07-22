@@ -15,6 +15,7 @@
     <!-- Page-Level Plugin CSS - Blank -->
 <!--    <link href="--><?php //echo base_url('assets');?><!--/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">-->
     <link href="<?php echo base_url('assets');?>/css/datepicker.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets');?>/css/bootstrap-editable.css" rel="stylesheet">
 
 
     <!-- Page-Level Plugin CSS - Morris -->

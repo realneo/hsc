@@ -11,6 +11,7 @@
 
 <script src="<?php echo base_url('assets');?>/js/bootstrap-datepicker.js"></script>
 <script src="<?php echo base_url('assets');?>/js/jquery.price_format.2.0.min.js"></script>
+<script src="<?php echo base_url('assets');?>/js/bootstrap-editable.min.js"></script>
 
 <script>
     // Date Picker Limit FUTURE dates
@@ -46,6 +47,15 @@
         centsSeparator: '.',
         thousandsSeparator: ','
     });</script>
+
+<script type="text/javascript">
+    $.fn.editable.defaults.mode = 'popup';//'inline';
+    $(document).ready(function() {
+        $('a[rel=edit_amount]').editable({
+            url: '<?php echo base_url('reports/add_audited_amount')?>'
+        });
+    });
+</script>
 
 
 

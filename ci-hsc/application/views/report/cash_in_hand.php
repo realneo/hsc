@@ -38,15 +38,46 @@
 
 <?php
 $temp_id=$this->session->userdata('branch_id');
-foreach($branches as $branch){
+foreach($branches as $key=>$branch){
     ?>
 
     <tr>
                         <td><?php echo $branch['name']?></td>
-                        <td><?php
+                        <td class="col-lg-3">
+
+                            <?php
                             $this->session->set_userdata('branch_id',$branch['id']);
-                            echo $total_sales_per_branch=$this->report->get_audited_total_sale();?></td>
-<td><?php
+                            $audited_sales=$this->report->get_audited_total_sale();
+                            if($this->report->get_audited_total_sale()){
+                                $audited_sales=$audited_sales[0];$total_sales_per_branch=$audited_sales['total_sale'];
+                            }else{
+                                $audited_sales = 0;
+                            }
+
+
+                            ?>
+<!--                            <a href="#" data-pk="1" data-url="--><?php //echo base_url('reports/add_audited_amount');?><!--" rel='edit_amount' id="audited_total_sale" data-type="text" data-placement="right" data-pk="--><?php //echo $audited_sales['id']?><!--" data-title="Enter Amount" class="editable editable-click" data-original-title="" title="">--><?php //echo $total_sales_per_branch;?><!--</a>-->
+                            <?php if($this->session->userdata(''))
+                            {?>
+                                <form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
+                                <div class='input-group'>
+                                    <input class='form-control money' type='text' name='amount' value='' />
+                                    <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
+                                    <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
+											      		<span class='input-group-btn'>
+											        		<button class='btn btn-primary' type='submit'>Enter</button>
+											      		</span>
+                                </div>
+                                </form>
+                            <?php } ?>
+                        </td>
+<td>
+    <script type="text/javascript">
+//        console.log('BAB');
+<!--        console.log('--><?php //echo $_POST['id'];?><!--');-->
+
+    </script>
+    <?php
     $this->session->set_userdata('branch_id',$branch['id']);
     $cash_in_hand = $this->load->view('report/cash','',TRUE);
     echo $cash_in_hand = $this->session->userdata('cash_in_hand');
