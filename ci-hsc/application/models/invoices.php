@@ -91,9 +91,13 @@ class Invoices extends CI_Model{
 
     }
 
-    function complete_invoice($id,$amount,$date_issued){
+    function complete_invoice($id,$amount,$date_issued,$amount_user_wrote){
         $branch_id = $this->session->userdata('branch_id');
         $results = $this->db->query("UPDATE `manual_invoices` SET `amount` = '$amount',`balance`= 0, `date_entered` = CURDATE(), `entered` = '1' WHERE `id` ='$id'");
+
+        $this->insert_invoice_progress($id,$amount_user_wrote,$date_issued);
+
+
 
 //        $results = $this->db->query("INSERT INTO `manual_invoices` (`id` ,`branch_id` ,`date` ,`amount` ,`balance` ,`entered` ,`date_entered`
 //)VALUES (NULL ,  '$branch_id',  '$date_issued',  '$amount',  '0',  '1', CURDATE()

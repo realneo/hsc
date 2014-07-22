@@ -69,7 +69,13 @@
                             );
                             $this->session->set_flashdata('post_data_'.$id,$temp_data);
                             $php=base_url('admin/delete_return').'/'.$id;
-                            $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg fa-black'></i></a>";
+                            if($row['date']==date('Y-m-d')){
+                                $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg fa-black'></i></a>";
+
+                            }else{
+
+                                $button = '';
+                            }
 
                             echo
                             "
@@ -86,6 +92,7 @@
                     </table>
                 </div>
             </div>
+            <div class="panel-footer">You can only delete today's returns, Contact administrator for more information</div>
         </div>
     </div>
 </div>

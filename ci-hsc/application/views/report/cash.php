@@ -156,9 +156,29 @@
 //                                   // $total_entered_manual_invoices += $total__;
 //
 //                                }
+                                /*
+                                 * SOLVED I GUESS,
+                                 *  HAPA
+                                 */
+
                                 $total_entered_manual_invoices =
-                                    str_replace( ',', '', $this->report->get_total_manual_invoice(1))+
-                                        str_replace( ',', '', $this->report->get_manual_entered_invoices());
+                                    str_replace( ',', '', $this->report->get_manual_entered_invoices());
+                                //var_dump($this->report->get_manual_data());
+                                if($this->report->get_manual_data_entered()){
+
+
+                                $all_manual_invoices = $this->report->get_manual_data_entered()[0];
+
+                                    if($all_manual_invoices['entered']==2){
+                                        //$total_not_manual_invoices = $all_manual_invoices['amount'];
+                                        $total_entered_manual_invoices =
+                                            str_replace( ',', '', $this->report->get_total_manual_invoice(2))
+                                                +str_replace( ',', '', $this->report->get_manual_entered_invoices());;
+
+                                    }
+                                }
+
+                                        //
 
                                 //var_dump($this->report->get_manual_entered_invoices());
                                 //leta za progress alaf zi plus pia

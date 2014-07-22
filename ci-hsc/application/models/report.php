@@ -129,6 +129,21 @@ class Report extends CI_Model{
 
     }
 
+
+    /*
+     * NEW FUNCTION
+     * gets all data from the table
+     */
+
+    function get_manual_data_entered(){
+        $date = $this->session->userdata('report_date');
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT * FROM manual_invoices WHERE `date_entered` = '$date' AND branch_id = '$branch_id'");
+        return $results->result_array();
+
+    }
+
+
     /*
      * For getting all manually entered invoices
      */
