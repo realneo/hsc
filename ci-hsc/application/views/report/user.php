@@ -22,7 +22,17 @@
                                 ?></p>
                             <div class="divider"></div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <h1 style="margin-left: -5px;"><strong><?php echo $this->staffs->get_total_variance($staff['id']);?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
+                                    <h1 style="margin-left: -5px;" class="
+                                    <?php
+                                    $total_variance_since_started=$this->staffs->get_total_variance($staff['id']);
+                                    if($total_variance_since_started<=0){
+                                        echo "text-success";
+                                    }
+                                    else{
+                                        echo "text-danger";
+                                    }
+                                    ?>
+                                    "><strong><?php echo $total_variance_since_started;?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
                                 </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 text-center  ">
