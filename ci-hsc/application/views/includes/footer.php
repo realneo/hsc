@@ -55,6 +55,7 @@
             url: '<?php echo base_url('reports/add_audited_amount')?>'
         });
     });
+    $('a[rel=info]').tooltip();
 </script>
 
 
