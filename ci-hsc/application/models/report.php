@@ -27,7 +27,7 @@ class Report extends CI_Model{
     function get_audited_total_sale(){
         $date = $this->session->userdata('report_date');
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT audited_total_sale as total_sale , id FROM total_sale WHERE `date` = '$date' AND branch_id = '$branch_id'");
+        $results = $this->db->query("SELECT audited_total_sale as total_sale , id,user_id FROM total_sale WHERE `date` = '$date' AND branch_id = '$branch_id'");
         $total_amount = $results->result_array();
         /*
          * String to Double : floatval/doubleval alias :D

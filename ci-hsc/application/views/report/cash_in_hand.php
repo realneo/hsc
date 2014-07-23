@@ -28,8 +28,8 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                         <th>Branch</th>
-                        <th>Total Sales <span class="text-muted small x-small">(audited)</span><span class="pull-right no-print"><a data-toggle="tooltip" data-placement="right" title="Edit Audited Sale" rel="info" href="<?php echo base_url().'reports/audited_edit'?>"><i class="fa fa-edit"></i></a> -  <a
-                                    data-toggle="tooltip" data-placement="right" title="View Audited Sale" rel="info" href="<?php echo base_url().'reports/audited_view'?>"><span><i class="fa fa-book"></i></span></a></span></th>
+                        <th>Total Sales <span class="text-muted small x-small">(audited)</span><span class="pull-right no-print"><a data-toggle="tooltip" data-placement="bottom" title="Edit Audited Sale" rel="info" href="<?php echo base_url().'reports/audited_edit'?>"><i class="fa fa-edit"></i></a> -  <a
+                                    data-toggle="tooltip" data-placement="top" title="View Audited Sale" rel="info" href="<?php echo base_url().'reports/audited_view'?>"><span><i class="fa fa-book"></i></span></a></span></th>
                         <th>Cash In Hand</th>
                         <th>Payments</th>
                         <th>Adjustments</th>
@@ -55,6 +55,7 @@ foreach($branches as $key=>$branch){
 //                                $audited_sales=$audited_sales[0];$total_sales_per_branch=number_format($audited_sales['total_sale']);
                             }else{
                                 $audited_sales['total_sale'] = 0;
+                                $audited_sales['user_id'] = '';
 
                             }
 
@@ -141,9 +142,13 @@ foreach($branches as $key=>$branch){
                             );
                             echo $variance;
 
-
                             ?>
-                            <a data-toggle="tooltip" data-placement="right" title="Produce variance" rel="info" href="<?php echo base_url('reports/produce_variance');?>"><span class="fa fa-mail-forward"></span></a>
+                            <form class="pull-right" id="produce_variance-<?php echo $key;?>" action="<?php echo base_url('reports/produce_variance');?>" method="post">
+                                <input type="hidden" name="variance" value="<?php echo $variance;?>"/>
+                                <input type="hidden" name="report_date" value="<?php echo $this->session->userdata('report_date');?>"/>
+                                <input type="hidden" name="user_id" value="<?php echo $audited_sales['user_id'];?>"/>
+                                <a data-toggle="tooltip" data-placement="right" title="Produce variance" rel="info" href="javascript:void(0);" onclick="document.getElementById('produce_variance-<?php echo $key;?>').submit()"><span class="fa fa-mail-forward"></span></a>
+                            </form>
                         </td>
     </tr>
 <!--    <tr><th colspan="8">INCOME</th></tr>-->

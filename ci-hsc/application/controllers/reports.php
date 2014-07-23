@@ -300,4 +300,8 @@ class Reports extends CI_Controller{
         $this->load->view('includes/footer');
 
     }
+
+    function produce_variance(){
+        var_dump($_POST);
+    }
 }
