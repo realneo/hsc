@@ -34,7 +34,7 @@ class Staffs extends CI_Model{
     }
 
     function get_users(){
-        $query="SELECT * FROM `users`";
+        $query="SELECT * FROM `users` order by `email`";
         return $this->db->query($query)->result_array();
     }
 

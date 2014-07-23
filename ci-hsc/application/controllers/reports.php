@@ -334,7 +334,7 @@ class Reports extends CI_Controller{
         }
 
 
-        if($variance OR !$variance){
+        if($variance=='' OR !$variance){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','The variance is not ready yet');
 
@@ -343,10 +343,21 @@ class Reports extends CI_Controller{
 
         // Insert into Variance database
 
-        $query = $this->report->add_variance($date,$variance,$user_id_sales);
+        $query = $this->report->add_variance($date,$variance,$user_id_sales,$branch_id);
 
         $variance=number_format($variance);
         if($query){
+            if($this->session->userdata('affected_rows')>=1){
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , Sales report for this branch has been <b>updated</b>!");
+
+                // Write into Log
+                $log = "Sales Report : With variance of Tsh $variance/=, was updated for $date";
+                $msg=$log;
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+                $this->sales_report_redrect();
+            }
+
             $this->session->set_flashdata('alert_type','success');
             $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , Sales report for this branch has been produced, you can now keep track of the variance!");
 

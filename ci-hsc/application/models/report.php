@@ -27,7 +27,7 @@ class Report extends CI_Model{
     function get_audited_total_sale(){
         $date = $this->session->userdata('report_date');
         $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT audited_total_sale as total_sale , id,user_id,branch_id FROM total_sale WHERE `date` = '$date' AND branch_id = '$branch_id'");
+        $results = $this->db->query("SELECT audited_total_sale as total_sale , id,user_id,branch_id,produced FROM total_sale WHERE `date` = '$date' AND branch_id = '$branch_id'");
         $total_amount = $results->result_array();
         /*
          * String to Double : floatval/doubleval alias :D
@@ -174,8 +174,40 @@ class Report extends CI_Model{
 
 
     /*
-     * NEW
+     * NEW FUNCTION
      */
+
+    function add_variance($date,$variance,$user_id_sales,$branch_id){
+        /*
+         * Check to see if any record exist for today
+         */
+        $run_this="SELECT * FROM `variance` WHERE `date_produced` = '$date' AND `user_id` = '$user_id_sales'";
+        $r2=$this->db->query($run_this)->num_rows();
+        if($r2>=1){
+            $this->session->set_userdata('affected_rows',1);
+            $query="UPDATE `variance` SET  `variance` =  '$variance' WHERE  `date_produced` = '$date' AND `user_id` = '$user_id_sales' AND `branch_id`='$branch_id';";
+            //var_dump($r2->num_rows());
+            //die();
+        }else{
+            $query="INSERT INTO `variance` (`id` ,`user_id` ,`variance` ,`date_produced`,`branch_id`)VALUES (
+NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
+);";
+
+        }
+                    /*
+                     * For updating the produced field
+                     */
+                        $query_update_produced = "UPDATE  `total_sale` SET  `produced` =  '1' WHERE `branch_id` ='$branch_id' AND `date`='$date';";
+            $r22=$this->db->query($query_update_produced);
+            $r=$this->db->query($query);
+            //$this->session->set_userdata('affected_rows',$this->db->affected_rows());
+            return $r;
+
+
+
+
+
+    }
 
 
 
