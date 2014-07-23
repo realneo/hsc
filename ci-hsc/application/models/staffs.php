@@ -43,5 +43,14 @@ class Staffs extends CI_Model{
         return $this->db->query($query)->result_array();
     }
 
+    function get_total_variance($user_id){
+        $results = $this->db->query("SELECT SUM(variance) total_variance FROM variance WHERE `user_id`='$user_id'");
+        $total_amount = $results->result_array()[0]['total_variance'];
+        /*
+         * String to Double : floatval/doubleval alias :D
+         */
+        return number_format(floatval($total_amount));
+    }
+
 
 }

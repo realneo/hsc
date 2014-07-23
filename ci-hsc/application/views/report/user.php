@@ -21,8 +21,8 @@
 
                                 ?></p>
                             <div class="divider"></div>
-                                <div class="row">
-
+                                <div class="col-xs-12 col-sm-6">
+                                    <h1 style="margin-left: -5px;"><strong><?php echo $this->staffs->get_total_variance($staff['id']);?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
                                 </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 text-center  ">
