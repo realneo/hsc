@@ -56,6 +56,7 @@ foreach($branches as $key=>$branch){
                             }else{
                                 $audited_sales['total_sale'] = 0;
                                 $audited_sales['user_id'] = '';
+                                $audited_sales['branch_id'] = '';
 
                             }
 
@@ -131,9 +132,17 @@ foreach($branches as $key=>$branch){
                             $this->load->view('report/cash','',TRUE);
                             $cash_in_hand = $this->session->userdata('cash_in_hand');
                             echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments');?></td>
-                        <td><?php
+                        <td>
+                            <?php
+                            if($this->report->get_audited_total_sale()){
+
+                                $audited_sales['total_sale']=$this->report->get_audited_total_sale()[0]['total_sale'];
+                            }else{
+                                $audited_sales['total_sale'] = 0;
+                            }
+
                             $variance = number_format(
-                                floatval(str_replace( ',', '', $this->report->get_audited_total_sale()))-
+                                floatval(str_replace( ',', '', $audited_sales['total_sale'])) -
                                     (
                                     floatval(str_replace( ',', '',$cash_in_hand )) +
                                     floatval(str_replace( ',', '', $totals_expenses)) +
@@ -141,12 +150,17 @@ foreach($branches as $key=>$branch){
                                     )
                             );
                             echo $variance;
-
+                            /*var_dump(
+                                floatval(str_replace( ',', '',$audited_sales['total_sale']))-(floatval(str_replace( ',', '',$cash_in_hand))+
+                                floatval(str_replace( ',', '',$totals_expenses))+
+                                floatval(str_replace( ',', '',$total_adjustments_per_branch)))
+                                );*/
                             ?>
                             <form class="pull-right" id="produce_variance-<?php echo $key;?>" action="<?php echo base_url('reports/produce_variance');?>" method="post">
                                 <input type="hidden" name="variance" value="<?php echo $variance;?>"/>
                                 <input type="hidden" name="report_date" value="<?php echo $this->session->userdata('report_date');?>"/>
                                 <input type="hidden" name="user_id" value="<?php echo $audited_sales['user_id'];?>"/>
+                                <input type="hidden" name="branch_id" value="<?php echo $audited_sales['branch_id'];?>"/>
                                 <a data-toggle="tooltip" data-placement="right" title="Produce variance" rel="info" href="javascript:void(0);" onclick="document.getElementById('produce_variance-<?php echo $key;?>').submit()"><span class="fa fa-mail-forward"></span></a>
                             </form>
                         </td>

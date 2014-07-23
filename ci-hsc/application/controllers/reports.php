@@ -302,6 +302,67 @@ class Reports extends CI_Controller{
     }
 
     function produce_variance(){
-        var_dump($_POST);
+        // Get information from the form
+
+        $date = $this->input->post('report_date');
+        $user_id_sales = $this->input->post('user_id');
+        $variance = $this->input->post('variance');
+        $branch_id = $this->input->post('branch_id');
+
+        // Remove "," from the total_sale
+        $variance = str_replace( ',', '', $variance);
+
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+
+
+
+
+        // Check if all fields are filled;
+
+        if(!$date){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The <strong>Date</strong> is not ready yet');
+            $this->sales_report_redrect();
+        }
+
+        if(!$user_id_sales){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','Sales Report is not ready yet , <b>Audited daily sale</b> is missing!');
+            $this->sales_report_redrect();
+        }
+
+
+        if($variance OR !$variance){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The variance is not ready yet');
+
+            $this->sales_report_redrect();
+        }
+
+        // Insert into Variance database
+
+        $query = $this->report->add_variance($date,$variance,$user_id_sales);
+
+        $variance=number_format($variance);
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , Sales report for this branch has been produced, you can now keep track of the variance!");
+
+            // Write into Log
+            $log = "Sales Report : With variance of Tsh $variance/=, was produce for $date";
+            $msg=$log;
+            $this->usuals->log_write($user_id,$branch_id,$msg);
+            $this->sales_report_redrect();
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->sales_report_redrect();
+
+        }
+
+
     }
 }
