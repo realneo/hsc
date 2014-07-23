@@ -7,7 +7,7 @@
         foreach($staffs as $key=>$staff){?>
 
             <div class="col-lg-6">
-                <div class="well profile emphasis ">
+                <div class="well profile emphasis_ ">
                     <div class="col-sm-12">
                         <div class="col-xs-12 col-sm-8">
                             <h2><?php echo $this->staffs->get_profle($staff['id'])[0]['first_name']." ".$this->staffs->get_profle($staff['id'])[0]['last_name'];?></h2>

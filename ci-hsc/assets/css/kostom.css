@@ -137,15 +137,15 @@ figcaption.ratings a:hover
 {
     border-top:1px solid rgba(0,0,0,0.1);
 }
-.emphasis
+.emphasis_
 {
     border-top: 4px solid transparent;
 }
-.emphasis:hover
+.emphasis_:hover
 {
     border-top: 4px solid #558cbc;
 }
-.emphasis h2
+.emphasis_ h2
 {
     margin-bottom:6px;
 }
