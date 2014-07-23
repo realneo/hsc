@@ -12,6 +12,11 @@ class Staffs extends CI_Model{
         return $this->db->query($query)->result_array();
     }
 
+    function get_auth_type_name($id){
+        $query="SELECT name FROM `auth_type` where `id`='$id'";
+        return $this->db->query($query)->result_array()[0]['name'];
+    }
+
     function insert_staff($date, $email, $password, $branch_id, $auth_type_id, $user_id){
 
         $result=$this->db->query("INSERT INTO `users` (`id`, `date`, `email`, `password`, `branch_id`, `auth_type`, `user_id`) VALUES (NULL, '$date', '$email', '$password', '$branch_id', '$auth_type_id', '$user_id')");
@@ -26,6 +31,16 @@ class Staffs extends CI_Model{
         mysql_insert_id() ;
 
         return $this->db->insert_id();
+    }
+
+    function get_users(){
+        $query="SELECT * FROM `users`";
+        return $this->db->query($query)->result_array();
+    }
+
+    function get_profle($id){
+        $query="SELECT * FROM `user_profile` where `user_id`='$id'";
+        return $this->db->query($query)->result_array();
     }
 
 

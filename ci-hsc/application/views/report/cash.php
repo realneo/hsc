@@ -156,6 +156,7 @@
 //                                   // $total_entered_manual_invoices += $total__;
 //
 //                                }
+
                                 /*
                                  * SOLVED I GUESS,
                                  *  HAPA

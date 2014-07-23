@@ -118,7 +118,7 @@
                         </ul>
                         <ul class="nav nav-third-level">
 
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-users"></span> Users Report</a></li>
+                            <li><a href="<?php echo base_url('reports/user_report');?>"><span class="fa fa-users"></span> Users Report</a></li>
                         </ul>
 
                     </li>

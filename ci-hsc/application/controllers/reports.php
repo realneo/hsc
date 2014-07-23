@@ -19,6 +19,7 @@ class Reports extends CI_Controller{
         $this->load->model('vouchers');
         $this->load->model('report');
         $this->load->model('audited_sales');
+        $this->load->model('staffs');
 
 
         /*
@@ -277,5 +278,26 @@ class Reports extends CI_Controller{
     function sales_report_redrect(){
         redirect(base_url('reports/sales_report'));
         die();
+    }
+
+    function user_report(){
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['title']=$this->session->userdata('branch_name')." User Report";
+        $data['active']="report";
+        $data['active_tab']="user_report";
+        $data['staffs']=$this->staffs->get_users();
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
+
+        $this->load->view('report/user');
+        $this->load->view('includes/footer');
+
     }
 }
