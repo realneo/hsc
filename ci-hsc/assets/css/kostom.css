@@ -157,7 +157,7 @@ span.tags
     font-weight: bold;
     padding: 2px 4px;
 }
-.dropdown-menu
+.dropdown-menu_
 {
     background-color: #34495e;
     box-shadow: none;
@@ -166,19 +166,19 @@ span.tags
     margin-left: -125px;
     left: 50%;
 }
-.dropdown-menu .divider
+.dropdown-menu_ .divider
 {
     background:none;
 }
-.dropdown-menu>li>a
+.dropdown-menu_>li>a
 {
     color:#f5f5f5;
 }
-.dropup .dropdown-menu
+.dropup .dropdown-menu_
 {
     margin-bottom:10px;
 }
-.dropup .dropdown-menu:before
+.dropup .dropdown-menu_:before
 {
     content: "";
     border-top: 10px solid #34495e;
