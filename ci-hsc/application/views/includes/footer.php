@@ -68,7 +68,7 @@
 
 <!--Just for the graphs-->
 <script type="text/javascript">
-    new Morris.Line({
+    new Morris.Area({
         // ID of the element in which to draw the chart.
         element: 'myfirstchart',
         // Chart data records -- each entry in this array corresponds to a point on
@@ -99,10 +99,16 @@
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
         labels: ['Audited Total Sale','Total Sale'],
-        lineColors: ['#7cb47c','#D58665'],
+        lineColors: ['#D58665','#7cb47c'],
         pointSize: 4,
         hideHover: 'auto',
-        xLabels : ['day']
+        xLabels : "day",
+        smooth:false,
+        postUnits:'/=',
+        preUnits:'Tsh ',
+        fillOpacity:0.5
+
+        //,events: ['2014-01-01', '2014-02-01', '2014-03-01']
 
     });
 </script>

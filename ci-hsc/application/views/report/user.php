@@ -39,8 +39,18 @@
                             <figure>
                                 <img src="<?php
                                 switch($this->staffs->get_profle($staff['id'])[0]['gender']){
-                                    case 'male': echo base_url('assets/img/default-user-icon-profile.png'); break;
-                                    case 'female': echo base_url('assets/img/default-user-icon-profile-pink.png'); break;
+                                    case 'male':
+                                        echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=identicon&";//d=".base_url('assets/img/default-user-icon-profile.png');
+                                        /*if($this->staffs->get_profle($staff['id'])[0]['img_url']){
+                                           // echo $this->staffs->get_profle($staff['id'])[0]['img_url'];
+                                            echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
+                                        }else{
+                                            echo base_url('assets/img/default-user-icon-profile.png');
+                                        }*/
+                                        break;
+                                    case 'female':
+                                        echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=identicon";//;&d=".base_url('assets/img/default-user-icon-profile-pink.png');
+                                        break;
 
                                     default : echo base_url('assets/img/default-user-icon-profile.png'); break;
                                 }?>
@@ -81,6 +91,7 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu_ text-left" role="menu">
                                     <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>
+                                    <li><a href="#"><span class="fa fa-phone pull-right"></span> View profile </a></li>
                                     <li><a href="#"><span class="fa fa-list pull-right"></span> Change Display Picture  </a></li>
                                     <li class="divider"></li>
                                     <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>

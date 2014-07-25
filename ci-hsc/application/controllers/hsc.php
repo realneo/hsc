@@ -80,6 +80,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/title');
 
 		$this->load->view('default_content');
+
 		$this->load->view('includes/footer');
 	}
 

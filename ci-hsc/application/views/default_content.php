@@ -31,6 +31,12 @@
         </div>
  </div>
 
+<?php
+        $data['dont_show']=true;
+        $data['title']="Chart for comparison on Total Sales and Audited";
+        $this->load->view('includes/title',$data);
+
+?>
 <div class="row">
     <div id="myfirstchart" style="height: 250px;"></div>
 
