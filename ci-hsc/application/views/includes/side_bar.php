@@ -110,11 +110,11 @@
 
                         </ul>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-truck"></span> Payment Report</a></li>
+                            <li><a href="<?php echo base_url('reports/payment');?>"><span class="fa fa-truck"></span> Payment Report</a></li>
 
                         </ul>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Binding Report</a></li>
+                            <li><a href="<?php echo base_url('reports/binding');?>"><span class="fa fa-suitcase"></span> Binding Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
 
