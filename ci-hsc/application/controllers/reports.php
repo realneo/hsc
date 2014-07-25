@@ -301,6 +301,27 @@ class Reports extends CI_Controller{
 
     }
 
+    function returns_report(){
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['title']=$this->session->userdata('branch_name')." Returns report";
+        $data['active']="report";
+        $data['active_tab']="returns_report";
+        $data['staffs']=$this->staffs->get_users();
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
+
+        $this->load->view('report/returns');
+        $this->load->view('includes/footer');
+
+    }
+
     function produce_variance(){
         // Get information from the form
 
