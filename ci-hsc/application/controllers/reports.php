@@ -322,6 +322,30 @@ class Reports extends CI_Controller{
 
     }
 
+
+    function cheque_report(){
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['title']=$this->session->userdata('branch_name')." Cheque report";
+        $data['active']="report";
+        $data['active_tab']="cheque_report";
+        $data['staffs']=$this->staffs->get_users();
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
+
+        $this->load->view('report/cheque');
+        $this->load->view('includes/footer');
+
+    }
+
+
+
     function produce_variance(){
         // Get information from the form
 
