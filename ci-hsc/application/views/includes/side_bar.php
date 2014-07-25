@@ -106,7 +106,7 @@
                     <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-paperclip "></span> Manual Invoices Report</a></li>
+                            <li><a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="fa fa-paperclip "></span> Manual Invoices Report</a></li>
 
                         </ul>
                         <ul class="nav nav-third-level">
