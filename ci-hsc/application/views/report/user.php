@@ -93,8 +93,11 @@
                 </div>
             </div>
         <?php if($key%2==1){?>
-            </div><div class="row">
+            </div>
+            <div class="row">
         <?php } ?>
     <?php } ?>
-</div></div>
+            </div>
+    </div>
+</div>
 

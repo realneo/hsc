@@ -77,6 +77,7 @@ class Hsc extends CI_Controller {
         $this->load->view('includes/header',$data);
         $this->load->view('includes/top_nav');
         $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
 
 		$this->load->view('default_content');
 		$this->load->view('includes/footer');
