@@ -36,7 +36,7 @@
 
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Returns Management</div>
+            <div class="panel-heading">Returns From all Branches</div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-striped  table-hover">
