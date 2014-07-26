@@ -77,6 +77,8 @@ class Reports extends CI_Controller{
 
         $this->data['total_expenses_activity']=$this->report->get_expense_activity();
 
+        $this->data['all_returns']=$this->returns->get_returns_from_all_branches();
+
 //        $this->data['total_returns_according_to_date']=$this->report->get_total_returns();
 
 

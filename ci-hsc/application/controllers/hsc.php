@@ -53,6 +53,7 @@ class Hsc extends CI_Controller {
 
 
         $this->data['recent_returns']=$this->returns->get_recent_returns();
+
         $this->data['recent_vouchers']=$this->vouchers->get_recent_vouchers();
         $this->data['users']=$this->vouchers->get_users();
 

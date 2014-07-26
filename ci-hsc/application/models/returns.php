@@ -27,6 +27,12 @@ class Returns extends CI_Model{
         return $results->result_array();
     }
 
+    function get_returns_from_all_branches(){
+//        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("SELECT * FROM `returns` ORDER BY `id` DESC");
+        return $results->result_array();
+    }
+
     function insert_return($date, $action, $receipt_number, $user_id, $branch_id, $amount){
 
        $result=$this->db->query("INSERT INTO `returns` (`id`, `date`, `action`, `receipt_number`, `user_id`, `branch_id`, `amount`) VALUES (NULL, '$date', '$action', '$receipt_number', '$user_id', '$branch_id', '$amount');");
