@@ -17,6 +17,9 @@ class Returns extends CI_Model{
         return $results->result_array();
     }
 
+
+
+
     /*
      * Get all according to branch returns
      */
@@ -27,11 +30,25 @@ class Returns extends CI_Model{
         return $results->result_array();
     }
 
+    /*
+     * For displaying purposes at the returns report
+     * 3 Status : Checked,Unchecked, and FALSE
+     */
+
     function get_returns_from_all_branches(){
 //        $branch_id = $this->session->userdata('branch_id');
-        $results = $this->db->query("SELECT * FROM `returns` ORDER BY `id` DESC");
+        $show=$this->session->userdata('status');
+        if($show){
+            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `id` DESC ");
+        }else{
+            $results = $this->db->query("SELECT * FROM `returns` ORDER BY `id` DESC ");
+        }
+
         return $results->result_array();
     }
+
+
+
 
     function insert_return($date, $action, $receipt_number, $user_id, $branch_id, $amount){
 

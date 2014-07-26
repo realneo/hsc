@@ -466,7 +466,52 @@ class Reports extends CI_Controller{
 
     }
 
-    function approve_return(){
-        
+    function returns_report_redirect(){
+        redirect(base_url('reports/returns_report'));
+        die();
+    }
+    function approve_return($id){
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+        /*
+         * We Branch ID for the log
+         */
+
+        $get_id = $this->report->get_report($id);
+        if($get_id){
+            $branch_id= $get_id[0]['branch_id'];
+            $item_returned= $get_id[0]['item_returned'];
+            $item_returned= make_me_bold($item_returned);
+
+
+        $query = $this->report->approved_return($id);
+        if($query){
+            if($this->session->userdata('affected_rows')>=1){
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , {$item_returned} has been <b>Checked</b> successfully!");
+
+                // Write into Log
+                $log = "Returns Report : {$full_name} Approved returns from ".make_me_bold($this->usuals->get_branch_name($branch_id));;
+                $msg=$log;
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+                $this->returns_report_redirect();
+            }
+
+
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->returns_report_redirect();
+
+        }
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','Sorry , We dont have that record, it might be missing or deleted!');
+
+            $this->returns_report_redirect();
+}
+
+
     }
 }

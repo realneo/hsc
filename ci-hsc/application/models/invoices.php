@@ -36,7 +36,7 @@ class Invoices extends CI_Model{
     function get_recent_invoices__count(){
 
 
-            $entered = $this->session->userdata('show');
+        $entered = $this->session->userdata('show');
         $branch_id=$this->session->userdata('branch_id');
         /*
          * Check to see , if All is selected , then count them all

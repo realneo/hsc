@@ -210,6 +210,19 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
     }
 
 
+    function approved_return($id){
+        $query = "UPDATE `returns` SET  `status` =  'checked' WHERE  `id` ='$id';";
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+    function get_report($id){
+        $results = $this->db->query("SELECT * FROM returns WHERE `id` = '$id'");
+        return $results->result_array();
+    }
+
+
+
 
 
 }
