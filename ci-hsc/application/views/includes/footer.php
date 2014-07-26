@@ -68,7 +68,7 @@
 
 <!--Just for the graphs-->
 <script type="text/javascript">
-    new Morris.Area({
+    new Morris.Bar({
         // ID of the element in which to draw the chart.
         element: 'myfirstchart',
         // Chart data records -- each entry in this array corresponds to a point on
@@ -106,7 +106,8 @@
         smooth:false,
         postUnits:'/=',
         preUnits:'Tsh ',
-        fillOpacity:0.5
+        fillOpacity:0.5,
+        lineWidth:1
 
         //,events: ['2014-01-01', '2014-02-01', '2014-03-01']
 

@@ -141,9 +141,9 @@ class Reports extends CI_Controller{
         /*
          * Specific Data for one page goes here
          */
-        $data['title']="Cash in Hand Collection Report";
+        $data['title']="Sales Report";
         $data['active']="report";
-        $data['active_tab']="sales_report";
+        $data['active_tab']="cash";
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
@@ -286,7 +286,7 @@ class Reports extends CI_Controller{
          */
         $data['title']=$this->session->userdata('branch_name')." User Report";
         $data['active']="report";
-        $data['active_tab']="user_report";
+        $data['active_tab']="other_report";
         $data['staffs']=$this->staffs->get_users();
 
         //add this kwa kila mwisho wa data zote
@@ -307,7 +307,7 @@ class Reports extends CI_Controller{
          */
         $data['title']=$this->session->userdata('branch_name')." Returns report";
         $data['active']="report";
-        $data['active_tab']="returns_report";
+        $data['active_tab']="cash";
         $data['staffs']=$this->staffs->get_users();
 
         //add this kwa kila mwisho wa data zote
@@ -329,7 +329,7 @@ class Reports extends CI_Controller{
          */
         $data['title']=$this->session->userdata('branch_name')." Cheque report";
         $data['active']="report";
-        $data['active_tab']="cheque_report";
+        $data['active_tab']="cash";
         $data['staffs']=$this->staffs->get_users();
 
         //add this kwa kila mwisho wa data zote
@@ -350,7 +350,7 @@ class Reports extends CI_Controller{
          */
         $data['title']=$this->session->userdata('branch_name')." Payment report";
         $data['active']="report";
-        $data['active_tab']="payment_report";
+        $data['active_tab']="other_report";
         $data['staffs']=$this->staffs->get_users();
 
         //add this kwa kila mwisho wa data zote
@@ -371,7 +371,7 @@ class Reports extends CI_Controller{
          */
         $data['title']=$this->session->userdata('branch_name')." Binding report";
         $data['active']="report";
-        $data['active_tab']="binding_report";
+        $data['active_tab']="other_report";
         $data['staffs']=$this->staffs->get_users();
 
         //add this kwa kila mwisho wa data zote
