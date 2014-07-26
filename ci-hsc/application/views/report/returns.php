@@ -23,8 +23,8 @@
                 case 1 :
                 case 2 :
                 case 4 :
-                case 5 : echo make_me_bold($unchecked_no)." returns left , Almost there!"; break;
-                default : echo "You have ".make_me_bold($unchecked_no)." returns left"; break;
+                case 5 : echo make_me_bold($unchecked_no)." left , Almost there!"; break;
+                default : echo "You have ".make_me_bold($unchecked_no)." unchecked returns left"; break;
 
             }
             ?>

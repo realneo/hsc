@@ -39,9 +39,9 @@ class Returns extends CI_Model{
 //        $branch_id = $this->session->userdata('branch_id');
         $show=$this->session->userdata('status');
         if($show){
-            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `id` DESC ");
+            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `date` DESC ");
         }else{
-            $results = $this->db->query("SELECT * FROM `returns` ORDER BY `id` DESC ");
+            $results = $this->db->query("SELECT * FROM `returns` ORDER BY `date` DESC ");
         }
 
         return $results->result_array();

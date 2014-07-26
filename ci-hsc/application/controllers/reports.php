@@ -307,7 +307,7 @@ class Reports extends CI_Controller{
         /*
          * Specific Data for one page goes here
          */
-        $data['title']=$this->session->userdata('branch_name')." Returns report";
+        $data['title']= "General Returns report";
         $data['active']="report";
         $data['active_tab']="cash";
         $data['unchecked_no']=$this->returns->get_number_of_returns_from_all_branches();
