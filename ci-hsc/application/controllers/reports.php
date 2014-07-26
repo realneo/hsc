@@ -310,6 +310,8 @@ class Reports extends CI_Controller{
         $data['title']=$this->session->userdata('branch_name')." Returns report";
         $data['active']="report";
         $data['active_tab']="cash";
+        $data['unchecked_no']=$this->returns->get_number_of_returns_from_all_branches();
+
         $data['staffs']=$this->staffs->get_users();
 
         //add this kwa kila mwisho wa data zote

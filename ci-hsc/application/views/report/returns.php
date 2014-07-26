@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-lg-12 ">
-        <div class="btn-group show-invoices">
+
+        <div class="pull-right btn-group show-invoices">
 
             <a href="<?php echo base_url('reports/return_change_status/false');?>">
                 <button class="btn btn-default <?php echo ($this->session->userdata('status')== false)?'active':'';?>" name="options1" id="option1" > All</button>
@@ -14,6 +15,20 @@
 
 
         </div>
+        <span class="col-lg-4 text-muted" style="margin-top: 7px;">
+        <?php
+
+            switch($unchecked_no){
+                case 0 : echo "You have no unchecked returns , Great Job!"; break;
+                case 1 :
+                case 2 :
+                case 4 :
+                case 5 : echo make_me_bold($unchecked_no)." returns left , Almost there!"; break;
+                default : echo "You have ".make_me_bold($unchecked_no)." returns left"; break;
+
+            }
+            ?>
+        </span>
     </div>
 </div>
 <div class="row">
@@ -30,6 +45,7 @@
                         <th>Receipt Number</th>
                         <th>Item Code</th>
                         <th>Quantity</th>
+                        <th>Branch</th>
                         <th>Amount</th>
                         <th>Details</th>
                         <th>Status</th>
@@ -50,6 +66,7 @@
                             $qty = $row['qty'];
                             $amount = number_format($row['amount']);
                             $status = $row['status'];
+                            $branch_name = $this->usuals->get_branch_name($row['branch_id']);
 
                             switch($status){
                                 case 'checked': $color='text-success';
@@ -87,6 +104,7 @@
 											<td>{$receipt_number}</td>
 											<td>{$item_code}</td>
 											<td>{$qty}</td>
+											<td>{$branch_name}</td>
 											<td>{$amount}</td>
 											<td>{$action}</td>
 											<td class='{$color}'>{$button}<span class='small text-muted'>{$status}</span></td>

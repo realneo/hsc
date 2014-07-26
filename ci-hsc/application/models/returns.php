@@ -47,7 +47,18 @@ class Returns extends CI_Model{
         return $results->result_array();
     }
 
+    /*
+     * Number of unchecked returns from all branches
+     */
+    function get_number_of_returns_from_all_branches(){
+//        $branch_id = $this->session->userdata('branch_id');
+           $show='unchecked';
 
+            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `id` DESC ");
+
+
+        return $results->num_rows();
+    }
 
 
 
