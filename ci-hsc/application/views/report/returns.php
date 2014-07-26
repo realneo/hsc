@@ -3,13 +3,13 @@
     <div class="col-lg-12 ">
         <div class="btn-group show-invoices">
 
-            <a href="<?php echo base_url('reports/change_status/false');?>">
+            <a href="<?php echo base_url('reports/return_change_status/false');?>">
                 <button class="btn btn-default <?php echo ($this->session->userdata('show')==false)?'active':'';?>" name="options1" id="option1" > All</button>
             </a>
-            <a href="<?php echo base_url('reports/change_status/Checked');?>">
+            <a href="<?php echo base_url('reports/return_change_status/Checked');?>">
                 <button class="btn btn-default <?php echo $this->session->userdata('show')=='checked'?'active':'';?> " name="options2" id="option2" > Checked</button>
             </a>
-            <a href="<?php echo base_url('reports/change_status/Unchecked');?>">
+            <a href="<?php echo base_url('reports/return_change_status/Unchecked');?>">
                 <button class="btn btn-default <?php echo $this->session->userdata('show')=='unchecked'?'active':'';?>" name="options3" id="option3" > Unchecked</button>
             </a>
 

@@ -514,4 +514,24 @@ class Reports extends CI_Controller{
 
 
     }
+
+    function return_change_status($status){
+        switch($status){
+            case 'checked':
+                $this->session->set_userdata('status','checked');
+                $this->returns_report_redirect();
+                break;
+
+            case 'unchecked':
+                $this->session->set_userdata('status','unchecked');
+                $this->returns_report_redirect();
+                break;
+
+            default:
+                $this->session->set_userdata('status',false);
+                $this->returns_report_redirect();
+                break;
+
+        }
+    }
 }
