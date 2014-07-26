@@ -50,6 +50,8 @@ class Returns extends CI_Model{
 
 
 
+
+
     function insert_return($date, $action, $receipt_number, $user_id, $branch_id, $amount){
 
        $result=$this->db->query("INSERT INTO `returns` (`id`, `date`, `action`, `receipt_number`, `user_id`, `branch_id`, `amount`) VALUES (NULL, '$date', '$action', '$receipt_number', '$user_id', '$branch_id', '$amount');");

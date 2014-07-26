@@ -516,7 +516,7 @@ class Reports extends CI_Controller{
     }
 
     function return_change_status($status){
-        switch($status){
+        switch(strtolower( $status )){
             case 'checked':
                 $this->session->set_userdata('status','checked');
                 $this->returns_report_redirect();
