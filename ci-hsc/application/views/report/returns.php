@@ -36,16 +36,21 @@
                             switch($status){
                                 case 'checked': $color='text-success';
                                     $button='';
-
+                                    $status = "";
+                                    $button="
+                                    <a data-toggle='tooltip'
+                                    data-placement='right' title='Already Checked' rel='info'
+                                    href='javascript:void(0);'>
+                                    <span class='fa fa-check text-success'></span>
+                                    </a>";
                                     break;
                                 case 'unchecked': $color='text-danger' ;
                                     $url=base_url('reports/approve_return')."/".$row['id'];
 
                                     $button="
                                     <a href='$url' data-toggle='tooltip'
-                                    data-placement='right' title='Produce Variance' rel='info'
-                                    href='javascript:void(0);'>
-                                    <span class='fa fa-mail-forward'></span>
+                                    data-placement='left' title='Click to Check it' rel='info'>
+                                    <span class='fa fa-repeat text-danger'></span>
                                     </a>";
 
                                     break;
@@ -66,7 +71,7 @@
 											<td>{$qty}</td>
 											<td>{$amount}</td>
 											<td>{$action}</td>
-											<td class='{$color}'>{$status}{$button}</td>
+											<td class='{$color}'>{$button}<span class='small text-muted'>{$status}</span></td>
 
 
 										</tr>
