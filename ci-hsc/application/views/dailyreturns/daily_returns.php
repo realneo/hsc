@@ -5,24 +5,36 @@
         <div class="panel-body">
             <form role="form" action="<?php echo base_url().'admin/add_return';?>" method="post">
 
-                <div class="form-group col-lg-3">
+                <div class="form-group col-lg-2">
                     <label>Select Date</label>
                     <input class="form-control" id="datepicker2" type="text" name="date" value="<?php echo date('Y-m-d'); ?>" />
                 </div>
 
-                <div class="form-group col-lg-5">
-                    <label>Action or Goods</label>
-                    <input class="form-control" name="action" type="text" placeholder="What was returned?" />
-                </div>
+
 
                 <div class="form-group col-lg-2">
                     <label>Receipt Number</label>
                     <input class="form-control" name="receipt_number" type="text" placeholder="" />
                 </div>
 
-                <div class="form-group col-lg-2">
+                <div class="form-group col-lg-1">
+                    <label>Item Code</label>
+                    <input class="form-control" name="item_code" type="text" placeholder="" />
+                </div>
+
+                <div class="form-group col-lg-1">
+                    <label>Quantity</label>
+                    <input class="form-control" name="quantity" type="text" placeholder="" />
+                </div>
+
+                <div class="form-group col-lg-1">
                     <label>Amount</label>
                     <input class="form-control money" name="amount" type="text" placeholder="Enter Amount" />
+                </div>
+
+                <div class="form-group col-lg-3">
+                    <label>Details</label>
+                    <input class="form-control" name="action" type="text" placeholder="Anything we need to know?" />
                 </div>
 
                 <div class="form-group">
