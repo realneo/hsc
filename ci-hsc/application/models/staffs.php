@@ -1,10 +1,4 @@
 <?php
-/**
- * Created Using Fadsel Engine.
- * User: Fahad
- * Date: 7/15/14
- * Time: 3:27 PM
- */
 
 class Staffs extends CI_Model{
     function get_auth_type(){
@@ -38,7 +32,7 @@ class Staffs extends CI_Model{
         return $this->db->query($query)->result_array();
     }
 
-    function get_profle($id){
+    function get_profile($id){
         $query="SELECT * FROM `user_profile` where `user_id`='$id'";
         return $this->db->query($query)->result_array();
     }
@@ -51,6 +45,20 @@ class Staffs extends CI_Model{
          */
         return number_format(floatval($total_amount));
     }
+
+	function verify_user($email, $password){
+		$query = $this->db->get_where('users', array('email' => $email, 'password' => $password));
+		if($this->db->affected_rows() === 1){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+	
+	function get_user_info($email){
+		$query = $this->db->get_where('users', array('email' => $email));
+		return $query->result_array();
+	}
 
 
 }
