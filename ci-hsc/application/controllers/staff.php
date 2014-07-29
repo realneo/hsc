@@ -1,16 +1,18 @@
 <?php
-/**
- * Created Using Fadsel Engine.
- * User: Fahad
- * Date: 7/15/14
- * Time: 3:01 PM
- */
 class Staff extends CI_Controller{
 
     //great for initializing default variables
     protected  $data = array();
     function __construct(){
         parent::__construct();
+		
+		if(!$this->session->userdata('user_id')){
+			$this->session->set_flashdata('alert_type','danger');
+		    $this->session->set_flashdata('alert_msg', 'You have to login first');
+		
+			redirect('login');
+		}
+		
         $this->load->model('admin_');
         $this->load->model('usuals');
         $this->load->model('expenses');
@@ -18,22 +20,7 @@ class Staff extends CI_Controller{
         $this->load->model('returns');
         $this->load->model('vouchers');
         $this->load->model('staffs');
-
-        /*
-         * Set the Defaults
-         */
-
-        if(!$this->session->userdata("full_name")){
-            $this->session->set_userdata("full_name","Fahad K");
-        }
-
-        if(!$this->session->userdata("user_id")){
-            $this->session->set_userdata("user_id",2);
-        }
-
-        elseif (!$this->session->userdata("branch_id")){
-            $this->session->set_userdata("branch_id",1);
-        }
+		
 
         /*
          * We only need to change the name, but always check the id

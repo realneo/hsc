@@ -10,6 +10,14 @@ class Data_Controller extends CI_Controller{
     protected  $data = array();
     function __construct(){
         parent::__construct();
+		
+		if(!$this->session->userdata('user_id')){
+			$this->session->set_flashdata('alert_type','danger');
+	       	$this->session->set_flashdata('alert_msg', 'You have to login first');
+	
+			redirect('login');
+		}
+		
         $this->load->model('admin_');
         $this->load->model('usuals');
         $this->load->model('expenses');

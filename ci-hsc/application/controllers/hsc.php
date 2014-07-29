@@ -6,28 +6,20 @@ class Hsc extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+		
+		if(!$this->session->userdata('user_id')){
+			$this->session->set_flashdata('alert_type','danger');
+	       	$this->session->set_flashdata('alert_msg', 'You have to login first');
+	
+			redirect('login');
+		}
+		
         $this->load->model('usuals');
         $this->load->model('expenses');
         $this->load->model('invoices');
         $this->load->model('returns');
         $this->load->model('vouchers');
 
-
-        /*
-         * Set the Defaults
-         */
-
-        if(!$this->session->userdata("full_name")){
-                $this->session->set_userdata("full_name","Fahad K");
-        }
-
-        if(!$this->session->userdata("user_id")){
-                $this->session->set_userdata("user_id",2);
-        }
-
-        elseif (!$this->session->userdata("branch_id")){
-                $this->session->set_userdata("branch_id",1);
-        }
 
         /*
          * We only need to change the name, but always check the id
