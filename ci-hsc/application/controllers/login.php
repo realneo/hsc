@@ -45,6 +45,7 @@ class Login extends CI_Controller {
 				foreach($user_info as $user){
 					$this->session->set_userdata('user_id', $user['id']);
 					$this->session->set_userdata('branch_id', $user['branch_id']);
+					$this->session->set_userdata('auth_type', $user['auth_type']);
 				}
 				
 				// Getting User Profile Information
