@@ -41,6 +41,7 @@ function make_caps($value){
 }
 
 /*
+ * IMPLEMENT LATER
  * encrypt pass , Pass Sha1
  */
 
@@ -50,17 +51,20 @@ function hsc_encrypt($password_sha1_string){
     $pass = get_instance();
     $token1 = sha1('#$%()&&`2014*');
     $token2 = sha1(md5('hsc')*2)/5;
-    return $password = $token1.$password.$pass->encrypt->encode($password).$token2;
+    return $password = $pass->encrypt->encode($token1.$password.$token2);
 }
 
-/*
- * Not used yet
- */
 function hsc_decode($password_sha1_string){
-    $password = sha1($password_sha1_string);
+    $password = $password_sha1_string;
     //Since we want the object $this-> we need to get the instance (like NEW)
     $pass = get_instance();
+
+    return $password = $pass->encrypt->decode($password);
+}
+
+function tokenize_sha1($password){
+    $password = sha1($password);
     $token1 = sha1('#$%()&&`2014*');
     $token2 = sha1(md5('hsc')*2)/5;
-    return $password = $token1.$password.$pass->encrypt->decode($password).$token2;
+    return $password = $token1.$password.$token2;
 }

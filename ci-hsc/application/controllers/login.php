@@ -19,12 +19,13 @@ class Login extends CI_Controller {
 		$email = $this->input->post('email', TRUE);
 
 
-        $password = $this->input->post('password', TRUE);
-        $password = hsc_encrypt($password); //hashing + encryption works great
-        var_dump($password);
+        $password = tokenize_sha1($this->input->post('password', TRUE));
+//        $password = hsc_decode($password); //hashing + encryption works great
+//        $password = hsc_encrypt($password); //hashing + encryption works great
+        //var_dump(hsc_encrypt($password),hsc_decode(hsc_encrypt($password)));
 
 
-//        var_dump($this->encrypt->decode($encrypted_string));
+//        var_dump(tokenize_sha1($password));die();
 
 
 		if ($this->form_validation->run() == FALSE){

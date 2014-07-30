@@ -48,6 +48,7 @@ class Staffs extends CI_Model{
 
 	function verify_user($email, $password){
 		$query = $this->db->get_where('users', array('email' => $email, 'password' => $password));
+//        var_dump($email, $password);die();
 		if($this->db->affected_rows() === 1){
 			return TRUE;
 		}else{
