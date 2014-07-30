@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 
         $password = $this->input->post('password', TRUE);
         $password = hsc_encrypt($password); //hashing + encryption works great
-        var_dump($password);die();
+        var_dump($password);
 
 
 //        var_dump($this->encrypt->decode($encrypted_string));
@@ -29,7 +29,7 @@ class Login extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('alert_type','danger');
-	        $this->session->set_flashdata('alert_msg', 'Either the username or password is <strong>not field</strong>');
+	        $this->session->set_flashdata('alert_msg', 'Either the username or password is <strong>not filled</strong>');
 			redirect('login');
             die();
 		}else{
