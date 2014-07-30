@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-
 	<head>
 
 	    <meta charset="utf-8">
