@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
-					<img src='<?php echo base_url(); ?>/assets/img/logo.png' alt='Home Shopping Center' width='350'/>
+					<img src='<?php echo base_url(); ?>/assets/img/HSC-circle-logo.jpg' alt='Home Shopping Center' width='350' style="padding: 12px"/>
                     <div class="panel-heading">
                         <h3 class="panel-title">HSC | Staff Login</h3>
                     </div>

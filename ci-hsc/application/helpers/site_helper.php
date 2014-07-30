@@ -39,3 +39,28 @@ function make_me_bold($value){
 function make_caps($value){
     return ucwords(strtolower($value));
 }
+
+/*
+ * encrypt pass , Pass Sha1
+ */
+
+function hsc_encrypt($password_sha1_string){
+    $password = sha1($password_sha1_string);
+    //Since we want the object $this-> we need to get the instance (like NEW)
+    $pass = get_instance();
+    $token1 = sha1('#$%()&&`2014*');
+    $token2 = sha1(md5('hsc')*2)/5;
+    return $password = $token1.$password.$pass->encrypt->encode($password).$token2;
+}
+
+/*
+ * Not used yet
+ */
+function hsc_decode($password_sha1_string){
+    $password = sha1($password_sha1_string);
+    //Since we want the object $this-> we need to get the instance (like NEW)
+    $pass = get_instance();
+    $token1 = sha1('#$%()&&`2014*');
+    $token2 = sha1(md5('hsc')*2)/5;
+    return $password = $token1.$password.$pass->encrypt->decode($password).$token2;
+}

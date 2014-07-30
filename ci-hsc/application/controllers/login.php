@@ -17,12 +17,21 @@ class Login extends CI_Controller {
 		
 		// Getting the data from the form
 		$email = $this->input->post('email', TRUE);
-		$password = sha1($this->input->post('password', TRUE));
-		
+
+
+        $password = $this->input->post('password', TRUE);
+        $password = hsc_encrypt($password); //hashing + encryption works great
+        var_dump($password);die();
+
+
+//        var_dump($this->encrypt->decode($encrypted_string));
+
+
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('alert_type','danger');
-	        $this->session->set_flashdata('alert_msg', 'Both Username and Password Field should be  <strong>Field</strong>');
+	        $this->session->set_flashdata('alert_msg', 'Either the username or password is <strong>not field</strong>');
 			redirect('login');
+            die();
 		}else{
 			$this->load->model('staffs');
 			if($this->staffs->verify_user($email, $password) == TRUE){
@@ -49,10 +58,12 @@ class Login extends CI_Controller {
 				}
 				
 				redirect('hsc');
+                die();
 			}else{
 				$this->session->set_flashdata('alert_type','danger');
 		        $this->session->set_flashdata('alert_msg', 'The Credentials are <strong>Incorrect</strong>');
 				redirect('login');
+                die();
 			}
 		}	
 	}
@@ -61,6 +72,7 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy();
 		
 		redirect('login');
+        die();
 	}
 
 	
