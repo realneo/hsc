@@ -3,7 +3,8 @@
 	# Make sure directory listing is disabled
 	Options +FollowSymLinks -Indexes
 	RewriteEngine on
-	RewriteBase /hsc/ci-hsc/
+	##REMOVE COMMENT ONLY WHEN ONLINE , IT RUNS ROOT NORMALLY
+	##RewriteBase /hsc/ci-hsc/
 	
 	#Removes access to the system folder by users.
     #Additionally this will allow you to create a System.php controller,
