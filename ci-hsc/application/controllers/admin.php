@@ -712,6 +712,10 @@ class Admin extends CI_Controller{
         $action = $this->input->post('action');
         $amount = $this->input->post('amount');
         $receipt_number = $this->input->post('receipt_number');
+
+        $item_code = $this->input->post('item_code');
+        $qty = $this->input->post('quantity');
+
         $branch_id = $this->session->userdata('branch_id');
         $full_name = $this->session->userdata('full_name');
         $user_id = $this->session->userdata('user_id');
@@ -740,6 +744,25 @@ class Admin extends CI_Controller{
             redirect(base_url().'hsc/daily_returns');
             die();
         }
+
+        if(!$qty){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'Please write how many items were returned!');
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+
+        if(!$item_code){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',
+                'Please fill the <b>item code</b>');
+
+            redirect(base_url().'hsc/daily_returns');
+            die();
+        }
+
         if(!$receipt_number){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg',
@@ -765,7 +788,7 @@ class Admin extends CI_Controller{
 
         if(true){
             // Insert the Return in the Database
-            $insert_results = $this->returns->insert_return($date, $action, $receipt_number, $user_id, $branch_id, $amount);
+            $insert_results = $this->returns->insert_return($date, $action, $receipt_number, $user_id, $branch_id, $amount,$item_code,$qty);
 
             if($insert_results){
                 $this->session->set_flashdata('alert_type','success');

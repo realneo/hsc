@@ -57,7 +57,7 @@
                     <table class="table table-striped  table-hover">
                         <thead>
                         <th>Date</th>
-                        <th>Action or Goods</th>
+                        <th>Details</th>
                         <th>Receipt Number</th>
                         <th>Amount</th>
                         </thead>
