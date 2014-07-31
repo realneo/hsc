@@ -224,6 +224,20 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
     }
 
 
+    /*
+     * EXPENSE REPORT FUNCTIONS BEGINS HERE
+     */
+    function get_expenses_from_all_branches($per_page=30,$start){
+
+    }
+
+    function get_expenses_no_from_all_branches(){
+
+    }
+
+
+
+
 
 
 

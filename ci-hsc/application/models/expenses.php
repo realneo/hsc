@@ -36,4 +36,6 @@ class Expenses extends CI_Model{
         $this->session->set_userdata('affected_rows',$this->db->affected_rows());
         return $results;
     }
+
+
 }
