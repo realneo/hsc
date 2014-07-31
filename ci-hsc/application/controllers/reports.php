@@ -462,12 +462,14 @@ class Reports extends CI_Controller{
         }
 
 
-        if($variance=='' OR !$variance){
+        /*
+        if(!$variance){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','The variance is not ready yet');
 
             $this->sales_report_redrect();
         }
+        */
 
         // Insert into Variance database
 

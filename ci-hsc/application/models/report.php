@@ -180,8 +180,9 @@ class Report extends CI_Model{
     function add_variance($date,$variance,$user_id_sales,$branch_id){
         /*
          * Check to see if any record exist for today
+         * Check the branch_id also
          */
-        $run_this="SELECT * FROM `variance` WHERE `date_produced` = '$date' AND `user_id` = '$user_id_sales'";
+        $run_this="SELECT * FROM `variance` WHERE `date_produced` = '$date' AND `user_id` = '$user_id_sales' AND `branch_id`='$branch_id'";
         $r2=$this->db->query($run_this)->num_rows();
         if($r2>=1){
             $this->session->set_userdata('affected_rows',1);
