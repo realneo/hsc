@@ -1,10 +1,5 @@
 <?php
-/**
- * Created Using Fadsel Engine.
- * User: Fahad
- * Date: 7/9/14
- * Time: 1:51 PM
- */
+
 class Usuals extends CI_Model{
    function __construct(){
        // Use these baadaye Default Variables

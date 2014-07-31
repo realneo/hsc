@@ -213,6 +213,7 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
 
     function approved_return($id){
         $query = "UPDATE `returns` SET  `status` =  'checked' WHERE  `id` ='$id';";
+        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
         $result = $this->db->query($query);
         return $result;
     }

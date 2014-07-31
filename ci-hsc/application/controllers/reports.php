@@ -514,6 +514,7 @@ class Reports extends CI_Controller{
     function approve_return($id){
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
+
         /*
          * We Branch ID for the log
          */
@@ -526,6 +527,7 @@ class Reports extends CI_Controller{
 
 
         $query = $this->report->approved_return($id);
+
         if($query){
             if($this->session->userdata('affected_rows')>=1){
                 $this->session->set_flashdata('alert_type','success');
@@ -535,11 +537,13 @@ class Reports extends CI_Controller{
                 $log = "Returns Report : {$full_name} Approved returns from ".make_me_bold($this->usuals->get_branch_name($branch_id));;
                 $msg=$log;
                 $this->usuals->log_write($user_id,$branch_id,$msg);
+
                 $this->returns_report_redirect();
             }
 
 
         }else{
+
             $this->session->set_flashdata('alert_type','danger');
             $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
 
