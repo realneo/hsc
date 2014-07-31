@@ -10,7 +10,8 @@
                 <div class="well profile emphasis_ ">
                     <div class="col-sm-12">
                         <div class="col-xs-12 col-sm-8">
-                            <h2><?php echo $this->staffs->get_profle($staff['id'])[0]['first_name']." ".$this->staffs->get_profle($staff['id'])[0]['last_name'];?></h2>
+                            <h2><?php echo $this->staffs->get_profile($staff['id'])[0]['first_name']." "
+                                    .$this->staffs->get_profile($staff['id'])[0]['last_name'];?></h2>
                             <p>
                                 <?php
                                 echo make_me_bold($this->staffs->get_auth_type_name($staff['auth_type']));
@@ -38,11 +39,11 @@
                         <div class="col-xs-12 col-sm-4 text-center  ">
                             <figure>
                                 <img src="<?php
-                                switch($this->staffs->get_profle($staff['id'])[0]['gender']){
+                                switch($this->staffs->get_profile($staff['id'])[0]['gender']){
                                     case 'male':
                                         //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=mm&";//d=".base_url('assets/img/default-user-icon-profile.png');
-                                        if($this->staffs->get_profle($staff['id'])[0]['img_url']){
-                                           echo $this->staffs->get_profle($staff['id'])[0]['img_url'];
+                                        if($this->staffs->get_profile($staff['id'])[0]['img_url']){
+                                           echo $this->staffs->get_profile($staff['id'])[0]['img_url'];
                                             //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
                                         }else{
                                             echo base_url('assets/img/default-user-icon-profile.png');
@@ -50,8 +51,8 @@
                                         break;
                                     case 'female':
 
-                                        if($this->staffs->get_profle($staff['id'])[0]['img_url']){
-                                            echo $this->staffs->get_profle($staff['id'])[0]['img_url'];
+                                        if($this->staffs->get_profile($staff['id'])[0]['img_url']){
+                                            echo $this->staffs->get_profile($staff['id'])[0]['img_url'];
                                             //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
                                         }else{
                                             echo base_url('assets/img/default-user-icon-profile-pink.png');

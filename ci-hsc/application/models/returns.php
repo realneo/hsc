@@ -35,13 +35,13 @@ class Returns extends CI_Model{
      * 3 Status : Checked,Unchecked, and FALSE
      */
 
-    function get_returns_from_all_branches(){
+    function get_returns_from_all_branches($start=0,$num=1){
 //        $branch_id = $this->session->userdata('branch_id');
         $show=$this->session->userdata('status');
         if($show){
-            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `date` DESC ");
+            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `date` DESC limit $num,$start");
         }else{
-            $results = $this->db->query("SELECT * FROM `returns` ORDER BY `date` DESC ");
+            $results = $this->db->query("SELECT * FROM `returns` ORDER BY `date` DESC limit $num,$start");
         }
 
         return $results->result_array();
@@ -56,6 +56,21 @@ class Returns extends CI_Model{
 
             $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `id` DESC ");
 
+
+        return $results->num_rows();
+    }
+
+    /*
+     * Number of  all returns from all branches
+     */
+    function get_number_of_returns_from_all_branches_according_to_session(){
+//        $branch_id = $this->session->userdata('branch_id');
+        $show= $this->session->userdata('status');
+        if($show==0){
+            $results = $this->db->query("SELECT * FROM `returns` ORDER BY `id` DESC ");
+        }else{
+            $results = $this->db->query("SELECT * FROM `returns` where `status`='$show' ORDER BY `id` DESC ");
+        }
 
         return $results->num_rows();
     }

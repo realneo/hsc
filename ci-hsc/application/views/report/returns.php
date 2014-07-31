@@ -3,14 +3,14 @@
 
         <div class="pull-right btn-group show-invoices">
 
-            <a href="<?php echo base_url('reports/return_change_status/false');?>">
-                <button class="btn btn-default <?php echo ($this->session->userdata('status')== false)?'active':'';?>" name="options1" id="option1" > All</button>
+            <a href="<?php echo base_url('reports/return_change_status/0');?>">
+                <button class="btn btn-default <?php echo (($this->session->userdata('status')== 0))?'active':'';?>" name="options1" id="option1" > All</button>
             </a>
-            <a href="<?php echo base_url('reports/return_change_status/checked');?>">
-                <button class="btn btn-default <?php echo $this->session->userdata('status')=='checked'?'active':'';?> " name="options2" id="option2" > Checked</button>
+            <a href="<?php echo base_url('reports/return_change_status/1');?>">
+                <button class="btn btn-default <?php echo ($this->session->userdata('status')=='checked')?'active':'';?> " name="options2" id="option2" > Checked</button>
             </a>
-            <a href="<?php echo base_url('reports/return_change_status/unchecked');?>">
-                <button class="btn btn-default <?php echo $this->session->userdata('status')=='unchecked'?'active':'';?>" name="options3" id="option3" > Unchecked</button>
+            <a href="<?php echo base_url('reports/return_change_status/2');?>">
+                <button class="btn btn-default <?php echo ($this->session->userdata('status')=='unchecked')?'active':'';?>" name="options3" id="option3" > Unchecked</button>
             </a>
 
 
@@ -120,7 +120,15 @@
                 </div>
             </div>
             <div class="panel-footer">Here you can view all the returns from all the branches</div>
+            <div class="col-lg-12" style="margin-left: 14px;
+margin-top: 8px;">
+                <?php echo $pages;?>
+            </div>
         </div>
+
+
     </div>
 </div>
+
+
 
