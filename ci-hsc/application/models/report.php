@@ -218,10 +218,15 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
         return $result;
     }
 
+
+
     function get_report($id){
         $results = $this->db->query("SELECT * FROM returns WHERE `id` = '$id'");
         return $results->result_array();
     }
+
+
+
 
 
     /*
@@ -268,7 +273,7 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
      * GETTING CONTENT FOR CHEQUE
      */
     function get_cheque_from_all_branches($num=30,$start=0){
-        $results = $this->db->query("SELECT * FROM  `cheque`  ORDER BY `date` DESC limit $start,$num");
+        $results = $this->db->query("SELECT * FROM  `cheque`  ORDER BY `date_added` DESC limit $start,$num");
         return $results->result_array();
 
     }
@@ -282,7 +287,24 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
 
     }
 
+    /*
+     * Gets Specific Cheque
+     */
+    function get_cheque($id){
+        $results = $this->db->query("SELECT * FROM cheque WHERE `id` = '$id'");
+        return $results->result_array();
+    }
 
+
+    /*
+     * Clearing the Cheque
+     */
+    function clear_cheque($id){
+        $query = "UPDATE `cheque` SET  `pre_status` =  'cleared' WHERE  `id` ='$id';";
+        $this->session->set_userdata('affected_rows',$this->db->affected_rows());
+        $result = $this->db->query($query);
+        return $result;
+    }
 
 
 

@@ -364,14 +364,53 @@ class Reports extends CI_Controller{
     }
 
 
-    function cheque_report(){
+    function cheque_report($start=0){
         /*
          * Specific Data for one page goes here
          */
-        $data['title']=$this->session->userdata('branch_name')." Cheque report";
-        $data['active']="report";
-        $data['active_tab']="cash";
-        $data['staffs']=$this->staffs->get_users();
+        $data['title']= "General Cheque report";
+        $data['active']= "report";
+        $data['active_tab']= "cash";
+
+
+        $data['cheques']=$this->report->get_cheque_from_all_branches($per_page=20,$start);
+
+        $data['total_no_of_cheque']=$this->report->get_cheque_no_from_all_branches();
+
+        /*
+        NOW SETTING UP PAGINATION
+        */
+
+        $this->load->library('pagination');
+        $config['base_url'] = base_url().'reports/cheque_report/';
+        $config['total_rows'] = $data['total_no_of_cheque'];
+        $config['per_page'] = $per_page;
+        $data['per_page']=$config['per_page'];
+        /*
+        Beutifying  PAGINATION
+        */
+
+        $config['full_tag_open'] = "<div id='page-fad-paginate' > <ul class='pagination'>";
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = "<fahad class=' fa fa-arrow-right'><fahad>";
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = "<neo class='fa fa-arrow-left'><neo>";
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='cur_link_page'><a  href='#' rel='active_page'><b >";
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['full_tag_close'] = '</ul></div>';
+        //$config['display_pages'] = FALSE;
+        $this->pagination->initialize($config);
+        $data['pages']=$this->pagination->create_links();
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
@@ -586,6 +625,7 @@ class Reports extends CI_Controller{
         redirect(base_url('reports/returns_report'));
         die();
     }
+
     function approve_return($id){
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
@@ -630,6 +670,60 @@ class Reports extends CI_Controller{
             $this->session->set_flashdata('alert_msg','Sorry , We dont have that record, it might be missing or deleted!');
 
             $this->returns_report_redirect();
+}
+
+
+    }
+
+    function cheque_report_redirect(){
+        redirect(base_url('reports/cheque_report'));
+        die();
+    }
+
+    function cheque_report_check($id){
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        /*
+         * We Branch ID for the log
+         */
+
+        $get_id = $this->report->get_cheque($id);
+        if($get_id){
+            $branch_id= $get_id[0]['branch_id'];
+            $chq_number= $get_id[0]['chq_number'];
+            $chq_number= make_me_bold($chq_number);
+
+
+        $query = $this->report->clear_cheque($id);
+
+        if($query){
+            if($this->session->userdata('affected_rows')>=1){
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , Cheque with number {$chq_number} has been <b>Cleared</b> successfully!");
+
+                // Write into Log
+                $log = "Returns Report : {$full_name} Approved returns from ".make_me_bold($this->usuals->get_branch_name($branch_id));;
+                $msg=$log;
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+
+                $this->cheque_report_redirect();
+            }
+
+
+        }else{
+
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->cheque_report_redirect();
+
+        }
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','Sorry , We dont have that record, it might be missing or deleted!');
+
+            $this->cheque_report_redirect();
 }
 
 
