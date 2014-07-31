@@ -4,13 +4,13 @@
         <div class="pull-right btn-group show-invoices">
 
             <a href="<?php echo base_url('reports/return_change_status/0');?>">
-                <button class="btn btn-default <?php echo (($this->session->userdata('status')== 0))?'active':'';?>" name="options1" id="option1" > All</button>
+                <button class="btn btn-default <?php echo $this->session->userdata('status')== '0' ? 'active':'';?>" name="options1" id="option1" > All</button>
             </a>
             <a href="<?php echo base_url('reports/return_change_status/1');?>">
-                <button class="btn btn-default <?php echo ($this->session->userdata('status')=='checked')?'active':'';?> " name="options2" id="option2" > Checked</button>
+                <button class="btn btn-default <?php echo $this->session->userdata('status')=='checked' ? 'active':'';?> " name="options2" id="option2" > Checked</button>
             </a>
             <a href="<?php echo base_url('reports/return_change_status/2');?>">
-                <button class="btn btn-default <?php echo ($this->session->userdata('status')=='unchecked')?'active':'';?>" name="options3" id="option3" > Unchecked</button>
+                <button class="btn btn-default <?php echo $this->session->userdata('status')=='unchecked' ? 'active':'';?>" name="options3" id="option3" > Unchecked</button>
             </a>
 
 
