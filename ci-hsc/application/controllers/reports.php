@@ -443,14 +443,52 @@ class Reports extends CI_Controller{
 
     }
 
-    function binding(){
+    function binding($start=0){
         /*
          * Specific Data for one page goes here
          */
         $data['title']=$this->session->userdata('branch_name')." Binding report";
         $data['active']="report";
         $data['active_tab']="other_report";
-        $data['staffs']=$this->staffs->get_users();
+
+        $data['binding']=$this->report->get_binding_from_all_branches($per_page=20,$start);
+
+        $data['total_no_of_binding']=$this->report->get_binding_no_from_all_branches();
+
+        /*
+        NOW SETTING UP PAGINATION
+        */
+
+        $this->load->library('pagination');
+        $config['base_url'] = base_url().'reports/binding/';
+        $config['total_rows'] = $data['total_no_of_binding'];
+        $config['per_page'] = $per_page;
+        $data['per_page']=$config['per_page'];
+        /*
+        Beutifying  PAGINATION
+        */
+
+        $config['full_tag_open'] = "<div id='page-fad-paginate' > <ul class='pagination'>";
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = "<fahad class=' fa fa-arrow-right'><fahad>";
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = "<neo class='fa fa-arrow-left'><neo>";
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='cur_link_page'><a  href='#' rel='active_page'><b >";
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['full_tag_close'] = '</ul></div>';
+        //$config['display_pages'] = FALSE;
+        $this->pagination->initialize($config);
+        $data['pages']=$this->pagination->create_links();
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
