@@ -171,9 +171,9 @@ class Reports extends CI_Controller{
         // Check if all fields are filled;
 
 
-        if($amount==0.00 OR !$amount){
+        if(!$amount){
             $this->session->set_flashdata('alert_type','warning');
-            $this->session->set_flashdata('alert_msg','You have to insert the <strong>Amount</strong>');
+            $this->session->set_flashdata('alert_msg','You have to insert the <strong>Amount</strong>, if there isnt any insert 0.00');
 
             $this->sales_report_redrect();
         }

@@ -132,7 +132,7 @@ foreach($branches as $key=>$branch){
                         <td><?php
                             $this->load->view('report/cash','',TRUE);
                             $cash_in_hand = $this->session->userdata('cash_in_hand');
-                            echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments');?></td>
+                            echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments')-floatval(str_replace( ',', '',$this->session->userdata('not_entered_for_sales')));?></td>
                         <td>
                             <?php
                             if($this->report->get_audited_total_sale()){

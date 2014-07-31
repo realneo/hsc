@@ -62,6 +62,7 @@
                                     $total_not_manual_invoices=0;
                                 }
                                 echo number_format($total_not_manual_invoices);
+                                $this->session->set_userdata('not_entered_for_sales',$total_not_manual_invoices);
                                 /*
                                 $total_not_manual_invoices=$this->report->get_total_manual_invoice(0);
                                 if($total_not_manual_invoices==0){
