@@ -226,12 +226,20 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
 
     /*
      * EXPENSE REPORT FUNCTIONS BEGINS HERE
+     * GET CONTENT
      */
-    function get_expenses_from_all_branches($per_page=30,$start){
+    function get_expenses_from_all_branches($num=30,$start=0){
+        $results = $this->db->query("SELECT * FROM `expenses` ORDER BY `date` DESC limit $start,$num");
+        return $results->result_array();
 
     }
+    /*
+     * Get No of Content
+     */
 
     function get_expenses_no_from_all_branches(){
+        $results = $this->db->query("SELECT * FROM `expenses`");
+        return $results->num_rows();
 
     }
 

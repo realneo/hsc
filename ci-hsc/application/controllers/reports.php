@@ -392,7 +392,7 @@ class Reports extends CI_Controller{
         $data['title']=$this->session->userdata('branch_name')." Payment report";
         $data['active']="report";
         $data['active_tab']="other_report";
-        $data['expenses']=$this->report->get_expenses_from_all_branches($per_page=30,$start);
+        $data['expenses']=$this->report->get_expenses_from_all_branches($per_page=3,$start);
 
         $data['total_no_of_expenses']=$this->report->get_expenses_no_from_all_branches();
 

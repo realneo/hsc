@@ -191,6 +191,14 @@ span.tags
     z-index: 10;
 }
 
+
+/*Pagination push*/
+.push-it{
+    margin-left: 30px;
+    margin-top: -8px;
+}
+
+
 @media (min-width: 1200px){
     .col-lg-1 {
         width: 11.333333%;
