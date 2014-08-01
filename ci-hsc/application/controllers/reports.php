@@ -757,6 +757,7 @@ class Reports extends CI_Controller{
         $amount = str_replace( ',', '', $amount);
 
         $date_issued = $this->input->post('date_issued');
+        $date_posted = $this->input->post('date_posted');
         $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
@@ -775,11 +776,13 @@ class Reports extends CI_Controller{
 
         // Get the Check for that ID
 
-        $chq = $this->invoices->get_cheque($id);
-        $db_amount = $chq[0]['balance'];
+        $chq = $this->report->get_cheque($id);
         $db_amount = $chq[0]['amount'];
+        $db_balance_log = $this->report->get_cheque_log_total($id);
+//        var_dump('log amount '.$db_amount_log,'db_balance_log'.$db_balance_log,'amount'.$amount);
+//        die();
         // If the amount is greater
-        if(($db_amount-$amount)<0){
+        if($db_amount - ($db_balance_log+$amount)<0.00){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','The amount entered is <strong>GREATER</strong> than the one in the database');
 
@@ -790,15 +793,15 @@ class Reports extends CI_Controller{
 
         // If the amount is equal
 
-        if(($db_amount-$amount) == 0.00){
+        if(($db_amount - ($db_balance_log+$amount)) == 0.00){
 
-            $clear_update = $this->invoices->complete_invoice($id,$db_amount_,$date_issued,$amount);
+            $clear_update = $this->report->complete_cheque($id,$date_issued,$amount,$date_posted);
 
             if($clear_update){
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
+                $this->session->set_flashdata('alert_msg','Successfully Used <strong>Tsh '.$amount.'</strong>.');
 
-                $log = "Entered Manual Invoice: Tsh $amount by $full_name";
+                $log = "Used Cheque: Tsh $amount by $full_name";
                 $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->cheque_report_redirect();
@@ -812,16 +815,16 @@ class Reports extends CI_Controller{
             }
 
         }else{
-            $difference = 0;
-            $difference = $db_amount-$amount;
-            $amount_update = $this->invoices->update_invoice($id,$difference,$amount,$date_issued);
+//            $difference = 0;
+//            $difference = $db_amount-$amount;
+            $amount_update = $this->report->insert_cheque_progress($id,$amount,$date_issued,$date_posted);
 
             if($amount_update){
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
+                $this->session->set_flashdata('alert_msg','Successfully used <strong>Tsh '.$amount.'</strong>. from a cheque, Numbered '. make_me_bold($chq[0]['chq_number']));
                 $today = date("Y-m-d");
 
-                $log = "Entered Manual Invoice: Tsh $amount by $full_name";
+                $log = "Used Cheque ".make_me_bold($chq[0]['chq_number']).": Tsh $amount , handled by  $full_name";
                 $this->usuals->log_write($user_id, $branch_id, $log);
 
                 $this->cheque_report_redirect();

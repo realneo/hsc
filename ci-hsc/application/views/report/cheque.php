@@ -34,17 +34,23 @@
                             $branch_name=$this->usuals->get_branch_name($branch_id);
                             $status  = $row['pre_status'];
                             switch($status){
-                                case 'cleared': $color='text-success';
+                                case 'cleared':
+                                    $color='text-success';
                                     $button='';
                                     $status = "";
                                     $button2="
                                     <a data-toggle='tooltip'
-                                    data-placement='top' title='Now it can be used' rel='info'
+                                    data-placement='top' title='Already Used' rel='info'
                                     href='javascript:void(0);'>
                                     <span class='fa fa-check text-success'></span>
-                                    </a><span class='small text-muted'>Cleared</span>
+                                    </a><span class='small text-muted'>Already Used</span>
                                     ";
-                                    $button = 'clearit';
+                                    if($row['post_status']=='used'){
+                                        $button = 'used';
+                                    }else{
+                                        $button = 'clearit';
+                                    }
+
                                     break;
                                 case 'not_cleared': $color='text-danger' ;
                                     $url=base_url('reports/cheque_report_check')."/".$row['id'];
@@ -75,16 +81,19 @@
                             ?>
                             <form class="form-horizontal col-lg-8" action='<?php echo base_url()."reports/use_cheque";?>' method='post'>
                                 <div class='input-group'>
-                                    <input class='form-control money' type='text' name='amount' value='' />
+                                    <input class='form-control money' placeholder="Cleared Cheque" type='text' name='amount' value='' />
                                     <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
-                                    <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
+                                    <input type='hidden' name='date_issued' value='<?php echo $row['date_added'];?>' />
+                                    <input type='hidden' name='date_posted' value='<?php echo date('Y-m-d');?>' />
                                     <span class='input-group-btn'>
 										<button  style="height: 34px;" class='btn btn-primary' type='submit'><span class='fa fa-check'></span> <a data-toggle='tooltip' data-placement='left' title='Now it can be used' rel='info'></a>Use</button>
 											      		</span>
 
 
                                 </div>
-                            </form><?php $button='';}echo "{$button}</td>
+                            </form><?php $button='';} else{
+                                $button = $button2;
+                            }echo "{$button}</td>
 										</tr>"?>
 
                         <?php

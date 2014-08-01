@@ -314,6 +314,36 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
         return $result;
     }
 
+    /*
+     * Complete Cheque
+     */
+
+    function complete_cheque($id,$date_issued,$amount,$date_posted){
+        $branch_id = $this->session->userdata('branch_id');
+        $results = $this->db->query("UPDATE `cheque` SET `post_status` = 'used' WHERE `id` ='$id'");
+
+        $this->insert_cheque_progress($id,$amount,$date_issued,$date_posted);
+
+
+
+//        $results = $this->db->query("INSERT INTO `manual_invoices` (`id` ,`branch_id` ,`date` ,`amount` ,`balance` ,`entered` ,`date_entered`
+//)VALUES (NULL ,  '$branch_id',  '$date_issued',  '$amount',  '0',  '1', CURDATE()
+//);");
+
+        return $results;
+    }
+
+    /*
+     * For tracking Cheque progress
+     */
+    function insert_cheque_progress($id,$amount,$date_issued,$date_posted){
+        $results = $this->db->query("INSERT INTO `cheque_log` (`id`, `cheque_id`, `date`,`date_posted`, `balance`) VALUES (NULL, '$id', '$date_issued','$date_posted', '$amount');");
+        return $results;
+
+    }
+
+
+
 
 
 
