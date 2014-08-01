@@ -700,10 +700,10 @@ class Reports extends CI_Controller{
         if($query){
             if($this->session->userdata('affected_rows')>=1){
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , Cheque with number {$chq_number} has been <b>Cleared</b> successfully!");
+                $this->session->set_flashdata('alert_msg',"Thank you {$full_name}! , Cheque with number {$chq_number} has been <b>Cleared</b> successfully, Now it can be used!");
 
                 // Write into Log
-                $log = "Returns Report : {$full_name} Approved returns from ".make_me_bold($this->usuals->get_branch_name($branch_id));;
+                $log = "Cheque Report : {$full_name} Approved Cheque from ".make_me_bold($this->usuals->get_branch_name($branch_id));;
                 $msg=$log;
                 $this->usuals->log_write($user_id,$branch_id,$msg);
 
@@ -853,6 +853,60 @@ class Reports extends CI_Controller{
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
 
-        $this->report->insert_cheque($chq_number,$branch_id,$amount,$name_of_customer,$date_issued);
+
+        if($amount==0.00 OR !$amount){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert an <strong>amount</strong>');
+
+            $this->cheque_report_redirect();
+
+        }
+
+        if(!$date_issued){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The <strong>Date</strong> of the Cheque is required');
+
+            $this->cheque_report_redirect();
+
+        }
+
+        if(!$name_of_customer){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The <strong>Name of the Customer</strong> is required');
+
+            $this->cheque_report_redirect();
+
+        }
+
+        if(!$chq_number){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The <strong>Cheque Number</strong> is important , please submit it');
+
+            $this->cheque_report_redirect();
+
+        }
+
+
+
+        $query=$this->report->insert_cheque($chq_number,$branch_id,$amount,$name_of_customer,$date_issued);
+        $amount = number_format($amount);
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg','Successfully Added a Cheque worth <strong>Tsh '.$amount.'/=</strong> waiting to be cleared first before it can be used');
+
+            $log = "Added Cheque: Tsh $amount by $full_name";
+            $this->usuals->log_write($user_id, $branch_id, $log);
+
+            $this->cheque_report_redirect();
+
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+            $this->cheque_report_redirect();
+
+        }
+
+
     }
 }

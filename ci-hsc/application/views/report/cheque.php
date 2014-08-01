@@ -27,6 +27,7 @@
 
 
                         foreach($cheques as $row){
+
                             $date = custom_date_format($row['date_added']);
                             $chq_number = $row['chq_number'];
                             $name_of_customer = $row['name_of_customer'];
@@ -96,14 +97,14 @@
 
                                 </div>
                             </form><?php $button='';} else{
-                                if(!isset($button2)){
+                                if(isset($button2)){
                                     if($status=='not_cleared'){
                                         //Button should stay the way it is
                                 }else{
-                                        $button2='';
+                                        $button = $button2;
                                     }
                                 }else{
-                                    $button = $button2;
+                                    $button2='';
                                 }
 
 
@@ -134,10 +135,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Cheque</h4>
+                <h4 class="modal-title" id="myModalLabel">Cheque for <?php echo $this->session->userdata('branch_name');?></h4>
             </div>
+            <form action="<?php echo base_url('reports/add_cheque')?>" class="form-horizontalo" method="post">
             <div class="modal-body">
-                <form action="<?php echo base_url('reports/add_cheque')?>" class="form-horizontalo" method="post">
+
                     <div class="form-group">
                         <label>Name Of Customer</label>
                         <input class="form-control" name="name_of_customer" placeholder="Enter Full Name">
@@ -145,24 +147,25 @@
 
                     <div class="form-group">
                         <label>Cheque Number</label>
-                        <input class="form-control" name="name_of_customer" placeholder="Enter Cheque Number without spaces">
+                        <input class="form-control" name="chq_number" placeholder="Enter Cheque Number without spaces">
                     </div>
 
                     <div class="form-group">
                         <label>Amount</label>
-                        <input class="form-control money" name="name_of_customer">
+                        <input class="form-control money" name="amount">
                     </div>
 
                     <div class="form-group">
                         <label>Date of Cheque</label>
                         <input class="form-control" name="date_issued" id="datepicker">
                     </div>
-                </form>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <input class="btn btn-primary" name="submit" type="submit" value="Add Cheque">
             </div>
+            </form>
         </div>
     </div>
 </div>

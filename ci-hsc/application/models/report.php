@@ -348,6 +348,23 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
 
     }
 
+    function get_cheque_total_for_branch($cheque_id){
+        $date=$this->session->userdata('report_date');
+        $query="SELECT sum(balance) as balance FROM `cheque_log` WHERE `date_posted` = '$date' AND `cheque_id` = '$cheque_id'";
+        $results = $this->db->query($query);
+        return $results->result_array()[0]['balance'];
+
+    }
+
+    function get_cheque_ids_for_branch(){
+        $date=$this->session->userdata('report_date');
+        $branch_id=$this->session->userdata('branch_id');
+        $query="SELECT id from `cheque` where `branch_id`='$branch_id' and `id` IN (SELECT distinct cheque_id FROM `cheque_log` WHERE `date_posted` = '$date')";
+        $results = $this->db->query($query);
+        return $results->result_array();
+
+    }
+
 
 
 

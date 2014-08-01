@@ -138,6 +138,26 @@
                             </td>
                             <td></td>
                         </tr>
+                       <?php $check_for_emptiness= $this->report->get_cheque_ids_for_branch();
+                        if(!empty($check_for_emptiness)){?>
+                        <tr>
+                            <td> Paid By Cheque </td>
+                            <td class='text-right'>
+                                <?php
+
+//                                var_dump($this->report->get_cheque_ids_for_branch());
+                                $total_cheque = 0;
+                                foreach($this->report->get_cheque_ids_for_branch() as $row){
+
+                                    $total_cheque += $this->report->get_cheque_total_for_branch($row['id']);
+//                                    var_dump($total_cheque." + ".$this->report->get_cheque_total_for_branch($row['id']));
+                                }
+                                echo number_format($total_cheque);
+                                ?>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <?php }else{$total_cheque=0;} ?>
                         <tr>
                             <td> Manual Entered </td>
                             <td class='text-right'>
@@ -201,6 +221,7 @@ echo number_format($total_entered_manual_invoices);
 
                                 $total_adjustments =
                                     (str_replace( ',', '', $total_returns) +
+                                    (str_replace( ',', '', $total_cheque)) +
                                     str_replace( ',', '', $total_entered_manual_invoices ));
 
                                 echo number_format($total_adjustments);

@@ -198,6 +198,7 @@ span.tags
     margin-top: -8px;
 }
 
+.datepicker{z-index:11514;}
 
 @media (min-width: 1200px){
     .col-lg-1 {
