@@ -749,4 +749,92 @@ class Reports extends CI_Controller{
 
         }
     }
+
+    function use_cheque(){
+        $id = $this->input->post('id');
+        $amount = $this->input->post('amount');
+
+        $amount = str_replace( ',', '', $amount);
+
+        $date_issued = $this->input->post('date_issued');
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        $today = date("Y-m-d");
+        // Check if all fields are filled;
+
+
+        if($amount==0.00 OR !$amount){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to insert an <strong>amount</strong>');
+
+            $this->cheque_report_redirect();
+
+        }
+
+        // Get the Check for that ID
+
+        $chq = $this->invoices->get_cheque($id);
+        $db_amount = $chq[0]['balance'];
+        $db_amount = $chq[0]['amount'];
+        // If the amount is greater
+        if(($db_amount-$amount)<0){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The amount entered is <strong>GREATER</strong> than the one in the database');
+
+            $this->cheque_report_redirect();
+
+        }
+
+
+        // If the amount is equal
+
+        if(($db_amount-$amount) == 0.00){
+
+            $clear_update = $this->invoices->complete_invoice($id,$db_amount_,$date_issued,$amount);
+
+            if($clear_update){
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
+
+                $log = "Entered Manual Invoice: Tsh $amount by $full_name";
+                $this->usuals->log_write($user_id, $branch_id, $log);
+
+                $this->cheque_report_redirect();
+
+            }else{
+                $this->session->set_flashdata('alert_type','danger');
+                $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+                $this->cheque_report_redirect();
+
+            }
+
+        }else{
+            $difference = 0;
+            $difference = $db_amount-$amount;
+            $amount_update = $this->invoices->update_invoice($id,$difference,$amount,$date_issued);
+
+            if($amount_update){
+                $this->session->set_flashdata('alert_type','success');
+                $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
+                $today = date("Y-m-d");
+
+                $log = "Entered Manual Invoice: Tsh $amount by $full_name";
+                $this->usuals->log_write($user_id, $branch_id, $log);
+
+                $this->cheque_report_redirect();
+
+            }else{
+                $this->session->set_flashdata('alert_type','danger');
+                $this->session->set_flashdata('alert_msg','There was a problem with the system please try again!');
+
+                $this->cheque_report_redirect();
+
+            }
+
+        }
+
+    }
 }

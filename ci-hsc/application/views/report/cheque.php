@@ -3,7 +3,9 @@
 
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Cheques</div>
+            <div class="panel-heading">Cheques
+
+            </div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-striped  table-hover">
@@ -24,6 +26,9 @@
                             $date = custom_date_format($row['date_added']);
                             $chq_number = $row['chq_number'];
                             $name_of_customer = $row['name_of_customer'];
+                            $balance = $row['amount']-$this->report->get_cheque_log_total($row['id']);
+                            $balance = number_format($balance);
+
                             $amount = number_format($row['amount']);
                             $branch_id=$row['branch_id'];
                             $branch_name=$this->usuals->get_branch_name($branch_id);
@@ -32,19 +37,21 @@
                                 case 'cleared': $color='text-success';
                                     $button='';
                                     $status = "";
-                                    $button="
+                                    $button2="
                                     <a data-toggle='tooltip'
-                                    data-placement='right' title='Already Checked' rel='info'
+                                    data-placement='top' title='Now it can be used' rel='info'
                                     href='javascript:void(0);'>
                                     <span class='fa fa-check text-success'></span>
-                                    </a>";
+                                    </a><span class='small text-muted'>Cleared</span>
+                                    ";
+                                    $button = 'clearit';
                                     break;
                                 case 'not_cleared': $color='text-danger' ;
                                     $url=base_url('reports/cheque_report_check')."/".$row['id'];
 
                                     $button="
                                     <a href='$url' data-toggle='tooltip'
-                                    data-placement='left' title='Clear' rel='info'>
+                                    data-placement='left' title='Clear it' rel='info'>
                                     <span class='fa fa-check text-danger'></span></a> <span class='small text-muted'>Not Cleared</span>
                                     ";
 
@@ -62,10 +69,26 @@
 											<td>{$chq_number}</td>
 											<td>{$name_of_customer}</td>
 											<td>{$branch_name}</td>
-											<td>{$amount}</td>
-											<td>{$button}</td>
-										</tr>
-									";
+											<td>{$amount} <span class='text-muted '>({$balance}/= left)</span></td>
+											<td class='col-lg-3'>"?><?php
+                            if($button=='clearit'){
+                            ?>
+                            <form class="form-horizontal col-lg-8" action='<?php echo base_url()."reports/use_cheque";?>' method='post'>
+                                <div class='input-group'>
+                                    <input class='form-control money' type='text' name='amount' value='' />
+                                    <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
+                                    <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
+                                    <span class='input-group-btn'>
+										<button  style="height: 34px;" class='btn btn-primary' type='submit'><span class='fa fa-check'></span> <a data-toggle='tooltip' data-placement='left' title='Now it can be used' rel='info'></a>Use</button>
+											      		</span>
+
+
+                                </div>
+                            </form><?php $button='';}echo "{$button}</td>
+										</tr>"?>
+
+                        <?php
+									;
                         }
                         ?>
                         </tbody>

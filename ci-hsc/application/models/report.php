@@ -295,6 +295,14 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
         return $results->result_array();
     }
 
+    /*
+     * Gets Total Specific Cheque
+     */
+    function get_cheque_log_total($id){
+        $results = $this->db->query("SELECT sum(balance) as balance FROM cheque_log WHERE `cheque_id` = '$id'");
+        return $results->result_array()[0]['balance'];
+    }
+
 
     /*
      * Clearing the Cheque
