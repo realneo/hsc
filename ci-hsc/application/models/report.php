@@ -342,6 +342,12 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
 
     }
 
+    function insert_cheque($chq_number,$branch_id,$amount,$name_of_customer,$date_issued){
+        $results = $this->db->query("INSERT INTO `hsc_db`.`cheque` (`id`, `date_added`, `chq_number`, `amount`, `name_of_customer`, `branch_id`, `pre_status`, `post_status`) VALUES (NULL, '$date_issued', '$chq_number', '$amount', '$name_of_customer', '$branch_id', 'not_cleared', '');");
+        return $results;
+
+    }
+
 
 
 

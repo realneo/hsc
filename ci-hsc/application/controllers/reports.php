@@ -821,7 +821,7 @@ class Reports extends CI_Controller{
 
             if($amount_update){
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg','Successfully used <strong>Tsh '.$amount.'</strong>. from a cheque, Numbered '. make_me_bold($chq[0]['chq_number']));
+                $this->session->set_flashdata('alert_msg','Successfully used <strong>Tsh '.$amount.'/= </strong>from a cheque numbered '. make_me_bold($chq[0]['chq_number']));
                 $today = date("Y-m-d");
 
                 $log = "Used Cheque ".make_me_bold($chq[0]['chq_number']).": Tsh $amount , handled by  $full_name";
@@ -839,5 +839,20 @@ class Reports extends CI_Controller{
 
         }
 
+    }
+
+    function add_cheque(){
+        $chq_number=$this->input->post('chq_number');
+        $name_of_customer=$this->input->post('name_of_customer');
+        $date_issued=$this->input->post('date_issued');
+        $amount = $this->input->post('amount');
+
+        $amount = str_replace( ',', '', $amount);
+
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        $this->report->insert_cheque($chq_number,$branch_id,$amount,$name_of_customer,$date_issued);
     }
 }

@@ -4,6 +4,10 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">Cheques
+                <!-- Button trigger modal -->
+                <button style="margin-top: -5px;" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#myModal">
+                    Add Cheque
+                </button>
 
             </div>
             <div class="panel-body">
@@ -79,8 +83,8 @@
 											<td class='col-lg-3'>"?><?php
                             if($button=='clearit'){
                             ?>
-                            <form class="form-horizontal col-lg-8" action='<?php echo base_url()."reports/use_cheque";?>' method='post'>
-                                <div class='input-group'>
+                            <form class="form-horizontal col-lg-12" action='<?php echo base_url()."reports/use_cheque";?>' method='post'>
+                                <div class='input-group' style="margin-left: -16px;">
                                     <input class='form-control money' placeholder="Cleared Cheque" type='text' name='amount' value='' />
                                     <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
                                     <input type='hidden' name='date_issued' value='<?php echo $row['date_added'];?>' />
@@ -92,7 +96,17 @@
 
                                 </div>
                             </form><?php $button='';} else{
-                                $button = $button2;
+                                if(!isset($button2)){
+                                    if($status=='not_cleared'){
+                                        //Button should stay the way it is
+                                }else{
+                                        $button2='';
+                                    }
+                                }else{
+                                    $button = $button2;
+                                }
+
+
                             }echo "{$button}</td>
 										</tr>"?>
 
@@ -110,4 +124,45 @@
 </div>
 <div class="row">
     <span class="push-it col-lg-12"><?php echo $pages;?></span>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Cheque</h4>
+            </div>
+            <div class="modal-body">
+                <form action="<?php echo base_url('reports/add_cheque')?>" class="form-horizontalo" method="post">
+                    <div class="form-group">
+                        <label>Name Of Customer</label>
+                        <input class="form-control" name="name_of_customer" placeholder="Enter Full Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cheque Number</label>
+                        <input class="form-control" name="name_of_customer" placeholder="Enter Cheque Number without spaces">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input class="form-control money" name="name_of_customer">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date of Cheque</label>
+                        <input class="form-control" name="date_issued" id="datepicker">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
