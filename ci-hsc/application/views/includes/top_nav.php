@@ -12,8 +12,11 @@
 
 <ul class="nav navbar-top-links navbar-right">
 
-    <li><p class="text-muted"><?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ;?></p></li>
-<li class="dropdown">
+    <li><p class="text-muted">
+            <?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ;?></p></li>
+
+    <?php  if($this->session->userdata('auth_type')!=40){?>
+    <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 <!--        <i class="fa fa-exchange fa-fw"></i>-->
         <i class="fa fa-refresh fa-spin"></i>
@@ -33,6 +36,7 @@
         <hr class="divider-ci"/></>
         <?php } ?>
         <li>
+        <?php } ?>
             <a class="text-center" href="#">
                 <strong>Stay at <?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ?></strong>
 

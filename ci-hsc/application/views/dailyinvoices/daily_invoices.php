@@ -1,6 +1,7 @@
 <div class="row">
 
     <?php if(!$this->session->userdata('view_invoices')){?>
+    <?php if($this->session->userdata('auth_type')!=21){?>
 <!-- ADD MANUAL INVOICE FORM ------------------------------------------------------------------------------>
 <div class="col-lg-6">
     <div class="panel panel-default">
@@ -25,6 +26,7 @@
         </div>
     </div>
 </div>
+    <?php } ?>
     <?php } ?>
 <!-- TOTAL MANUAL INVOICES -------------------------------------------------------------------------->
 

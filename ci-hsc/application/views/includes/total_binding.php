@@ -7,7 +7,7 @@
                           echo custom_date_format($date);
                     ?>
                     </span></p>
-                        <h3><span class='small'>Tshs</span> <?php echo make_me_bold($today_binding); ?> <a class='btn' href='<?php echo base_url('admin/edit_daily_binding'); ?>'>Edit</a></h3>
+                        <h3><span class='small'>Tshs</span> <?php echo make_me_bold($today_binding); ?><?php if($this->session->userdata('auth_type')!=21){?> <a class='btn' href='<?php echo base_url('admin/edit_daily_binding'); ?>'>Edit</a><?php } ?></h3>
         </div>
     </div>
 <?php }?>
