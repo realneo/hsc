@@ -91,24 +91,31 @@
 
                     <li class="<?php echo ($active_tab == "cash" ? "active" : "");?>">
                         <a href="#"><span class=" fa fa-archive"></span> Daily Reports <span class="fa arrow"></span></a>
-                        <?php if($this->session->userdata('auth_type')!=40){?>
+                        <?php
+
+                        if($this->session->userdata('auth_type')!=40){//40:Cashier
+
+                            if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cash Collection Report</a></li>
                         </ul>
                         <ul class="nav nav-third-level">
                                 <li><a href="<?php echo base_url('reports/sales_report');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
                         </ul>
+                            <?php }?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/returns_report');?>"><span class="fa fa-mail-reply"></span> Returns Report</a></li>
                         </ul>
-                        <?php } ?>
+                        <?php }
+                            if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cheque_report');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
                         </ul>
+                        <?php }  ?>
 
 
                     </li>
-
+                    
                     <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
