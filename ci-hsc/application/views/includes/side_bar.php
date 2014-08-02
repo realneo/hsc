@@ -94,11 +94,12 @@
                         <?php
 
                         if($this->session->userdata('auth_type')!=40){//40:Cashier
-
-                            if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
+?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cash Collection Report</a></li>
                         </ul>
+                            <?php
+                            if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                         <ul class="nav nav-third-level">
                                 <li><a href="<?php echo base_url('reports/sales_report');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
                         </ul>
@@ -115,7 +116,7 @@
 
 
                     </li>
-                    
+                    <?php  if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                     <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
@@ -135,6 +136,7 @@
                         </ul>
 
                     </li>
+                    <?php } ?>
 
 
                 </ul>
