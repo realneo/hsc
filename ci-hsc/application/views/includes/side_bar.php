@@ -18,6 +18,7 @@
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
 
+            <?php if($this->session->userdata('auth_type')!=21)?>
             <li class="<?php echo ($active == "daily_sales" ? "active" : "");?>"> <!-- The Active class -->
 
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>

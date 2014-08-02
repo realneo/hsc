@@ -13,6 +13,9 @@ class Usuals extends CI_Model{
  * Get Branch name
  */
     function  get_branch_name($id){
+        if($id==0){
+            return "All";
+        }
         $query="SELECT name from branch where `id`=$id";
         $results=$this->db->query($query)->result_array();
         return $results[0]['name'];
