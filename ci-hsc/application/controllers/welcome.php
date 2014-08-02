@@ -35,6 +35,7 @@ class Welcome extends CI_Controller {
         $this->load->model('invoices');
         $this->load->model('returns');
         $this->load->model('vouchers');
+        $this->load->model('staffs');
 
 
         /*
@@ -54,7 +55,7 @@ class Welcome extends CI_Controller {
         /*
          * Specific Data for one page goes here
          */
-        $data['title']="Password Change";
+        $data['title']="Settings";
         $data['active']="dashboard";
         $data['active_tab']="";
 
@@ -68,6 +69,10 @@ class Welcome extends CI_Controller {
 
         $this->load->view('includes/footer');
 	}
+
+    function change_pass(){
+        
+    }
 }
 
 /* End of file welcome.php */

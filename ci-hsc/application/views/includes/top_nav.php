@@ -99,7 +99,7 @@
     <ul class="dropdown-menu dropdown-user">
         <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('full_name');?></a>
         </li>
-        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+        <li><a href="<?php echo base_url('welcome')?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
         </li>
         <li><a href="#" onClick="javascript:window.print()"><i class="fa fa-print fa-fw"></i> Print</a>
         </li>
