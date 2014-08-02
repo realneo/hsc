@@ -36,18 +36,19 @@
         <hr class="divider-ci"/></>
         <?php } ?>
         <li>
-        <?php } ?>
+
             <a class="text-center" href="#">
                 <strong>Stay at <?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ?></strong>
 
                 <i class="fa fa-angle-double-right"></i>
             </a>
         </li>
-</li>
+
 
     </ul>
     <!-- /.dropdown-messages -->
-
+    </li>
+    <?php } ?>
 <!-- /.dropdown -->
 
 <li class="dropdown">
