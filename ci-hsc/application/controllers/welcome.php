@@ -73,9 +73,10 @@ class Welcome extends CI_Controller {
         die();
     }
     function change_pass(){
-
+        $user_id = $this->session->userdata('user_id');
         $word1=$this->input->post('password');
         $word2=$this->input->post('password1');
+        $full_name = $this->session->userdata('full_name');
 
         if(!$word1 OR !$word2){
             $this->session->set_flashdata('alert_type','warning');
@@ -91,7 +92,16 @@ class Welcome extends CI_Controller {
         $data['word_orignal'] =$word1;//Use it later
         $data['word_pass'] =tokenize_sha1($word1);
 
-        $this->staffs->change_password($user_id,$data['word_pass']);
+        $query = $this->staffs->change_password($user_id,$data['word_pass']);
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"You have changed your password,$full_name!");
+            $this->settings_redirect();
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"Nothing happened! Your password is still the same, Please try again later");
+            $this->settings_redirect();
+        }
 
     }
 }

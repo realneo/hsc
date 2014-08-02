@@ -37,6 +37,11 @@ class Staffs extends CI_Model{
         return $this->db->query($query)->result_array();
     }
 
+    function change_password($user_id,$pass){
+        $query="UPDATE `users` set `password`='$pass' where `id`='$user_id'";
+        return $this->db->query($query);
+    }
+
     function get_profile($id){
         $query="SELECT * FROM `user_profile` where `user_id`='$id'";
         return $this->db->query($query)->result_array();

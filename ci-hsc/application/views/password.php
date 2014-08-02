@@ -1,5 +1,14 @@
+<?php
+    $num = 10;
+    $error = false;
+if (!$sock = @fsockopen('www.google.com', 80, $num, $error, 5))
+    $online=false;
+else
+    $online=true;
+?>
+
 <?php $staff=$this->staffs->get_profile($this->session->userdata('user_id'))[0];
-//        var_dump($staff);
+      // var_dump($staff);
 ?>
         <div class="row">
             <div class="col-sm-3 col-md-3 user-details" style="margin-bottom: 40px;">
@@ -8,8 +17,8 @@
                     switch($staff['gender']){
                         case 'male':
                             //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=mm&";//d=".base_url('assets/img/default-user-icon-profile.png');
-                            if($this->staffs->get_profile($staff['id'])[0]['img_url']){
-                                echo $this->staffs->get_profile($staff['id'])[0]['img_url'];
+                            if($staff['img_url'] AND $online==true){
+                                echo $staff['img_url'];
                                 //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
                             }else{
                                 echo base_url('assets/img/default-user-icon-profile.png');
@@ -17,8 +26,8 @@
                             break;
                         case 'female':
 
-                            if($this->staffs->get_profile($staff['id'])[0]['img_url']){
-                                echo $this->staffs->get_profile($staff['id'])[0]['img_url'];
+                            if($staff['img_url']){
+                                echo $staff['img_url'];
                                 //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
                             }else{
                                 echo base_url('assets/img/default-user-icon-profile-pink.png');
