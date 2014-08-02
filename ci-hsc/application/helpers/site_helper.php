@@ -72,9 +72,13 @@ function tokenize_sha1($password){
 function check_if_online(){
     $num = 10;
     $error = false;
+    $port = 443; // or 80
 
-    if (!$sock = @fsockopen('www.google.com', 80, $num, $error, 5))
+    if (!$sock = @fsockopen('www.google.com', $port, $num, $error, 2))
         return false;
-    else
+    else{
+        fclose($sock);
         return true;
+    }
+
 }

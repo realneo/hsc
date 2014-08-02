@@ -2,7 +2,11 @@
 $online = check_if_online();
 ?>
 
-<?php $staff=$this->staffs->get_profile($this->session->userdata('user_id'))[0];
+<?php
+
+$staff=$this->staffs->get_profile($this->session->userdata('user_id'))[0];
+$current_user = $this->staffs->get_user($staff['user_id'])[0];
+
       // var_dump($staff);
 ?>
         <div class="row">
@@ -40,8 +44,9 @@ $online = check_if_online();
                         <h3><?php echo $this->session->userdata('full_name');?></h3>
                         <span class="help-block">
                             <?php
-                            if($this->session->userdata('branch_id')!=0){
-                                echo " Currently you are assigned at ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
+//                            var_dump($current_user);
+                            if($current_user['branch_id']!=0){
+                                echo " Currently you are assigned at ".make_me_bold($this->usuals->get_branch_name($current_user['branch_id']));
                             }
                             ?></span>
                     </div>

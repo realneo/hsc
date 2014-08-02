@@ -44,6 +44,12 @@ class Welcome extends CI_Controller {
 
         $name=$this->usuals->get_branch_name($this->session->userdata('branch_id'));
         $this->session->set_userdata("branch_name",$name);
+
+        /*
+         * GLOBAL DATAs needed
+         */
+        $this->data['logs']=$this->usuals->get_recent_activities();
+        $this->data['branches']=$this->usuals->get_branches();
     }
         public function index()
 	{
