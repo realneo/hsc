@@ -1,10 +1,5 @@
 <?php
-    $num = 10;
-    $error = false;
-if (!$sock = @fsockopen('www.google.com', 80, $num, $error, 5))
-    $online=false;
-else
-    $online=true;
+$online = check_if_online();
 ?>
 
 <?php $staff=$this->staffs->get_profile($this->session->userdata('user_id'))[0];
@@ -26,7 +21,7 @@ else
                             break;
                         case 'female':
 
-                            if($staff['img_url']){
+                            if($staff['img_url'] AND $online==true){
                                 echo $staff['img_url'];
                                 //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
                             }else{

@@ -68,3 +68,13 @@ function tokenize_sha1($password){
     $token2 = sha1(md5('hsc')*2)/5;
     return $password = $token1.$password.$token2;
 }
+
+function check_if_online(){
+    $num = 10;
+    $error = false;
+
+    if (!$sock = @fsockopen('www.google.com', 80, $num, $error, 5))
+        return false;
+    else
+        return true;
+}
