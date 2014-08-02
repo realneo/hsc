@@ -18,7 +18,7 @@
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
 
-            <?php if($this->session->userdata('auth_type')!=21){?>
+            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!=31 ){//31:Stock_controller 21:Accountant?>
             <li class="<?php echo ($active == "daily_sales" ? "active" : "");?>"> <!-- The Active class -->
 
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
@@ -73,6 +73,9 @@
                 </ul>
             </li>
             <?php }?>
+
+            <?php
+            if($this->session->userdata('auth_type')!=31 AND $this->session->userdata('auth_type')!=21){//31:Stock_controller 21:Accountant?>
             <li class="<?php echo ($active == "staff" ? "active" : "");?>">
                 <a href="<?php echo base_url('staff');?>"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -84,6 +87,7 @@
                     </li>
                 </ul>
             </li>
+            <?php } ?>
 
             <li class="<?php echo ($active == "report" ? "active" : "");?>">
                 <a href="#"><i class="glyphicon glyphicon-list-alt fa-fw"></i> Reports <span class="fa arrow"></span></a>
