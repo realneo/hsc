@@ -45,12 +45,10 @@ class Welcome extends CI_Controller {
         $name=$this->usuals->get_branch_name($this->session->userdata('branch_id'));
         $this->session->set_userdata("branch_name",$name);
     }
-        public function index($word='test')
+        public function index()
 	{
 
-        $word=$this->input->post('password');
-        $data['word_orignal'] =$word;
-        $data['word_pass'] =tokenize_sha1($word);
+
 
         /*
          * Specific Data for one page goes here
@@ -70,8 +68,31 @@ class Welcome extends CI_Controller {
         $this->load->view('includes/footer');
 	}
 
+    function  settings_redirect(){
+        redirect(base_url('welcome'));
+        die();
+    }
     function change_pass(){
-        
+
+        $word1=$this->input->post('password');
+        $word2=$this->input->post('password1');
+
+        if(!$word1 OR !$word2){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You did not provide the password yet!');
+            $this->settings_redirect();
+        }
+
+        if($word2!=$word1){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','The Passwords don\'t match');
+            $this->settings_redirect();
+        }
+        $data['word_orignal'] =$word1;//Use it later
+        $data['word_pass'] =tokenize_sha1($word1);
+
+        $this->staffs->change_password($user_id,$data['word_pass']);
+
     }
 }
 

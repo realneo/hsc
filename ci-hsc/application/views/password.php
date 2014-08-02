@@ -49,7 +49,7 @@
 
             <div class="col-sm-3 col-md-3 user-details">
 
-                <form class="form-horizontal" action="<?php echo base_url('welcome'); ?>" method="post">
+                <form class="form-horizontal" action="<?php echo base_url('welcome/change_pass'); ?>" method="post">
                         <div class="row">
                             <div class="col-md-12 col-lg-offset-2 ">
                                 <div class="panel panel-default">
@@ -60,7 +60,7 @@
                                         <form accept-charset="UTF-8" role="form">
                                             <fieldset>
                                                 <div class="form-group">
-                                                    <input class="form-control " placeholder="Password" name="password" type="password">
+                                                    <input class="form-control " placeholder="Password" name="password1" type="password">
                                                 </div>
                                                 <div class="form-group">
                                                     <input class="form-control" placeholder="Confirm Password" name="password" type="password" value="">
