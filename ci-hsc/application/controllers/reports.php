@@ -282,7 +282,13 @@ class Reports extends CI_Controller{
         $data['title']="General User Report";
         $data['active']="report";
         $data['active_tab']="other_report";
-        $data['staffs']=$this->staffs->get_users();
+        if($this->session->userdata('auth_type')!=40){
+            $data['staffs']=$this->staffs->get_users();
+        }else{
+            $data['title']=$this->session->userdata('full_name')."'s Report";
+            $data['staffs']=$this->staffs->get_user($this->session->userdata('user_id'));
+        }
+
 
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;

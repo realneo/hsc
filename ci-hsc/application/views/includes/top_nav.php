@@ -33,7 +33,7 @@
                 </div>
             </a>
         </li>
-        <hr class="divider-ci"/></>
+        <hr class="divider-ci"/>
         <?php } ?>
         <li>
 
