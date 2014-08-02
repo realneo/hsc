@@ -690,6 +690,13 @@ class Reports extends CI_Controller{
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
 
+        if($this->session->userdata('auth_type')==40){
+            $full_name = make_me_bold($full_name);
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',"Sorry you $full_name, The Cheque was <b>not cleared</b>, Since you can only <b>Add & Use it!</b> Ask the Accountant to clear it first before you can start using it.");
+            $this->cheque_report_redirect();
+        }
+
         /*
          * We Branch ID for the log
          */
