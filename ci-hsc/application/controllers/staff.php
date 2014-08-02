@@ -129,7 +129,7 @@ class Staff extends CI_Controller{
             die();
         }
         // Insert into user table first
-
+        $password = tokenize_sha1($password);
         $query = $this->staffs->insert_staff($date, $email, $password, $branch_id, $auth_type_id, $user_id);
 
         // Get ID of the new staff

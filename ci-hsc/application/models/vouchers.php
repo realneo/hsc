@@ -9,7 +9,7 @@
 class Vouchers extends CI_Model {
     function get_users(){
         $branch_id = $this->session->userdata('branch_id');
-        $results=$this->db->query("SELECT * FROM `users` WHERE `branch_id` = '$branch_id' AND `auth_type` = 5 ORDER BY `email` ASC");
+        $results=$this->db->query("SELECT * FROM `users` WHERE `branch_id` = '$branch_id' AND `auth_type` = 50 ORDER BY `email` ASC");
         return $results->result_array();
 
 
