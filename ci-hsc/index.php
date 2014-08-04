@@ -1,5 +1,6 @@
 <?php
-
+date_default_timezone_set('Africa/Dar_es_Salaam');
+putenv('Africa/Dar_es_Salaam');
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

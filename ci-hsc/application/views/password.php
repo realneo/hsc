@@ -40,7 +40,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
 
                 default : echo base_url('assets/img/default-user-icon-profile.png'); break;
             }?>
-                                " alt="" class="thumb1 img-circle img-responsive">
+                                " alt="" class="thumb1 thumb2 img-circle img-responsive">
         </div>
         <div class="user-info-block">
             <div class="user-heading">
@@ -77,7 +77,13 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                                 </fieldset>
                             </form>
                         </div>
-                        <div class="panel-footer"><p class="text-muted small">*It will be squished if you provide a rectagled one</p></div>
+                        <div class="panel-footer">
+                            <p class="text-muted small">*It will be squished if you provide a rectagled one</p>
+                            <p class="divider"></p>
+                            <p class="text-muted small">Direct linking with social medias is not supported unless its gravatar</p>
+                        </div>
+
+                    </div>
                     </div>
                 </div>
             </div>
@@ -86,7 +92,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
         </form>
 
 </div>
-</div>
+
 <?php $data['dont_show']=true;
 $data['title']="Password";
 $this->load->view('includes/title',$data);

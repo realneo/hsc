@@ -206,9 +206,12 @@ span.tags
 }
 
 .thumb1 {
-    width:200px;
-    height:200px;
-    overflow:hidden
+    width:100%;
+    overflow:hidden;
+}
+.thumb2 {
+    width:65%;
+
 }
 
 .user-details {position: relative; padding: 0;}
