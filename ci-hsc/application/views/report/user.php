@@ -65,7 +65,7 @@ $online = check_if_online();
 
                                     default : echo base_url('assets/img/default-user-icon-profile.png'); break;
                                 }?>
-                                " alt="" class="img-circle img-responsive">
+                                " alt="" class="thumb1 img-circle img-responsive">
                                 <figcaption class="ratings">
                                     <p class="small">
                                         <?php echo $staff['email'];?>
@@ -101,13 +101,13 @@ $online = check_if_online();
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu_ text-left" role="menu">
-                                    <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>
-                                    <li><a href="#"><span class="fa fa-phone pull-right"></span> View profile </a></li>
-                                    <li><a href="#"><span class="fa fa-list pull-right"></span> Change Display Picture  </a></li>
+<!--                                    <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>-->
+                                    <li><a href="<?php echo base_url('welcome');?>"><span style="font-size: 1.6em;" class="fa fa-key pull-right"></span> Change Password </a></li>
+                                    <li><a href="<?php echo base_url('welcome');?>"><span style="font-size: 1.6em;"class="fa  fa-camera-retro pull-right"></span> Change Display Picture </a></li>
+<!--                                    <li class="divider"></li>-->
+<!--                                    <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>-->
                                     <li class="divider"></li>
-                                    <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#" class="btn disabled" role="button"> Send Warning </a></li>
+                                    <li><a href="#" class="btn disabled" role="button"> Settings </a></li>
                                 </ul>
                             </div>
                         </div>

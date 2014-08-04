@@ -7,12 +7,11 @@
 
 	    <title>HSC | Login</title>
 
-	    <!-- Core CSS - Include with every page -->
 	    <link href="<?php echo base_url('assets');?>/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="<?php echo base_url('assets');?>/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-	    <!-- SB Admin CSS - Include with every page -->
 	    <link href="<?php echo base_url('assets');?>/css/sb-admin.css" rel="stylesheet">
+        <link href="<?php echo base_url('assets');?>/img/hsc-circle.png" type="image/x-icon" rel="shortcut icon">
 
 	</head>
 
@@ -47,7 +46,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
-					<img src='<?php echo base_url(); ?>/assets/img/HSC-circle-logo.jpg' alt='Home Shopping Center' width='350' style="padding: 12px"/>
+					<img src='<?php echo base_url(); ?>/assets/img/hsc-circle-logo.jpg' alt='Home Shopping Center' width='350' style="padding: 12px"/>
                     <div class="panel-heading">
                         <h3 class="panel-title">HSC | Staff Login</h3>
                     </div>

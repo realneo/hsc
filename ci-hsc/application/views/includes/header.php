@@ -26,6 +26,8 @@
     <link href="<?php echo base_url('assets');?>/css/sb-admin.css" rel="stylesheet">
     <link href="<?php echo base_url('assets');?>/css/kostom.css" rel="stylesheet">
 
+    <link href="<?php echo base_url('assets');?>/img/hsc-circle.png" type="image/x-icon" rel="shortcut icon">
+
 </head>
 
 <body>

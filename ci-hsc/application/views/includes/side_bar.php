@@ -147,7 +147,7 @@
 
                 </ul>
             </li>
-            <li class="last-logo"><img src="<?php echo base_url('assets/img/HSC-circle.png');?>" class="img-responsive" alt=""/></li>
+            <li class="last-logo"><img src="<?php echo base_url('assets/img/hsc-circle.png');?>" class="img-responsive" alt=""/></li>
         </ul>
         <!-- /#side-menu -->
     </div>
