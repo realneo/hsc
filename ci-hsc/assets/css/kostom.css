@@ -205,6 +205,12 @@ span.tags
     padding-right: 20px;
 }
 
+.thumb1 {
+    width:200px;
+    height:200px;
+    overflow:hidden
+}
+
 .user-details {position: relative; padding: 0;}
 .user-details .user-image {position: relative;  z-index: 1; width: 100%; text-align: center;}
 .user-image img { clear: both; margin: auto; position: relative;}

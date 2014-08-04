@@ -108,10 +108,12 @@
                                 <li><a href="<?php echo base_url('reports/sales_report');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
                         </ul>
                             <?php }?>
+                        <?php
+                        if($this->session->userdata('auth_type')!=21){//21:Accountant?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/returns_report');?>"><span class="fa fa-mail-reply"></span> Returns Report</a></li>
                         </ul>
-                        <?php }
+                        <?php  }}
                             if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cheque_report');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>

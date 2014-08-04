@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12 ">
 
-        <div class="pull-right btn-group show-invoices">
+        <div class="pull-right btn-group show-invoices no-print">
 
             <a href="<?php echo base_url('reports/return_change_status/0');?>">
                 <button class="btn btn-default <?php echo $this->session->userdata('status')== '0' ? 'active':'';?>" name="options1" id="option1" > All</button>
@@ -15,7 +15,7 @@
 
 
         </div>
-        <span class="col-lg-4 text-muted" style="margin-top: 7px;">
+        <span class="col-lg-4 text-muted  no-print" style="margin-top: 7px;">
         <?php
 
             switch($unchecked_no){
@@ -119,7 +119,7 @@
                     </table>
                 </div>
             </div>
-            <div class="panel-footer">Here you can view all the returns from all the branches</div>
+            <div class="panel-footer  no-print">Here you can view all the returns from all the branches</div>
             <div class="col-lg-12" style="margin-left: 14px;
 margin-top: 8px;">
                 <?php echo $pages;?>

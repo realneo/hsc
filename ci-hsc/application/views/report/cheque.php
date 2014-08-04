@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Cheques
                 <!-- Button trigger modal -->
-                <button style="margin-top: -5px;" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#myModal">
+                <button style="margin-top: -5px;" class="btn btn-default btn-sm pull-right <?php if($this->session->userdata('auth_type')!=40){?> disabled <?php }?>" data-toggle="modal" data-target="#myModal">
                     Add Cheque
                 </button>
 
@@ -83,7 +83,9 @@
 											<td>{$amount} <span class='text-muted '>({$balance}/= left)</span></td>
 											<td class='col-lg-3'>"?><?php
                             if($button=='clearit'){
+                                if($this->session->userdata('auth_type')==40){
                             ?>
+
                             <form class="form-horizontal col-lg-12" action='<?php echo base_url()."reports/use_cheque";?>' method='post'>
                                 <div class='input-group' style="margin-left: -16px;">
                                     <input class='form-control money' placeholder="Cleared Cheque" type='text' name='amount' value='' />
@@ -97,6 +99,14 @@
 
                                 </div>
                             </form><?php $button='';} else{
+                                    //NOT STOCK_CONTROLLER
+                                    $button="
+                                    <a href='javascript:void(0);' data-toggle='tooltip'
+                                    data-placement='left' title='Now it can be used by the cashier' rel='info'>
+                                    <span class='fa fa-check text-success'></span></a>
+                                    <span class='small text-muted'>Already Cleared </span>
+                                    ";
+                                }} else{
                                 if(isset($button2)){
                                     if($status=='not_cleared'){
                                         //Button should stay the way it is

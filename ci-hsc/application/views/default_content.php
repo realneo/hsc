@@ -5,7 +5,8 @@
         <div class='col-lg-3'>
             <div class='well well-sm'>
                 <p>Total Sales For Today <p>
-                <h3 ><span class='small'>Tshs</span> <?php echo make_me_bold($today_sales); ?><?php if($this->session->userdata('auth_type')!=21){?> <a class='btn' href='<?php echo base_url('admin/edit_daily_sales'); ?>'>Edit</a><?php } ?></h3>
+                <h3 ><span class='small'>Tshs</span> <?php echo make_me_bold($today_sales); ?><?php
+                    if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!=31){?> <a class='btn' href='<?php echo base_url('admin/edit_daily_sales'); ?>'>Edit</a><?php } ?></h3>
             </div>
         </div>
 

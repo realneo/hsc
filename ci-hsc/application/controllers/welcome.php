@@ -110,6 +110,34 @@ class Welcome extends CI_Controller {
         }
 
     }
+
+    function display_url(){
+        $user_id = $this->session->userdata('user_id');
+        $pic_url = $this->input->post('pic_url');
+        $full_name = $this->session->userdata('full_name');
+
+        if(!$pic_url){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You did not provide the URL yet!');
+            $this->settings_redirect();
+        }
+
+
+
+
+        $query = $this->staffs->change_display($user_id,$pic_url);
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"You have changed your display picture,$full_name!");
+            $this->settings_redirect();
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"Nothing happened! Your display picture is still the same, Please try again later");
+            $this->settings_redirect();
+        }
+
+
+    }
 }
 
 /* End of file welcome.php */
