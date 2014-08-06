@@ -11,7 +11,7 @@
                 <input class="form-control" type="text" name="last_name" value=""/>
             </div>
             <div class="form-group col-lg-6">
-                <label>Gender</label><?php// var_dump($gender);?>
+                <label>Gender</label>
                 <select class='form-control' name='gender_type'>
                     <?php
 
