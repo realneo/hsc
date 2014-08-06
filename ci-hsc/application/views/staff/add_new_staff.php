@@ -10,6 +10,19 @@
                 <label>Last Name</label>
                 <input class="form-control" type="text" name="last_name" value=""/>
             </div>
+            <div class="form-group col-lg-6">
+                <label>Gender</label><?php// var_dump($gender);?>
+                <select class='form-control' name='gender_type'>
+                    <?php
+
+                    foreach($gender as $row){
+                        $gender = $row;
+
+                        echo "<option value='$gender'>{$gender}</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
             <div class="form-group col-lg-12">
                 <label>Authorisation Type</label>

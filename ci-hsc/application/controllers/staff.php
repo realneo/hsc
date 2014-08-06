@@ -38,6 +38,7 @@ class Staff extends CI_Controller{
         $this->data['branches']=$this->usuals->get_branches();
         $this->data['users']=$this->vouchers->get_users();
         $this->data['auth_type']=$this->staffs->get_auth_type();
+        $this->data['gender']=$this->staffs->gender_type();
 
     }
 
@@ -67,6 +68,7 @@ class Staff extends CI_Controller{
 
     function add_new_staff(){
 // Get information from the form
+        $gender = $this->input->post('gender_type');
 
         $date = date("Y-m-d");
         $first_name = make_caps($this->input->post('first_name'));
@@ -114,6 +116,15 @@ class Staff extends CI_Controller{
             $this->staff_redirect();
             die();
         }
+
+        if(!$gender OR $gender == 'not_specified'){
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg','You have to fill in <strong>gender</strong> field, currently its not specified');
+
+            $this->staff_redirect();
+            die();
+        }
+
         if(!$email){
             $this->session->set_flashdata('alert_type','warning');
             $this->session->set_flashdata('alert_msg','You have to fill in <strong>Email</strong> field.');
@@ -141,8 +152,8 @@ class Staff extends CI_Controller{
         if($query){
 
             // Insert into user_profile table
-
-            $profile_query = $this->staffs->insert_user_profile($first_name, $last_name, $staff_id);
+            $query_id = $query;
+            $profile_query = $this->staffs->insert_user_profile($first_name, $last_name, $staff_id,$gender,$query_id);
 
 
             $this->session->set_flashdata('alert_type','success');
