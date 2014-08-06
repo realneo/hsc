@@ -150,10 +150,13 @@
                                 <td class="col-lg-3">
 
                                     <?php if($entered_db!=1){?><form class="form-horizontal" action='<?php echo base_url()."admin/manual_enter";?>' method='post'>
+                                        <div class="form-group col-lg-6 col-lg-offset-1">
+                                            <input class="form-control" id="datepicker" type="text" name='date_issued'  value="<?php echo date('Y-m-d'); ?>"/>
+                                        </div>
                                         <div class='input-group'>
                                             <input class='form-control money' type='text' name='amount' value='' />
                                             <input type='hidden' name='id' value='<?php echo $row['id'];?>' />
-                                            <input type='hidden' name='date_issued' value='<?php echo $row['date'];?>' />
+<!--                                            <input type='hidden' name='date_issued' value='--><?php //echo $row['date'];?><!--' />-->
 											      		<span class='input-group-btn'>
 											        		<button class='btn btn-primary' type='submit'>Enter</button>
 											      		</span>
