@@ -10,6 +10,20 @@
             </div>
         </div>
 
+    <div class="col-lg-3">
+        <div class="well well-sm">
+            <p>Cash In hand</p>
+            <h3><span class='small'>Tshs</span>
+                <?php
+                $this->session->userdata('branch_id');
+                $this->session->set_userdata('report_date',date('Y-m-d'));
+                $cash_in_hand = $this->load->view('report/cash','',TRUE);
+                $cash_in_hand = $this->session->userdata('cash_in_hand');
+                echo make_me_bold($cash_in_hand);
+                ?></h3>
+        </div>
+    </div>
+
 
         <?php $this->load->view('includes/total_binding');?>
 
@@ -30,21 +44,8 @@
                 <h3><span class='small'>Tshs</span> <?php echo make_me_bold($manual_invoice);?></h3>
             </div>
         </div>
- </div>
 
-<div class="row">
-    <div class="col-lg-3">
-        <div class="well well-sm">
-            <p>Cash In hand</p>
-            <h3><span class='small'>Tshs</span>
-                <?php
-                $this->session->userdata('branch_id');
-                $cash_in_hand = $this->load->view('report/cash','',TRUE);
-                $cash_in_hand = $this->session->userdata('cash_in_hand');
-                echo make_me_bold(number_format($cash_in_hand));
-                ?></h3>
-        </div>
-    </div>
+
 
 </div>
 

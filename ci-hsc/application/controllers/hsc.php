@@ -13,8 +13,8 @@ class Hsc extends CI_Controller {
 	
 			redirect('login');
 		}
-        
-        $this->load->model('reports');
+
+        $this->load->model('report');
         $this->load->model('usuals');
         $this->load->model('expenses');
         $this->load->model('invoices');
