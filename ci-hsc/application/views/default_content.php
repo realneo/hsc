@@ -4,7 +4,7 @@
 
         <div class='col-lg-3'>
             <div class='well well-sm'>
-                <p>Total Sales For Today <p>
+                <p>Total Sales For Today </p>
                 <h3 ><span class='small'>Tshs</span> <?php echo make_me_bold($today_sales); ?><?php
                     if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!=31){?> <a class='btn' href='<?php echo base_url('admin/edit_daily_sales'); ?>'>Edit</a><?php } ?></h3>
             </div>
@@ -17,7 +17,7 @@
 
         <div class='col-lg-3'>
             <div class='well well-sm'>
-                <p>Total Expenses For Today<p>
+                <p>Total Expenses For Today</p>
                 <h3><span class='small'>Tshs</span> <?php echo make_me_bold($today_expenses); ?></h3>
             </div>
         </div>
@@ -26,11 +26,27 @@
 
         <div class="col-lg-3">
             <div class="well well-sm">
-                <p>Total Manual Invoices<p>
+                <p>Total Manual Invoices</p>
                 <h3><span class='small'>Tshs</span> <?php echo make_me_bold($manual_invoice);?></h3>
             </div>
         </div>
  </div>
+
+<div class="row">
+    <div class="col-lg-3">
+        <div class="well well-sm">
+            <p>Cash In hand</p>
+            <h3><span class='small'>Tshs</span>
+                <?php
+                $this->session->userdata('branch_id');
+                $cash_in_hand = $this->load->view('report/cash','',TRUE);
+                $cash_in_hand = $this->session->userdata('cash_in_hand');
+                echo make_me_bold(number_format($cash_in_hand));
+                ?></h3>
+        </div>
+    </div>
+
+</div>
 
 <?php
         $data['dont_show']=true;

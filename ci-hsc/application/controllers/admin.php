@@ -25,6 +25,7 @@ class Admin extends CI_Controller{
         $this->load->model('invoices');
         $this->load->model('returns');
         $this->load->model('vouchers');
+        $this->load->model('staffs');
 
     }
 

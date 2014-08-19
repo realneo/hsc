@@ -2,17 +2,61 @@
 <div class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
-            <li class="sidebar-search">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                    	<button class="btn btn-default" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                   	</span>
+<!--            <li class="sidebar-search">-->
+<!--                <div class="input-group custom-search-form">-->
+<!--                    <input type="text" class="form-control" placeholder="Search...">-->
+<!--                    <span class="input-group-btn">-->
+<!--                    	<button class="btn btn-default" type="button">-->
+<!--                            <i class="fa fa-search"></i>-->
+<!--                        </button>-->
+<!--                   	</span>-->
+<!--                </div>-->
+<!--                <!-- /input-group -->
+<!--            </li>-->
+
+            <li>
+<!--                display picture-->
+                <?php
+                $online = check_if_online();
+                //foul!
+                $staff=$this->staffs->get_profile($this->session->userdata('user_id'))[0];
+                $current_user = $this->staffs->get_user($staff['user_id'])[0];
+
+
+
+                ?>
+                <div class="user-image " style="padding: 8px;">
+                    <img style="border:5px solid rgba(0, 0, 0, 0.17);" src="<?php
+                    switch($staff['gender']){
+                        case 'male':
+                            //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=mm&";//d=".base_url('assets/img/default-user-icon-profile.png');
+                            if($staff['img_url'] AND $online==true){
+                                echo $staff['img_url'];
+                                //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
+                            }else{
+                                echo base_url('assets/img/default-user-icon-profile.png');
+                            }
+                            break;
+                        case 'female':
+
+                            if($staff['img_url'] AND $online==true){
+                                echo $staff['img_url'];
+                                //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
+                            }else{
+                                echo base_url('assets/img/default-user-icon-profile-pink.png');
+                            }
+
+                            // echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=retro";//;&d=".base_url('assets/img/default-user-icon-profile-pink.png');
+                            break;
+
+                        default : echo base_url('assets/img/default-user-icon-profile.png'); break;
+                    }?>
+                                " alt="" class="thumb1 thumb2 img-circle img-responsive">
                 </div>
-                <!-- /input-group -->
             </li>
+
+
+
             <li><a href='#'><i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('full_name'); ?></a></li>
             <li class="<?php echo ($active == "dashboard" ? "active" : "");?>"><a href="<?php echo base_url();?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 

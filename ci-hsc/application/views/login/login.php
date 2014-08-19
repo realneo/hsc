@@ -45,10 +45,13 @@
 		<!-- Login Form ---------------------------------------------------------------------------------->
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-					<img src='<?php echo base_url(); ?>/assets/img/hsc-circle-logo.jpg' alt='Home Shopping Center' width='350' style="padding: 12px"/>
+                <div class="text-center">
+                    <img src='<?php echo base_url(); ?>/assets/img/hsc-inno.png' alt='Home Shopping Center' width="320" />
+                </div>
+                <div class=" panel panel-default">
+
                     <div class="panel-heading">
-                        <h3 class="panel-title">HSC | Staff Login</h3>
+                        <h3 class="panel-title">HSC | <b>Staff Login</b></h3>
                     </div>
                     <div class="panel-body">
 						<?php echo form_open('login/login_process'); ?>
@@ -67,6 +70,7 @@
                         <?php echo form_close(); ?>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
