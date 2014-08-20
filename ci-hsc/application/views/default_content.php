@@ -51,7 +51,7 @@
 
 <?php
         $data['dont_show']=true;
-        $data['title']='Chart for comparison on Total Sales and Audited'."<span class='text-muted small'>(for the past {$this->session->userdata('num_of_sales')} days)</span>";
+        $data['title']='Chart for comparison on Total Sales and Audited '."<span class='text-muted '>(for the past {$this->session->userdata('num_of_sales')} days)</span>";
 
         $this->load->view('includes/title',$data);
 
