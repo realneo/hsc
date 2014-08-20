@@ -306,7 +306,8 @@ span.tags
         overflow: hidden;
         background: #FFF;
         font-family: "Open Sans",Arial,sans-serif;
-        font-size: 12pt; ;
+        font-size: 12pt;
+        box-sizing: border-box;
     }
 
     /*.template { width: auto; left:0; top:0; }*/
@@ -319,6 +320,8 @@ span.tags
         border: 1px solid black;
         width:100%;
         padding: 12px;
+        box-sizing: border-box;
+        height: 100%;
 
     }
 
