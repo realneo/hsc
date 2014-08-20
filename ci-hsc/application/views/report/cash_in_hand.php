@@ -15,7 +15,7 @@
     </div>
     <!-- DISPLAY CASH COLLECTION REPORT -------------------------------------------------------------------->
 
-    <div class="col-lg-8 id='cash_report_table'">
+    <div class="col-lg-8" id='cash_report_table'>
         <div class="panel panel-default">
             <div class="panel-heading">
                 HSC - All Branches <span class="no-print pull-right text-muted small hidden-sm hidden-xs">For Printing choose <b><i class="fa fa-book"></i> view</b> at total sales</span>
@@ -156,7 +156,7 @@
                                         floatval(str_replace( ',', '',$total_adjustments_per_branch)))
                                         );*/
                                     ?>
-                                    <form class="pull-right" id="produce_variance-<?php echo $key;?>" action="<?php echo base_url('reports/produce_variance');?>" method="post">
+                                    <form class="pull-right no-print" id="produce_variance-<?php echo $key;?>" action="<?php echo base_url('reports/produce_variance');?>" method="post">
                                         <input type="hidden" name="variance" value="<?php echo $variance;?>"/>
                                         <input type="hidden" name="report_date" value="<?php echo $this->session->userdata('report_date');?>"/>
                                         <input type="hidden" name="user_id" value="<?php echo $audited_sales['user_id'];?>"/>
