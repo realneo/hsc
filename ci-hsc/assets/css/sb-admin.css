@@ -344,3 +344,10 @@ table.dataTable thead .sorting:after {
 .show_object{
 	display:initial;
 }
+
+.report_small_list {
+    padding: 2px 2px;
+    font-size: 9px;
+    list-style: none;
+    color: grey;
+}
