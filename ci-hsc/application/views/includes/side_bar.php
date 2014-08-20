@@ -143,8 +143,9 @@
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cash');?>"><span class="fa fa-suitcase"></span> Cash Collection Report</a></li>
                         </ul>
-                        <?php
 
+                        <?php
+                        if($this->session->userdata('auth_type')!=30){//30:Manager
                         if($this->session->userdata('auth_type')!=40){//40:Cashier
 
                             if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
@@ -157,7 +158,9 @@
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/returns_report');?>"><span class="fa fa-mail-reply"></span> Returns Report</a></li>
                         </ul>
-                        <?php  }}
+                        <?php  } // Accountant
+                            }//cashier
+                        }//manager
                             if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cheque_report');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
