@@ -15,25 +15,32 @@
 
 <script>
     // Date Picker Limit FUTURE dates
+
     $(function() {
         var nowTemp = new Date();
         var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
         $( "#datepicker" ).datepicker({
             format:"yyyy-mm-dd",
             maxDate: '0',
-            endDate: '+0d',
+            endDate: '+0d'
+            <?php if(isset($limit) and $limit){}else{?>
+            ,
             onRender: function(date) {
                 return date.valueOf() > now.valueOf() ? 'disabled' : '';
             }
+            <?php } ?>
 
         });
         $( "#datepicker2" ).datepicker({
             format:"yyyy-mm-dd",
             maxDate: '0',
-            endDate: '+0d',
+            endDate: '+0d'
+            <?php if(isset($limit) and $limit){}else{?>
+            ,
             onRender: function(date) {
                 return date.valueOf() > now.valueOf() ? 'disabled' : '';
             }
+            <?php } ?>
 
         });
     });

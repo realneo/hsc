@@ -377,6 +377,7 @@ class Reports extends CI_Controller{
         $data['title']= "General Cheque report";
         $data['active']= "report";
         $data['active_tab']= "cash";
+        $data['limit']= true;
 
 
         $data['cheques']=$this->report->get_cheque_from_all_branches($per_page=20,$start);
