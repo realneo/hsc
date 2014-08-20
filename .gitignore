@@ -10,3 +10,4 @@ includes/db_conn.php
 >>>>>>> FETCH_HEAD
 *.xml
 *.xml
+*.xml___jb_bak___
