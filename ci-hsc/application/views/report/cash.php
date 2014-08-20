@@ -1,6 +1,6 @@
 
 <div class="row">
-<?php if($this->session->userdata('auth_type')>=40){//40:Cashier
+<?php if($this->session->userdata('auth_type')<40){//40:Cashier
 ?>
     <!-- SELECT REPORT DATE -------------------------------------------------------------------------------->
     <div class="col-lg-3 no-print" style="margin-bottom: 10px;">

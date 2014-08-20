@@ -146,7 +146,7 @@
                         <?php
 
                         if($this->session->userdata('auth_type')!=40){//40:Cashier
-                            
+
                             if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
                         <ul class="nav nav-third-level">
                                 <li><a href="<?php echo base_url('reports/sales_report');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
