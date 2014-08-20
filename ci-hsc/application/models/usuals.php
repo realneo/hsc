@@ -67,6 +67,7 @@ class Usuals extends CI_Model{
 
         $results = $this->db->query("SELECT * FROM total_sale WHERE branch_id = '$branch_id' order by 'date' desc LIMIT 30");
 
+        $this->session->set_userdata('num_of_sales',$results->num_rows());
 
         return $results->result_array();
     }
