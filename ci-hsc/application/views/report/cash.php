@@ -1,5 +1,7 @@
 
 <div class="row">
+<?php if($this->session->userdata('auth_type')>=40){//40:Cashier
+?>
     <!-- SELECT REPORT DATE -------------------------------------------------------------------------------->
     <div class="col-lg-3 no-print" style="margin-bottom: 10px;">
         <form action='<?php echo base_url('reports/change_report_date');?>' method='post'>
@@ -11,6 +13,7 @@
             </div>
         </form>
     </div>
+<?php } ?>
     <!-- DISPLAY CASH COLLECTION REPORT -------------------------------------------------------------------->
 
     <div class="col-lg-6">
