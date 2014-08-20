@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Cheques
                 <!-- Button trigger modal -->
-                <button style="margin-top: -5px;" class="btn btn-default btn-sm pull-right <?php if($this->session->userdata('auth_type')!=40 or $this->session->userdata('auth_type')!=30){?> disabled <?php }?>" data-toggle="modal" data-target="#myModal">
+                <button style="margin-top: -5px;" class="btn btn-default btn-sm pull-right <?php if($this->session->userdata('auth_type')!=30 AND $this->session->userdata('auth_type')!=40){?> disabled <?php }?>" data-toggle="modal" data-target="#myModal">
                     Add Cheque
                 </button>
 
