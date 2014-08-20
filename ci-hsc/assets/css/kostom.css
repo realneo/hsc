@@ -297,3 +297,30 @@ span.tags
     }
 }
 
+@media print {
+    * { margin: 0 !important; padding: 0 !important; }
+    #controls, .footer, .footerarea{ display: none; }
+    html, body {
+        /*changing width to 100% causes huge overflow and wrap*/
+        height:100%;
+        overflow: hidden;
+        background: #FFF;
+        font-family: "Open Sans",Arial,sans-serif;
+        font-size: 12pt; ;
+    }
+
+    /*.template { width: auto; left:0; top:0; }*/
+    img { width:100%; }
+    li { margin: 0 0 10px 20px !important;}
+
+    table, th, td
+    {
+        border-collapse:collapse;
+        border: 1px solid black;
+        width:100%;
+        padding: 12px;
+
+    }
+
+}
+
