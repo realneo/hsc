@@ -275,6 +275,13 @@ class Reports extends CI_Controller{
         die();
     }
 
+    //Delete this function
+    function change_auth_type($id){
+        $this->session->set_userdata('auth_type',$id);
+//        var_dump($GLOBALS);die();
+        $this->user_report();
+    }
+
     function user_report(){
         /*
          * Specific Data for one page goes here
@@ -282,8 +289,24 @@ class Reports extends CI_Controller{
         $data['title']="General User Report";
         $data['active']="report";
         $data['active_tab']="other_report";
-        if($this->session->userdata('auth_type')!=40){
-            $data['staffs']=$this->staffs->get_users();
+        if($this->session->userdata('auth_type')<=30){//30:manager 31:stock controller 40:cashier
+
+            if($this->session->userdata('auth_type')==30){
+                $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
+                $data['staffs']= $this->staffs->get_branch_users();
+            }
+
+            if($this->session->userdata('auth_type')<=29){//21:Accountant 20:management
+                if($this->session->set_userdata('show_all_users')){
+                    $data['staffs']=$this->staffs->get_users();
+                }else{
+                    $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
+                    $data['staffs']= $this->staffs->get_branch_users();
+                }
+
+            }
+
+
         }else{
             $data['title']=$this->session->userdata('full_name')."'s Report";
             $data['staffs']=$this->staffs->get_user($this->session->userdata('user_id'));

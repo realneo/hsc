@@ -49,6 +49,12 @@ class Staffs extends CI_Model{
         return $this->db->query($query)->result_array();
     }
 
+    function get_branch_users(){
+        $branch_id = $this->session->userdata('branch_id');
+        $query="SELECT * FROM `users` where `branch_id`='$branch_id' order by `email`";
+        return $this->db->query($query)->result_array();
+    }
+
     function get_user($id){
         $query="SELECT * FROM `users` where `id`='$id'";
         return $this->db->query($query)->result_array();
