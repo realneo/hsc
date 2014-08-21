@@ -69,7 +69,14 @@ function tokenize_sha1($password){
     return $password = $token1.$password.$token2;
 }
 
+function return_false(){
+    return false;
+}
+
 function check_if_online(){
+    //For now checking if online always
+    return return_false();
+
     $num = 10;
     $error = false;
     $port = 443; // or 80

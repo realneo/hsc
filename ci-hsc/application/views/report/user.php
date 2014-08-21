@@ -1,7 +1,12 @@
 <?php
 $online = check_if_online();
 ?>
-<div class="row ">
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <span class="pull-right">Change View</span>
+        </div>
+        </div>
     <div class="col-lg-12">
         <div class="row">
     <?php
@@ -44,7 +49,7 @@ $online = check_if_online();
                                 switch($this->staffs->get_profile($staff['id'])[0]['gender']){
                                     case 'male':
                                         //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200&d=mm&";//d=".base_url('assets/img/default-user-icon-profile.png');
-                                        if($this->staffs->get_profile($staff['id'])[0]['img_url'] AND $online==true){
+                                        if($this->staffs->get_profile($staff['id'])[0]['img_url'] AND $online == true){
                                            echo $this->staffs->get_profile($staff['id'])[0]['img_url'];
                                             //echo "http://www.gravatar.com/avatar/".md5( strtolower( trim(  $staff['email'] ) ) )."?s=200";
                                         }else{
