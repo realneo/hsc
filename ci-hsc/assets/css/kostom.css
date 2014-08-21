@@ -328,3 +328,31 @@ span.tags
 
 }
 
+
+/*Push downs started */
+
+.push-down-15{
+    margin-bottom: 15px;
+}
+
+.push-down-10{
+    margin-bottom: 10px;
+}
+
+.push-down-5{
+    margin-bottom: 5px;
+}
+
+/*push from right*/
+
+.push-from-right-15{
+    margin-right: 15px;
+}
+
+.push-from-right-10{
+    margin-right: 10px;
+}
+
+.push-from-right-5{
+    margin-right: 5px;
+}

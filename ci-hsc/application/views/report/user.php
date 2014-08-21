@@ -2,11 +2,15 @@
 $online = check_if_online();
 ?>
 <div class="row">
-    <div class="row">
+    <div class="row push-down-15">
         <div class="col-lg-12">
-            <span class="pull-right">Change View</span>
+            <div class="pull-right">
+                <p class="btn btn-primary"><i class="fa fa-align-center"></i></p>
+                <p class="btn btn-primary"><i class="fa fa-coffee"></i></p>
+            </div>
         </div>
-        </div>
+    </div>
+
     <div class="col-lg-12">
         <div class="row">
     <?php
