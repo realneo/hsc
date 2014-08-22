@@ -209,7 +209,11 @@ $online = check_if_online();
                                     "><strong><?php echo $total_variance_since_started;?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
                                                </div>
                                                 <div class="options-list btn-group dropup">
-                                                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span>Options</button>
+                                                    <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-primary"><a style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-magic"></span> Reset </a></button>
+                                                    <?php }else{ ?>
+
+                                                    <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>
+                                                    <?php } ?>
                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                                         <span class="caret"></span>
                                                         <span class="sr-only">Toggle Dropdown</span>
@@ -218,10 +222,7 @@ $online = check_if_online();
                                                         <!--                                    <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>-->
                                                         <li><a href="<?php echo base_url('welcome');?>"><span style="font-size: 1.6em;" class="fa fa-key pull-right"></span> Change Password </a></li>
                                                         <li><a href="<?php echo base_url('welcome');?>"><span style="font-size: 1.6em;"class="fa  fa-camera-retro pull-right"></span> Change Display Picture </a></li>
-                                                        <?php if($this->session->userdata('auth_type')==21){?>
 
-                                                        <li><a href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span style="font-size: 1.6em;"class="fa  fa-magic pull-right"></span> Reset variance </a></li>
-                                                        <?php } ?>
                                                         <!--                                    <li class="divider"></li>-->
                                                         <!--                                    <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>-->
                                                         <li class="divider"></li>

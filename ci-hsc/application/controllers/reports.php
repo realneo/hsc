@@ -959,14 +959,24 @@ class Reports extends CI_Controller{
     }
 
     function reset_variance($id){
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        $one_staff = $this->staffs->get_profile($id);
+        $one_staff =  $one_staff[0];
+        $first_name  = make_me_bold($one_staff['first_name']);
+//        var_dump($one_staff);die();
         $q = $this->report->reset_variance($id);
          if($q){
              $this->session->set_flashdata('alert_type','success');
-             $this->session->set_flashdata('alert_msg','Horray!!');
+             $this->session->set_flashdata('alert_msg',"Variance Reset for {$first_name} , has been executed successfully");
+             $log = "Variance Reset done by {$full_name} for {$first_name}";
+             $this->usuals->log_write($user_id, $branch_id, $log);
 
          }else{
-             $this->session->set_flashdata('alert_type','danger');
-             $this->session->set_flashdata('alert_msg','Bado ujatengeneza modal! ,There was a problem with the system please try again!');
+             $this->session->set_flashdata('alert_type','warning');
+             $this->session->set_flashdata('alert_msg',"Variance for {$first_name} is already zero");
 
          }
 
