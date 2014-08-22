@@ -356,3 +356,64 @@ span.tags
 .push-from-right-5{
     margin-right: 5px;
 }
+
+.push-left-negative-19{
+    margin-left: -19px;
+}
+
+/*testing something new*/
+
+.glyphicon { margin-right:5px;}
+.section-box h2 { margin-top:0px;}
+.section-box h2 a { font-size:15px; }
+.glyphicon-heart { color:#e74c3c;}
+.glyphicon-comment { color:#27ae60;}
+.separator { padding-right:5px;padding-left:5px; }
+.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+
+.well-list
+{
+    height:120px;
+    padding: 0px;
+}
+
+.well-list img
+{
+    width:84px;
+    margin-top: 10px;
+}
+
+.well-list-description{
+    line-height: 5px;
+}
+
+.variance-list{
+    margin-top: -106px;
+
+    line-height: 3px;
+    margin-bottom: 10px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .variance-list{
+        margin-top: -12px;
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .variance-list{
+        margin-top: -12px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .variance-list{
+        margin-top: -12px;
+    }
+
+}
+
