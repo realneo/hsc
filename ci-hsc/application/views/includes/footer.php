@@ -120,8 +120,10 @@
 
     });
 </script>
-
-
+<script src="<?php echo base_url('assets');?>/js/autohidenav.js"></script>
+<script type="text/javascript">
+    $("nav.navbar-fixed-top").autoHidingNavbar();
+</script>
 
 <!-- SB Admin Scripts - Include with every page -->
 <script src="<?php echo base_url('assets');?>/js/sb-admin.js"></script>

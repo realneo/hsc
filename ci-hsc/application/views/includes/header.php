@@ -18,6 +18,7 @@
     <link href="<?php echo base_url('assets');?>/css/bootstrap-editable.css" rel="stylesheet">
 
 
+
     <!-- Page-Level Plugin CSS - Morris -->
     <link href="<?php echo base_url('assets');?>/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
 
