@@ -357,6 +357,19 @@ span.tags
     margin-right: 5px;
 }
 
+/*push from left*/
+
+.push-from-left-15{
+    margin-left: 15px;
+}
+
+.push-from-left-10{
+    margin-left: 10px;
+}
+
+.push-from-left-5{
+    margin-left: 5px;
+}
 .push-left-negative-19{
     margin-left: -19px;
 }

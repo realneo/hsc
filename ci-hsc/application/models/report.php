@@ -383,6 +383,19 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
 
     }
 
+    function get_current_varianced_users(){
+        $this->db->select('user_id');
+        $query = $this->db->get('variance');
+        return $query->result_array();
+    }
+
+    function get_current_varianced_branched_users(){
+        $this->db->select('user_id');
+        $query = $this->db->get('variance');
+        return $query->result_array();
+    }
+
+
 
 
 

@@ -958,6 +958,24 @@ class Reports extends CI_Controller{
 
     }
 
+    function reset_all_variances(){
+        $branch_id = $this->session->userdata('branch_id');
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
+
+        $all = $this->report->get_current_varianced_users();
+
+        foreach($all as $one){
+            $this->report->reset_variance($one['user_id']);
+            //show we delete the record?
+        }
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"Variance Reset for All,  has been executed successfully");
+            $log = "Variance Reset for All , done by {$full_name}";
+            $this->usuals->log_write($user_id, $branch_id, $log);
+            $this->user_report_redirect();
+    }
+
     function reset_variance($id){
         $branch_id = $this->session->userdata('branch_id');
         $user_id = $this->session->userdata('user_id');
@@ -987,5 +1005,7 @@ class Reports extends CI_Controller{
         redirect(base_url('reports/user_report'));
         die();
     }
+
+
 
 }

@@ -10,6 +10,11 @@ $online = check_if_online();
 
                 <a data-toggle="tooltip" data-placement="top" title="List View" rel="info" href="<?php echo base_url('reports/activate_grid/0');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('grid_view'))?"active":'';?>"><i class="fa fa-align-justify"></i></p></a>
 
+
+
+            </div>
+            <div class="pull-left push-from-left-15">
+                <a data-toggle="tooltip" data-placement="right" title="Variances from all branches" rel="info" href="<?php echo base_url('reports/reset_all_variances');?>"><p class="btn btn-success"><i class="fa fa-retweet"></i> Reset All</p></a>
             </div>
         </div>
     </div>
@@ -108,7 +113,7 @@ $online = check_if_online();
                         <div class="col-xs-12 col-sm-4 text-center pull-right">
 
                             <div class="btn-group dropup">
-                                <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
+                                <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a data-toggle="tooltip" data-placement="left" title="Variance for <?php echo $this->staffs->get_profile($staff['id'])[0]['first_name'];?>" rel="info" style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
                                 <?php }else{ ?>
 
                                     <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>
@@ -213,7 +218,7 @@ $online = check_if_online();
                                     "><strong><?php echo $total_variance_since_started;?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
                                                </div>
                                                 <div class="options-list btn-group dropup">
-                                                    <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
+                                                    <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" data-toggle="tooltip" data-placement="left" title="Variance for <?php echo $this->staffs->get_profile($staff['id'])[0]['first_name'];?>" rel="info"  href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
                                                     <?php }else{ ?>
 
                                                     <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>
