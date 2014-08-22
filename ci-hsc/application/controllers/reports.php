@@ -947,6 +947,35 @@ class Reports extends CI_Controller{
 
     }
 
+    function activate_grid($on){
+        switch($on){
+            case 0: $this->session->set_userdata('grid_view',false);break;
+            case 1: $this->session->set_userdata('grid_view',true);break;
+            default: $this->session->unset_userdata('grid_view');break;
+        }
+        redirect(base_url("reports/user_report"));
+        die();
 
-    
+    }
+
+    function reset_variance($id){
+        $q = $this->report->reset_variance($id);
+         if($q){
+             $this->session->set_flashdata('alert_type','success');
+             $this->session->set_flashdata('alert_msg','Horray!!');
+
+         }else{
+             $this->session->set_flashdata('alert_type','danger');
+             $this->session->set_flashdata('alert_msg','Bado ujatengeneza modal! ,There was a problem with the system please try again!');
+
+         }
+
+        $this->user_report_redirect();
+    }
+
+    function user_report_redirect(){
+        redirect(base_url('reports/user_report'));
+        die();
+    }
+
 }

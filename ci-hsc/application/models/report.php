@@ -366,6 +366,24 @@ NULL ,  '$user_id_sales',  '$variance',  '$date' ,'$branch_id'
     }
 
 
+    function reset_variance($id){
+        $data = array(
+            'variance' => 0,
+        );
+
+        $this->db->where('user_id', $id);
+        $this->db->update('variance', $data);
+        if($this->db->affected_rows()>=1){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+    }
+
+
 
 
 

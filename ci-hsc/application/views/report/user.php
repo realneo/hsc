@@ -6,15 +6,15 @@ $online = check_if_online();
         <div class="col-lg-12">
             <div class="pull-right push-from-right-15">
 
-                <a data-toggle="tooltip" data-placement="left" title="Grid View" rel="info" href="<?php echo base_url('reports/activate_grid/1');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('grid'))?"active":'';?>"><i class="fa fa-th-large"></i></p></a>
+                <a data-toggle="tooltip" data-placement="left" title="Grid View" rel="info" href="<?php echo base_url('reports/activate_grid/1');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('grid_view'))?"active":'';?>"><i class="fa fa-th-large"></i></p></a>
 
-                <a data-toggle="tooltip" data-placement="top" title="List View" rel="info" href="<?php echo base_url('reports/activate_grid/0');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('grid'))?"active":'';?>"><i class="fa fa-align-justify"></i></p></a>
+                <a data-toggle="tooltip" data-placement="top" title="List View" rel="info" href="<?php echo base_url('reports/activate_grid/0');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('grid_view'))?"active":'';?>"><i class="fa fa-align-justify"></i></p></a>
 
             </div>
         </div>
     </div>
 
-    <?php if($this->session->userdata('grid')){?>
+    <?php if($this->session->userdata('grid_view')){?>
     <div class="col-lg-12">
         <div class="row">
     <?php
@@ -218,6 +218,10 @@ $online = check_if_online();
                                                         <!--                                    <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>-->
                                                         <li><a href="<?php echo base_url('welcome');?>"><span style="font-size: 1.6em;" class="fa fa-key pull-right"></span> Change Password </a></li>
                                                         <li><a href="<?php echo base_url('welcome');?>"><span style="font-size: 1.6em;"class="fa  fa-camera-retro pull-right"></span> Change Display Picture </a></li>
+                                                        <?php if($this->session->userdata('auth_type')==21){?>
+
+                                                        <li><a href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span style="font-size: 1.6em;"class="fa  fa-magic pull-right"></span> Reset variance </a></li>
+                                                        <?php } ?>
                                                         <!--                                    <li class="divider"></li>-->
                                                         <!--                                    <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>-->
                                                         <li class="divider"></li>
