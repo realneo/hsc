@@ -264,3 +264,4 @@ echo number_format($total_entered_manual_invoices);
         </div>
     </div>
 </div>
+<?php $this->session->set_userdata('binding',$binding_amount); ?>

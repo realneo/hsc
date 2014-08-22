@@ -15,7 +15,7 @@
     </div>
     <!-- DISPLAY CASH COLLECTION REPORT -------------------------------------------------------------------->
 
-    <div class="col-lg-8" id='cash_report_table'>
+    <div class="col-lg-9" id='cash_report_table'>
         <div class="panel panel-default">
             <div class="panel-heading">
                 HSC - All Branches <span class="no-print pull-right text-muted small hidden-sm hidden-xs">For Printing choose <b><i class="fa fa-book"></i> view</b> at total sales</span>
@@ -102,7 +102,12 @@
                                     $cash_in_hand = $this->load->view('report/cash','',TRUE);
                                     echo $cash_in_hand = $this->session->userdata('cash_in_hand');
 
-                                    ?></td>
+                                    ?>
+                                    <?php if($this->session->userdata('binding')>=1){?>
+                                    <ul class="list-group" style="margin-bottom: -9px;padding: 0;margin-top: -5px; list-style:none;"><li class="report_small_list text-left"><?php echo 'Binding -'.make_me_bold($this->session->userdata('binding')).'/=';?></li></ul>
+                                    <?php } ?>
+
+                                </td>
                                 <td>
                                     <ul class="list-group" style="margin-bottom: -9px;padding: 3px;margin-top: -7px; list-style:none;">
                                         <li class="active list-group-item-heading text-right">
@@ -131,7 +136,11 @@
                                 <td><?php
                                     $this->load->view('report/cash','',TRUE);
                                     $cash_in_hand = $this->session->userdata('cash_in_hand');
-                                    echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments')-floatval(str_replace( ',', '',$this->session->userdata('not_entered_for_sales')));?></td>
+                                    echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments')-floatval(str_replace( ',', '',$this->session->userdata('not_entered_for_sales')));?>
+
+
+                                </td>
+
                                 <td>
                                     <?php
                                     if($this->report->get_audited_total_sale()){
@@ -149,7 +158,8 @@
                                                     floatval(str_replace( ',', '',$total_adjustments_per_branch))
                                             )
                                     );
-                                    echo $variance;
+//                                    echo $variance;//zaman
+                                    echo floatval(str_replace( ',', '',$variance )) + floatval(str_replace( ',', '',$this->session->userdata('binding') )) ;
                                     /*var_dump(
                                         floatval(str_replace( ',', '',$audited_sales['total_sale']))-(floatval(str_replace( ',', '',$cash_in_hand))+
                                         floatval(str_replace( ',', '',$totals_expenses))+
