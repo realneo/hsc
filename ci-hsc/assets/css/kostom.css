@@ -264,7 +264,7 @@ span.tags
 @media (max-width: 422px) and (min-width:0px){
     .navbar-brand {
 
-        font-size: 75%;
+        font-size: 69%;
 
     }
     .nav {
@@ -272,7 +272,7 @@ span.tags
         list-style: none;
         font-size: 0.9em;
         margin-top: -1px;
-        margin-left: 8px;
+        margin-left: 2px;
     }
 
     .navbar-top-links li:last-child {
@@ -397,7 +397,7 @@ span.tags
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .variance-list{
-        margin-top: -12px;
+        margin-top: -106px;
     }
 
 }
@@ -405,7 +405,7 @@ span.tags
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .variance-list{
-        margin-top: -12px;
+        margin-top: -106px;
     }
 }
 

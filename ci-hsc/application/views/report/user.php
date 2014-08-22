@@ -6,9 +6,9 @@ $online = check_if_online();
         <div class="col-lg-12">
             <div class="pull-right push-from-right-15">
 
-                <a data-toggle="tooltip" data-placement="left" title="Grid View" rel="info" href="javascript:void(0);"><p class="btn btn-primary active"><i class="fa fa-th-large"></i></p></a>
+                <a data-toggle="tooltip" data-placement="left" title="Grid View" rel="info" href="<?php echo base_url('reports/activate_grid/1');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('grid'))?"active":'';?>"><i class="fa fa-th-large"></i></p></a>
 
-                <a data-toggle="tooltip" data-placement="top" title="List View" rel="info" href="javascript:void(0);"><p class="btn btn-primary"><i class="fa fa-align-justify"></i></p></a>
+                <a data-toggle="tooltip" data-placement="top" title="List View" rel="info" href="<?php echo base_url('reports/activate_grid/0');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('grid'))?"active":'';?>"><i class="fa fa-align-justify"></i></p></a>
 
             </div>
         </div>
@@ -146,7 +146,7 @@ $online = check_if_online();
                             <div class="col-lg-12">
 
                                     <div class="well well-list">
-                                            <div class="col-lg-1 hidden-xs">
+                                            <div class="col-lg-1 visible-lg visible-md">
                                                     <img src="<?php
                                                     switch($this->staffs->get_profile($staff['id'])[0]['gender']){
                                                         case 'male':

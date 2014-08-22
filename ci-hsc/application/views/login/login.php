@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="text-center">
-                    <img src='<?php echo base_url(); ?>/assets/img/hsc-inno.png' alt='Home Shopping Center' width="320" />
+                    <img class="img-responsive" src='<?php echo base_url(); ?>/assets/img/hsc-inno.png' alt='Home Shopping Center' width="320" />
                 </div>
                 <div class=" panel panel-default">
 
