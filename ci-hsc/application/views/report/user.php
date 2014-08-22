@@ -108,7 +108,11 @@ $online = check_if_online();
                         <div class="col-xs-12 col-sm-4 text-center pull-right">
 
                             <div class="btn-group dropup">
-                                <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
+                                <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
+                                <?php }else{ ?>
+
+                                    <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>
+                                <?php } ?>
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                     <span class="sr-only">Toggle Dropdown</span>
@@ -209,7 +213,7 @@ $online = check_if_online();
                                     "><strong><?php echo $total_variance_since_started;?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
                                                </div>
                                                 <div class="options-list btn-group dropup">
-                                                    <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-primary"><a style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-magic"></span> Reset </a></button>
+                                                    <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
                                                     <?php }else{ ?>
 
                                                     <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>

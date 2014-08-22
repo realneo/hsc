@@ -970,8 +970,8 @@ class Reports extends CI_Controller{
         $q = $this->report->reset_variance($id);
          if($q){
              $this->session->set_flashdata('alert_type','success');
-             $this->session->set_flashdata('alert_msg',"Variance Reset for {$first_name} , has been executed successfully");
-             $log = "Variance Reset done by {$full_name} for {$first_name}";
+             $this->session->set_flashdata('alert_msg',"Variance Reset for {$first_name}  has been executed successfully");
+             $log = "Variance Reset for {$first_name} , done by {$full_name}";
              $this->usuals->log_write($user_id, $branch_id, $log);
 
          }else{
