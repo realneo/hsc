@@ -13,7 +13,7 @@ function app_title(){
 }
 
 function app_version(){
-    return "1.2.1";
+    return "1.2.2";
 }
 
 function custom_date_format($date){
