@@ -13,9 +13,11 @@ $online = check_if_online();
 
 
             </div>
+            <?php if($this->session->userdata('auth_type')==21){?>
             <div class="pull-left push-from-left-15">
                 <a data-toggle="tooltip" data-placement="right" title="Variances from all branches" rel="info" href="<?php echo base_url('reports/reset_all_variances');?>"><p class="btn btn-success"><i class="fa fa-retweet"></i> Reset All</p></a>
             </div>
+            <?php }?>
         </div>
     </div>
 
@@ -116,7 +118,7 @@ $online = check_if_online();
                                 <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a data-toggle="tooltip" data-placement="left" title="Variance for <?php echo $this->staffs->get_profile($staff['id'])[0]['first_name'];?>" rel="info" style="color: white;" href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
                                 <?php }else{ ?>
 
-                                    <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>
+                                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button>
                                 <?php } ?>
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
@@ -221,7 +223,7 @@ $online = check_if_online();
                                                     <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" data-toggle="tooltip" data-placement="left" title="Variance for <?php echo $this->staffs->get_profile($staff['id'])[0]['first_name'];?>" rel="info"  href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>
                                                     <?php }else{ ?>
 
-                                                    <a href=""><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button></a>
+                                                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options</button>
                                                     <?php } ?>
                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                                         <span class="caret"></span>

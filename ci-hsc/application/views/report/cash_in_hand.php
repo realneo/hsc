@@ -186,12 +186,14 @@
                             /*
                              * NOW CALCULATE TOTALS of individuals
                              */
-                            $total_adjustments_per_branch;
-                            $variance;
-                            $totals_expenses;
-                            $cash_in_hand;
-                            $total_sales_per_branch;
-
+//                            var_dump($total_adjustments_per_branch,
+//                            $totals_expenses,
+//                            $cash_in_hand,
+//                            $total_sales_per_branch,
+//                            $variance);
+                            $variance  = floatval(str_replace( ',', '',$variance ));
+                            $variance +=$variance;
+                            $this->session->set_userdata('total_variance',$variance);
                         } ?>
                         </tbody>
                     </table>
@@ -203,4 +205,10 @@
 <?php //return it back to normal
 $this->session->set_userdata('branch_id',$temp_id);
 ?>
-
+<?php ?>
+<!--<div class="row">-->
+<!--    totals-->
+<!--    <ul>-->
+<!--        <li>--><?php //echo $this->session->userdata('total_variance') ;?><!--</li>-->
+<!--    </ul>-->
+<!--</div>-->

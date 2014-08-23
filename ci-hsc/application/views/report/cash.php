@@ -1,6 +1,6 @@
 
 <div class="row">
-<?php if($this->session->userdata('auth_type')<29){//yani only 21 Accountant 20:management 10:admininistrator  can see the form
+<?php if($this->session->userdata('auth_type')<32){//yani only 21 Accountant 20:management 10:admininistrator  can see the form
 ?>
     <!-- SELECT REPORT DATE -------------------------------------------------------------------------------->
     <div class="col-lg-3 no-print" style="margin-bottom: 10px;">
