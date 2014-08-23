@@ -289,14 +289,14 @@ class Reports extends CI_Controller{
         $data['title']="General User Report";
         $data['active']="report";
         $data['active_tab']="other_report";
-        if($this->session->userdata('auth_type')<=30){//30:manager 31:stock controller 40:cashier
+        if($this->session->userdata('auth_type')<=30){//30:manager 29:stock controller 40:cashier
 
             if($this->session->userdata('auth_type')==30){
                 $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
                 $data['staffs']= $this->staffs->get_branch_users();
             }
 
-            if($this->session->userdata('auth_type')<=29){//21:Accountant 20:management
+            if($this->session->userdata('auth_type')<=29){//21:Accountant 20:management 29:stock controller
                 if($this->session->set_userdata('show_all_users')){
                     $data['staffs']=$this->staffs->get_users();
                 }else{

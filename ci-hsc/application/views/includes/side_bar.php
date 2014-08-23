@@ -62,7 +62,7 @@
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
 
-            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!=31 ){//31:Stock_controller 21:Accountant?>
+            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!= 29 ){//29:stock controller 21:Accountant?>
             <li class="<?php echo ($active == "daily_sales" ? "active" : "");?>"> <!-- The Active class -->
 
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
@@ -119,7 +119,7 @@
             <?php }?>
 
             <?php
-            if($this->session->userdata('auth_type')!=31 AND $this->session->userdata('auth_type')!=21){//31:Stock_controller 21:Accountant?>
+            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21){//29:Stock_controller 21:Accountant?>
             <li class="<?php echo ($active == "staff" ? "active" : "");?>">
                 <a href="<?php echo base_url('staff');?>"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -148,7 +148,7 @@
                         if($this->session->userdata('auth_type')!=30){//30:Manager
                         if($this->session->userdata('auth_type')!=40){//40:Cashier
 
-                            if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
+                            if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
                         <ul class="nav nav-third-level">
                                 <li><a href="<?php echo base_url('reports/sales_report');?>"><span class="fa fa-suitcase"></span> Sales Report</a></li>
                         </ul>
@@ -161,7 +161,7 @@
                         <?php  } // Accountant
                             }//cashier
                         }//manager
-                            if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
+                            if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/cheque_report');?>"><span class="fa fa-suitcase"></span> Cheque Report</a></li>
                         </ul>
@@ -169,7 +169,7 @@
 
 
                     </li>
-                    <?php  if($this->session->userdata('auth_type')!=31){//31:Stock_controller?>
+                    <?php  if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
                     <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
