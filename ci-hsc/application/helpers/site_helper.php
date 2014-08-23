@@ -89,3 +89,7 @@ function check_if_online(){
     }
 
 }
+
+function strip_number($num){
+    return floatval(str_replace( ',', '',$num ));
+}

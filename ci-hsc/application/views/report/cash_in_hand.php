@@ -1,3 +1,10 @@
+<?php
+    $total_adjustments = 0;
+    $total_expense = 0;
+    $total_cash_in_hand = 0;
+    $total_sales_per_branch = 0;
+    $total_variance= 0;
+?>
 <div class="row">
     <!-- SELECT REPORT DATE -------------------------------------------------------------------------------->
     <div class="row no-print">
@@ -150,7 +157,7 @@
                                         $audited_sales['total_sale'] = 0;
                                     }
 
-                                    $variance = number_format(
+                                    $variance = number_format(strip_number($this->session->userdata('binding'))+
                                         floatval(str_replace( ',', '', $audited_sales['total_sale'])) -
                                             (
                                                 floatval(str_replace( ',', '',$cash_in_hand )) +
@@ -158,8 +165,8 @@
                                                     floatval(str_replace( ',', '',$total_adjustments_per_branch))
                                             )
                                     );
-//                                    echo $variance;//zaman
-                                    echo floatval(str_replace( ',', '',$variance )) + floatval(str_replace( ',', '',$this->session->userdata('binding') )) ;
+                                    echo $variance;//zaman
+                                    //echo floatval(str_replace( ',', '',$variance )) + floatval(str_replace( ',', '',$this->session->userdata('binding') )) ;
                                     /*var_dump(
                                         floatval(str_replace( ',', '',$audited_sales['total_sale']))-(floatval(str_replace( ',', '',$cash_in_hand))+
                                         floatval(str_replace( ',', '',$totals_expenses))+
@@ -186,15 +193,25 @@
                             /*
                              * NOW CALCULATE TOTALS of individuals
                              */
-//                            var_dump($total_adjustments_per_branch,
-//                            $totals_expenses,
-//                            $cash_in_hand,
-//                            $total_sales_per_branch,
-//                            $variance);
-                            $variance  = floatval(str_replace( ',', '',$variance ));
-                            $variance +=$variance;
-                            $this->session->set_userdata('total_variance',$variance);
+                            $total_variance  += strip_number($variance);
+                            $total_adjustments  += strip_number($total_adjustments_per_branch);
+                            $total_expense  += strip_number($totals_expenses);
+                            $total_cash_in_hand  += strip_number($cash_in_hand);
+
+//                            $variance +=$variance;
+//                            $this->session->set_userdata('total_variance',$variance);
                         } ?>
+<!--                        <tr>-->
+<!--                            <td colspan="2"></td>-->
+<!--                            <td colspan="5" style="background-color: #428bca;color: white;">Total</td>-->
+<!--                        </tr>-->
+        <tr>
+            <td colspan="2" class="text-right"><strong>Total</strong></td>
+            <td class="text-left"><?php echo make_me_bold(number_format($total_cash_in_hand))."/=";?></td>
+            <td class="text-right"><?php echo make_me_bold(number_format($total_expense))."/=";?></td>
+            <td class="text-left"><?php echo make_me_bold(number_format($total_adjustments))."/=";?></td>
+            <td class="text-left"><?php echo make_me_bold(number_format($total_variance))."/=";?></td>
+        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -209,6 +226,14 @@ $this->session->set_userdata('branch_id',$temp_id);
 <!--<div class="row">-->
 <!--    totals-->
 <!--    <ul>-->
-<!--        <li>--><?php //echo $this->session->userdata('total_variance') ;?><!--</li>-->
+<!--        <li>--><?php //echo number_format($total_variance);?><!--</li>-->
 <!--    </ul>-->
 <!--</div>-->
+
+<?php
+//$total_adjustments_per_branch = 0;
+//$totals_expenses = 0;
+//$cash_in_hand = 0;
+//$total_sales_per_branch = 0;
+//$variance= 0;
+?>
