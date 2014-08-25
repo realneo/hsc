@@ -14,7 +14,7 @@
 <!--                <!-- /input-group -->
 <!--            </li>-->
 
-            <li>
+            <li class="hidden-xs">
 <!--                display picture-->
                 <?php
                 $online = check_if_online();
