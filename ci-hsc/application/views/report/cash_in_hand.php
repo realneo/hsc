@@ -143,7 +143,8 @@
                                 <td><?php
                                     $this->load->view('report/cash','',TRUE);
                                     $cash_in_hand = $this->session->userdata('cash_in_hand');
-                                    echo $total_adjustments_per_branch=$this->session->userdata('total_adjustments')-floatval(str_replace( ',', '',$this->session->userdata('not_entered_for_sales')));?>
+                                    $total_adjustments_per_branch=$this->session->userdata('total_adjustments')-floatval(str_replace( ',', '',$this->session->userdata('not_entered_for_sales')));
+                                    echo number_format($total_adjustments_per_branch);?>
 
 
                                 </td>

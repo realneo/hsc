@@ -13,7 +13,7 @@ $online = check_if_online();
             <?php if(!$this->session->userdata('show_all_users')){?>
                 <a data-toggle="tooltip" data-placement="top" title="Show All users" rel="info" href="<?php echo base_url('reports/show_all_users/');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-users"></i></p></a>
 <?php } else {?>
-                <a data-toggle="tooltip" data-placement="top" title="Show Branch users" rel="info" href="<?php echo base_url('reports/show_branch_users/');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-male"></i></p></a>
+                <a data-toggle="tooltip" data-placement="top" title="Show branch users only" rel="info" href="<?php echo base_url('reports/show_branch_users/');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-male"></i></p></a>
 <?php } ?>
 
 
