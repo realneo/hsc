@@ -10,6 +10,11 @@ $online = check_if_online();
 
                 <a data-toggle="tooltip" data-placement="top" title="List View" rel="info" href="<?php echo base_url('reports/activate_grid/0');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('grid_view'))?"active":'';?>"><i class="fa fa-align-justify"></i></p></a>
 
+            <?php if(!$this->session->userdata('show_all_users')){?>
+                <a data-toggle="tooltip" data-placement="top" title="Show All users" rel="info" href="<?php echo base_url('reports/show_all_users/');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-users"></i></p></a>
+<?php } else {?>
+                <a data-toggle="tooltip" data-placement="top" title="Show Branch users" rel="info" href="<?php echo base_url('reports/show_branch_users/');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-male"></i></p></a>
+<?php } ?>
 
 
             </div>
@@ -205,7 +210,7 @@ $online = check_if_online();
                                         </div>
                                         <div class="col-lg-5">
 
-                                            <div class="pull-right">
+                                            <div class="pull-right text-right">
                                                 <div class="variance-list">
                                                    <h1 class="
                                     <?php
@@ -217,7 +222,7 @@ $online = check_if_online();
                                                        echo "text-danger";
                                                    }
                                                    ?>
-                                    "><strong><?php echo $total_variance_since_started;?>/=</strong></h1><span class="text-muted">(Total Variance)</span>
+                                    "><strong><?php echo $total_variance_since_started;?>/=</strong></h1><span class="text-muted text-right">(Total Variance)</span>
                                                </div>
                                                 <div class="options-list btn-group dropup">
                                                     <?php if($this->session->userdata('auth_type')==21){?><button type="button" class="btn btn-cool"><a style="color: white;" data-toggle="tooltip" data-placement="left" title="Variance for <?php echo $this->staffs->get_profile($staff['id'])[0]['first_name'];?>" rel="info"  href="<?php echo base_url('reports/reset_variance').'/'.$staff['id'];?>"><span class="fa fa-retweet"></span> Reset </a></button>

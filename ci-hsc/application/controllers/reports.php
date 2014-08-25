@@ -282,6 +282,16 @@ class Reports extends CI_Controller{
         $this->user_report();
     }
 
+    function show_all_users(){
+        $this->session->set_userdata('show_all_users',true);
+        $this->user_report_redirect();
+    }
+
+    function show_branch_users(){
+        $this->session->set_userdata('show_all_users',false);
+        $this->user_report_redirect();
+    }
+
     function user_report(){
         /*
          * Specific Data for one page goes here
@@ -297,7 +307,7 @@ class Reports extends CI_Controller{
             }
 
             if($this->session->userdata('auth_type')<=29){//21:Accountant 20:management 29:stock controller
-                if($this->session->set_userdata('show_all_users')){
+                if($this->session->userdata('show_all_users')){
                     $data['staffs']=$this->staffs->get_users();
                 }else{
                     $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
