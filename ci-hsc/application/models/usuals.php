@@ -26,7 +26,7 @@ class Usuals extends CI_Model{
      * Gets all the branches
      */
     function get_branches(){
-        $query="SELECT name,id from branch";
+        $query="SELECT name,id,status from branch";
         $results=$this->db->query($query);
         return $results->result_array();
 
