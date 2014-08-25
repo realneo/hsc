@@ -74,8 +74,8 @@ function return_false(){
 }
 
 function check_if_online(){
-    //For now checking if online always
-    return return_false();
+   // //For now checking if online always
+   // return return_false();
 
     $num = 10;
     $error = false;

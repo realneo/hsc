@@ -29,7 +29,7 @@
         <li>
             <a href="<?php echo base_url('hsc/change_branch').'/'.$branch['id'];?>">
                 <div>
-                    <p class="reset-fahad"> <?php echo $branch['name']." Branch"?></p>
+                    <p class="reset-fahad"> <?php echo $branch['name'];echo ($branch['id']<=7)?" Branch":"";?></p>
                 </div>
             </a>
         </li>
