@@ -29,7 +29,7 @@ function custom_date_format($date){
  * Makes text bold, usefull
  */
 function make_me_bold($value){
-    return "<b>".$value."</b>";
+    return "<strong>".$value."</strong>";
 }
 
 

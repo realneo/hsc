@@ -169,17 +169,20 @@
 
 
                     </li>
-                    <?php  if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
+
                     <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
+
+                            <ul class="nav nav-third-level">
+                            <li><a href="<?php echo base_url('reports/payment');?>"><span class="fa fa-truck"></span> Payment Report</a></li>
+
+                            </ul>
+                        <?php  if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="fa fa-paperclip "></span> Manual Invoices Report</a></li>
 
                         </ul>
-                        <ul class="nav nav-third-level">
-                            <li><a href="<?php echo base_url('reports/payment');?>"><span class="fa fa-truck"></span> Payment Report</a></li>
 
-                        </ul>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/binding');?>"><span class="fa fa-suitcase"></span> Binding Report</a></li>
                         </ul>
@@ -187,9 +190,9 @@
 
                             <li><a href="<?php echo base_url('reports/user_report');?>"><span class="fa fa-users"></span> Users Report</a></li>
                         </ul>
-
+                        <?php } ?>
                     </li>
-                    <?php } ?>
+
 
 
                 </ul>
