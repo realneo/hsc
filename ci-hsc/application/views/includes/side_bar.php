@@ -127,6 +127,7 @@
                         <a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-th-list"></span> Staff Management <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li ><a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-plus"></span> Add New Staff </a></li>
+                            <li ><a href="<?php echo base_url('staff/manage_staff');?>"><span class="glyphicon glyphicon-book"></span> Change Staff </a></li>
                         </ul>
                     </li>
                 </ul>
