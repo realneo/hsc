@@ -180,4 +180,24 @@ class Staff extends CI_Controller{
 
         }
     }
+
+    function manage_staff(){
+        /*
+         * Specific Data for one page goes here
+         */
+        $data['title']="Staff Management";
+        $data['active']="staff";
+        $data['active_tab']="manage_staff";
+
+        //add this kwa kila mwisho wa data zote
+        $data = $this->data + $data;
+        $this->load->view('includes/header',$data);
+        $this->load->view('includes/top_nav');
+        $this->load->view('includes/side_bar');
+        $this->load->view('includes/title');
+
+        $this->load->view('staff/change_branch');
+        $this->load->view('includes/footer');
+
+    }
 }
