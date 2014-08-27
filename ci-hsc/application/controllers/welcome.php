@@ -138,6 +138,10 @@ class Welcome extends CI_Controller {
 
 
     }
+
+    function change_branch_details(){
+        var_dump($_POST);
+    }
 }
 
 /* End of file welcome.php */

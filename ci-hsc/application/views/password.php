@@ -200,6 +200,69 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
             </div>
         </div>
 
+        <?php
+        $this->session->set_userdata("edit_branch",2);
+        if($this->session->userdata("edit_branch")){?>
+        <!--        Password starts here-->
+        <?php $data['dont_show']=true;
+        $data['title']="Bado";
+        $this->load->view('includes/title',$data);
+        ?>
+
+            <div class="row">
+
+
+                <div class="col-sm-12 col-md-12 user-details">
+
+
+                    <div class="row">
+                        <div class="col-md-12" style="margin-left: 16px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Manage Branches</h3>
+                                </div>
+                                <div class="panel-body pad-20">
+                                    <form class="form-horizontal" method="post"
+                                          action="<?php echo base_url('welcome/change_branch_details');?>">
+
+                                        <fieldset>
+                                            <!-- Sign In Form -->
+                                            <!-- Text input-->
+                                            <div class="control-group">
+                                                <label class="control-label" for="name">Branch Name</label>
+                                                <div class="controls">
+                                                    <input required="" id="name" name="name" type="text" class="form-control" placeholder="Name of the offer" class="input-medium" required="" value="<?php echo $this->usuals->get_branch_name($this->session->userdata("edit_branch"));?>">
+                                                    <input required="" name="id" type="hidden" value="<?php echo $this->session->userdata("edit_branch");?>">
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label" for="name">Status</label>
+                                                <div class="controls">
+                                                    
+                                                </div>
+                                            </div>
+                                            <!-- Button -->
+                                            <div class="control-group">
+                                                <label class="control-label" for="signin"></label>
+                                                <div class="controls">
+                                                    <button type="submit" id="fahad" name="basic" class="btn btn-success">Save</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        <?php }?>
 
     </div>
 </div>
