@@ -59,10 +59,9 @@ $online = check_if_online();
                 <div class="col-lg-5">
                     <div class="text-right">
                         <div class="responsive-select form-group col-lg-12 col-lg-8 col-xs-8 col-sm-8 text-right pull-right">
-                            <form
-                                action="<?php echo base_url('staff/change_staff_details') . '/' . $staff['id'] ?>">
-                                <div class="input-group ">
-                                    <select class='form-control input-append' name='auth_type'>
+                            <form action="<?php echo base_url('staff/change_staff_details');?>" method="post">
+                                <div class="input-group">
+                                    <select class='form-control input-append' name='name'>
                                         <?php
 
                                         foreach($this->usuals->get_all_branches() as $branch){?>
@@ -74,7 +73,9 @@ $online = check_if_online();
 
                                     </select>
               <span class="input-group-btn">
+                  <input value="<?php echo $staff['id'];?>" type="hidden" class="btn btn-cool input-append" name="user_id"/>
                   <input value="update" type="submit" class="btn btn-cool input-append"/>
+
               </span>
                                 </div>
 

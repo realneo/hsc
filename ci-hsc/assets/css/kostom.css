@@ -481,7 +481,7 @@ and (max-width : 320px) {
     }
     .responsive-select {
         margin-top: -51px;
-         margin-right: -1px; 
+         margin-right: -1px;
         width: 59%;
     }
 }

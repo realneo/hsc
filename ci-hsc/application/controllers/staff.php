@@ -204,4 +204,8 @@ class Staff extends CI_Controller{
         $this->load->view('includes/footer');
 
     }
+
+    function change_staff_details(){
+        var_dump($_POST);
+    }
 }
