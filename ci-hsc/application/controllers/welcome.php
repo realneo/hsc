@@ -169,7 +169,7 @@ class Welcome extends CI_Controller {
             $this->settings_redirect();
         }else{
             $this->session->set_flashdata('alert_type','warning');
-            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> Nothing happened! the {$name_of_branch} branch's details are still the same");
+            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-down'></i> Nothing happened, {$name_of_branch} branch is still the same");
             $this->settings_redirect();
         }
     }
