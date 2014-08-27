@@ -206,6 +206,33 @@ class Staff extends CI_Controller{
     }
 
     function change_staff_details(){
-        var_dump($_POST);
+        $user_id = $this->input->post('user_id');
+        $branch_id = $this->input->post('branch_id');
+        $employee_name = $this->input->post('full_name');
+        $this->session->userdata('full_name');
+
+        $q = $this->staffs->change_user_branch($user_id,$branch_id);
+        $name_of_branch = $this->usuals->get_branch_name($branch_id);
+        $name_of_branch = make_me_bold($name_of_branch);
+        $employee_name = make_me_bold($employee_name);
+
+        if($q){
+
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> You have successfully changed {$employee_name}'s branch, {$employee_name} is currenly assigned at {$name_of_branch}. Changes will take effect when {$employee_name} logs in.");
+            $this->manage_staff_redirect();
+
+        }else{
+
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-down'></i> Nothing happened, {$name_of_branch} branch is still the same");
+            $this->manage_staff_redirect();
+
+        }
+    }
+
+    function manage_staff_redirect(){
+        base_url('staff/manage_staff');
+        die();
     }
 }

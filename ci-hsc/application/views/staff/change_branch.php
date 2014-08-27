@@ -61,11 +61,11 @@ $online = check_if_online();
                         <div class="responsive-select form-group col-lg-12 col-lg-8 col-xs-8 col-sm-8 text-right pull-right">
                             <form action="<?php echo base_url('staff/change_staff_details');?>" method="post">
                                 <div class="input-group">
-                                    <select class='form-control input-append' name='name'>
+                                    <select class='form-control input-append' name='branch_id'>
                                         <?php
 
                                         foreach($this->usuals->get_all_branches() as $branch){?>
-                                            <option class="reset-fahad" <?php
+                                            <option value="<?php echo $branch['id'];?>" <?php
                                                 if($branch['id']==$staff['branch_id']){echo "selected";}
                                                 ?>> <?php echo $branch['name'];echo ($branch['id']<=7)?" Branch":"";?></option>
 
@@ -74,6 +74,8 @@ $online = check_if_online();
                                     </select>
               <span class="input-group-btn">
                   <input value="<?php echo $staff['id'];?>" type="hidden" class="btn btn-cool input-append" name="user_id"/>
+                  <input value="<?php echo $this->staffs->get_profile($staff['id'])[0]['first_name']." "
+                      .$this->staffs->get_profile($staff['id'])[0]['last_name'];?>" type="hidden" class="btn btn-cool input-append" name="full_name"/>
                   <input value="update" type="submit" class="btn btn-cool input-append"/>
 
               </span>
