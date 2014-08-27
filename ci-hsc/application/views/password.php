@@ -172,9 +172,14 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                                                 <td><?php echo $branch['status']?></td>
                                                 <td>
 <!--                                                    <a data-toggle="tooltip" data-placement="top" title="Rename Branch" rel="info" href=""><i class="fa fa-edit"></i></a>-->
-                                                    <span class="text-muted small">
-                                                        (Not Available at the moment)
-                                                    </span>
+<!--                                                    <span class="text-muted small">-->
+<!--                                                        (Not Available at the moment)-->
+<!--                                                    </span>-->
+                                                    <a data-toggle="tooltip" data-placement="left" title="Renames Branch" rel="info" href="#" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> </a>
+                                                    <a data-toggle="tooltip" data-placement="top" title="Make it Active" rel="info"  class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-cloud"></span> </a>
+                                                    <a data-toggle="tooltip" data-placement="right" title="Deactivate" rel="info" href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+
+
                                                 </td>
                                             </tr>
 
@@ -187,6 +192,8 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                         </div>
                     </div>
                 </div>
+
+
 
 
 
