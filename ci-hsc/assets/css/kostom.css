@@ -416,10 +416,21 @@ span.tags
     margin-bottom: 10px;
 }
 
+.responsive-select{
+    margin-top: 44px;
+    margin-right: -45px;
+    width: 50%;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .variance-list{
         margin-top: -106px;
+    }
+    .responsive-select{
+        margin-top: -52px;
+        margin-right: -16px;
+
     }
 
 }
@@ -429,12 +440,22 @@ span.tags
     .variance-list{
         margin-top: -106px;
     }
+    .responsive-select{
+        margin-top: 500px;
+        margin-right: 500px;
+
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .variance-list{
         margin-top: -12px;
+    }
+    .responsive-select{
+        margin-top: 43px;
+        margin-right: -59px;
+        width: 110%;
     }
 
 }
