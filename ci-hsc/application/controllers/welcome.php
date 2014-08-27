@@ -139,8 +139,17 @@ class Welcome extends CI_Controller {
 
     }
 
+    function edit_branch($id){
+        $this->session->set_userdata('edit_branch',$id);
+        $this->session->set_flashdata('alert_type','success');
+        $this->session->set_flashdata('alert_msg',"Branch Opened at the bottom for changes, scroll below <b>Manage Branches Tab</b>");
+        $this->settings_redirect();
+    }
+
     function change_branch_details(){
         var_dump($_POST);
+        //close it if ou finish
+//        $this->session->unset_userdata('edit_branch');
     }
 }
 

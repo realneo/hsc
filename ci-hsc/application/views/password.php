@@ -175,9 +175,9 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
 <!--                                                    <span class="text-muted small">-->
 <!--                                                        (Not Available at the moment)-->
 <!--                                                    </span>-->
-                                                    <a data-toggle="tooltip" data-placement="left" title="Renames Branch" rel="info" href="" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> </a>
-                                                    <a data-toggle="tooltip" data-placement="top" title="Make it Active" rel="info"  class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-cloud"></span> </a>
-                                                    <a data-toggle="tooltip" data-placement="right" title="Deactivate" rel="info" href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+                                                    <a data-toggle="tooltip" data-placement="left" title="Renames Branch" rel="info" href="<?php echo base_url('welcome/edit_branch').'/'.$branch['id'];?>" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> </a>
+                                                    <a data-toggle="tooltip" data-placement="top" title="Make it Active" rel="info"  class='btn btn-info btn-xs' href="<?php echo base_url('welcome/edit_branch').'/'.$branch['id'];?>"><span class="glyphicon glyphicon-cloud"></span> </a>
+                                                    <a data-toggle="tooltip" data-placement="right" title="Deactivate" rel="info" href="<?php echo base_url('welcome/edit_branch').'/'.$branch['id'];?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
 
 
                                                 </td>
