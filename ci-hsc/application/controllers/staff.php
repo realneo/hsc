@@ -226,7 +226,7 @@ class Staff extends CI_Controller{
         if($q){
             // Write into Log
             $log = "Branch Change: $employee_name was moved to $name_of_branch from $from_branch , by $full_name";
-            $this->usuals->log_write($user_id, $branch_id, $log);
+            $this->usuals->log_write($user_id,$from_branch, $log);
 
             $this->session->set_flashdata('alert_type','success');
             $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> You have successfully changed {$employee_name}'s branch, {$employee_name} is currenly assigned at {$name_of_branch}. Changes will take effect when {$employee_name} logs in again.");
