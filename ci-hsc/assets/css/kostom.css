@@ -416,14 +416,17 @@ span.tags
     margin-bottom: 10px;
 }
 
-.responsive-select{
-    margin-top: 44px;
-    margin-right: -45px;
-    width: 50%;
+/*Mobile by default*/
+.responsive-select {
+    margin-top: -50px;
+    margin-right: -13px;
+    width: 54%;
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
     .variance-list{
         margin-top: -106px;
     }
@@ -435,15 +438,51 @@ span.tags
 
 }
 
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+    .responsive-select {
+        margin-top: 3px;
+        margin-right: -27px;
+        width: 109%;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+    .responsive-select{
+        margin-top: 1px;
+        margin-right: -11px;
+        width: 108%;
+        padding: 0;
+    }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .variance-list{
+        margin-top: -106px;
+    }
+    .responsive-select {
+        margin-top: -52px;
+        margin-right: -26px;
+        width: 56%;
+    }
+
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .variance-list{
         margin-top: -106px;
     }
-    .responsive-select{
-        margin-top: 500px;
-        margin-right: 500px;
-
+    .responsive-select {
+        margin-top: -51px;
+         margin-right: -1px; 
+        width: 59%;
     }
 }
 
