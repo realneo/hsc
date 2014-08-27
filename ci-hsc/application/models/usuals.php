@@ -31,6 +31,31 @@ class Usuals extends CI_Model{
         return $results->result_array();
 
     }
+
+    function get_active_branches(){
+        $query="SELECT name,id,status from branch where `status`=='active'";
+        $results=$this->db->query($query);
+        return $results->result_array();
+
+    }
+
+    function branch_status(){
+        $table="branch";
+        $field="status";
+        $query = "SHOW COLUMNS FROM `$table` LIKE '$field' ";
+        //$result = mysqli_query($connection, $query );
+        //$row = mysqli_fetch_array($result , MYSQL_NUM );
+        $row=$this->db->query($query)->result_array();
+        #extract the values
+        #the values are enclosed in single quotes
+        #and separated by commas
+        $regex = "/'(.*?)'/";//"/'(.*?)'/";
+        preg_match_all( $regex , $row[0]['Type'], $enum_array );
+        $enum_fields = $enum_array[1];//uki vardump utaelewa kwanini nimeweka hivi
+        return( $enum_fields );
+
+    }
+
 // Get the Total Amount of Manual Invoices
     function getTotalManualInvoices($entered){
         $branch_id =$this->session->userdata('branch_id');

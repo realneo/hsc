@@ -175,7 +175,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
 <!--                                                    <span class="text-muted small">-->
 <!--                                                        (Not Available at the moment)-->
 <!--                                                    </span>-->
-                                                    <a data-toggle="tooltip" data-placement="left" title="Renames Branch" rel="info" href="#" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> </a>
+                                                    <a data-toggle="tooltip" data-placement="left" title="Renames Branch" rel="info" href="" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> </a>
                                                     <a data-toggle="tooltip" data-placement="top" title="Make it Active" rel="info"  class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-cloud"></span> </a>
                                                     <a data-toggle="tooltip" data-placement="right" title="Deactivate" rel="info" href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
 
@@ -201,11 +201,10 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
         </div>
 
         <?php
-        $this->session->set_userdata("edit_branch",2);
         if($this->session->userdata("edit_branch")){?>
         <!--        Password starts here-->
         <?php $data['dont_show']=true;
-        $data['title']="Bado";
+        $data['title']=$this->usuals->get_branch_name($this->session->userdata("edit_branch"));
         $this->load->view('includes/title',$data);
         ?>
 
@@ -219,13 +218,13 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                         <div class="col-md-12" style="margin-left: 16px;">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Manage Branches</h3>
+                                    <h3 class="panel-title">Make Changes to <?php echo make_me_bold($this->usuals->get_branch_name($this->session->userdata("edit_branch")));?></h3>
                                 </div>
                                 <div class="panel-body pad-20">
                                     <form class="form-horizontal" method="post"
                                           action="<?php echo base_url('welcome/change_branch_details');?>">
 
-                                        <fieldset>
+                                        <fieldset class="col-lg-6">
                                             <!-- Sign In Form -->
                                             <!-- Text input-->
                                             <div class="control-group">
@@ -236,12 +235,20 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                                                 </div>
                                             </div>
 
-                                            <div class="control-group">
-                                                <label class="control-label" for="name">Status</label>
-                                                <div class="controls">
-                                                    
-                                                </div>
-                                            </div>
+
+                                                    <div class="control-group">
+                                                        <label>Status</label>
+                                                        <select class='form-control' name='status'>
+                                                            <?php
+
+                                                            foreach($this->usuals->branch_status() as $row){
+                                                                $status = $row;
+                                                                echo "<option class='btn btn-lg' value='$status'>{$status}</option>";
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+
                                             <!-- Button -->
                                             <div class="control-group">
                                                 <label class="control-label" for="signin"></label>
