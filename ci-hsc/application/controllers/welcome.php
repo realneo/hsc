@@ -176,12 +176,28 @@ class Welcome extends CI_Controller {
 
     function add_branch(){
         $name = $this->input->post('name');
-        $fullname = $this->input->post('fullname');
+
+        /*
+         * Format title
+         */
+
+        $name = make_caps($name);
+
+        $full_name = $this->input->post('fullname');
         $data_to_post = array(
             'name'=> $name,
         );
-        $this->usuals->add_branch($data_to_post);
 
+        $query  = $this->usuals->add_branch($data_to_post);
+        if($query){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"You have successfully added {$name} branch, $full_name!");
+            $this->settings_redirect();
+        }else{
+            $this->session->set_flashdata('alert_type','danger');
+            $this->session->set_flashdata('alert_msg',"Nothing happened! {$name} was not added :( try it later perhaps :)");
+            $this->settings_redirect();
+        }
     }
 }
 
