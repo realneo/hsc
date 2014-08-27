@@ -153,7 +153,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                     <div class="col-md-12" style="margin-left: 16px;">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Branches</h3>
+                                <h3 class="panel-title">Branches <span class="text-muted small pull-right pull-right-top-4">Click on the actions buttons to activate permissions</span></h3>
                             </div>
                             <div class="panel-body pad-20">
                                 <div class="table-responsive">
@@ -218,7 +218,9 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                         <div class="col-md-12" style="margin-left: 16px;">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Make Changes to <?php echo make_me_bold($this->usuals->get_branch_name($this->session->userdata("edit_branch")));?></h3>
+                                    <h3 class="panel-title">Make Changes to <?php echo make_me_bold($this->usuals->get_branch_name($this->session->userdata("edit_branch")));?><span class="text-muted small pull-right pull-right-top-4">
+                                            Currently the branch is <?php echo make_me_bold($this->usuals->get_branch_status($this->session->userdata("edit_branch")));?>
+                                    </span></h3>
                                 </div>
                                 <div class="panel-body pad-20">
                                     <form class="form-horizontal" method="post"
@@ -243,12 +245,73 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
 
                                                             foreach($this->usuals->branch_status() as $row){
                                                                 $status = $row;
-                                                                echo "<option class='btn btn-lg' value='$status'>{$status}</option>";
+                                                                if($this->usuals->get_branch_status($this->session->userdata("edit_branch"))==$status){
+                                                                    echo "<option class='btn btn-lg' value='$status' selected>{$status}</option>";
+                                                                }else{
+                                                                    echo "<option class='btn btn-lg' value='$status' >{$status}</option>";
+                                                                }
+
                                                             }
                                                             ?>
                                                         </select>
                                                     </div>
 
+                                            <!-- Button -->
+                                            <div class="control-group">
+                                                <label class="control-label" for="signin"></label>
+                                                <div class="controls">
+                                                    <button type="submit" id="fahad" name="basic" class="btn btn-success">Save</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        <?php }?>
+
+        <?php
+        if($this->session->userdata("add_branch")==false){?>
+        <!--        Password starts here-->
+        <?php $data['dont_show']=true;
+        $data['title']="All Branch";
+        $this->load->view('includes/title',$data);
+        ?>
+
+            <div class="row">
+
+
+                <div class="col-sm-12 col-md-12 user-details">
+
+
+                    <div class="row">
+                        <div class="col-md-12" style="margin-left: 16px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Adding branch</h3>
+                                </div>
+                                <div class="panel-body pad-20">
+                                    <form class="form-horizontal" method="post"
+                                          action="<?php echo base_url('welcome/add_branch');?>">
+
+                                        <fieldset class="col-lg-6">
+                                            <!-- Sign In Form -->
+                                            <!-- Text input-->
+                                            <div class="control-group">
+                                                <label class="control-label" for="name">Branch Name</label>
+                                                <div class="controls">
+                                                    <input required="" id="name" name="name" type="text" class="form-control" placeholder="Name of the offer" class="input-medium" required="" value="Name goes here!">
+                                                    <input  name="fullname" type="hidden" value="<?php echo $this->session->userdata('full_name');?>">
+                                                </div>
+                                            </div>
                                             <!-- Button -->
                                             <div class="control-group">
                                                 <label class="control-label" for="signin"></label>

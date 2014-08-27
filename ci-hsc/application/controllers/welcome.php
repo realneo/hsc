@@ -49,7 +49,7 @@ class Welcome extends CI_Controller {
          * GLOBAL DATAs needed
          */
         $this->data['logs']=$this->usuals->get_recent_activities();
-        $this->data['branches']=$this->usuals->get_branches();
+        $this->data['branches']=$this->usuals->get_all_branches();
     }
         public function index()
 	{
@@ -141,15 +141,37 @@ class Welcome extends CI_Controller {
 
     function edit_branch($id){
         $this->session->set_userdata('edit_branch',$id);
+
+        $name_of_branch = $this->usuals->get_branch_name($id);
+        $name_of_branch = make_me_bold($name_of_branch);
+
         $this->session->set_flashdata('alert_type','success');
-        $this->session->set_flashdata('alert_msg',"Branch Opened at the bottom for changes, scroll below <b>Manage Branches Tab</b>");
+        $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> {$name_of_branch} Branch is now <b>Opened</b> for the changes you 've requested , scroll below <b>Manage Branches Panel</b> and make sure you save your changes");
         $this->settings_redirect();
     }
 
     function change_branch_details(){
-        var_dump($_POST);
-        //close it if ou finish
-//        $this->session->unset_userdata('edit_branch');
+//        var_dump($_POST);
+        //Kill the session
+        $this->session->unset_userdata('edit_branch');
+        $id = $this->input->post('id');
+        $data_to_post = array(
+            'name'      => $this->input->post('name'),
+            'status'    => $this->input->post('status')
+        );
+
+        $q = $this->usuals->update_branch_details($id,$data_to_post);
+        $name_of_branch = $this->usuals->get_branch_name($id);
+        $name_of_branch = make_me_bold($name_of_branch);
+        if($q){
+            $this->session->set_flashdata('alert_type','success');
+            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> You have successfully changed details concerning {$name_of_branch} branch!, {$name_of_branch} is now closed for editing , you can open it the <strong>actions tab</strong> anytime");
+            $this->settings_redirect();
+        }else{
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> Nothing happened! the {$name_of_branch} branch's details are still the same");
+            $this->settings_redirect();
+        }
     }
 }
 

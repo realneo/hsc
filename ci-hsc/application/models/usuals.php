@@ -22,23 +22,46 @@ class Usuals extends CI_Model{
 
     }
 
+    function  get_branch_status($id){
+
+        $query="SELECT status from branch where `id`=$id";
+        $results=$this->db->query($query)->result_array();
+        return $results[0]['status'];
+
+    }
+
     /*
      * Gets all the branches
      */
     function get_branches(){
-        $this->get_active_branches();
+        $query="SELECT * from branch where `status` = 'active'";
+        $results=$this->db->query($query);
+        return $results->result_array();
+//        $this->get_all_branches();
     }
 
     function get_all_branches(){
-        $query="SELECT name,id,status from branch";
+        $query="SELECT * from branch";
         $results=$this->db->query($query);
         return $results->result_array();
 
     }
 
+    function update_branch_details($id,$data){
+        $this->db->where('id',$id);
+        $this->db->update('branch',$data);
+        if($this->db->affected_rows()>=1){
+            return true;
+        }else{
+          return false;
+        }
+
+
+    }
+
 
     function get_active_branches(){
-        $query="SELECT name,id,status from branch where `status`=='active'";
+        $query="SELECT name,id,status from branch where `status` = 'active'";
         $results=$this->db->query($query);
         return $results->result_array();
 
