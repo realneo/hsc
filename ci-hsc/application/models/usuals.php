@@ -26,11 +26,16 @@ class Usuals extends CI_Model{
      * Gets all the branches
      */
     function get_branches(){
+        $this->get_active_branches();
+    }
+
+    function get_all_branches(){
         $query="SELECT name,id,status from branch";
         $results=$this->db->query($query);
         return $results->result_array();
 
     }
+
 
     function get_active_branches(){
         $query="SELECT name,id,status from branch where `status`=='active'";
