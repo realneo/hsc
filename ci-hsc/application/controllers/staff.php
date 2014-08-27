@@ -209,21 +209,27 @@ class Staff extends CI_Controller{
         $user_id = $this->input->post('user_id');
         $branch_id = $this->input->post('branch_id');
         $from_branch = $this->input->post('from_branch');
+        $done_from_branch = $this->session->userdata('branch_name');
         $employee_name = $this->input->post('full_name');
         $full_name = $this->session->userdata('full_name');
 
         $q = $this->staffs->change_user_branch($user_id,$branch_id);
+
+        /*
+         * Format data
+         */
         $name_of_branch = $this->usuals->get_branch_name($branch_id);
         $name_of_branch = make_me_bold($name_of_branch);
+        $from_branch = make_me_bold($from_branch);
         $employee_name = make_me_bold($employee_name);
 
         if($q){
             // Write into Log
-            $log = "Branch Change: $employee_name was assigned to $name_of_branch , by $full_name";
+            $log = "Branch Change: $employee_name was moved to $name_of_branch from $from_branch , by $full_name";
             $this->usuals->log_write($user_id, $branch_id, $log);
 
             $this->session->set_flashdata('alert_type','success');
-            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> You have successfully changed {$employee_name}'s branch, {$employee_name} is currenly assigned at {$name_of_branch}. Changes will take effect when {$employee_name} logs in.");
+            $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> You have successfully changed {$employee_name}'s branch, {$employee_name} is currenly assigned at {$name_of_branch}. Changes will take effect when {$employee_name} logs in again.");
             $this->manage_staff_redirect();
 
         }else{
