@@ -308,7 +308,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                                             <div class="control-group">
                                                 <label class="control-label" for="name">Branch Name</label>
                                                 <div class="controls">
-                                                    <input required="" id="name" name="name" type="text" class="form-control" placeholder="Name of the offer" class="input-medium" required="" value="Name goes here!">
+                                                    <input required="" id="name" name="name" type="text" class="form-control" placeholder="Name of the branch goes here!" class="input-medium" required="" value="">
                                                     <input  name="fullname" type="hidden" value="<?php echo $this->session->userdata('full_name');?>">
                                                 </div>
                                             </div>

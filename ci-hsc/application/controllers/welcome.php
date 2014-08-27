@@ -173,6 +173,16 @@ class Welcome extends CI_Controller {
             $this->settings_redirect();
         }
     }
+
+    function add_branch(){
+        $name = $this->input->post('name');
+        $fullname = $this->input->post('fullname');
+        $data_to_post = array(
+            'name'=> $name,
+        );
+        $this->usuals->add_branch($data_to_post);
+
+    }
 }
 
 /* End of file welcome.php */
