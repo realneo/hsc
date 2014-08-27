@@ -42,7 +42,7 @@ class Staff extends CI_Controller{
         $this->data['users']=$this->vouchers->get_users();
         $this->data['auth_type']=$this->staffs->get_auth_type();
         $this->data['gender']=$this->staffs->gender_type();
-        $this->data['staffs']= $this->staffs->get_branch_users();
+        $this->data['staffs']= $this->staffs->get_users();
 
     }
 
