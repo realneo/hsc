@@ -59,6 +59,10 @@ class Usuals extends CI_Model{
 
     }
 
+    function add_branch($data_to_post){
+        return $this->db->insert('branch',$data_to_post);
+    }
+
 
     function get_active_branches(){
         $query="SELECT name,id,status from branch where `status` = 'active'";
