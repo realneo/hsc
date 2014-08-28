@@ -130,7 +130,7 @@
 
                         <ul class="nav nav-third-level">
                             <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){//23 - Operations 30: -manager >20 management){?>
-                                <li><a href="<?php echo base_url('staff/manage_staff');?>"><span class="glyphicon glyphicon-book"></span> Change Staff </a></li>
+                                <li><a href="<?php echo base_url('staff/manage_staff');?>"><span class="fa fa-cogs"></span> Change Staff</a></li>
                             <?php } ?>
                             <li ><a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-plus"></span> Add New Staff </a></li>
 
