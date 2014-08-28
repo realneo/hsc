@@ -3,6 +3,7 @@ $(function() {
     $('#side-menu').metisMenu();
 
 });
+$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
 
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.

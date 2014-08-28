@@ -119,20 +119,26 @@
             <?php }?>
 
             <?php
-            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21){//29:Stock_controller 21:Accountant?>
+
+            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21){//29:Stock_controller 21:Accountant
+                if($this->session->userdata('auth_type')<=29){//23 - Operations){?>
             <li class="<?php echo ($active == "staff" ? "active" : "");?>">
                 <a href="<?php echo base_url('staff');?>"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="<?php echo ($active_tab == "add_staff" ? "active" : "");?>">
                         <a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-th-list"></span> Staff Management <span class="fa arrow"></span></a>
+
                         <ul class="nav nav-third-level">
+                            <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')<=20){//23 - Operations){?>
+                                <li><a href="<?php echo base_url('staff/manage_staff');?>"><span class="glyphicon glyphicon-book"></span> Change Staff </a></li>
+                            <?php } ?>
                             <li ><a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-plus"></span> Add New Staff </a></li>
-                            <li ><a href="<?php echo base_url('staff/manage_staff');?>"><span class="glyphicon glyphicon-book"></span> Change Staff </a></li>
+
                         </ul>
                     </li>
                 </ul>
             </li>
-            <?php } ?>
+            <?php }} ?>
 
             <li class="<?php echo ($active == "report" ? "active" : "");?>">
                 <a href="#"><i class="glyphicon glyphicon-list-alt fa-fw"></i> Reports <span class="fa arrow"></span></a>
