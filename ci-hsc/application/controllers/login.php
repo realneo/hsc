@@ -36,7 +36,9 @@ class Login extends CI_Controller {
 		}else{
 			$this->load->model('staffs');
 			if($this->staffs->verify_user($email, $password) == TRUE){
-
+				$this->session->set_flashdata('alert_type','success');
+		        $this->session->set_flashdata('alert_msg', 'Successfully <strong>Logged In</strong>');
+		
 				// Getting the User Information
 				$user_info = $this->staffs->get_user_info($email);
 				
@@ -48,7 +50,7 @@ class Login extends CI_Controller {
 				
 				// Getting User Profile Information
 				$user_profile = $this->staffs->get_profile($this->session->userdata('user_id'));
-				$first_name = ""; //so that we use it later
+				
 				foreach($user_profile as $profile){
 					$first_name = $profile['first_name'];
 					$last_name = $profile['last_name'];
@@ -56,15 +58,8 @@ class Login extends CI_Controller {
 					
 					$this->session->set_userdata('full_name', $full_name);
 				}
-                ;
-                $full_name = $this->session->userdata('full_name');
-                $full_name = make_me_bold($full_name);//$this->session->userdata('full_name');
-                $first_name = make_me_bold($first_name);
-                $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg', "<i class='fa fa-thumbs-up'></i> Hey {$first_name}! would you check the <strong>branch</strong> you are in before performing anything ? And by the way you are <b>logged in</b> :)");
-
-
-                redirect('hsc');
+				
+				redirect('hsc');
                 die();
 			}else{
 				$this->session->set_flashdata('alert_type','danger');
@@ -77,14 +72,8 @@ class Login extends CI_Controller {
 	
 	public function logout(){
 		$this->session->sess_destroy();
-
-        /*
-         * These sessions are not displayed , maybe we 've destroyed 'em
-         */
-        $this->session->set_flashdata('alert_type','success');
-        $this->session->set_flashdata('alert_msg', 'Successfully <strong>Logged out</strong>');
-
-        redirect('login');
+		
+		redirect('login');
         die();
 	}
 

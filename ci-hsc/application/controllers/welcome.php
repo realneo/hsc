@@ -53,14 +53,9 @@ class Welcome extends CI_Controller {
     }
         public function index()
 	{
-        /*
-         * For Closing branch Additions + Editing branches
-         */
-        if($this->session->userdata("auth_type")<=20){//20:management
-            $this->session->set_userdata("add_branch",true);
-        }else{
-            $this->session->set_userdata("add_branch",false);
-        }
+
+
+
         /*
          * Specific Data for one page goes here
          */
