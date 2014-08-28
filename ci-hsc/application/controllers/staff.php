@@ -194,7 +194,7 @@ class Staff extends CI_Controller{
         $data['active_tab']="manage_staff";
 
 
-        if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){
+        if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==21 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){
 
 
                 $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));

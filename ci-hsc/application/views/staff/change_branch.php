@@ -15,11 +15,6 @@ $online = check_if_online();
 
 
                 </div>
-                <?php if($this->session->userdata('auth_type')==21){?>
-                    <div class="pull-left push-from-left-15">
-                        <a data-toggle="tooltip" data-placement="right" title="Variances from all branches" rel="info" href="<?php echo base_url('reports/reset_all_variances');?>"><p class="btn btn-success"><i class="fa fa-retweet"></i> Reset All</p></a>
-                    </div>
-                <?php }?>
             </div>
         </div>
 
@@ -76,7 +71,8 @@ $online = check_if_online();
                         <?php echo $staff['email'];?>
                     </p>
                 </div>
-                <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){?>
+                <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==21 or
+$this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){?>
                 <div class="col-lg-5">
                     <div class="text-right">
                         <div class="responsive-select form-group col-lg-12 col-lg-8 col-xs-8 col-sm-8 text-right pull-right">
