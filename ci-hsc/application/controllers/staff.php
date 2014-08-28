@@ -228,6 +228,14 @@ class Staff extends CI_Controller{
 
     }
 
+    function show_all_users(){
+        $this->session->set_userdata('show_all_users',true);
+    }
+
+    function show_branch_users(){
+        $this->session->set_userdata('show_all_users',false);
+    }
+
     function change_staff_details(){
         $user_id = $this->input->post('user_id');
         $branch_id = $this->input->post('branch_id');

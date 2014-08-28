@@ -3,6 +3,26 @@ $online = check_if_online();
 ?>
 
 <div class="row">
+
+        <div class="row push-down-15">
+            <div class="col-lg-12">
+                <div class="pull-right push-from-right-15">
+                    <?php if(!$this->session->userdata('show_all_users')){?>
+                        <a data-toggle="tooltip" data-placement="top" title="Show All users" rel="info" href="<?php echo base_url('staff/show_all_users/');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-users"></i></p></a>
+                    <?php } else {?>
+                        <a data-toggle="tooltip" data-placement="top" title="Show branch users only" rel="info" href="<?php echo base_url('staff/show_branch_users/');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-male"></i></p></a>
+                    <?php } ?>
+
+
+                </div>
+                <?php if($this->session->userdata('auth_type')==21){?>
+                    <div class="pull-left push-from-left-15">
+                        <a data-toggle="tooltip" data-placement="right" title="Variances from all branches" rel="info" href="<?php echo base_url('reports/reset_all_variances');?>"><p class="btn btn-success"><i class="fa fa-retweet"></i> Reset All</p></a>
+                    </div>
+                <?php }?>
+            </div>
+        </div>
+
     <?php
     //col-md-offset-2 col-md-8 col-lg-offset-3
     foreach($staffs as $key=>$staff){?>
