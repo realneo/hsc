@@ -42,7 +42,7 @@ class Staff extends CI_Controller{
         $this->data['users']=$this->vouchers->get_users();
         $this->data['auth_type']=$this->staffs->get_auth_type();
         $this->data['gender']=$this->staffs->gender_type();
-        $this->data['staffs']= $this->staffs->get_branch_users();
+        $this->data['staffs']= $this->staffs->get_users();
 
     }
 
@@ -209,6 +209,7 @@ class Staff extends CI_Controller{
         $user_id = $this->input->post('user_id');
         $branch_id = $this->input->post('branch_id');
         $from_branch = $this->input->post('from_branch');
+        $from_branch_id = $this->input->post('from_branch_id');
         $done_from_branch = $this->session->userdata('branch_name');
         $employee_name = $this->input->post('full_name');
         $full_name = $this->session->userdata('full_name');
@@ -226,7 +227,7 @@ class Staff extends CI_Controller{
         if($q){
             // Write into Log
             $log = "Branch Change: $employee_name was moved to $name_of_branch from $from_branch , by $full_name";
-            $this->usuals->log_write($user_id, $branch_id, $log);
+            $this->usuals->log_write($user_id,$from_branch_id, $log);
 
             $this->session->set_flashdata('alert_type','success');
             $this->session->set_flashdata('alert_msg',"<i class='glyphicon glyphicon-thumbs-up'></i> You have successfully changed {$employee_name}'s branch, {$employee_name} is currenly assigned at {$name_of_branch}. Changes will take effect when {$employee_name} logs in again.");

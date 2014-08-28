@@ -76,6 +76,7 @@ $online = check_if_online();
                   <input value="<?php echo $staff['id'];?>" type="hidden" class="btn btn-cool input-append" name="user_id"/>
 
                   <input value="<?php echo $this->usuals->get_branch_name($staff['branch_id']);?>" type="hidden" class="btn btn-cool input-append" name="from_branch"/>
+                  <input value="<?php echo $staff['branch_id'];?>" type="hidden" class="btn btn-cool input-append" name="from_branch_id"/>
 
                   <input value="<?php echo $this->staffs->get_profile($staff['id'])[0]['first_name']." "
                       .$this->staffs->get_profile($staff['id'])[0]['last_name'];?>" type="hidden" class="btn btn-cool input-append" name="full_name"/>
