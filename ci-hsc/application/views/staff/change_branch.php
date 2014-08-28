@@ -56,6 +56,7 @@ $online = check_if_online();
                         <?php echo $staff['email'];?>
                     </p>
                 </div>
+                <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){?>
                 <div class="col-lg-5">
                     <div class="text-right">
                         <div class="responsive-select form-group col-lg-12 col-lg-8 col-xs-8 col-sm-8 text-right pull-right">
@@ -88,11 +89,13 @@ $online = check_if_online();
 
                                 </form>
 
+
                         </div>
                     </div>
 
 
                 </div>
+                <?php }?>
             </div>
 
         </div>
