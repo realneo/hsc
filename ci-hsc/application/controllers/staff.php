@@ -236,6 +236,11 @@ class Staff extends CI_Controller{
         $this->session->set_userdata('show_all_users',false);
     }
 
+    function manage_staff_redirect(){
+        redirect(base_url('staff/manage_staff'));
+        die();
+    }
+
     function change_staff_details(){
         $user_id = $this->input->post('user_id');
         $branch_id = $this->input->post('branch_id');
