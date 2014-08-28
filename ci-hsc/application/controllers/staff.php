@@ -230,15 +230,12 @@ class Staff extends CI_Controller{
 
     function show_all_users(){
         $this->session->set_userdata('show_all_users',true);
+        $this->manage_staff_redirect();
     }
 
     function show_branch_users(){
         $this->session->set_userdata('show_all_users',false);
-    }
-
-    function manage_staff_redirect(){
-        redirect(base_url('staff/manage_staff'));
-        die();
+        $this->manage_staff_redirect();
     }
 
     function change_staff_details(){
