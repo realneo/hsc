@@ -171,15 +171,14 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                                                 <td><?php echo $branch['name']?></td>
                                                 <td><?php echo $branch['status']?></td>
                                                 <td>
-<!--                                                    <a data-toggle="tooltip" data-placement="top" title="Rename Branch" rel="info" href=""><i class="fa fa-edit"></i></a>-->
-<!--                                                    <span class="text-muted small">-->
-<!--                                                        (Not Available at the moment)-->
-<!--                                                    </span>-->
+
+                                                    <?php if($this->session->userdata("add_branch")){?>
                                                     <a data-toggle="tooltip" data-placement="left" title="Renames Branch" rel="info" href="<?php echo base_url('welcome/edit_branch').'/'.$branch['id'];?>" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> </a>
                                                     <a data-toggle="tooltip" data-placement="top" title="Make it Active" rel="info"  class='btn btn-info btn-xs' href="<?php echo base_url('welcome/edit_branch').'/'.$branch['id'];?>"><span class="glyphicon glyphicon-cloud"></span> </a>
                                                     <a data-toggle="tooltip" data-placement="right" title="Deactivate" rel="info" href="<?php echo base_url('welcome/edit_branch').'/'.$branch['id'];?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
-
-
+                                                    <?php }else{ ?>
+                                            <span class="text-muted small">(You dont have neccesary permissions to edit this part)</span>
+<?php } ?>
                                                 </td>
                                             </tr>
 
@@ -279,7 +278,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
         <?php }?>
 
         <?php
-        if($this->session->userdata("add_branch")==false){?>
+        if($this->session->userdata("add_branch")){?>
         <!--        Password starts here-->
         <?php $data['dont_show']=true;
         $data['title']="All Branch";
@@ -316,7 +315,7 @@ $current_user = $this->staffs->get_user($staff['user_id'])[0];
                                             <div class="control-group">
                                                 <label class="control-label" for="signin"></label>
                                                 <div class="controls">
-                                                    <button type="submit" id="fahad" name="basic" class="btn btn-success">Save</button>
+                                                    <button type="submit" id="fahad" name="basic" class="btn btn-success">Add</button>
                                                 </div>
                                             </div>
                                         </fieldset>
