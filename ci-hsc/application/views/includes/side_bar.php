@@ -177,7 +177,7 @@
 
                     </li>
 
-                    <li class="<?php echo ($active_tab == "other_report" ? "active" : "");?>">
+                    <li class = "<?php echo ($active_tab == "other_report" ? "active" : "");?>">
                         <a href="#"><span class="glyphicon glyphicon-import"></span> Other Reports <span class="fa arrow"></span></a>
 
                             <ul class="nav nav-third-level">
