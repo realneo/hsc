@@ -42,7 +42,7 @@ class Staff extends CI_Controller{
         $this->data['users']=$this->vouchers->get_users();
         $this->data['auth_type']=$this->staffs->get_auth_type();
         $this->data['gender']=$this->staffs->gender_type();
-        $this->data['staffs']= $this->staffs->get_users();
+
 
     }
 
@@ -193,6 +193,29 @@ class Staff extends CI_Controller{
         $data['active']="staff";
         $data['active_tab']="manage_staff";
 
+
+        if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==21 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){
+
+
+                $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
+                $data['staffs']= $this->staffs->get_branch_users();
+
+
+
+                if($this->session->userdata('show_all_users')){
+                    $data['staffs']=$this->staffs->get_users();
+                }else{
+                    $data['title'] = "Users Report for ".make_me_bold($this->usuals->get_branch_name($this->session->userdata('branch_id')));
+                    $data['staffs']= $this->staffs->get_branch_users();
+                }
+
+            }
+        else{
+            $data['title']=$this->session->userdata('full_name')."'s Report";
+            $data['staffs']=$this->staffs->get_user($this->session->userdata('user_id'));
+        }
+
+        //$data['staffs']= $this->staffs->get_users();
         //add this kwa kila mwisho wa data zote
         $data = $this->data + $data;
         $this->load->view('includes/header',$data);
@@ -203,6 +226,16 @@ class Staff extends CI_Controller{
         $this->load->view('staff/change_branch');
         $this->load->view('includes/footer');
 
+    }
+
+    function show_all_users(){
+        $this->session->set_userdata('show_all_users',true);
+        $this->manage_staff_redirect();
+    }
+
+    function show_branch_users(){
+        $this->session->set_userdata('show_all_users',false);
+        $this->manage_staff_redirect();
     }
 
     function change_staff_details(){

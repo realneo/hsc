@@ -3,6 +3,21 @@ $online = check_if_online();
 ?>
 
 <div class="row">
+
+        <div class="row push-down-15">
+            <div class="col-lg-12">
+                <div class="pull-right push-from-right-15">
+                    <?php if(!$this->session->userdata('show_all_users')){?>
+                        <a data-toggle="tooltip" data-placement="top" title="Show All users" rel="info" href="<?php echo base_url('staff/show_all_users/');?>"><p class="btn btn-primary <?php echo ($this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-users"></i></p></a>
+                    <?php } else {?>
+                        <a data-toggle="tooltip" data-placement="top" title="Show branch users only" rel="info" href="<?php echo base_url('staff/show_branch_users/');?>"><p class="btn btn-primary <?php echo (!$this->session->userdata('show_all_users'))?"active":'';?>"><i class="fa fa-male"></i></p></a>
+                    <?php } ?>
+
+
+                </div>
+            </div>
+        </div>
+
     <?php
     //col-md-offset-2 col-md-8 col-lg-offset-3
     foreach($staffs as $key=>$staff){?>
@@ -56,6 +71,8 @@ $online = check_if_online();
                         <?php echo $staff['email'];?>
                     </p>
                 </div>
+                <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==21 or
+$this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){?>
                 <div class="col-lg-5">
                     <div class="text-right">
                         <div class="responsive-select form-group col-lg-12 col-lg-8 col-xs-8 col-sm-8 text-right pull-right">
@@ -88,11 +105,13 @@ $online = check_if_online();
 
                                 </form>
 
+
                         </div>
                     </div>
 
 
                 </div>
+                <?php }?>
             </div>
 
         </div>

@@ -16,6 +16,7 @@
             <?php if($this->session->userdata('branch_name')) echo $this->session->userdata('branch_name');else "General" ;?></p></li>
 
 
+   <?php if($this->session->userdata('auth_type')<=30){//from 30:Managers going down to 10:Admin can change it?>
     <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 <!--        <i class="fa fa-exchange fa-fw"></i>-->
@@ -50,7 +51,7 @@
     </li>
 
 <!-- /.dropdown -->
-
+    <?php } ?>
 <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -99,10 +100,15 @@
     <ul class="dropdown-menu dropdown-user">
         <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('full_name');?></a>
         </li>
+        <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==21 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){//23 - Operations 30: -manager >20 management){?>
+            <li class="divider"></li>
+            <li><a href="<?php echo base_url('staff/manage_staff');?>"><span class="fa fa-cogs"></span> Change Staff </a></li>
+        <?php } ?>
         <li><a href="<?php echo base_url('welcome')?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
         </li>
         <li><a href="#" onClick="javascript:window.print()"><i class="fa fa-print fa-fw"></i> Print</a>
         </li>
+
         <li class="divider"></li>
         <li><a href="<?php echo base_url(); ?>login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>

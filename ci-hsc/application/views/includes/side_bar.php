@@ -62,7 +62,7 @@
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
 
-            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!= 29 ){//29:stock controller 21:Accountant?>
+            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!= 29 and $this->session->userdata('auth_type')!= 23){//29:stock controller 21:Accountant?>
             <li class="<?php echo ($active == "daily_sales" ? "active" : "");?>"> <!-- The Active class -->
 
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
@@ -119,20 +119,26 @@
             <?php }?>
 
             <?php
-            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21){//29:Stock_controller 21:Accountant?>
+
+            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21){//29:Stock_controller 21:Accountant
+                if($this->session->userdata('auth_type')<=30){//23 - Operations){?>
             <li class="<?php echo ($active == "staff" ? "active" : "");?>">
                 <a href="<?php echo base_url('staff');?>"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="<?php echo ($active_tab == "add_staff" ? "active" : "");?>">
                         <a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-th-list"></span> Staff Management <span class="fa arrow"></span></a>
+
                         <ul class="nav nav-third-level">
+                            <?php if($this->session->userdata('auth_type')==23 or $this->session->userdata('auth_type')==21 or $this->session->userdata('auth_type')==30 or $this->session->userdata('auth_type')<=20){//23 - Operations 30: -manager >20 management){?>
+                                <li><a href="<?php echo base_url('staff/manage_staff');?>"><span class="fa fa-cogs"></span> Change Staff</a></li>
+                            <?php } ?>
                             <li ><a href="<?php echo base_url('staff');?>"><span class="glyphicon glyphicon-plus"></span> Add New Staff </a></li>
-                            <li ><a href="<?php echo base_url('staff/manage_staff');?>"><span class="glyphicon glyphicon-book"></span> Change Staff </a></li>
+
                         </ul>
                     </li>
                 </ul>
             </li>
-            <?php } ?>
+            <?php }} ?>
 
             <li class="<?php echo ($active == "report" ? "active" : "");?>">
                 <a href="#"><i class="glyphicon glyphicon-list-alt fa-fw"></i> Reports <span class="fa arrow"></span></a>
@@ -155,7 +161,7 @@
                         </ul>
                             <?php }?>
                         <?php
-                        if($this->session->userdata('auth_type')!=21){//21:Accountant?>
+                        if($this->session->userdata('auth_type')!=21 and $this->session->userdata('auth_type')!= 23){//21:Accountant 23:Operations?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/returns_report');?>"><span class="fa fa-mail-reply"></span> Returns Report</a></li>
                         </ul>
@@ -179,6 +185,7 @@
 
                             </ul>
                         <?php  if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
+                        <?php  if($this->session->userdata('auth_type')!=23){//23:Operations?>
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="fa fa-paperclip "></span> Manual Invoices Report</a></li>
 
@@ -187,6 +194,7 @@
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/binding');?>"><span class="fa fa-suitcase"></span> Binding Report</a></li>
                         </ul>
+                            <?php }//operations ?>
                         <ul class="nav nav-third-level">
 
                             <li><a href="<?php echo base_url('reports/user_report');?>"><span class="fa fa-users"></span> Users Report</a></li>
