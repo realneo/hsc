@@ -179,11 +179,13 @@
                                         <input type="hidden" name="report_date" value="<?php echo $this->session->userdata('report_date');?>"/>
                                         <input type="hidden" name="user_id" value="<?php echo $audited_sales['user_id'];?>"/>
                                         <input type="hidden" name="branch_id" value="<?php echo $audited_sales['branch_id'];?>"/>
+                                        <?php if($this->session->userdata('auth_type')==21){?>
                                         <?php if($audited_sales['produced']==0){?><a data-toggle="tooltip" data-placement="right" title="Produce Variance" rel="info" href="javascript:void(0);" onclick="document.getElementById('produce_variance-<?php echo $key;?>').submit()"><span class="fa fa-mail-forward"></span></a>
                                         <?php } ?>
 
                                         <?php if($audited_sales['produced']==1){?><a data-toggle="tooltip" data-placement="right" title="Update Variance" rel="info" href="javascript:void(0);" onclick="document.getElementById('produce_variance-<?php echo $key;?>').submit()"><span class="fa fa-refresh"></span></a>
-                                        <?php } ?>
+                                        <?php }
+                                        } ?>
 
                                     </form>
                                 </td>
