@@ -62,7 +62,7 @@
 
             <!-- DAILY SALES ---------------------------------------------------------------------------------->
 
-            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!= 29 and $this->session->userdata('auth_type')!= 23){//29:stock controller 21:Accountant?>
+            <?php if($this->session->userdata('auth_type')!=21 AND $this->session->userdata('auth_type')!= 29 and $this->session->userdata('auth_type')!= 23 and $this->session->userdata('auth_type')!= 13){//29:stock controller 21:Accountant 23:Operations 13:Director?>
             <li class="<?php echo ($active == "daily_sales" ? "active" : "");?>"> <!-- The Active class -->
 
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Daily Sales<span class="fa arrow"></span></a>
@@ -120,7 +120,7 @@
 
             <?php
 
-            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21){//29:Stock_controller 21:Accountant
+            if($this->session->userdata('auth_type')!=29 AND $this->session->userdata('auth_type')!=21 and $this->session->userdata('auth_type')!= 13){//29:Stock_controller 21:Accountant 13:Director
                 if($this->session->userdata('auth_type')<=30){//23 - Operations){?>
             <li class="<?php echo ($active == "staff" ? "active" : "");?>">
                 <a href="<?php echo base_url('staff');?>"><i class="fa fa-users fa-fw"></i> Staff<span class="fa arrow"></span></a>
@@ -186,10 +186,12 @@
                             </ul>
                         <?php  if($this->session->userdata('auth_type')!=29){//29:Stock_controller?>
                         <?php  if($this->session->userdata('auth_type')!=23){//23:Operations?>
-                        <ul class="nav nav-third-level">
+                            <?php  if($this->session->userdata('auth_type')!=13){//13:Operations?>
+                                <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('hsc/daily_manual_invoices');?>"><span class="fa fa-paperclip "></span> Manual Invoices Report</a></li>
 
                         </ul>
+                                <?php  } //13:Director?>
 
                         <ul class="nav nav-third-level">
                             <li><a href="<?php echo base_url('reports/binding');?>"><span class="fa fa-suitcase"></span> Binding Report</a></li>
