@@ -669,6 +669,23 @@ class Reports extends CI_Controller{
     function approve_return($id){
         $user_id = $this->session->userdata('user_id');
         $full_name = $this->session->userdata('full_name');
+        $full_name = make_me_bold($full_name);
+        $branch_id = $this->session->userdata('branch_id');
+
+        if($this->session->userdata('auth_type')!=29){//29:Stock Controller
+            $this->session->set_flashdata('alert_type','warning');
+            $this->session->set_flashdata('alert_msg',"Sorry {$full_name} , Only Stock Controller can approve returns!");
+            // Write into Log
+            $log = "Returns Report : {$full_name} Tried to approve returns but failed";
+            $msg=$log;
+            $this->usuals->log_write($user_id,$branch_id,$msg);
+
+
+            $this->returns_report_redirect();
+        }
+
+        $user_id = $this->session->userdata('user_id');
+        $full_name = $this->session->userdata('full_name');
 
         /*
          * We Branch ID for the log
