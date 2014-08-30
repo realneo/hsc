@@ -78,7 +78,7 @@
         </li>
             <li class="divider"></li>
         <?php } ?>
-
+        <?php if($this->session->userdata('auth_type') <=29){?>
         <li>
             <a class="text-center" href="<?php echo base_url('hsc/notifications/');?>">
                 <?php if(!empty($logs)){?>
@@ -89,6 +89,18 @@
                 <i class="fa fa-angle-right"></i>
             </a>
         </li>
+        <?php } else{?>
+            <li>
+                <a class="text-center" href="javascript:void(0);">
+                    <?php if(!empty($logs)){?>
+                        <strong>You can only view recent activities</strong>
+                    <?php }else {?>
+                        <strong>Notifications for <?php echo $this->session->userdata("branch_name");?> are not available</strong>
+                    <?php }?>
+                    <i class="fa fa-bug"></i>
+                </a>
+            </li>
+        <?php } ?>
     </ul>
     <!-- /.dropdown-alerts -->
 </li>
