@@ -13,7 +13,7 @@ function app_title(){
 }
 
 function app_version(){
-    return "1.2.2";
+    return "1.2.4";
 }
 
 function custom_date_format($date){
@@ -26,7 +26,7 @@ function custom_date_format($date){
 
 
 /*
- * Makes text bold, usefull
+ * Makes text bold, useful
  */
 function make_me_bold($value){
     return "<strong>".$value."</strong>";
@@ -74,8 +74,8 @@ function return_false(){
 }
 
 function check_if_online(){
-   // //For now checking if online always
-   // return return_false();
+//    //For now checking if online always
+//    return return_false();
 
     $num = 10;
     $error = false;

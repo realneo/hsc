@@ -488,15 +488,24 @@ class Admin extends CI_Controller{
             }
 
 
-            // Delete the Daily Expense
+            if($this->session->userdata('auth_type') >= 24){ //23:Operations
+                $full_name = make_me_bold($full_name);
+                $this->session->set_flashdata('alert_type','warning');
+                $this->session->set_flashdata('alert_msg',"<i class='fa fa-thumbs-down'></i> Sorry {$full_name}, You don't have the authority to delete this Manual Invoice ".'Tsh '.make_me_bold(number_format($amount))." To resolve this, kindly contact Administrator!");
+                $msg="$full_name tried to delete manual invoice Tsh ".make_me_bold(number_format($amount))." but failed.";
+                $this->usuals->log_write($user_id,$branch_id,$msg);
+                $this->manual_invoice_redirect();
+                die();
+            }
+            // Delete manual invoice
             $this->invoices->manual_invoice_delete($id);
-            $check=$this->session->userdata('affected_rows');
+            $check = $this->session->userdata('affected_rows');
 
             if($check>=1){
-
+                $full_name = make_me_bold($full_name);
                 $this->session->set_flashdata('alert_type','success');
-                $this->session->set_flashdata('alert_msg','Tsh '.make_me_bold($amount)." was deleted successfully, Thank you {$full_name}!");
-                $msg="Deleted Invoice : Tsh ".make_me_bold($amount)." for ".make_me_bold($purpose)." by $full_name";
+                $this->session->set_flashdata('alert_msg','Tsh '.make_me_bold(number_format($amount))." was deleted successfully, Thank you {$full_name}!");
+                $msg="Deleted Invoice : Tsh ".make_me_bold(number_format($amount))." by $full_name";
                 $this->usuals->log_write($user_id,$branch_id,$msg);
                 $this->manual_invoice_redirect();
                 die();
@@ -595,6 +604,7 @@ class Admin extends CI_Controller{
                 $this->session->set_flashdata('alert_msg','Successfully Entered Manual Invoice : <strong>Tsh '.$amount.'</strong>.');
                 $today = date("Y-m-d");
 
+                $amount  =number_format($amount);
                 $log = "Entered Manual Invoice: Tsh $amount by $full_name";
                 $this->usuals->log_write($user_id, $branch_id, $log);
 
@@ -681,10 +691,16 @@ class Admin extends CI_Controller{
 
 
         if($insert_results){
+
+            $amount  = make_me_bold(number_format($amount));
+
             $this->session->set_flashdata('alert_type','success');
-            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong> Tsh".$amount."</strong>.");
+            $this->session->set_flashdata('alert_msg',"Successfully Added Manual Invoice for {$date} : <strong> Tsh ".$amount."</strong>.");
 
             $today = date("Y-m-d");
+
+
+
             $log = "Manual Invoice: Tsh $amount by $full_name";
             $this->usuals->log_write($user_id, $branch_id, $log);
 

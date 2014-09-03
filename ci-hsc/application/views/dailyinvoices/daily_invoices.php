@@ -115,14 +115,15 @@
 
 
                             $amount = number_format($row['balance']);
-                            $orignal_amount=$row['amount'];
+                            $orignal_amount=number_format($row['amount']);
                             $entered_db = $row['entered'];
                             $date_entered_db = $row['date_entered'];
                             $button ='';
-                            if($date_entered_db == date('Y-m-d')){
-                                $date_entered = custom_date_format($date_entered_db);//'Not Available untill entered';
+
+                            if(is_null($date_entered_db)){//date('Y-m-d')){
+                                $date_entered = "<span class='text-muted small'>(Not available until entered)</span>";//custom_date_format($date_entered_db);//'Not Available untill entered';
                                 if($entered_db == 0){
-                                    $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Item?');> <i class='fa fa-trash-o fa-lg text-danger'></i></a>";
+                                    $button = "<a href='".$php."' class=''  onclick=return&#32;confirm('Are&#32;you&#32;sure&#32;you&#32;want&#32;to&#32;Delete&#32;this&#32;Manual?');> <i class='fa fa-trash-o fa-lg text-danger'></i></a>";
                                 }
 
                             }else{

@@ -115,7 +115,7 @@ class Invoices extends CI_Model{
     }
 
     function manual_invoice_delete($id){
-        $query="DELETE FROM `manual_invoices` WHERE `id` = '$id' AND `date_entered`= CURDATE()";
+        $query="DELETE FROM `manual_invoices` WHERE `id` = '$id'";//" AND `date_entered`= CURDATE()";
         $results=$this->db->query($query);
         $this->session->set_userdata('affected_rows',$this->db->affected_rows());
         return $results;
